@@ -1,6 +1,6 @@
 parameters:
     
-    redis_host: 195.231.75.58
+    redis_host: 127.0.0.1
     redis_sncredis_db_n:                1
     redis_sncredisDoctrinemetadata:     2 
     redis_sncredisDoctrineResult:       3

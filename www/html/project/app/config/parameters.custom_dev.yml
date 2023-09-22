@@ -1,7 +1,7 @@
 parameters:
 
     session_memcached_host:          127.0.0.1 
-    redis_host:                     195.231.75.58
+    redis_host:                     127.0.0.1
     
     app.compactSite:            false  
     app.compactVersion:         /min 
