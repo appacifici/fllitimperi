@@ -1,0 +1,138 @@
+.widgetModelsComparison{ 
+    background: #fff;      
+    border: 1px solid #2b3139;
+    padding: 2% 0% 1% 0%;
+    overflow: hidden;
+    h1 {
+        margin: 0 5px 5px 5px;
+        font-size: 20px;
+        a {
+            color: #0066c0;
+        }
+    }
+    @import 'widgetTecnicalSpecifications';
+    .modelsImg {
+        background: #ff9900;
+        overflow: hidden;
+        padding: 10px 10px 0px 10px;
+        color: #fff;
+        border-top: 1px solid #2b3139;
+        position: fixed;
+        width: 92%;
+        .item {
+            float:left;
+            width: 50%;
+            span {
+                float: left;
+                font-size: 16px;
+                margin-bottom: 10px;
+                width: 100%;
+                padding-left: 13px;
+                font-weight: bold;
+            }
+        }
+    }
+    .technicalSpecifications {        
+        margin-top: -12px;
+        div {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+            overflow: hidden;            
+        }
+        div {
+            width: 100%;
+            float: none;
+        }
+        span {
+            height: 14px;
+        }
+        width: 100%; 
+        float: left;
+        .itemLabel {
+            width: 100%;
+            clear: both;
+            margin-top: 15px;
+            padding: 6%;
+            height: 15px;
+
+                font-size: 16px;
+        }
+        
+        h2,h3 {
+            width: 85%;
+            height: 24px;
+            font-size: 14px;
+            padding: 9px 7%;
+            border-right: 1px solid #ccc;            
+        }
+        h2 {
+            padding: 0;
+            margin: 0;
+            border: none;
+        }
+        .nameM {
+            background: #2b3139;
+            color: #fff;
+            font-weight: 400;
+            text-align: center;
+        }
+        .nameM_0 {
+            background: #a2321d;
+        }
+        .nameM_1 {
+            background: #203c09;
+        }
+        .nameM_2 {
+            background: #319686;
+        }
+        .nameM_3 {
+            background: #09357d;
+        }
+        
+        .h5_0 {
+            border-bottom:1px solid #a2321d;
+        }
+        .h5_1 {
+            border-bottom:1px solid #203c09;
+        }
+        .h5_2 {
+            border-bottom:1px solid #319686;
+        }
+        .h5_3 {
+            border-bottom:1px solid #09357d;
+        }
+        .name {
+            width: 86%;
+            height: 16px;
+            background: #ecebea;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            
+        }
+        div.name {
+            padding: 0%;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+            height: 33px;
+        }
+        h3, h4 {
+            margin: 0;
+            font-size: 14px;
+            
+        }
+        h4 {
+            height: 36px;
+            padding: 8px 0 0 2px;
+            float: left;
+            width: 50%;
+        }
+        h5 {
+                margin: 0;
+            float: left;
+            height: 35px;
+            padding: 8px 0px 0 4px;
+            border-bottom: 1px solid #ccc;
+            width: 48%;
+            text-align: center;
+        }
+    }
+}

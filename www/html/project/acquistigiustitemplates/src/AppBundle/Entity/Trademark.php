@@ -1,0 +1,1 @@
+../../../../src/AppBundle/Entity/Global/Trademark.php

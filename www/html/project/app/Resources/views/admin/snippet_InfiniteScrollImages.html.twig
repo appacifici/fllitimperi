@@ -1,0 +1,14 @@
+{% if infiniteScroll is defined %}
+    <div  >{%endif%}
+
+    {% for image in images %}    
+        <div class="containerImg widget {% if infiniteScroll is defined %} widgetInfiniteScroll{%endif%} widget-body">
+            <div class="preview">
+                <img src="/imagesArticleMedium/{{image.src}}" data-id="{{image.id}}" alt="photo" />
+            </div>
+        </div>
+    {%endfor %}
+
+    {% if infiniteScroll is defined %}</div>    {%endif%}
+<div class="clearB"></div>
+

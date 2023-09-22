@@ -1,0 +1,101 @@
+<div class="widget widget_TabManageArticle" data-widgetName="widget_TabManageArticle">
+    <div class="widget-body innerAll">
+        {% if fetch_widget_TabManageArticle is defined %}
+            {{ fetch_widget_TabManageArticle|raw }}
+        {% endif %}           
+            <div class="{#box-generic#}">                
+                <div class="tabsbar tabsbar-2">
+                    <ul class="row row-merge bg-primary ulTabManageArticle">
+                        {% if fetch_tabManageArticle1 is defined %}
+                            <li class="glyphicons active tabTabManageArticle1">
+                                <a href="#tabManageArticle1" class="tabManageArticle" data-toggle="tab"><span>{{  'Articolo' | trans }}</span></a>
+                            </li>
+                        {% endif %}
+                        {% if fetch_tabManageArticle2 is defined %}
+                            <li class="glyphicons">
+                                <a href="#tabManageArticle2" class="tabManageArticle" data-toggle="tab"><span>{{  'Immagini' | trans }}</span></a>
+                            </li>
+                        {% endif %}                        
+                        {% if fetch_tabManageArticle3 is defined %}
+                            <li class="glyphicons">
+                                <a href="#tabManageArticle3" class="tabManageArticle" data-toggle="tab"><span>{{  'Getty Images' | trans }}</span></a>
+                            </li>
+                        {% endif %}
+                        {% if fetch_tabManageArticle4 is defined %}
+                            <li class="glyphicons">
+                                <a href="#tabManageArticle4" class="tabManageArticle" data-toggle="tab"><span>{{  'Upload Imagini' | trans }}</span></a>
+                            </li>
+                        {% endif %}
+                        {% if fetch_tabManageArticle5 is defined %}
+                            <li class="glyphicons">
+                                <a href="#tabManageArticle5" class="tabManageArticle" data-toggle="tab"><span>{{  '' | trans }}</span></a>
+                            </li>
+                        {% endif %}
+                        {% if fetch_tabManageArticle6 is defined %}
+                            <li class="glyphicons"> 
+                                <a href="#tabManageArticle6" class="tabManageArticle" data-toggle="tab"><span>{{  '' | trans }}</span></a>
+                            </li>
+                        {% endif %}
+                        {% if fetch_tabManageArticle7 is defined %}
+                            <li class="glyphicons">
+                                <a href="#tabManageArticle7" class="tabManageArticle" data-toggle="tab"><span>{{  '' | trans }}</span></a>
+                            </li>
+                        {% endif %}
+                        {% if fetch_tabManageArticle8 is defined %}
+                            <li class="glyphicons">
+                                <a href="#tabManageArticle8" class="tabManageArticle" data-toggle="tab"><span>{{  '' | trans }}</span></a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+                        
+                <div class="tab-content">
+                    {% if fetch_tabManageArticle1 is defined %}                    
+                        <div class="tab-pane active " id="tabManageArticle1">                            
+                            {{ fetch_tabManageArticle1|raw }}
+                        </div>                    
+                    {% endif %}
+                    {% if fetch_tabManageArticle2 is defined %}
+                        <div class="tab-pane" id="tabManageArticle2">
+                            {{ fetch_tabManageArticle2|raw }}
+                        </div>
+                    {% endif %}
+                    {% if fetch_tabManageArticle3 is defined %}
+                        <div class="tab-pane" id="tabManageArticle3">
+                            {{ fetch_tabManageArticle3|raw }}
+                        </div>
+                    {% endif %}
+                    {% if fetch_tabManageArticle4 is defined %}
+                        <div class="tab-pane" id="tabManageArticle4">
+                            {{ fetch_tabManageArticle4|raw }}
+                        </div>
+                    {% endif %}
+                    {% if fetch_tabManageArticle5 is defined %}
+                        <div class="tab-pane" id="tabManageArticle5">
+                            {{ fetch_tabManageArticle5|raw }}
+                        </div>
+                    {% endif %}
+                    {% if fetch_tabManageArticle6 is defined %}
+                        <div class="tab-pane" id="tabManageArticle6">
+                            {{ fetch_tabManageArticle6|raw }}
+                        </div>
+                    {% endif %}
+                    {% if fetch_tabManageArticle7 is defined %}
+                        <div class="tab-pane" id="tabManageArticle7">
+                            {{ fetch_tabManageArticle7|raw }}
+                        </div>
+                    {% endif %}
+                    {% if fetch_tabManageArticle8 is defined %}
+                        <div class="tab-pane" id="tabManageArticle8">
+                            {{ fetch_tabManageArticle8|raw }}
+                        </div>
+                    {% endif %}
+                    {% if fetch_matchDetailBottom is defined %}                    
+                        {{ fetch_matchDetailBottom|raw }}
+                    {% endif %}
+                </div>
+            </div>
+
+{#        </div>#}
+    </div>
+</div>

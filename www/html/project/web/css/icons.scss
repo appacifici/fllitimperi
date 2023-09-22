@@ -1,0 +1,78 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 15-gen-2016, 11.12.24
+    Author     : alessandro
+*/
+
+
+//Genera il css per le icone della tabella del livescore
+@each $iconLivescore_small in charts, cloudy, rain, england, sunny, goal {
+    .#{$iconLivescore_small}_icon_small {
+        @extend %icon_Livescore_small;
+        background: url('/images/icon/#{$iconLivescore_small}.png') no-repeat !important;
+        
+        @if $iconLivescore_small == charts {
+            margin: 6px;
+            padding: 1px 10px;
+        }
+    }
+}
+
+.icon {
+    &.assist {
+        background: url('/images/icon/event_icons.png') -214px -49px no-repeat !important;
+        padding: 12px 12px;
+    }
+    &.goal {
+        background: url('/images/icon/event_icons.png') -100px -220px no-repeat !important;
+        padding: 3px 7px;
+        font-size: 11px;
+        /*line-height: 20px;*/
+        border: none;
+    }
+}
+
+//Placeholder per i valori di default delle icone
+%icon_Livescore_small {
+    padding: 0px 8px;
+    height: 18px;
+    width: 10px;       
+}
+
+//Genera il css per le icone delle sustituzioni
+@each $sub in out, in, inout {
+    .sub_#{$sub} {
+        background: url('/images/icon/#{$sub}.png') no-repeat 0px!important;  
+        margin-left: 4px;
+        padding: 6px 5px;
+        height: 18px;
+        width: 10px;
+    }
+}
+
+.event_icons {
+    background: url('/images/icon/event_icons.png') no-repeat;
+    padding: 12px 15px;
+}
+
+.event_icons {
+    &.e112, &.e93 { background-position: -54px -10px; }
+    &.e21, &.e22, &.e23, &.e79, &.e37  { background-position: -95px -130px; }
+    &.e85  { background-position: -99px -10px; }
+    &.e116, &.e89  { background-position: -54px -89px; }
+    &.e91, &.e128  { background-position: -95px -89px }
+    &.e99  { background-position: -58px -130px }
+    &.e97  { background-position: -14px -130px }
+    &.e36, &.e34, &.e35, &.e130, &.e30  { background-position: -15px -11px }
+    &.e45  { background-position: -96px -51px }
+    &.e46  { background-position: -138px -51px }
+    &.e47  { background-position: -177px -51px }
+    &.e106  { background-position: -15px -171px }
+    &.e73, &.e44 { background-position: -138px -132px }
+    &.e19 { background-position: -175px -132px }
+    &.e139 { background-position: -135px -89px }
+}

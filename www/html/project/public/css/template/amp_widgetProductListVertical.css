@@ -1,0 +1,50 @@
+.widget_ProductListVertical {
+  /*margin-top: 15px;*/
+  background: #fff;
+  margin: 0px 0px 10px 0px;
+  border-top: 3px solid #ff9900;
+}
+.widget_ProductListVertical .productTitle {
+  padding: 16px;
+  background: #fff;
+  border-bottom: 1px solid #ececec;
+  margin: 0 0px;
+  font-size: 15px;
+}
+.widget_ProductListVertical .productTitle a {
+  color: #0365c0;
+}
+.widget_ProductListVertical article {
+  text-align: center;
+  height: auto;
+}
+.widget_ProductListVertical article header {
+  padding: 5px;
+  margin-bottom: -12px;
+}
+.widget_ProductListVertical article header a {
+  font-size: 15px;
+  font-weight: 500;
+  color: #0066c0;
+}
+.widget_ProductListVertical article header a h3 {
+  border: none;
+  padding: 0px;
+  margin-top: 15px;
+}
+.widget_ProductListVertical article .pricesBox {
+  width: 175px;
+  margin: 0 auto;
+}
+.widget_ProductListVertical article .pricesBox .lineThrough {
+  -webkit-text-decoration: line-through #ff0000;
+          text-decoration: line-through #ff0000;
+  color: #333333;
+  font-size: 16px;
+  float: left;
+  margin: 0;
+}
+.widget_ProductListVertical article .pricesBox .totalPrice {
+  float: right;
+  margin: -4px 0 0 7px;
+}/*# sourceMappingURL=amp_widgetProductListVertical.css.map */

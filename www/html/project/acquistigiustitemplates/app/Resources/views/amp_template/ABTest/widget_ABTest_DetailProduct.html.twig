@@ -1,0 +1,166 @@
+{#<div class="breadcrumbDetailProduct">
+    
+</div>#}
+<article>
+    <div class="widget_DetailProduct"> 
+        {% if model is defined and model is not empty %}
+            <div class="boxDetail">
+                {#<header>                      
+                    <h1>  
+                        {%if metaH1DetailModel is defined and metaH1DetailModel is not empty %}
+                            <strong>{{metaH1DetailModel}}</strong>
+                        {%else%}
+                            <strong>
+                                {{sectionPreProductName}}{{hyphenize( model.name )}} {{sectionProductNameEnd}}
+                            </strong>
+                        {%endif%}
+                    </h1>
+                    {%if products[0] is defined and products[0].sizeStockStatus is not empty %}
+                        <div class="sizeStockStatus">
+                        {%if products[0].sizeStockStatus == 'in stock' %}
+                            <span class="inStock"></span>Disponibile 
+                            {% if products[0].deliveryTime is not empty %}
+                                     in {{products[0].deliveryTime}}
+                                {%endif%}
+                        {%elseif products[0].sizeStockStatus == 'out of stock' %}
+                            <span class="outOfStock"></span>Non Disponibile
+                        {%endif%}
+                        </div>
+                    {%endif%}
+                </header>  #}  
+                <div class="clearB"></div>
+                
+                {%if model.imgExternal is defined and model.img is not empty %}
+                    <figure class="detailImg">
+                        <amp-img layout="responsive" class="imgDetail"  src="{{model.img}}" alt="{{model.name}}" width="{{model.widthSmall}}" height="{{model.heightSmall}}"></amp-img>
+                    </figure>
+                {% elseif model.img is defined and model.img is not empty %}
+                    <figure class="detailImg">
+                        <amp-img layout="responsive" class="imgDetail" src="{{folder_img_models}}{{model.img}}" alt="{{model.name}}" width="{{model.widthSmall}}" height="{{model.heightSmall}}"></amp-img>
+                    </figure>
+                {% elseif products[0] is defined  and products[0].priorityImg is defined and products[0].priorityImg is not empty and products[0].priorityImg.img is not empty %}                    
+                    <figure class="detailImg">
+                        {%if products[0].priorityImg.imgExternal is defined %}
+                            <amp-img layout="responsive" class="imgDetail" src="{{products[0].priorityImg.img}}" alt="{{model.name}}" width="{{products[0].priorityImg.widthSmall}}" height="{{products[0].priorityImg.heightSmall}}"></amp-img>                            
+                        {%elseif products[0].priorityImg.img is defined %}
+                            <amp-img layout="responsive" class="imgDetail" src="{{folder_img_products_small}}{{products[0].priorityImg.img}}" alt="{{model.name}}" width="{{products[0].priorityImg.widthSmall}}" height="{{products[0].priorityImg.heightSmall}}"></amp-img>
+                        {%endif%}                                            
+                    </figure>
+                {% endif %}                               
+{#                <div class="clearB"></div>#}
+                {#<figure class="affLogo">
+                    {%if products[0] is defined %}
+                        <amp-img layout="responsive" src="{{folder_img_affiliation_small}}{{products[0].affiliation.img}}" alt="{{products[0].affiliation.name}}"  width="{{products[0].affiliation.widthSmall}}px" height="{{products[0].affiliation.heightSmall}}px"></amp-img>
+                    {%endif%}
+                </figure>#}                                        
+               {# {%if products is not empty and products[0].affiliation.contact is not empty %}
+                    <div class="contacts"><strong>Contatti</strong>: {{utf8Encode( products[0].affiliation.contact )}}</div>
+                {%endif%}#}
+{#                <div class="clearB"></div>#}
+               {# {% if products[0] is defined %}                
+                    <div class="boxPayments">
+                        {%if products[0].affiliation.payments is not empty %}
+                            {%for payment in products[0].affiliation.payments%}
+                                <div class="payments payments_{{payment}}"></div>
+                            {%endfor%}
+                        {%endif%}
+                    </div>
+                {% endif %}#}
+                {% if extraModel.bulletPoints is defined and extraModel.bulletPoints is not empty %}
+                    {%if extraModel|length > 3%}
+                        <div class="bullet">
+                            <ul>
+                                {% for key, bulletPoint in extraModel.bulletPoints %}
+                                    {% if key < 4 %}
+                                        <li>{{ hyphenize( bulletPoint | slice(0, 100) ) }}</li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
+                {% endif %}
+                {#{% if products[0] is defined %}
+                    <a href="{{generate('impressionLink', { 'impressionLink': products[0].impressionLink, 'deepLink': products[0].deepLink })}}" class="btnViewOffered" rel="nofollow" target="_blank" >
+                        VEDI OFFERTA
+                    </a> 
+                {% endif %} #}    
+                
+                <div class="relativeMenu">                    
+                    <div class="detailProductMenu">                    
+                       <ul>
+                           <li>
+                               <a class="GTMdataTabPrices" href="#pricesComparison" rel="nofollow">
+                                   <amp-img layout="fixed"  src="/images/pricesIcon.png " alt="Comparazione Prezzi"  width="30px" height="30px"></amp-img>                    
+                                   <h3>Prezzi</h3>
+                               </a>
+                           </li>
+                           <li>
+                               <a class="GTMdataTabTecnical"  href="#tecnical" rel="nofollow">
+                                   <amp-img layout="fixed" src="/images/schedaTecnicaIcon.png" alt="Scheda Tecnica" width="30px" height="30px"></amp-img>                    
+                                   <h3>Scheda Tecnica</h3>
+                               </a>
+                           </li>
+                           <li>
+                               <a class="GTMdataInfoProduct" href="#infoProduct" rel="nofollow">
+                                   <amp-img layout="fixed" src="/images/infoProdottoIcon.png" alt="Informazioni del prodotto" width="30px" height="30px"></amp-img>                    
+                                   <h3>Info del prodotto</h3>
+                               </a>
+                           </li>
+                           <li>
+                               <a class="GTMdataReleated" href="#releated" rel="nofollow">
+                                   <amp-img layout="fixed" src="/images/affini.png" alt="Prodotti affini o simili" width="30px" height="30px"></amp-img>                    
+                                   <h3>Affini e Simili</h3>
+                               </a>
+                           </li>
+                       </ul>
+                   </div>
+                </div>
+         
+                {%if fetch_widget_DetailProduct is defined %}
+                    {{ fetch_widget_DetailProduct |raw  }}
+                {%endif%}
+                {% include versionSite ~ '/ABTest/widget_ABTest_DetailComparisonProduct.html.twig' %}
+                {% include versionSite ~ '/ABTest/widget_ABTest_ProductDescription.html.twig' %}                
+            </div>
+            
+            {%if linksSeeAlso is not empty %}
+            <aside>
+                <h2>Vedi anche: </h2>
+                <ul>
+                {%for linkSee in linksSeeAlso%}
+                    <li><h3><a href="{{linkSee.url}}">{{linkSee.label}}</a></h3></li>
+                {%endfor%}
+                </ul>
+            </aside>
+        {%endif%}
+            
+        {%else%}
+             <div class="productNotfound">                
+                <div class="left404">
+                    <img src="/images/oops.png" alt="Oops prodotto non trovato" width="306" height="89">
+                    <h3>Modello non disponibile!</h3>
+                    <h4>Siamo spiacenti ma al momento <br>nessun prodotto per questo specifico modello è disponibile. <br>Riprova più tardi, grazie.</h4>
+                </div>
+            </div>
+        {%endif%}
+    </div>
+    {%if fetch_widget_DetailProductMegazine is defined %}
+            {{ fetch_widget_DetailProductMegazine |raw  }}
+    {%endif%}    
+</article>
+
+<div class="boxBestPrice">
+    <div class="totalPrice">     <span>{{model.name}}</span>  <br>                     
+        {% if model.price is defined and model.price is not empty %}
+            Miglior Prezzo: <strong>{{model.price}} €</strong>
+        {% elseif products[0] is defined %}
+            Miglior Prezzo:
+                <strong>{{products[0].price}} €</strong>
+        {% endif %}                            
+    </div>                                     
+    {% if products[0] is defined %}
+        <a href="{{generate('impressionLink', { 'impressionLink': products[0].impressionLink, 'deepLink': products[0].deepLink })}}" class="btnViewOffered GTMdataTopProductModel" rel="nofollow" target="_blank" >
+            Visita il negozio
+        </a> 
+    {% endif %}    
+</div>                

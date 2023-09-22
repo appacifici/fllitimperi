@@ -1,0 +1,516 @@
+imports:    
+    - { resource: parameters.yml }
+    - { resource: parameters.custom.yml }
+    - { resource: parameters.custom.template.yml }
+    - { resource: security.yml }
+    - { resource: services.yml }
+    - { resource: services.template.yml }
+    - { resource: session.yml }
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+parameters:
+    locale: it
+
+framework:
+    #esi:             ~
+    esi: { enabled: true }
+    translator:       
+        enabled: true
+        fallbacks: ["%locale%"] 
+        paths:
+            - '%kernel.root_dir%/Resources/translations'
+    secret:          "%secret%"
+    router:
+        resource: "%kernel.root_dir%/config/routing.yml"
+        strict_requirements: ~
+    form:            ~
+    csrf_protection: ~
+    validation:      { enable_annotations: true }
+    
+#    serializer:      {enable_annotations: false }
+    templating:
+        engines: ['twig']
+#        assets_version: v_1
+    default_locale:  "%locale%"
+    trusted_hosts:   ~
+    trusted_proxies: ~
+    session: 
+        # handler_id set to null will use default session handler from php.ini
+        handler_id:  ~
+        save_path:   "%kernel.root_dir%/../var/sessions/%kernel.environment%"
+#        handler_id:     session.handler.memcached
+#        handler_id:     snc_redis.session.handler
+        
+    #fragments:       ~
+    fragments: { path: /_fragment }
+    http_method_override: true
+    assets: ~   
+        
+    
+# Twig Configuration
+twig:
+    debug:            "%kernel.debug%"
+    strict_variables: "%kernel.debug%"
+    cache:  false
+    globals:
+        cssVersion:                     "%app.cssVersion%"
+        jsVersion:                      "%app.jsVersion%"
+        folder_js_minified:             "%app.folder_js_minified%"
+        hostImg:                        "%app.hostImg%"
+        folder_img_banners:             "%app.hostImg%%app.folder_img_banners%"
+        folder_img_small:               "%app.hostImg%%app.folder_img_small%"
+        folder_img_medium:              "%app.hostImg%%app.folder_img_medium%"
+        folder_img_big:                 "%app.hostImg%%app.folder_img_big%"
+        folder_img_category:            "%app.folder_img_category%"
+        folder_img_trademark:           "%app.hostImg%%app.folder_imgTrademarks%"
+        folder_img_affiliation_small:   "%app.hostImg%%app.folder_imgAffiliations_small%"
+        folder_img_affiliation_big:     "%app.hostImg%%app.folder_imgAffiliations_big%"
+        folder_img_products:            "%app.hostImg%%app.folder_imgProducts%"
+        folder_img_products_small:      "%app.hostImg%%app.folder_imgProductsSmall%"
+        folder_img_models:              "%app.hostImg%%app.folder_img_models%"
+        folder_img_subcategories:       "%app.folder_img_subcategories%"
+        folder_img_microsection:        "%app.folder_img_microsection%"
+        folder_img_typologies:          "%app.folder_img_typologies%"
+        folder_img_models_gallery:      "%app.folder_img_models_gallery%"
+        folder_img_small_models_gallery: "%app.folder_img_small_models_gallery%"
+        folder_manuals:                 "%app.folder_manuals%"
+        pathAllNews:                    "%pathAllNews%"
+        categoryIdAbbigliamento:        "%categoryIdAbbigliamento%"
+        hostProtocol:                   "%app.hostProtocol%"
+        wwwProtocol:                    "%app.wwwProtocol%"
+        freeSearchPath:                 "%app.freeSearchPath%"
+        debugLinkLinkAssistant:         "%app.debugLinkLinkAssistant%"
+        
+        folder_img_subcategories:       "%app.folder_img_subcategories%"
+        folder_video_default:           "%app.folder_video_default%"
+                
+        facebookAppId:                  "%facebookAppId%" 
+        facebookScope:                  "%facebookScope%"
+        googleApiKey:                   "%googleApiKey%"
+        googleScopes:                   "%googleScopes%"
+        googleClientId:                 "%googleClientId%"
+        socketChatHostServer:           "%socketChatHostServer%"
+        socketChatHostClient:           "%socketChatHostClient%"
+        socketChatPort:                 "%socketChatPort%"
+        superUserChat:                  "%app.superUserChat%"
+        demoEmail:                      "%app.demoEmail%"
+        labelPriceList:                 "%app.labelPriceList%"
+        
+snc_redis:
+    clients:        
+        sncredis:
+            type: predis
+            alias: sncredis
+            dsn:
+                - "redis://%redis_host%/%redis_sncredis_db_n%"
+#                - "redis://%redis_host_repl1%"
+#                - "redis://%redis_host_repl2%"
+            options:
+                replication: false
+            logging: true    
+            
+        sncredisDoctrinemetadata:
+            type: predis
+            alias: sncredisDoctrinemetadata
+            dsn:
+                - "redis://%redis_host%/%redis_sncredisDoctrinemetadata%"
+            options:
+                replication: false
+            logging: true    
+            
+        sncredisDoctrineResult:
+            type: predis
+            alias: sncredisDoctrineResult
+            dsn:
+                - "redis://%redis_host%/%redis_sncredisDoctrineResult%"
+            options:
+                replication: false
+            logging: true    
+            
+        sncredisDoctrineQueryCache:
+            type: predis
+            alias: sncredisDoctrineQueryCache
+            dsn:
+                - "redis://%redis_host%/%redis_sncredisDoctrineQueryCache%"
+            options:
+                replication: false
+                
+            logging: true    
+            
+        secondLevelCache:
+            type: predis
+            alias: secondLevelCache
+            dsn:
+                - "redis://%redis_host%/%redis_secondLevelCache%"
+            options:
+                replication: false
+                profile: 2.2
+                connection_timeout: 10
+                read_write_timeout: 30   
+            logging: true    
+            
+            
+        sncredisSessionPhp:
+            type: predis
+            alias: sncredisSessionPhp
+            dsn: redis://%redis_host%/%redis_sncredisSessionPhp%
+                 
+                
+        profiler_storage:
+            type: predis
+            alias: profiler_storage
+            dsn: redis://%redis_host%/%redis_profiler_storage%
+            logging: false        
+                                
+        monolog:
+            type: predis
+            alias: monolog
+            dsn: redis://%redis_host%/%redis_monolog%
+            logging: false
+            options:
+                connection_persistent: true        
+          
+    monolog:
+        client: monolog
+        key: monolog
+        formatter: my_custom_formatter
+        
+        
+#    session:
+#        client: sncredisSessionPhp
+#        prefix: "direttagoal"
+#        ttl: 3300
+        
+    doctrine:
+        metadata_cache:
+            client: sncredisDoctrinemetadata
+            entity_manager: [default]
+        result_cache:
+            client: sncredisDoctrineResult
+            entity_manager: [default]
+        query_cache:
+            client: sncredisDoctrineQueryCache
+            entity_manager: [default]      
+            
+        second_level_cache:
+            client: secondLevelCache
+            entity_manager: [default]   
+            
+            
+    profiler_storage:
+        client: profiler_storage
+        ttl: 3600
+                
+
+# Doctrine Configuration
+#http://symfony.com/doc/current/doctrine/multiple_entity_managers.html
+doctrine:
+    dbal:
+        default_connection: default
+        connections:
+            default:
+                driver:   pdo_mysql
+                host:     "%database_host%"
+                port:     "%database_port%"
+                dbname:   "%database_name%"
+                user:     "%database_user%"
+                password: "%database_password%"
+                charset:  UTF8
+#                options:
+#                   1002:  "SET NAMES 'UTF8'"
+        
+#            customer:
+#                driver:   pdo_mysql
+#                host:     '%database_host2%'
+#                port:     '%database_port2%'
+#                dbname:   '%database_name2%'
+#                user:     '%database_user2%'
+#                password: '%database_password2%'
+#                charset:  UTF8
+
+    orm:
+        auto_generate_proxy_classes: "%kernel.debug%"
+        naming_strategy: doctrine.orm.naming_strategy.underscore
+        auto_mapping: true                        
+        second_level_cache:
+            region_cache_driver:
+                type:                 array
+                host:                 ~
+                port:                 ~
+                instance_class:       ~
+                class:                ~
+                id:                   ~
+                namespace:            ~
+                cache_provider:       ~
+            region_lock_lifetime: false
+            log_enabled:          true
+            region_lifetime:      240
+#            enabled:              %secondLevelCacheEnabled%
+            enabled:              false
+            factory:              ~          
+
+fos_elastica:
+#    serializer: ~
+    clients:
+        default:  
+            host: %elestica_host%
+            port: %elestica_port%
+            logger: true 
+            compression: true
+    indexes:        
+        cmsproduct:
+            client: default
+            finder: ~
+            settings:
+                index:
+                    refresh_interval: 1s
+                    number_of_replicas: 0
+                    
+                    analysis:                                                                                                            
+                        analyzer:                            
+                            my_analyzer: 
+                                tokenizer: standard
+                                char_filter: ["my_char_filter"]    
+                                filter   :    [ asciifolding ,lowercase, snowball, worddelimiter]                                                       
+
+                        char_filter:
+                            my_char_filter:
+                                type: mapping
+                                mappings : [": => ", "? => ", "- => ", "_ => ", "\" => "]
+                        filter:
+                            snowball:
+                                type:     snowball
+                                language: Italian                            
+                            stopwords:
+                                type:      stop
+                                stopwords: [_italian_]
+                                ignore_case : true
+                            worddelimiter :
+                                type:      word_delimiter                                                      
+            types:
+                product:
+                   
+                    mappings:
+                        name: { type: string, analyzer : my_analyzer, index_options: positions }
+                        price: { type: float }                                   
+                        colors: { type: string }                        
+                        sizes: { type: string }                                                
+                        dataImport: { type: date }                                                
+                        sex.id:  
+                            type: integer                         
+                            property_path: getSexOrNull                                
+                        category.id: 
+                            type: integer
+                            property_path: getCategoryOrNull   
+                        subcategory.id: 
+                            type: integer
+                            property_path: getSubcategoryOrNull   
+                        subcategory.isTop: 
+                            type: integer
+                            property_path: getSubcategoryIsTopOrNull   
+                        typology.id: 
+                            property_path: getTypologyOrNull
+                        trademark.id: 
+                            property_path: getTrademarkOrNull
+                        priorityImg.img: 
+                            type:   string 
+                            property_path: getPriorityImgOrNull
+                        priorityImg.widthSmall: 
+                            type:   integer 
+                            property_path: getPriorityImgWidthSmallOrNull
+                        priorityImg.heightSmall: 
+                            type:   integer 
+                            property_path: getPriorityImgHeightSmallOrNull
+                        subcategory.name: 
+                            type:   string 
+                            property_path: getSubcategoryNameOrNull
+                        subcategory.singularNameUrl: 
+                            type:   string 
+                            property_path: getSubcategorySingularNameOrNull
+                        typology.name: 
+                            type:   string 
+                            property_path: getTypologyNameOrNull
+                        typology.singularNameUrl: 
+                            type:   string 
+                            property_path: getTypologySingularNameOrNull
+                        typology.synonyms: 
+                            type:   string 
+                            property_path: getTypologySynonymsNameOrNull
+                        
+                    persistence:
+                        driver: orm
+                        model: AppBundle\Entity\Product                        
+                        finder: ~        
+                        identifier: id
+                        elastica_to_model_transformer:
+                            ignore_missing: true
+                        provider:                                                                 
+                            query_builder_method: getAllProductsFosElastica 
+                            #Limite della query
+                            batch_size: 5000 
+                            debug_logging: true
+                        listener:                              
+                            insert: false
+                            update: true
+                            delete: true
+                            logger: false
+        cmsmodel:
+            client: default
+            finder: ~
+            settings:
+                index:
+                    refresh_interval: 1s
+                    number_of_replicas: 0
+                    
+                    analysis:                                                                                                            
+                        analyzer:                            
+                            my_analyzer: 
+                                tokenizer: standard
+                                char_filter: ["my_char_filter"]    
+                                filter   :    [ asciifolding ,lowercase, snowball, worddelimiter]                                                       
+
+                        char_filter:
+                            my_char_filter:
+                                type: mapping
+                                mappings : [": => ", "? => ", "- => ", "_ => ", "\" => "]
+                        filter:
+                            snowball:
+                                type:     snowball
+                                language: Italian                            
+                            stopwords:
+                                type:      stop
+                                stopwords: [_italian_]
+                                ignore_case : true
+                            worddelimiter :
+                                type:      word_delimiter                                                      
+            types:
+                model:                   
+                    mappings:
+                        name: { type: string, analyzer : my_analyzer, index_options: positions }                        
+                        bulletPoints: { type: string, analyzer : my_analyzer, index_options: positions }                        
+                        longDescription: { type: string, analyzer : my_analyzer, index_options: positions }                        
+                        technicalSpecifications: { type: string, analyzer : my_analyzer, index_options: positions }                        
+                        synonyms: { type: string, analyzer : my_analyzer, index_options: positions }                        
+                        alphaCheckModel: { type: string, analyzer : my_analyzer, index_options: positions }                        
+                        searchTagTerms: { type: string, analyzer : my_analyzer, index_options: positions }                        
+                        price: { type: float }        
+                        dateImport: { type: date }       
+                        dateRelease: { type: date }       
+                        isTop:  
+                            type: integer
+                        subcategory.id: 
+                            type: integer
+                            property_path: getSubcategoryOrNull   
+                        trademark.id: 
+                            property_path: getTrademarkOrNull   
+                        trademark.name: 
+                            type:   string 
+                            property_path: getTrademarkNameOrNull
+                        subcategory.name: 
+                            type:   string 
+                            property_path: getSubcategoryNameOrNull
+                        subcategory.singularNameUrl: 
+                            type:   string 
+                            property_path: getSubcategorySingularNameOrNull
+                        typology.id: 
+                            property_path: getTypologyOrNull
+                        typology.name: 
+                            type:   string 
+                            property_path: getTypologyNameOrNull
+                        typology.singularNameUrl: 
+                            type:   string 
+                            property_path: getTypologySingularNameOrNull
+                        typology.synonyms: 
+                            type:   string 
+                            property_path: getTypologySynonymsNameOrNull
+                        externalTecnicalTemplate.tecnicalIde: 
+                            type:   string 
+                            property_path: getExternalTecnicalTemplateIde
+#                        externalTecnicalTemplate.tecnicalTp: 
+#                            type:   string 
+#                            property_path: getExternalTecnicalTemplateTp
+                        externalTecnicalTemplate.tecnicalPm: 
+                            type:   string 
+                            property_path: getExternalTecnicalTemplatePm
+                        
+                    persistence:
+                        driver: orm
+                        model: AppBundle\Entity\Model                        
+                        finder: ~        
+                        identifier: id
+                        elastica_to_model_transformer:
+                            ignore_missing: true                       
+                        provider:                                                                 
+                            query_builder_method: getAllModelsFosElastica 
+                            #Limite della query
+                            batch_size: 5000 
+                            debug_logging: true                        
+                        listener:                              
+                            insert: false
+                            update: true
+                            delete: true
+                            logger: false                                                        
+        cmstypologies:
+            client: default
+            finder: ~
+            settings:
+                index:
+                    refresh_interval: 1s
+                    number_of_replicas: 0
+                    
+                    analysis:                                                                                                            
+                        analyzer:                            
+                            my_analyzer: 
+                                tokenizer: standard
+                                char_filter: ["my_char_filter"]    
+                                filter   :    [ asciifolding ,lowercase, snowball, worddelimiter]                                                       
+
+                        char_filter:
+                            my_char_filter:
+                                type: mapping
+                                mappings : [": => ", "? => ", "- => ", "_ => ", "\" => "]
+                        filter:
+                            snowball:
+                                type:     snowball
+                                language: Italian                            
+                            stopwords:
+                                type:      stop
+                                stopwords: [_italian_]
+                                ignore_case : true
+                            worddelimiter :
+                                type:      word_delimiter                                                      
+            types:
+                model:                   
+                    mappings:
+                        name: { type: string, analyzer : my_analyzer, index_options: positions }                                                                      
+                    persistence:
+                        driver: orm
+                        model: AppBundle\Entity\Typology                        
+                        finder: ~        
+                        identifier: id
+                        elastica_to_model_transformer:
+                            ignore_missing: true                       
+                        provider:                                                                 
+                            query_builder_method: getAllTypologiesFosElastica 
+                            #Limite della query
+                            batch_size: 5000 
+                            debug_logging: true                        
+                        listener:                              
+                            insert: false
+                            update: true
+                            delete: true
+                            logger: false
+                        
+                        
+# Swiftmailer Configuration
+swiftmailer:
+    transport: "%mailer_transport%"
+    host:      "%mailer_host%"
+    username:  "%mailer_user%"
+    password:  "%mailer_password%"
+    spool:     { type: memory }
+
+
+
+

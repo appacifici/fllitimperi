@@ -1,0 +1,53 @@
+body {
+  margin: 0;
+  color: #666666;
+  font-size: 16px;
+  background: #fff;
+  font-family: Raleway, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.widget_BreadCrumbs {
+  background: #fff;
+  padding: 13px 13%;
+  overflow: hidden;
+  border-bottom: 1px solid #ddd;
+}
+.widget_BreadCrumbs ul {
+  padding: 0px;
+  margin: 0 auto;
+}
+.widget_BreadCrumbs ul li, .widget_BreadCrumbs ul h1 {
+  float: left;
+  margin: 0 2px 0 0;
+  font-size: 14px;
+  color: #216a95;
+}
+.widget_BreadCrumbs ul li a, .widget_BreadCrumbs ul h1 a {
+  font-size: 14px;
+  color: #216a95;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 600;
+}
+.widget_BreadCrumbs ul li a:hover, .widget_BreadCrumbs ul h1 a:hover {
+  text-decoration: underline;
+}
+.widget_BreadCrumbs ul a:after {
+  content: "/";
+  margin: 0 3px 0 5px;
+}
+
+@media (max-width: 1480px) {
+  .widget_BreadCrumbs {
+    padding: 13px 5%;
+  }
+}
+@media (max-width: 425px) {
+  .widget_BreadCrumbs {
+    padding: 10px 4%;
+  }
+  .widget_BreadCrumbs ul li a, .widget_BreadCrumbs ul h1 a {
+    font-size: 12px;
+  }
+}/*# sourceMappingURL=Desk.ATF.modelComparison.css.map */

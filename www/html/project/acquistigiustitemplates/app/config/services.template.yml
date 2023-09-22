@@ -1,0 +1,14 @@
+services:
+    
+#    Snippet per sovrascrivere template esistente
+#    app.coreListNews:
+#        class:     AppBundle\Service\WidgetService\CoreListNews_Template
+#        arguments: ["@app.widgetManager"]
+        
+    app.coreListNews_Template:
+        class:     AppBundle\Service\WidgetService\CoreListNews_Template
+        arguments: ["@app.widgetManager"]
+        
+    app.coreSeoH1ListArticles_Template:
+        class:     AppBundle\Service\WidgetService\CoreSeoH1ListArticles_Template
+        arguments: ["@app.widgetManager"]  

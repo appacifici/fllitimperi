@@ -1,0 +1,46 @@
+{% if permission.affiliation.read %}
+    <div class="widget_ListAffiliations widgetBoxShadow" >
+        <table class="table footable table-bordered table-condensed table-striped table-primary dynamicTable colVis table">
+            <thead>
+                <tr> 
+                    <th class="center" data-hide="phone">Id</th>
+                    <th data-class="expand">Affiliazione</th>
+                    <th data-hide="phone">Azioni</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for affiliation in affiliations %}
+                    {% if affiliations is defined %}
+                        <tr class="selectable"data-createForm="modifyAffiliation" data-entity="Affiliation" data-id="{{affiliation.id}}">
+                            <td class="important center" ><span class="badge badge-blu">{{affiliation.id}}</span></td>
+                            <td class="important" data-modify="input" data-field="screen">{{affiliation.name}}</td>
+                            <td class="">           
+                                <a href="{{ path('editAffiliation', {'id': affiliation.id}) }}" class="btn btn-green"><i class="fa fa-pencil"></i></a>
+                                <button class="btn btn-sm btn-danger" data-deleteInlineForm="1">
+                                    <i class="fa fa-trash-o"></i>
+                                </button>
+                            </td>  
+                        </tr>
+                    {%endif%}
+                {%endfor%}
+            </tbody>
+        </table>
+    </div>
+{% endif %}
+{%if fetch_widget_ListAffiliations is defined %}
+    {{ fetch_widget_ListAffiliations|raw  }}
+{%endif%}
+<div class="button-action">
+    <a href="javascript:history.back()"> 
+        <div class="btnGoBack" id="btnGoBack">
+            <i class="fa fa-arrow-circle-o-left"></i>
+        </div>
+    </a>
+    <div class="buttonDefault" onclick="window.location.href = '{{ path('editAffiliation') }}';">
+        <div class="add">Crea nuova Affiliazione</div>
+        <i class=" fa  fa-plus-circle"></i>
+    </div>
+    <div id="toTop">
+        <i class="fa fa-arrow-circle-o-left"></i>
+    </div>
+</div>

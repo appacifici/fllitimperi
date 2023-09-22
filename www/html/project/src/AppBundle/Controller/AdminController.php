@@ -1,0 +1,1 @@
+../../../pluginActive/src/AppBundle/Controller/AdminController.php

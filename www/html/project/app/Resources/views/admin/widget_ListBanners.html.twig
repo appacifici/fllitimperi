@@ -1,0 +1,91 @@
+{% if permission.banner.read %}
+    <div class="widget_ListBanners widgetBoxShadow">
+        <!-- Total products & Sort by options -->
+        {# <div class="form-inline">
+                 <span class="pull-right">
+                         <label class="strong innerLR">Sort by:</label>
+                         <select class="selectpicker margin-none" data-style="btn-default btn-sm">
+                                 <option>Option</option>
+                                 <option>Option</option>
+                                 <option>Option</option>
+                         </select>
+                 </span>
+                 <div class="clearfix"></div>
+         </div>#}
+        <!-- // Total products & Sort by options END -->
+
+        <table class="table footable table-bordered table-condensed table-striped table-primary dynamicTable colVis table">
+            <thead>
+                <tr>
+                    <th class="center" data-hide="phone,tablet">Id</th>
+                    <th data-hide="phone,tablet">Versione</th>
+                    <th data-hide="phone,tablet">Stato</th>
+                    <th data-hide="phone,tablet">Sezione</th>
+                    <th data-class="expand">Posizione</th>
+                    <th data-hide="phone">Nome</th>
+                        {#                    <th style="width: 1%;" class="center">Drag</th>
+                        #}                    <th data-hide="phone,tablet">Azioni</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for banner in banners %}
+                    {% if banner is defined %}
+                        <tr class="selectable"data-createForm="modifyBanner" data-entity="Banner" data-id="{{banner.id}}" data-entity="Banner">
+                            <td class="important center" >
+                                <span class="badge badge-blu">{{banner.id}}</span>
+                            </td>
+                            <td  data-modify="input" data-field="screen">
+                                {{banner.screen}}
+                            </td>
+                            <td  data-modify="input" data-field="active">
+                                {% if banner.active == 0 %}
+                                    <span class="label label-red">Disattivo</div>
+                                    {% elseif banner.active == 2 %}
+                                        <span class="label label-yellow">Test</div>
+                                        {% else %}
+                                            <span class="label label-green">Attivo</div>
+                                            {% endif %}
+                                            </td>
+                                            <td  data-modify="select" data-field="position" data-value="{{banner.position}}" data-store="{{jsonBannersPosition}}">{{banner.position }}</td>
+                                            <td  data-modify="input" data-field="code">{{banner.route }}</td>
+                                            <td  data-modify="input" data-field="code">{{banner.name }}</td>
+                                            <td >         
+                                                {% if permission.banner.edit %}
+                                                    <a href="{{ path('editBanner', {'id': banner.id}) }}" class="btn btn-green"><i class="fa fa-pencil"></i></a>
+                                                    {% endif %}
+                                                    {% if permission.banner.remove %}
+                                                    <button href="#" class="btn btn-red" data-deleteInlineForm="1">
+                                                        <i class="fa fa-trash-o"></i>
+                                                    </button>
+                                                {% endif %}
+                                            </td>  
+                                            </tr>
+                                        {%endif%}
+                                    {%endfor%}
+                </tbody>
+            </table>
+                                    <!-- // Products table END -->
+
+
+                                    <!-- // Options END -->
+                                    </div>
+                                {% endif %}
+                                {%if fetch_widget_ListBanners is defined %}
+                                    {{ fetch_widget_ListBanners|raw  }}
+                                {%endif%}
+                                <div class="button-action">
+                                    <a href="javascript:history.back()"> 
+                                        <div class="btnGoBack" id="btnGoBack">
+                                            <i class="fa fa-arrow-circle-o-left"></i>
+                                        </div>
+                                    </a>
+
+                                    <div class="buttonDefault" onclick="window.location.href = '/admin/editBanner';">
+
+                                        <div class="add"> Crea Nuovo Banner</div>
+                                        <i class=" fa    fa-plus-circle"></i>
+                                    </div>
+                                    <div id="toTop">
+                                        <i class="fa fa-arrow-circle-o-left"></i>
+                                    </div>
+                                </div>

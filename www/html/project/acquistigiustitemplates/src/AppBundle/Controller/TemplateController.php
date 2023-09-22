@@ -1,0 +1,1 @@
+../../../../src/AppBundle/Controller/Global/TemplateController.php

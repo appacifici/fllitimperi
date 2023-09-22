@@ -1,0 +1,159 @@
+.widget_FilterProductBtn {
+  width: 13%;
+  float: right;
+  margin: 1px 0% 0 0%;
+  background: #fff;
+  height: 36px; }
+  .widget_FilterProductBtn .ampOpenImage {
+    margin: 0 4px; }
+
+.widget_FilterProduct {
+  background: #fff; }
+  .widget_FilterProduct section {
+    width: 256px;
+    border-bottom: 1px solid #ccc; }
+  .widget_FilterProduct h2 {
+    margin: 0 0 0 12px;
+    float: left; }
+  .widget_FilterProduct .buttonClose {
+    padding: 12px 0px;
+    text-align: center;
+    color: #ff9900;
+    font-weight: 400;
+    font-size: 17px;
+    background: #242f3e;
+    height: 25px; }
+    .widget_FilterProduct .buttonClose button {
+      width: 12%;
+      float: right;
+      margin: -10px 0px;
+      background: transparent; }
+  .widget_FilterProduct .filterSex li {
+    float: left; }
+  .widget_FilterProduct .filterSex [data-active="1"] a {
+    color: #0c6ab5;
+    font-weight: bold;
+    text-decoration: underline; }
+  .widget_FilterProduct section h3 {
+    padding: 17px 13px 13px 13px;
+    margin-bottom: 0px;
+    font-size: 15px;
+    width: 320px;
+    background: #fff;
+    border: none; }
+  .widget_FilterProduct section ul {
+    margin: 0;
+    padding: 5px 5px 5px 5px; }
+    .widget_FilterProduct section ul li {
+      padding: 5px; }
+      .widget_FilterProduct section ul li a {
+        color: #000; }
+  .widget_FilterProduct section .boxColor {
+    margin: 0;
+    padding: 5px 5px 5px 10px; }
+    .widget_FilterProduct section .boxColor li {
+      padding: 5px;
+      width: 45%;
+      float: left;
+      margin-top: 0px; }
+      .widget_FilterProduct section .boxColor li span {
+        color: #000;
+        margin: 4px 2px; }
+      .widget_FilterProduct section .boxColor li [data-activeFilter="1"] span {
+        color: #0c6ab5;
+        font-weight: bold;
+        text-decoration: underline; }
+      .widget_FilterProduct section .boxColor li .colorFilter {
+        color: #fff;
+        float: left;
+        margin: 0 3px;
+        width: 70px;
+        height: 11px; }
+      .widget_FilterProduct section .boxColor li .colorFilterNero {
+        background: #000; }
+      .widget_FilterProduct section .boxColor li .colorFilterMarrone {
+        background: #6f3e18; }
+      .widget_FilterProduct section .boxColor li .colorFilterBeige {
+        background: #d4be8d; }
+      .widget_FilterProduct section .boxColor li .colorFilterGrigio {
+        background: #838383; }
+      .widget_FilterProduct section .boxColor li .colorFilterBianco {
+        background: #fff;
+        color: #999;
+        border: 1px solid #ddd; }
+      .widget_FilterProduct section .boxColor li .colorFilterBlu {
+        background: #0f73ad; }
+      .widget_FilterProduct section .boxColor li .colorFilterVerde {
+        background: #5ad36c; }
+      .widget_FilterProduct section .boxColor li .colorFilterGiallo {
+        background: #fd3; }
+      .widget_FilterProduct section .boxColor li .colorFilterArancio {
+        background: #fb863b; }
+      .widget_FilterProduct section .boxColor li .colorFilterRosso {
+        background: #ff0002; }
+      .widget_FilterProduct section .boxColor li .colorFilterRosa {
+        background: #f563b9; }
+      .widget_FilterProduct section .boxColor li .colorFilterViola {
+        background: #9349aa; }
+      .widget_FilterProduct section .boxColor li .colorFilterOro {
+        background: linear-gradient(180deg, #eecd56, #fce2ac); }
+      .widget_FilterProduct section .boxColor li .colorFilterArgento {
+        background: linear-gradient(180deg, #b0b0b0, #e0e0e0); }
+      .widget_FilterProduct section .boxColor li .colorFilterMulti {
+        position: relative;
+        overflow: hidden;
+        background: #fd3;
+        background-image: linear-gradient(180deg, transparent 50%, #0f73ad 0), linear-gradient(90deg, transparent 50%, #5ad36c 0); }
+  .widget_FilterProduct section .boxSearchName {
+    padding: 5px 8px 8px 10px;
+    margin-top: 5px;
+    margin-bottom: 2px; }
+    .widget_FilterProduct section .boxSearchName input {
+      width: 71%;
+      border: 1px solid #f4920a;
+      padding: 9px 1% 9px 5%;
+      font-size: 14px; }
+  .widget_FilterProduct section .boxPriceFilter {
+    padding: 0px;
+    margin-top: 5px;
+    margin-bottom: 2px; }
+    .widget_FilterProduct section .boxPriceFilter li {
+      padding: 5px 8px 8px 10px; }
+      .widget_FilterProduct section .boxPriceFilter li input {
+        width: 92%;
+        border: 1px solid #f4920a;
+        padding: 9px 1% 9px 5%;
+        font-size: 14px; }
+  .widget_FilterProduct section .boxSizes {
+    margin-top: 5px; }
+    .widget_FilterProduct section .boxSizes li {
+      padding: 5px 1% 0 4px;
+      width: 19%;
+      float: left;
+      margin: 5px 1% 5px 2%;
+      text-align: center;
+      height: 18px; }
+      .widget_FilterProduct section .boxSizes li input {
+        color: #f4920a;
+        text-align: center;
+        width: 30%;
+        height: 20px;
+        padding: 8px 6px 8px 8px;
+        margin: -3px 3% 0px 0;
+        border: 1px solid #e2e0e0;
+        font-size: 17px;
+        float: left; }
+      .widget_FilterProduct section .boxSizes li[data-activeFilter="1"] {
+        text-decoration: underline;
+        background: #0c6ab5; }
+        .widget_FilterProduct section .boxSizes li[data-activeFilter="1"] span {
+          color: #fff; }
+      .widget_FilterProduct section .boxSizes li span {
+        float: left; }
+  .widget_FilterProduct button {
+    width: 100%;
+    padding: 10px;
+    background: #f4920a;
+    color: #fff;
+    font-size: 17px;
+    border: none; }

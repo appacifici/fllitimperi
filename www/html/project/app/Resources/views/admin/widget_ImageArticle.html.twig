@@ -1,0 +1,123 @@
+{% if permission.article.edit %}     
+    {% if enabledTab %}     
+        <div class="widget_ImageArticle "  {%if articleId is defined%}data-article="{{articleId}}"{%endif%}>
+            {% if imgArticle is defined %}
+                <div class="widgetBoxShadow imageAssociated">
+                    <div class="label"><span> Immagini associate all'articolo </span> </div>
+                    <div class="widget-body imgArticle ">
+                        {% for img in imgArticle %}
+                            {% if priorityImgId ==  img.id %}
+                                <div class="contentPriorityImage">
+                                    <img class="priority" src="/imagesArticleMedium/{{img.src}}" data-id="{{img.id}}" alt="photo" data-priority="1" />
+                                    <div>Immagine Priorotaria</div>
+                                    https://www.acquistigiusti.it/imagesArticleBig/{{img.src}}
+                                </div>
+                            {% else %}
+                                <div class="contentPriorityImage" style="word-break: break-all;">
+                                    <img src="/imagesArticleMedium/{{img.src}}" data-id="{{img.id}}" alt="photo" />
+                                    <div class="hide">Immagine Priorotaria</div>
+                                    https://www.acquistigiusti.it/imagesArticleBig/{{img.src}}
+                                </div>
+                            {% endif %} 
+                        {% endfor %}
+                    <div class="contentPriorityImage cloneImage hide">
+                        <img class="priority hide" src="" data-id="" alt="photo" data-priority="1" />
+                        <div>Immagine Priorotaria</div>
+                    </div>
+                    <div class="clearB"></div>
+                    <div class="buttonDefault buttonRed btnRemove" data-removeImg="1">
+                        <div class="add">Rimuovi Immagini</div>
+                        <i class=" fa fa-eraser"></i>
+                    </div>
+                     <div class="buttonDefault buttonBlue btnRemove" data-primary="1">
+                        <div class="add">Scegli Foto Prioritaria</div>
+                        <i class=" fa  fa-check-circle-o"></i>
+                    </div>
+                    <div class="clearB"></div>
+                </div>
+            </div>
+            {% endif %}
+
+            {% if images is defined %}
+                <div class="widgetBoxShadow" style="background: #f0f0f0;">
+                    {#<div class="widget">
+                        <div class="widget-body bg-gray">
+                                <div class="row" id="searchImages">
+                                    <div class="col-md-8 center">
+                                        <input type="text" class="form-control" name="keyword" value="{%if keyword is defined %}{{keyword}} {%endif%}" placeholder="Cerca immagini" />
+                                    </div>
+
+                                    <div class="col-md-4 center">
+                                        <button style="float: right;padding: 10px;font-size: 24px;width: 115px"class="btn btn-danger btnReset">Reset</button>                                 
+                                        <button style="padding: 12px 13px 10px 11px;margin-right: 15px;font-size: 24px;width: 131px;"class="submit btn btn-primary btn-lg pull-right" data-loading-text="Now searching ..." data-toggle="btn-loading"><i class="fa fa-fw fa-search"></i> Cerca</button>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+
+                    <div class="pull-right">
+                        <div class="label ">    
+                            <span> Associa le immagini all'articolo </span> 
+                        </div>
+                        <button class="btn btn-success btnAdd">Associa Immagini</button>
+                    </div>
+                                    <div class="clearB" style="height: 58px;"></div>#}
+
+                    <div class='gallery'>
+                        {#<div class="innerAll inner-2x loading text-center text-medium">
+                            <i class="fa fa-fw fa-spinner fa-spin"></i> Loading
+                        </div>#}
+                        {{ include(  versionSite ~ '/snippet_InfiniteScrollImages.html.twig', { 'images': images, 'infiniteScroll':infiniteScroll, 'page':page} ) }}    
+
+                    </div>
+                    <div class="plaseWait">
+                        <img src="http://thewebsitegroup.co.uk/wp-content/uploads/2016/04/loading1.gif" width="100px" />
+                    </div>
+                </div>    
+
+            {% endif %}        
+        </div>
+    {%else%}
+        <div class="widget_ImageArticle" style="padding:10px">
+            <h1 class="label label-danger" style="font-size: 39px;">Devi prima salvare l'articolo per poter associare ad esso le immagini!!!</h1>
+        </div>
+    {% endif %}        
+{% endif %}        
+{%if fetch_widget_Users is defined %}
+    {{ fetch_widget_Users|raw  }}
+{%endif%}
+<div class="button-action">
+    <a href="javascript:history.back()"> 
+        <div class="btnGoBack" id="btnGoBack">
+            <i class="fa fa-arrow-circle-o-left"></i>
+        </div>
+    </a>
+    <div class="searchImgArticle pull-left">
+        <input type="text" class="form-control pull-left" name="keyword"  placeholder="Cerca immagini"/> 
+        <div class="buttonDefault  buttonGreen pull-left" data-search="1">
+            <a>
+                <div type="submit"  class="add">Cerca</div>
+                <i class=" fa    fa-search-plus"></i>
+            </a>
+        </div>
+                <div class="buttonDefault buttonRed" data-resetSearch="1">
+        <a>
+            <div type="submit"  class="add"> Reset</div>
+                 <i class=" fa   fa-eraser"></i>
+        </a>
+    </div>
+    
+    </div>
+
+    <div class="buttonDefault buttonBlue" data-joinImg="1">
+        <a>
+            <div class="add"> Associa immagini </div>
+            <i class=" fa fa-camera-retro"></i>
+        </a>
+    </div>
+    <div class="toTop" id="toTop">
+        <i class="fa fa-arrow-circle-o-left"></i>
+    </div>
+
+
+</div>

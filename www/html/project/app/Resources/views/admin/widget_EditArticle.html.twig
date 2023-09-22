@@ -1,0 +1,68 @@
+{% form_theme form 'bootstrap_3_horizontal_layout.html.twig'  %}
+
+<div class="widget_EditArticle widgetBoxShadow positionRelative">
+    <div class="formBlock" data-divForm="1" >
+        {{form_start(form)}}
+        {{ form_widget(form)}}        
+        {{ form_end(form) }}
+
+    </div>
+    {% if article is not empty %}
+        <input type="hidden" id="dataArticleId" value="{{article.dataArticle.id}}">        
+    {%endif%}    
+    {%if fetch_widget_EditArticle is defined %}
+        {{ fetch_widget_EditArticle|raw  }}
+    {%endif%}
+</div>
+
+<div class="button-action ">
+    <a href="javascript:history.back()"> 
+        <div class="btnGoBack" id="btnGoBack">
+            <i class="fa fa-arrow-circle-o-left"></i>
+        </div>
+    </a>
+    <div class="buttonDefault  buttonGreen" data-submit="1">
+        <a>
+            <div type="submit"  class="add">Salva</div>
+            <i class=" fa  fa-save"></i>
+        </a>
+    </div>
+    <div class="buttonDefault buttonRed" data-reset="1">
+        <a>
+            <div type="submit"  class="add" > Reset</div>
+                 <i class=" fa   fa-eraser"></i>
+        </a>
+    </div>
+    {% if article is not empty %}
+{#        {%if article.dataArticle.priorityImg is not empty%}#}
+            <div class="buttonDefault buttonViolet">
+                {%set path = generate('detailNews1', {'title': article.urlArticle }) %}                
+                
+                <a href='{{ path }}?x={{random()}}' target='_blank'>
+                    <div type="button"  class="add"> Vedi anteprima </div>
+                    <i class=" fa   fa-eye"></i>
+                </a>
+            </div>
+{#        {%endif%}#}
+        <div class="buttonDefault buttonBlue"  data-republish="{{article.dataArticle.id}}">
+            <a>
+                <div class="add"> Aggiorna Data  </div>
+                <i class=" fa   fa-refresh"></i>
+            </a>
+        </div>
+        {% if article.dataArticle.topNewsImg is not null %}
+            <div class="buttonDefault buttonRed" data-articleId="{{ article.dataArticle.id }}" data-imgTopNews='{{ article.dataArticle.topNewsImg }}'>
+                <a>
+                    <div class="add"  >
+                    Rimuovi Foto PP 
+                    </div>
+                    <i class="fa fa-camera-retro"></i>
+                </a>
+            </div>
+        {% endif %}
+    {% endif %}
+    <div id="toTop">
+        <i class="fa fa-arrow-circle-o-left"></i>
+    </div>
+</div>
+

@@ -1,0 +1,109 @@
+.h1ListArticles {
+    font-size: 25px;
+    font-weight: bold;
+    margin: 10px 0 -10px;
+    text-align: center;
+}
+.widget_ListArticles{
+    padding: 10px 0 0px;
+    h2{
+        font-size: 16px;
+        margin: 10px 0 1px 0;
+        text-align: left;
+        background: #fff;
+        padding: 16px;
+        font-weight: bold;
+        border-top: 3px solid #f90;
+    }
+    article{
+        width: 100%;
+        float: none;
+        margin-right: 1.333%;
+        background: #fff;
+        box-shadow: 1px 1px 5px 1px #a6a8ab;
+        position:relative;
+        margin-bottom:20px;
+        border-top: 3px solid #f90;
+        overflow: hidden;
+
+        figure{
+            /* border-radius: 10px 10px 0 0; */
+            width: 100%;
+            margin: 0;
+            text-align: center;
+            img {
+                    position: absolute;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+                right: 0;
+                left: 0;
+            }
+        }       
+        a{ 
+            text-decoration: none ;
+            h3{
+                color: #333333;
+                font-size: 20px;
+                word-wrap: break-word;
+                width: 100%;
+                overflow: hidden;
+                line-height: 25px;
+                margin: 5px 0 5px 0;
+                text-align: center;
+                font-weight: 700;
+                cursor: pointer;
+            }
+        }
+        .content{
+            margin: 14px 18px;
+            border-top: 1px solid #ccc;
+            padding-top: 10px;        
+            overflow: hidden;
+
+            h4{
+                line-height: 21px;
+                font-size: 14px;
+                height: 59px;
+                word-wrap: break-word;
+                width: 99%;
+                overflow: hidden;
+                margin: 1px;
+                cursor: pointer;
+                color: #6d6969;
+                font-weight: normal;
+            }
+            span {
+                float: right;
+                
+                background: #f90;
+                padding: 12px;
+                border-radius: 0 0 10px 0;
+                color: #fdf9f9;
+                font-weight: bold;
+            }
+        }
+        span{
+            font-size: 12px;
+            text-transform: uppercase;
+            background: transparent;
+            color: #ff9800;
+            margin: 10px 16px;
+            float: right;
+        }
+    }
+    article:hover {
+        background: #ff9900;
+        color: #fff ;
+        h3,h4,span {
+            color:#fff;
+        }
+        hgroup span {
+            background: #2a3139;
+            color: #ff9800;
+        }
+    }
+    article:nth-child(5){
+        margin-right: 0px;
+    }
+}

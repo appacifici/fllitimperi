@@ -1,0 +1,96 @@
+.structure_Footer {
+  background: url(/images/footer-bg.png) #2b3139 no-repeat;
+  background-position: center center;
+  overflow: hidden;
+  border-top: 3px solid #4895b6;
+  margin-bottom: 49px;
+  /*section{*/
+  /*        width: 35%;
+          float: left;
+          margin-right: 10px;
+          overflow: hidden;
+          padding: 15px 0px;*/
+  width: 100%;
+  float: left;
+  margin-right: 10px;
+  overflow: hidden;
+  padding: 0px 0px;
+  text-align: center;
+}
+.structure_Footer .footerSocial {
+  width: 14%;
+  text-align: center;
+  padding-left: 4%;
+}
+.structure_Footer figure {
+  margin: 5px auto 0;
+  text-align: center;
+  overflow: hidden;
+  width: 132px;
+}
+.structure_Footer .footerImg {
+  float: left;
+  margin: 0 4px;
+}
+.structure_Footer .footerImg amp-img {
+  margin: 4px 0px;
+}
+.structure_Footer ul {
+  padding: 0;
+  margin: 36px 0px;
+  list-style: none;
+}
+.structure_Footer ul a {
+  color: #999;
+  font-size: 14px;
+  font-weight: 300;
+  position: relative;
+  text-decoration: none;
+}
+.structure_Footer ul a li {
+  margin-bottom: 12px;
+}
+.structure_Footer span {
+  color: #cacaca;
+  margin-bottom: 25px;
+  font-weight: 400;
+  font-size: 16px;
+  margin: 6px 0px;
+  float: left;
+}
+.structure_Footer p {
+  /*            color: #999;
+              margin-bottom: 25px;
+              font-weight: 400;
+              font-size: 15px;
+              word-wrap: break-word;
+              width: 90%;
+              line-height: 20px;
+              height: 62px;
+              overflow: hidden;*/
+  color: #999;
+  margin-bottom: 25px;
+  font-weight: 400;
+  font-size: 16px;
+  word-wrap: break-word;
+  width: 96%;
+  line-height: 20px;
+  height: 40px;
+  overflow: hidden;
+  margin: 0;
+  text-align: center;
+}
+.structure_Footer section:nth-child(1) {
+  margin-left: 3.333%;
+}
+.structure_Footer .logoImg .logo {
+  float: left;
+  margin: 3px 0 6px 28px;
+}
+.structure_Footer .logoImg span {
+  float: left;
+  margin: 10px 3px 3px 3px;
+  font-size: 22px;
+  color: #fff;
+  font-weight: bold;
+}/*# sourceMappingURL=amp_structureFooter.css.map */

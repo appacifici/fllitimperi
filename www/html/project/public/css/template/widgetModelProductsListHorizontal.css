@@ -1,0 +1,95 @@
+.widget_ModelProductsListHorizontal {
+  overflow: hidden;
+  clear: both;
+  padding: 15px 10%;
+  background: #fff;
+}
+.widget_ModelProductsListHorizontal .productTitle {
+  padding: 30px 1%;
+  border-bottom: 0;
+  margin: 0;
+  width: 60%;
+  float: left;
+  font-weight: 700;
+  font-size: 20px;
+  color: #666;
+  background: #e4eff5;
+}
+.widget_ModelProductsListHorizontal .allIn {
+  float: right;
+  width: 36%;
+  text-align: right;
+  background: #e4eff5;
+  padding: 31.5px 1%;
+  font-weight: 700;
+  font-size: 17px;
+}
+.widget_ModelProductsListHorizontal .allIn a {
+  color: #2b6481;
+  text-decoration: none;
+  font-weight: 600;
+}
+.widget_ModelProductsListHorizontal article {
+  width: 33.333333%;
+  border-bottom: 5px solid #e8f0f6;
+  height: 185px;
+  float: left;
+  border-left: 0;
+  border-right: 0;
+  cursor: pointer;
+  padding-top: 15px;
+}
+.widget_ModelProductsListHorizontal article figure {
+  float: left;
+  padding: 2%;
+}
+.widget_ModelProductsListHorizontal article header {
+  width: 53%;
+  float: right;
+  padding: 35px 30px 0 10px;
+}
+.widget_ModelProductsListHorizontal article header a {
+  color: #0066c0;
+  margin-bottom: 10px;
+  text-decoration: none;
+}
+.widget_ModelProductsListHorizontal article header a h4 {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  margin-bottom: 0;
+}
+.widget_ModelProductsListHorizontal article header p {
+  font-size: 14px;
+  margin-bottom: 15px;
+  margin-top: 10px;
+  color: #999695;
+}
+.widget_ModelProductsListHorizontal article span {
+  color: #B12704;
+  font-weight: 500;
+  font-size: 23px;
+}
+.widget_ModelProductsListHorizontal article .lineThrough {
+  color: #555 !important;
+  font-weight: 400;
+  font-size: 16px !important;
+  margin: 5px 10px 10px 0px;
+  float: left;
+}
+.widget_ModelProductsListHorizontal article .euro {
+  font-size: 14px;
+  margin: 3px 3px 3px -3px;
+}
+
+@media (max-device-width: 1440px) and (min-device-width: 581px) {
+  .widget_ModelProductsListHorizontal {
+    margin: 0 0 30px;
+    padding: 0% 2%;
+  }
+  .widget_ModelProductsListHorizontal article header {
+    width: 49%;
+    padding-right: 0;
+    padding-left: 0;
+  }
+}/*# sourceMappingURL=widgetModelProductsListHorizontal.css.map */

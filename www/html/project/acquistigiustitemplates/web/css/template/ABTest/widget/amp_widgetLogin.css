@@ -1,0 +1,178 @@
+@charset "UTF-8";
+#lightbox #container {
+  padding: 4%;
+  background-color: #fff;
+  width: 92%;
+  position: fixed;
+  right: 2;
+  left: 0%;
+  top: 54px;
+  overflow: hidden;
+  height: 600px;
+  right: 0%; }
+  #lightbox #container .close {
+    text-align: center;
+    padding: 5%;
+    background: #ff9800;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 0;
+    border-color: transparent;
+    border-width: 0;
+    width: 100%; }
+#lightbox #container input {
+  height: 2.5em;
+  display: none; }
+#lightbox #container label {
+  background: #f9f9f9;
+  /* Fondo de las pestañas */
+  border-radius: .25em .25em 0 0;
+  color: #888;
+  /* Color del texto de las pestañas */
+  cursor: pointer;
+  display: block;
+  float: left;
+  font-size: 1em;
+  /* Tamaño del texto de las pestañas */
+  height: 2.5em;
+  line-height: 2.5em;
+  padding: 0 0%;
+  text-align: center;
+  width: 50%;
+  margin-top: 15px; }
+#lightbox #container input:hover + label {
+  background: #ddd;
+  /* Fondo de las pestañas al pasar el cursor por encima */
+  color: #666;
+  /* Color del texto de las pestañas al pasar el cursor por encima */ }
+#lightbox #container input:checked + label {
+  background: #f1f1f1;
+  /* Fondo de las pestañas al presionar */
+  color: #444;
+  /* Color de las pestañas al presionar */
+  position: relative;
+  z-index: 6;
+  /*
+  -webkit-transition: .1s;
+  -moz-transition: .1s;
+  -o-transition: .1s;
+  -ms-transition: .1s;
+  */ }
+#lightbox #content {
+  background: #ffffff;
+  border-radius: 0 .25em .25em .25em;
+  position: relative;
+  width: 100%;
+  z-index: 5;
+  top: 52px; }
+#lightbox #content div {
+  opacity: 0;
+  width: 100%;
+  margin-top: 35px;
+  position: absolute;
+  z-index: -100;
+  /*
+  transition: all linear 0.1s;
+  */ }
+#lightbox #container input#tab-1:checked ~ #content #content-1,
+#lightbox #container input#tab-2:checked ~ #content #content-2 {
+  opacity: 1;
+  z-index: 100; }
+#lightbox input.visible {
+  visibility: visible; }
+#lightbox #content-1 {
+  width: 80%; }
+  #lightbox #content-1 .imgSocial {
+    float: left;
+    margin: 0 11px; }
+  #lightbox #content-1 .loginFacebook, #lightbox #content-1 .loginGoogle {
+    float: left;
+    width: 48%;
+    margin-left: 2%;
+    padding: 6px 0% 6px 1%;
+    margin-top: -20px;
+    margin-bottom: 20px; }
+  #lightbox #content-1 span {
+    float: left;
+    margin: 7px -8px;
+    font-size: 16px;
+    color: #fff; }
+  #lightbox #content-1 .loginFacebook {
+    background: #3f64a6; }
+  #lightbox #content-1 .loginGoogle {
+    background: #d21818; }
+  #lightbox #content-1 input {
+    display: block;
+    border-radius: 0;
+    padding: 0px 0% 3px 6%;
+    background: #f6f6f6;
+    border-color: #ececec;
+    font-size: 14px;
+    border-width: 0;
+    width: 94%;
+    margin-top: 18px;
+    margin-bottom: 20px; }
+  #lightbox #content-1 button {
+    padding: 5%;
+    background: #ff9800;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 0;
+    margin-top: 18px;
+    border-color: transparent;
+    border-width: 0;
+    width: 100%; }
+  #lightbox #content-1 .password {
+    color: #888;
+    font-size: 14px;
+    margin: 0px 3px;
+    margin-bottom: 10px; }
+    #lightbox #content-1 .password a {
+      color: #216a95; }
+#lightbox #content-2 .imgSocial {
+  float: left; }
+#lightbox #content-2 .loginFacebook, #lightbox #content-2 .loginGoogle {
+  width: 100%;
+  padding: 6px 0% 6px 4%;
+  margin-top: -20px;
+  margin-bottom: 32px;
+  background: #fff;
+  color: #888; }
+#lightbox #content-2 span {
+  float: left;
+  margin: 7px 10px;
+  font-size: 16px;
+  color: #00; }
+#lightbox #content-2 form {
+  margin-top: -30px; }
+  #lightbox #content-2 form input {
+    display: block;
+    border-radius: 0;
+    padding: 0px 0% 3px 6%;
+    background: #f6f6f6;
+    border-color: #ececec;
+    font-size: 14px;
+    border-width: 0;
+    width: 94%;
+    margin-top: 18px;
+    margin-bottom: 12px; }
+  #lightbox #content-2 form button {
+    padding: 5%;
+    background: #ff9800;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 0;
+    margin-top: 18px;
+    border-color: transparent;
+    border-width: 0;
+    width: 100%; }
+  #lightbox #content-2 form .information {
+    width: 6%;
+    float: left;
+    margin: 2px 0%; }
+  #lightbox #content-2 form span {
+    width: 85%;
+    float: left;
+    font-size: 13px;
+    margin: 9px 3%;
+    olor: #666; }

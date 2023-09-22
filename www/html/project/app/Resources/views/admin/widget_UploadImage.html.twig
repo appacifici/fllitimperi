@@ -1,0 +1,38 @@
+{% form_theme image 'bootstrap_3_horizontal_layout.html.twig'  %}
+
+<div class="widget_UploadImage widgetBoxShadow" style="padding:10px">
+    <div class="formBlock positionRelative" data-divForm="1">
+        {{form_start(image)}}
+        {{ form_widget(image)}}
+        {{ form_end(image) }}
+    </div>
+    
+    {% for item  in images %}
+        <div style="    float: left;
+    width: 33%;
+    border: 1px solid #ccc;height: 130px;padding: 10px;">
+            <img src="{{folder_img_small}}{{ item.src }}"><br>
+            https://www.offerteprezzi.it{{folder_img_small}}{{ item.src }}
+        </div>        
+    {% endfor %}
+    <!-- // Options END -->
+</div>
+{%if fetch_widget_UploadImage is defined %}
+    {{ fetch_widget_UploadImage|raw  }}
+{%endif%}
+<div class="button-action">
+    <a href="javascript:history.back()"> 
+        <div class="btnGoBack" id="btnGoBack">
+            <i class="fa fa-arrow-circle-o-left"></i>
+        </div>
+    </a>
+    <div class="buttonDefault  buttonGreen" data-submit="1">
+        <a>
+            <div type="submit"  class="add">Salva Immagine</div>
+            <i class=" fa  fa-save"></i>
+        </a>
+    </div>
+    <div id="toTop">
+        <i class="fa fa-arrow-circle-o-left"></i>
+    </div>
+</div>

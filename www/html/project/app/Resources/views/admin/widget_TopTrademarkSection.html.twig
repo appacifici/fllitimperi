@@ -1,0 +1,83 @@
+<div class="widget_TopTrademarkSection">
+    <form  class="form-horizontal" action="{{path('topTrademarkSection')}}" method="GET">
+        <div class="col-md-2 form-group">
+            <label class="control-label active colorLabelFormForce" style="display: inline-block;">
+                Categoria
+            </label>
+            <select data-selectCategory="1" class="categoriesSelect selectpicker form-control"  name="category" id="form_category" data-childrens='{"subcategory_":{"entity":"subcategory","find":"findSubcategoriesByCategory"}}'>
+            {% for category in allCategories %}
+                <option {% if app.request.query.get("category") == category.id %}selected="selected"{%endif%} value="{{ category.id }}">{{ category.name }}</option>
+            {% endfor %}
+            </select>  
+        </div>
+        <div class="col-md-2 form-group">
+            <label class="control-label active colorLabelFormForce" style="display: inline-block;">
+                Sottocategoria
+            </label>
+            <select data-selectSubcategory="1"  class="subcategoriesSelect selectpicker form-control" name="subcategory" id="form_subcategory_" data-childrens='{"typology_":{"entity":"typology","find":"findTypologiesBySubcategory"}}'>
+                <option value="0">---</option>                                
+                {% for subcategory in allSubcategories %}
+                    <option {% if app.request.query.get("subcategory") == subcategory.id %}selected="selected"{%endif%} value="{{ subcategory.id }}">{{ subcategory.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-md-2 form-group">
+            <label class="control-label active colorLabelFormForce" style="display: inline-block;">
+                Tipologia
+            </label>
+            <select data-selectTypology="1" class="typologiesSelect selectpicker form-control" name="typology" id="form_typology_" >
+                <option value="0">---</option>                                
+                {% for typoology in allTypologies %}
+                    <option {% if app.request.query.get("typology") == typoology.id %}selected="selected"{%endif%} value="{{ typoology.id }}">{{ typoology.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="search">
+            <button type="submit" class="btn btn-primary btn-lg" data-loading-text="Now searching ..." data-toggle="btn-loading"><div class="fa  fa-search"></div></button>
+        </div>
+    </form>         
+    <table class="widgetBoxShadow table table-condensed table-striped table-primary table-vertical-center checkboxs js-table-sortable" data-tableTrademark="1" style="width:45%; float:left;margin-right: 5px;">
+        <thead>
+            <tr>
+                <th>Marchi Top</th>
+                <th>Numero Modelli</th>
+                <th style="width: 1%;" class="center">Sposta</th>
+                <th class="center" style="width: 100px;">Azioni</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for key, trademark in aTopTrademark %}
+                <tr class="selectable" data-trademark="1" >
+                    <td class="important" data-item="{{ key }}">{{trademark.name}}</td>
+                    <td class="important">
+                        <input class="form-control" data-limitModels="{{trademark.limitModels}}" type="text" name="start-date" value="{%if trademark.limitModels is not null %}{{trademark.limitModels}}{%endif%}"/>
+                    </td>
+                    <td class="center js-sortable-handle"><span class="fa fa-arrows move"></span></td>
+                    <td class="center">
+                        <span class="btn btn-sm btn-red btnDeleteItem" data-deleteItem="1" ><i class="fa fa-trash-o"></i></span>
+                    </td>
+                </tr>    
+            {%endfor%}
+            <tr class="selectable">
+                <td class="important center" colspan="2">
+                    <select class="form-control" data-selectTrademark="1">            
+                        {%for trademarksSection in allTrademarksSection %}
+                            <option value="{{trademarksSection.id}}">{{trademarksSection.name}}</option>        
+                        {%endfor%}
+                    </select>                              
+                </td>
+                <td class="important center"  colspan="2">
+                    <button type="button" class="btn btn-blue" data-addTrademark="1" style="width:100%">Aggiungi</button>
+                </td>
+            </tr>
+            <tr>
+                <td class="important center"  colspan="100%">
+                    <button class="btn btn-green buttonMenu" data-saveOrder="1" style="font-size: 22px; width:100%">Salva numero modelli e ordinamento</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{%if fetch_widget_TopTrademarkSection is defined %}
+    {{ fetch_widget_TopTrademarkSection|raw  }}
+{%endif%}

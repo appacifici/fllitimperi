@@ -1,0 +1,44 @@
+  
+<div class="Offert" data-product {%if product.isActive is not empty %} on="tap:AMP.navigateTo(url='{{generate('impressionLink', { 'impressionLink': product.impressionLink, 'deepLink': product.deepLink }) }}')" role="button" tabindex="0" {%endif%}>    
+    <div class="absolute">
+        <div class="image">
+            {% if product.img is not empty %}
+                <figure>
+                    <amp-img height="200" width="auto" layout="fixed-height"  src="{{folder_img_products_small}}{{product.img}}" alt="{{ product.name }}"></amp-img>
+                </figure>
+            {%endif%}
+        </div>
+        <div class="data">
+            <span class="label-name">{{product.name}}</span>
+            <div class="prices-box">
+                <div class="pricesBox">
+                    <span class="label-price">€ {{product.price}}</span>      
+                    {%if product.lastPrice != ',00' and product.lastPrice != '0,00' and product.lastPrice != '0' %}
+{#                        <span class="label-last-price"> € {{ product.lastPrice }} </span>  #}
+                    {% endif %}
+                </div>                
+                {%if product.isActive is not empty %}
+                    <button>Vai all'offerta<span></span></button>
+                {% elseif product is not empty and product.linkCategoryAmazon is not empty %}
+                    <a href="{{product.linkCategoryAmazon}}" rel="nofollow" target="_blank">
+                        <button>Vedi offerte simili<span></span></button>                    
+                    </a>
+                {% elseif product.model is not empty and product.model.linkCategoryAmazon is not empty %}
+                    <a href="{{product.model.linkCategoryAmazon}}" rel="nofollow" target="_blank">
+                        <button>Vedi offerte simili<span></span></button>                    
+                    </a>
+                {% endif %}
+                <div class="imgaff"> <span></span>
+                    <amp-img  alt="logo amazon" height="28" width="76" layout="fixed" src="https://www.acquistigiusti.it/imagesAffiliationsSmall/8/6/0/c/31_.png"></amp-img>
+                </div>
+            </div>
+            <div class="bullets">
+                <ul class="bullet-points">                        
+                    {% for bulletPoint in product.bulletPoints %}
+                        <li>{{ utf8Encode( bulletPoint ) }}</li>
+                        {% endfor %}
+                </ul> 
+            </div>
+        </div>            
+    </div>            
+</div>  

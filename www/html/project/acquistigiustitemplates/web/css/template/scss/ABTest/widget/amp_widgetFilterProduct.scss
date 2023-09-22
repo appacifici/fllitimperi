@@ -1,0 +1,219 @@
+.widget_FilterProductBtn{
+    width: 13%;
+    float: right;
+    margin: 1px 0% 0 0%;
+    background: #fff;
+    height: 36px;
+    .ampOpenImage{
+        margin: 0 4px;
+    }
+}
+.widget_FilterProduct{
+    background: #fff;
+    section {
+        width: 256px;
+        border-bottom: 1px solid #ccc;
+
+    }
+    h2 {
+        margin: 0 0 0 12px;
+        float: left;
+    }
+    .buttonClose{
+        padding: 12px 0px;
+        text-align: center;
+        color: #ff9900;
+        font-weight: 400;
+        font-size: 17px;
+        background: #242f3e;
+        height: 25px;
+        button{
+            width: 12%;
+            float: right;
+            margin: -10px 0px;
+            background: transparent;
+        }
+    }
+    .filterSex {
+        li {
+            float: left;
+        }
+        [data-active="1"] {
+            a {
+                color: #0c6ab5;
+                font-weight: bold;
+                text-decoration: underline;
+            }
+        }
+    }
+    
+    section{
+        h3{
+            padding: 17px 13px 13px 13px;
+            margin-bottom: 0px;
+            font-size: 15px;
+            width: 320px;
+            background: #fff;
+            border: none;
+        }
+        ul{
+            margin: 0;
+            padding: 5px 5px 5px 5px;
+            li{
+                padding:5px;
+                a{
+                    color: #000;
+                }
+
+            }
+        }
+        .boxColor{
+            margin: 0;
+            padding: 5px 5px 5px 10px;
+            li {
+                padding:5px;
+                width: 45%;
+                float: left;
+                margin-top: 0px;
+                span{
+                    color: #000;
+                    margin: 4px 2px;
+                }
+                [data-activeFilter="1"] {
+                    span {
+                        color: #0c6ab5;
+                        font-weight: bold;
+                        text-decoration: underline;
+                    }
+                }
+                .colorFilter{
+                        color: #fff;
+                    float: left;
+                    margin: 0 3px;
+                    width: 70px;
+                    height: 11px;
+                }
+                .colorFilterNero{
+                    background: #000;
+                }
+                .colorFilterMarrone{
+                    background: #6f3e18;
+                }
+                .colorFilterBeige{
+                    background: #d4be8d;
+                }
+                .colorFilterGrigio{
+                    background: #838383;
+                }
+                .colorFilterBianco{
+                    background: #fff;
+                    color: #999;
+                    border: 1px solid #ddd;
+                    
+                }
+                .colorFilterBlu{
+                    background: #0f73ad;
+                }
+                .colorFilterVerde{
+                    background: #5ad36c;
+                }
+                .colorFilterGiallo{
+                    background: #fd3;
+                }
+                .colorFilterArancio{
+                    background: #fb863b;
+                }
+                .colorFilterRosso{
+                    background: #ff0002;
+                }
+                .colorFilterRosa{
+                    background: #f563b9;
+                }
+                .colorFilterViola{
+                    background: #9349aa;
+                }
+                .colorFilterOro{
+                    background: linear-gradient(180deg,#eecd56,#fce2ac);
+                }
+                .colorFilterArgento{
+                    background: linear-gradient(180deg,#b0b0b0,#e0e0e0);
+                }
+                .colorFilterMulti{
+                    position: relative;
+                    overflow: hidden;
+                    background: #fd3;
+                    background-image: linear-gradient(180deg,transparent 50%,#0f73ad 0),linear-gradient(90deg,transparent 50%,#5ad36c 0);
+                }
+            }
+        }
+        .boxSearchName{
+            padding: 5px 8px 8px 10px;
+            margin-top: 5px;
+            margin-bottom: 2px;
+
+            input{
+                width: 71%;
+                border: 1px solid #f4920a;
+                padding: 9px 1% 9px 5%;
+                font-size: 14px;
+
+            }
+
+        }
+        .boxPriceFilter{
+            padding: 0px;
+            margin-top: 5px;
+            margin-bottom: 2px;
+
+            li{
+                padding: 5px 8px 8px 10px;
+                input{
+                    width: 92%;
+                    border: 1px solid #f4920a;
+                    padding: 9px 1% 9px 5%;
+                    font-size: 14px;
+                }
+            }
+        }
+        .boxSizes{
+            margin-top: 5px;
+            li{
+                padding: 5px 1% 0 4px;
+                width: 19%;
+                float: left;
+                margin: 5px 1% 5px 2%;
+                text-align: center;
+                height: 18px;
+                input{
+                    color: #f4920a;
+                    text-align: center;
+                    width: 30%;
+                    height: 20px;
+                    padding: 8px 6px 8px 8px;
+                    margin: -3px 3% 0px 0;
+                    border: 1px solid #e2e0e0;
+                    font-size: 17px;
+                    float: left;
+                }
+                &[data-activeFilter="1"] {
+                    text-decoration: underline;
+                    background: #0c6ab5;
+                    span {
+                        color: #fff;
+                    }
+                }
+                span {
+                    float: left;
+                }
+            }
+        }
+    }
+    button{
+        width: 100%;
+        padding: 10px;
+        background: #f4920a;
+        color: #fff;
+        font-size: 17px;
+        border: none;
+    }
+} 

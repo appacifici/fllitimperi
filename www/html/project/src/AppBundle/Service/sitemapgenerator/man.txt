@@ -1,0 +1,7 @@
+OPZIONI DELLO SCRIPT DI GENERAZIONE DELLE SITEMAP DI GOOGLE
+
+
+opzioni riga di comando:
+
+   -help             visualizza la guida
+   -regenerate       svuota il database sqlite e elimina tutti i file di sitemap, dopodichè rigenera la sitempa da zero

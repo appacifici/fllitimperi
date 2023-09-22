@@ -1,0 +1,293 @@
+<div class="widget_Menu">
+    {#     <div class="user-action pull-left menu-right-hidden-xs menu-left-hidden-xs border-left">
+                 <div class="dropdown username pull-left">
+                         <a class="dropdown-toggle dropdown-hover" data-toggle="dropdown" href="#">
+                                 <span class="media margin-none">
+                                         <span class="pull-left"><img src="../assets/images/people/35/16.jpg" alt="user" class="img-circle"></span>
+                                         <span class="media-body">Benvenuto Utente</span>
+                                 </span>
+                         </a>
+                 </div>
+         </div>#}
+
+
+    <ul class="menu list-unstyled">
+        <li class="usernavitem">
+            <div class="userView ">
+                <img  src="/images/proflebg.png" class="user">
+                <div class="containerUser">
+                    <img src="/images/immagine-minions-10.png" class="circle">
+                    <div class="textName">Benvenuto</div>
+{#                    <div class="textEmail">mikenmw@gmail.com</div>#}
+                </div>
+            </div>
+        </li>
+        <li>
+            <a>
+                <i data-speak="1" class="fa fa-volume-up"></i>
+                <div class="category"> Audio Aiuto</div>
+            </a>
+        </li>
+        <li>
+            <a>                
+                <div style="cursor:pointer;" class=" category" data-rediscliFlushDb> RedisCli/FlushAll</div>
+            </a>
+        </li>
+        <li>
+             
+            <a href="/admin/listRedirects">
+                <i class="fa fa-eur"></i>
+                <div class="category">Redirect</div>
+            </a>
+
+        </li>
+        <li> 
+            <a href="/admin/listFeedsImport">
+                <i class="fa fa-list-alt"></i>
+                <div style="cursor:pointer;" class=" category" data-rediscliFlushDb> Feed Importazioni</div>
+            </a>
+        </li>
+        <li>
+            <a href="/admin/tecnicalTemplate">
+                <i class="fa fa-list-alt"></i>
+                <div style="cursor:pointer;" class=" category" data-rediscliFlushDb> Template Schede T.</div>
+            </a>
+        </li>
+        
+            {% if permission.product is defined and permission.product.read %}
+                <li>
+                    <a href="/admin/bestDiscount">
+                        <i class="fa fa-eur"></i>
+                        <div class="category">Migliori Offerte</div>
+                    </a>
+                </li>       
+            {%endif%}
+{#            {% if permission.product is defined and permission.product.read %}#}
+                <li>
+                    <a href="/admin/listDictionary">
+                        <i class="fa fa-eur"></i>
+                        <div class="category">Dizionario</div>
+                    </a>
+                </li>       
+{#            {%endif%}#}
+            {% if permission.trademark is defined and permission.trademark.read %}
+                <li>
+                    <a href="/admin/topTrademarkSection">
+                        <i class="fa fa-registered"></i>
+                        <div class="category">Top Marchi Sezione</div>
+                    </a>
+                </li>       
+            {%endif%}
+            {% if permission.category is defined and permission.category.read %}
+                <li>
+                    <a href="/admin/categories">
+                        <i class="fa fa-tag"></i>
+                        <div class="category">Categorie</div>
+                    </a>
+                </li>       
+            {%endif%}
+            {% if permission.subcategory is defined and permission.subcategory.read %}
+                <li>
+                    <a href="/admin/subcategories">
+                        <i class="fa fa-tags"></i>
+                        <div class="category">Sottocategorie</div>
+                    </a>
+                </li>
+            {%endif%}
+                {% if permission.affiliation is defined and permission.affiliation.read %}
+                    <li>
+                        <a href="/admin/listAffiliation">
+                            <i class="fa fa-handshake-o"></i>
+                            <div class="category">Affiliazioni</div>
+                        </a>
+                    </li>
+                {%endif%}
+                {% if permission.typology is defined and permission.typology.read %}
+                    <li>
+                        <a href="/admin/listTypology">
+                            <i class="fa fa-hashtag"></i>
+                            <div class="category">Tipologie</div>
+                        </a>
+                    </li>
+                {%endif%}
+                {% if permission.typology is defined and permission.typology.read %}
+                    <li>
+                        <a href="/admin/listMicroSection">
+                            <i class="fa fa-hashtag"></i>
+                            <div class="category">Micro Sezione</div>
+                        </a>
+                    </li>
+                {%endif%}
+                {% if permission.model is defined and permission.model.read %}
+                    <li>
+                        <a href="/admin/listDisabledModel">
+                            <i class="fa fa-cubes"></i>
+                            <div class="category">Modelli Disabilitati</div>
+                        </a>
+                    </li>
+                {%endif%}
+                {% if permission.model is defined and permission.model.read %}
+                    <li>
+                        <a href="/admin/listModel">
+                            <i class="fa fa-cubes"></i>
+                            <div class="category">Modelli</div>
+                        </a>
+                    </li>
+                {%endif%}
+                {% if permission.model is defined and permission.model.read %}
+                    <li>
+                        <a href="/admin/listComparison">
+                            <i class="fa fa-cubes"></i>
+                            <div class="category">Comparazione</div>
+                        </a>
+                    </li>
+                {%endif%}
+                {% if permission.product is defined and permission.product.read %}
+                    <li>
+                        <a href="/admin/listProduct">
+                            <i class="fa fa-product-hunt"></i>
+                            <div class="category">Prodotti</div>
+                        </a>
+                    </li>
+                {%endif%}
+                {% if permission.trademark is defined and permission.trademark.read %}
+                    <li>
+                        <a href="/admin/listTrademark">
+                            <i class="fa fa-trademark"></i>
+                            <div class="category">Marchi</div>
+                        </a>
+                    </li>
+                {%endif%}
+{#                {% if permission.trademark is defined and permission.trademark.read %}#}
+                   {# <li>
+                        <a href="/admin/listSex">
+                            <i class="fa fa-trademark"></i>
+                            <div class="category">Sex</div>
+                        </a>
+                    </li>#}
+{#                {%endif%}#}
+{#                {% if permission.trademark is defined and permission.trademark.read %}#}
+                    {#<li>
+                        <a href="/admin/listSizes">
+                            <i class="fa fa-trademark"></i>
+                            <div class="category">Taglie</div>
+                        </a>
+                    </li>#}
+{#                {%endif%}#}
+{#                {% if permission.trademark is defined and permission.trademark.read %}#}
+                    {#<li>
+                        <a href="/admin/listColors">
+                            <i class="fa fa-trademark"></i>
+                            <div class="category">Color</div>
+                        </a>
+                    </li>#}
+{#                {%endif%}#}
+                {% if permission.subcategory is defined and permission.subcategory.read %}
+                    <li>
+                        <a href="/admin/lookupSubcategories">
+                            <i class="fa fa-tags"></i>
+                            <div class="category">Lookup</div>
+                        </a>
+                    </li>
+                {%endif%}
+            
+{#        {% if permission.article is defined and permission.article.read %}#}
+            <li><a href="/admin/listSearchTerms">
+                    <i class="fa fa-search"></i>
+                    <div class="category"> Search Term</div>
+                </a>
+            </li>
+{#        {%endif%}#}
+        {% if permission.article is defined and permission.article.read %}
+            <li><a href="/admin/listArticles">
+                    <i class="fa fa-list-alt"></i>
+                    <div class="category"> Articoli</div>
+                </a>
+            </li>
+        {%endif%}
+        {% if permission.article is defined and permission.article.read %}
+            <li><a href="/admin/listQuestions">
+                    <i class="fa fa-list-alt"></i>
+                    <div class="category"> Question</div>
+                </a>
+            </li>
+        {%endif%}
+        {% if permission.article is defined and permission.article.read %}
+            <li>
+                <a href="/admin/listPoll">
+                    <i class="fa fa-bar-chart-o"></i>
+                    <div class="category"> Sondaggi</div>
+                </a>
+            </li>
+        {%endif%}
+        {% if permission.banner is defined and permission.banner.read %}
+            <li>
+                <a href="/admin/banners">
+                    <i class="fa fa-money"></i>
+                    <div class="category">Banners</div>
+                </a>
+            </li>   
+        {%endif%}
+        {% if permission.menu is defined and permission.menu.read %}
+            <li>
+                <a href="/admin/manageMenu">
+                    <i class="fa fa-list-ol"></i>
+                    <div class="category">Menu</div>
+                </a>
+            </li>       
+        {%endif%}                        
+        
+        {% if permission.user is defined and permission.user.read %}
+            <li>
+                <a href="/admin/users">
+                    <i class="fa fa-group"></i>
+                    <div class="category"> Utenti</div>
+                </a>
+            </li> 
+        {%endif%}
+        {% if permission.article is defined and permission.article.edit %}
+            <li>
+                <a href="/admin/uploadImages">
+                    <i class="fa fa-camera"></i>
+                    <div class="category">Immagini</div>
+                </a>
+            </li>
+        {%endif%}
+        {% if permission.dinamycPage is defined and  permission.dinamycPage.read %}
+            <li>
+                <a href="/admin/listDinamycPage">
+                    <i class="fa fa-code"></i>
+                    <div class="category">Pagine </div>
+                </a>
+            </li>
+        {%endif%}
+        {% if permission.groupPermission is defined and  permission.groupPermission.read %}
+            <li>
+                <a href="/admin/listGroupPermission">
+                    <i class="fa fa-lock"></i>
+                    <div class="category"> Permessi</div>
+                </a>
+            </li>
+        {%endif%}
+        {% if permission.extraConfig is defined and  permission.extraConfig.read %}
+        <li>
+            <a href="/admin/extraConfigs">
+                 <i class="fa fa-gears"></i>
+                 <div class="category"> Configurazioni</div>
+             </a>
+         </li>
+        {%endif%} 
+        {% if permission.externalUser is defined and  permission.externalUser.read %}
+        <li>
+            <a href="/admin/externalusers">
+                 <i class="fa fa-user"></i>
+                 <div class="category"> Utenti Esterni</div>
+             </a>
+         </li>
+         {%endif%} 
+    </ul>
+</div>    
+{%if fetch_widget_Menu is defined %}
+    {{ fetch_widget_Menu|raw  }}
+{%endif%}
+</div>

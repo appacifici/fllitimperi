@@ -1,0 +1,29 @@
+imports:
+    - { resource: config_dev.yml }
+
+framework:
+    test: ~
+    session:
+        storage_id: session.storage.mock_file
+    profiler:
+        collect: false
+
+web_profiler:
+    toolbar: false
+    intercept_redirects: false
+
+swiftmailer:
+    disable_delivery: true
+
+# This file is auto-generated during the composer install
+parameters:
+#    database_name: offerteprezzi
+#    database_port: 55903
+    
+    app.hostProtocol:            'http'
+    app.wwwProtocol:             '' 
+    app.hostTest:                '%app.hostProtocol%://%app.wwwProtocol%tricchetto.homepc.it'
+     
+#    app.hostProtocol:                   'https'
+#    app.wwwProtocol:                    'www.'
+#    app.hostTest:                       '%app.hostProtocol%://%app.wwwProtocol%offerteprezzi.it' 

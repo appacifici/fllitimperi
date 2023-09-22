@@ -1,0 +1,51 @@
+{%if article is defined %}    
+    {% set day   = article.publishAt.date  | date( "d" ) %}
+    {% set month = article.publishAt.date | date( "F" )  | trans %}
+    {% set year  = article.publishAt.date  | date( "Y" ) %}    
+    <article class="widget-news">        
+            <header>
+                <h1>{{article.contentArticle.title}}</h1>
+                {% if article.id < 48 %} 
+                    <p>
+                        {{article.contentArticle.subHeading}}
+                    </p>
+                {%endif%}
+            </header> 
+            {% include versionSite ~ '/widget_ModelRanking.html.twig' %} 
+                      
+            <div class="body">
+                {% if article.id < 48 and article.priorityImg is not empty %}
+                    <amp-img layout="responsive" width="{{article.priorityImg.widthMedium}}" height="{{article.priorityImg.heightMedium}}"  src="{{article.priorityImg.srcMedium}}" alt="{{article.contentArticle.title}}" ></amp-img>                            
+                {% endif %}                                 
+                {{article.contentArticle.body | raw }}
+                
+                
+            </div>
+            {% include versionSite ~ '/widget_ModelRankingHorizontal.html.twig' %}   
+        {%if aReleated is not empty %}
+                    <div class="box-releated">             
+                        <h2>Potrebbero interessarti:</h2>
+                        <ul class="releatedArticle">
+                            {% for releated in aReleated%}
+                                <li>
+                                    <a href="{{ releated.href}}">{{ releated.title}}</a>
+                                </li>
+                            {%endfor%}                
+                        </ul>            
+    {#                    <div class="date-social">#}
+            {#                <time datetime="{{article.publishAt.date | date('Y-m-d H:s')}}" class="posts__date">{{ day }} {{ month }} {{ year }}</time>        #}
+            {#                <img src="/images/facebook_icon-icons.com_59205.png" alt="Condividi su Facebook" title="Condividi su Facebook" width="32" height="32" data-lgt="{{hideUrlForGoogle( 'https://www.facebook.com/sharer/sharer.php?u='~ articleHref ~ '?shareFb=1' )}}">#}
+            {#                <img src="/images/img.LTE3NTc2ODM1MTc.png" alt="Condividi su Twitter" title="Condividi su Twitter" width="30" height="30">#}
+            {#                <img src="/images/1491580635-yumminkysocialmedia26_83102.png" alt="Condividi su Instagram" title="Condividi su Instagram" width="30" height="30">#}
+    {#                    </div>   #}
+                    </div>
+                {%endif%} 
+       
+    </article>
+{%else%}
+    {% include versionSite ~ '/widget_404NotFound.html.twig' %}        
+{%endif%}
+{%if fetch_widget_DeitalNews is defined %}
+    {{ fetch_widget_DeitalNews |raw  }}
+{%endif%}
+<div class="clearB"></div>

@@ -1,0 +1,88 @@
+
+
+.autosuggest-container {
+    position: relative;
+}
+
+.autosuggest-box {
+    position: absolute;
+    width: 100%;
+    /* make the overlay opaque */
+    background-color: transparent;
+    max-height: 641px;
+}
+
+.select-option.no-outline[selected] {
+    outline: initial;
+}
+
+.hidden {
+    display: none;
+}
+
+.form-item {
+    display: flex;
+    flex-flow: column nowrap;
+    margin-top: 4px;
+}
+
+.form-item label,
+.form-item label input {
+    flex: 1 0 0;
+}
+
+.search-submit, .select-option {
+    font-size: 13px;;
+}
+
+.search-submit {
+    margin: 10px 0;
+    padding: .5em 1em;
+    color: #444;
+    border: 1px solid #999;
+    background-color: #fafafa;
+    text-decoration: none;
+    border-radius: 2px;
+}
+
+
+.autosuggest-box {
+    box-shadow: 0px 2px 6px rgba(0,0,0,.3);
+}
+
+.select-option {
+    box-sizing: border-box;
+    height: 57px;
+    line-height: 19px;
+    padding-left: 10px;
+    clear: both;
+    border-bottom: 1px solid #ccc;
+    padding:3px;
+    a {
+        color: #000;
+    }
+    .minPrice {
+        color:#ff0000;
+    }
+}
+
+.select-option:hover {
+    text-decoration: underline;
+}
+
+.last-name input {
+    border-left: 0;
+}
+
+.select-option.empty {
+    text-align: center;
+}
+.suggest {
+    .photo {
+        float: left;
+    }
+    .infos {
+        float: left;
+        padding:4px 4px 4px 7px;
+    }
+}

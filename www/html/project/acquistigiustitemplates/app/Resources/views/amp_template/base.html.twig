@@ -1,0 +1,175 @@
+<!doctype html>
+{#{% htmlcompress %} #}
+<html AMP lang="it">
+    <head>                     
+{#        <meta name="robots" content="noindex">#}
+        <meta charset="utf-8">                
+        <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=2,initial-scale=1">                
+        {% if robots is defined and robots is not empty %}
+            <meta name="robots" content="{{robots}}"/>
+        {% endif %}
+                        
+        <style amp-custom>
+            {{ aboveTheFoldCss | raw  }} .header .homeLogo { background: none }
+            {% if extraStyle is defined  %}
+                {#.widget-news .ranking .product {
+                    width:{{widthTD}}%;
+                }#}
+                {{extraStyle}}                
+            {%endif%}
+            .widget-news div.Offert .absolute .image figure {
+                max-width: 250px;
+            }
+            @media (max-width: 900px) {
+                    .widget-news .ranking .product div.prices {
+                        height: auto;
+                        padding-bottom: 1px;
+                    }
+                }
+        </style>    
+        <link rel='stylesheet' id='penci_font_slogan-css'  href='https://fonts.googleapis.com/css?family=Raleway%3A100%2C200%2C300%2Cregular%2C500%2C600%2C700%2C800%2C900&#038;ver=1.0' type='text/css' media='all' />
+        <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>        
+        <script async src="https://cdn.ampproject.org/v0.js"></script>       
+        <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+        {% if srcYoutube is defined and srcYoutube is not empty %}
+            <script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script>
+        {%endif%}
+        
+         <title>
+            {%if error404Page is not defined or error404Page is  empty %}
+                {% block title %}
+                    {%if pageTitle is defined%}
+                        {{ adaptFromMeta( pageTitle | raw ) }}
+                    {% endif %}
+                {% endblock %}
+            {%else%}
+                404 Not Found - AcquistiGiusti.it
+            {%endif%}
+        </title>
+
+        {%if error404Page is not defined or error404Page is  empty %}
+            {%if pageDesc is defined%}
+                <meta name="description" content="{{ adaptFromMeta( pageDesc | raw ) }}" />
+            {% endif %}
+            
+            {{ analyticsHead | raw }} 
+            
+            {%if pageTitle is defined%}
+                <meta property="og:title" content="{{pageTitle}}"/>
+            {%endif%}                
+            {%if pageDesc is defined%}
+                <meta property="og:description" content="{{pageDesc}}"/>
+            {%endif%}
+            {%if ogUrl is defined %}
+                <meta property="og:url" content="{{ogUrl}}"/>
+            {%endif%}        
+            {%if ogImage is defined %}
+                <meta property='og:image' content='{{ogImage}}' />
+            {%else%}
+                <meta property="og:image" content="{{ paramsByDomain.logoImg }}"/>
+            {%endif%}
+
+            {% if alternateUrl is defined %}
+                <link rel="alternate" media="only screen and (max-width: 480px)" href="{{ alternateUrl }}" />
+            {% endif %}         
+            {% if canonicalUrl is defined %}
+                <link rel="canonical" href="{{ canonicalUrl }}" />
+            {% endif %}
+
+            {% if prevUrl is defined and prevUrl is not empty %}
+                <link rel="prev" href="{{prevUrl}}" />
+            {% endif %}         
+            {% if nextUrl is defined and nextUrl is not empty %}
+                <link rel="next" href="{{nextUrl}}" />
+            {% endif %} 
+
+            <script type="application/ld+json">
+            {
+                "@context": "http://schema.org",
+                "@type": "Organization",
+                "url": "{{hostProtocol}}://{{wwwProtocol}}{{currentDomain}}",
+                "logo": "{{hostProtocol}}://{{wwwProtocol}}{{currentDomain}}{{ extraConfigs.logoRichSnippet.value }}"
+              }          
+            </script>
+
+             <script type="application/ld+json">
+            {
+                "@context": "http://schema.org",
+                "@type": "WebSite",
+    {#            "name": "{{currentDomain}}",#}
+                "name": "acquistigiusti.it",
+                "alternateName": "acquistigiusti.it",
+                "url": "{{hostProtocol}}://{{wwwProtocol}}{{currentDomain}}"
+            }          
+            </script>
+
+            <script type="application/ld+json">
+                {
+                  "@context": "http://schema.org",
+                  "@type": "Person",
+                  "name": "Acquistigiusti",
+                  "url": "{{hostProtocol}}://{{wwwProtocol}}{{currentDomain}}",
+                  "sameAs": 
+{#                  [#}
+                    "{{ extraConfigs.facebookFollowUs.value }}"
+{#                    "{{ extraConfigs.twitterFollowUs.value }}",#}
+{#                    "{{ extraConfigs.googlePlus.value }}"#}
+{#                  ]#}
+                }
+            </script>
+
+            {%if jsonDataNewsArticleRichSnippet is defined and jsonDataNewsArticleRichSnippet is not empty%}
+                <script type="application/ld+json">
+                    {{jsonDataNewsArticleRichSnippet|raw}}
+                </script>
+            {%endif%}
+            
+            {%if jsonDataGuideRichSnippet is defined and jsonDataGuideRichSnippet is not empty%}
+                <script type="application/ld+json">
+                    {{jsonDataGuideRichSnippet|raw}}
+                </script>
+            {%endif%}
+
+            {%if jsonDataRichSnippetBreadcrumbs is defined and jsonDataRichSnippetBreadcrumbs is not empty%}
+                <script type="application/ld+json">
+                    {{jsonDataRichSnippetBreadcrumbs|raw}}
+                </script>
+            {%endif%}
+
+            {%if jsonDataRichSnippetDetailProduct is defined and jsonDataRichSnippetDetailProduct is not empty%}
+                <script type="application/ld+json">
+                    {{jsonDataRichSnippetDetailProduct|raw}}
+                </script>
+            {%endif%}
+        {%endif%}        
+          
+        <meta name="theme-color" content="#fbfafa">
+        <meta name="google-site-verification" content="{{googleSiteVerification}}" />
+        <meta name="msvalidate.01" content="{{bingSiteVerification}}" />
+        <meta name="format-detection" content = "telephone=no">             
+        <link rel="manifest" href="/manifest.json">      
+        <link rel="shortcut icon" href="{{baseAbsoluteUrl}}/icon/favicon-16x16.png" type="image/x-icon">
+        <link rel="icon" href="{{baseAbsoluteUrl}}/icon/favicon-16x16.png" type="image/x-icon">        
+        <link rel="apple-touch-icon" sizes="57x57" href="{{baseAbsoluteUrl}}/icon/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="{{baseAbsoluteUrl}}/icon/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="{{baseAbsoluteUrl}}/icon/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="{{baseAbsoluteUrl}}/icon/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="{{baseAbsoluteUrl}}/icon/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="{{baseAbsoluteUrl}}/icon/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="{{baseAbsoluteUrl}}/icon/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="{{baseAbsoluteUrl}}/icon/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="{{baseAbsoluteUrl}}/icon/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{baseAbsoluteUrl}}/icon/favicon-16x16.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="{{baseAbsoluteUrl}}/icon/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{baseAbsoluteUrl}}/icon/favicon-32x32.png">        
+        <link rel="icon" type="image/png" sizes="192x192"  href="{{baseAbsoluteUrl}}/icon/android-icon-192x192.png">        
+    </head> 
+    <body>        
+    {{ analyticsBody | raw }}   
+    {% block body %}{%endblock%}                
+    {{ fbPixel | raw }}       
+</body>
+{#   {% endhtmlcompress %}#}
+</html>
+
+

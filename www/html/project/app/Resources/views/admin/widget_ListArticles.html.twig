@@ -1,0 +1,227 @@
+<div class="widget_ListArticles">    
+    <div class="widget listArticleSearch widgetBoxShadow">
+        <div class="widget-body ">
+            <form  class="form-horizontal" action="{{path('adminListArticles')}}" method="GET">
+                <div class="row">
+                    <div class="col-md-2 form-group">
+                        <label class="control-label">Cerca Articolo</label>
+                        <input type="text" class="form-control" name="keyword" value="{%if keyword is defined %}{{keyword}}{%endif%}" />
+                    </div>
+                    <div class="col-md-2  form-group">
+                        <label class="control-label">Seleziona Autore</label>
+                        <select class="selectpicker form-control" name="user" data-style="btn-primary" >
+                            {%if users is defined %}
+                                <option value=""></option>
+                                {%for user in users%}
+                                    <option  {%if user.id == userChoice %} selected="selected" {%endif%}value="{{user.id}}">{{user.name}} {{user.surname}}</option>
+                                {%endfor%}
+                            {%endif%}
+                        </select> 
+                    </div>
+                    <div class="col-md-2  form-group">
+                        <label class="control-label">Stato Articolo</label>
+                        <select class="selectpicker form-control" name="status" data-style="btn-primary" >
+{#                            <option value=""> {{status}}<</option>#}
+                            <option  {%if status is not empty and (  1 == status )  %} selected="selected" {%endif%}value="1">Pubblicato</option>
+                            <option  {%if status is defined and status != 1 and status != 2 and status != '' %} selected="selected" {%endif%}value="0">Disattivo</option>
+                            <option  {%if status is not empty and  2 == status %} selected="selected" {%endif%}value="2">Bozze</option>                                
+                        </select> 
+                    </div>
+                    <div class="clearB"></div>
+                    <div class="col-md-2  form-group">
+                        <label class="control-label">A partire da...</label>
+                        <div class="input-group date datepicker3">
+                            {% set day   = startDate | replace( ' ','-') | date( "d" ) %} 
+                            {% set month = startDate | replace( ' ','-')| date( "m" )  | trans({}, 'messages', 'it') %}
+                            {% set year  = startDate | replace( ' ','-') | date( "Y" ) %}
+                            <input class="form-control" type="text" name="start-date" value="{%if startDate is not null %}{{ day }} {{ month }} {{ year }}{%endif%}"/>
+                            <span class="input-group-addon"><i class="fa  fa-calendar"></i></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2  form-group">
+                        <label class="control-label">Fino a...</label>
+                        <div class="input-group date datepicker3">
+                            {% set day   = endDate | replace( ' ','-') | date( "d" ) %} 
+                            {% set month = endDate | replace( ' ','-')| date( "m" )  | trans({}, 'messages', 'it') %}
+                            {% set year  = endDate | replace( ' ','-') | date( "Y" ) %}
+                            <input class="form-control" type="text" value="{%if endDate is not null %}{{ day }} {{ month }} {{ year }}{%endif%}" name="end-date" />
+                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                        </div>
+                    </div>
+{#                    <div class="clearB"></div>#}
+            {#        <div class="col-md-2  form-group">
+                        <label class="control-label">Seleziona Categoria</label>
+                        <select class="selectpicker form-control" name="status" data-style="btn-primary" >
+                            <option value=""></option>
+                            <option  {%if status is not empty and  1 == status %} selected="selected" {%endif%}value="1">Pubblicato</option>
+                            <option  {%if status is defined and status != 1 and status != 2 and status != '' %} selected="selected" {%endif%}value="0">Disattivo</option>
+                            <option  {%if status is not empty and  2 == status %} selected="selected" {%endif%}value="2">Bozze</option>                                
+                        </select> 
+                    </div>
+
+                    <div class="col-md-2  form-group">
+                        <label class="control-label">Seleziona Sotto Categoria</label>
+                        <select class="selectpicker form-control" name="status" data-style="btn-primary" >
+                            <option value=""></option>
+                            <option  {%if status is not empty and  1 == status %} selected="selected" {%endif%}value="1">Pubblicato</option>
+                            <option  {%if status is defined and status != 1 and status != 2 and status != '' %} selected="selected" {%endif%}value="0">Disattivo</option>
+                            <option  {%if status is not empty and  2 == status %} selected="selected" {%endif%}value="2">Bozze</option>                                
+                        </select> 
+                    </div>#}
+
+
+                    <div class="col-md-2 ">
+                        <div class="reset">
+                            <button class="btn btn-danger btnReset"><div class="fa fa-trash-o"></div></button> 
+                        </div>
+                        <div class="search">
+                            <button type="submit" class="btn btn-primary btn-lg" data-loading-text="Now searching ..." data-toggle="btn-loading"><div class="fa  fa-search"></div></button>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="widgetBoxShadow">
+        <!-- Products table -->
+        <table class="table footable">
+            <thead>
+                <tr>
+                    <th class="center" data-class="expand">Id</th>
+                    <th data-hide="phone,tablet">Foto</th>
+                    <th data-hide="phone,tablet">Autore</th>
+                    <th data-class="expand">Titolo</th>                    
+                        {#                <th>Sottotitolo</th>#}
+                    <th data-hide="phone,tablet">Url</th>
+                    <th  data-hide="phone">Data</th>
+                        {#                    <th style="width: 1%;" class="center">Drag</th>
+                        #}                    <th  data-hide="phone,tablet" class="" style="width: 150px!important;">Azioni</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for article in articles %}
+                    {% if article.contentArticle.title is defined %}
+                        <tr class="selectable articleRow" data-createForm="modifyArticle" data-id="{{article.id}}" data-entity="DataArticle">
+                            <td >              
+                                <span class="badge badge-blu ">{{article.id}}</span>
+                            </td>
+                            <td class="thumbImg" >
+                                {% if article.priorityImg is not empty %}
+                                    <img src="{{article.priorityImg.srcSmall}}">                            
+                                {% endif %} 
+                            </td>
+                            <td class="">       
+                                {%if article.userCreate.id is defined %}
+                                    {{article.userCreate.surname}}</span>
+                                {% endif %}
+                            </td>                    
+                            <td class="important titleArticle ">{{article.contentArticle.title|raw}}</td>                    
+                            {#                <td class="important titleArticle ">{{article.contentArticle.subHeading|raw}}</td>#}
+                            <td data-urlArticle="1" class="important urlArticle positionRelative">
+                                {%set path = generate('detailNews1', {'title': article.contentArticle.urlArticle }) %}                
+                                
+                                {%if path is defined %}
+                                <div class="url">
+                                    {{ path }}                                
+                                </div>
+                                {%endif%}
+                                <div class="copyClipboard"><i class="fa fa-clipboard"></i></div>
+
+                                
+                                <ul class="social-links social-links--btn">
+                                    <li class="social-links__item btn btn-facebook">
+                                        <a href="https://www.facebook.com/sharer/sharer.php?u={{path}}?shareFb={{random(1000)}}" target="_blank" class="social-links__link social-links__link--fb"><i class="fa fa-facebook"></i></a>
+                                    </li>
+                                    <li class="social-links__item btn btn-twitter">
+                                        <a href="https://twitter.com/home?status={{path}}?twitter={{random(1000)}}" target="_blank"  class="social-links__link social-links__link--twitter"><i class="fa fa-twitter"></i></a>
+                                    </li>
+                                    <li class="social-links__item btn btn-zap">
+                                        <a href="whatsapp://send?text={{path}}?whatsapp={{random(1000)}}" target="_blank"  class="social-links__link social-links__link--whatsapp"><i   class="fa fa-whatsapp"></i></i></a>
+                                    </li>
+                                    <li class="social-links__item btn btn-google">                                        
+                                        <a href="https://plus.google.com/share?url={{path}}?googleplus={{random(1000)}}" target="_blank"  class="social-links__link social-links__link--whatsapp"><i   class="fa  fa-google-plus"></i></i></a>
+                                    </li>
+                                </ul>
+                            </td>
+                            <td class="important " >{%if date(article.publishAt) > date() %}<b>Programmato per</b><br> {%endif%}{{article.publishAt | date('d/m/Y') }}<br>{{article.publishAt | date('H:i') }}</td>
+                            <td class="">
+                                <div class="buttonContainer">
+                                    <a href="{{ path('manageArticle') }}/{{article.id}}" class="btn  btn-green" data-toggle="tooltip" data-placement="bottom" title="Modifica l'articolo"><i class="fa fa-pencil" data-editInlineForm="1"></i></a>
+                                        {#                        <a href="{{ path('editBanner', {'id': banner.id}) }}" class="btn btn-sm btn-success"><i class="fa fa-pencil"></i></a>#}
+                                    <button class="btn  btn-blues" data-republish="{{article.id}}" data-toggle="tooltip" data-placement="bottom" {%if date(article.publishAt) > date() %} title="Pubblica l'articolo" {%else%} title="Aggiorna la data dell'articolo"{%endif%}>
+                                        {%if date(article.publishAt) > date()%}
+                                            <i class="fa  fa-clock-o" aria-hidden="true"></i>
+                                        {%else%}
+                                            <i class="fa fa-refresh"></i>
+                                        {%endif%}
+                                    </button>
+                                    <button class="btn btn-red" data-deleteInlineForm="1" data-toggle="tooltip" data-placement="bottom" title="Cancella l'articolo"><i class="fa fa-trash-o"></i></button>
+                                </div>
+                            </td>  
+                        </tr>
+                    {%endif%}
+                {%endfor%}
+
+
+            </tbody>
+        </table>
+    </div>
+    {{pagination | raw}}
+
+    <!-- // Products table END -->
+
+    <!-- Options -->
+    {# <div class="">
+
+             <!-- With selected actions -->
+             <div class="pull-left checkboxs_actions" style="display: none;">
+                     <label>With selected:
+                     <select class="selectpicker margin-none dropup" data-style="btn-default btn-xs">
+                             <option>Action</option>
+                             <option>Action</option>
+                             <option>Action</option>
+                     </select>
+                     </label>
+             </div>
+             <!-- // With selected actions END -->
+
+             <div class="pull-right"><ul class="pagination margin-none">
+             <li class="disabled"><a href="#">&laquo;</a></li>
+             <li class="active"><a href="#">1</a></li>
+             <li><a href="#">2</a></li>
+             <li><a href="#">3</a></li>
+             <li><a href="#">&raquo;</a></li>
+     </ul>
+
+     </div>
+
+             <div class="clearfix"></div>
+             <!-- // Pagination END -->
+
+     </div>#}
+    <!-- // Options END -->
+</div>
+    
+<div class="button-action">
+    <a href="javascript:history.back()"> 
+        <div class="btnGoBack" id="btnGoBack">
+            <i class="fa fa-arrow-circle-o-left"></i>
+        </div>
+    </a>
+    <div class="buttonDefault" onclick="window.location.href = '{{ path('manageArticle') }}';">
+        <div class="add">Crea nuovo articolo</div>
+        <i class=" fa  fa-plus-circle"></i>
+    </div>
+
+    <div id="toTop">
+        <i class="fa fa-arrow-circle-o-left"></i>
+    </div>
+</div> 
+    
+{%if fetch_widget_ListArticles is defined %}
+    {{ fetch_widget_ListArticles|raw  }}
+{%endif%}        

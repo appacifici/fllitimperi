@@ -1,0 +1,27 @@
+parameters:
+    
+    redis_host: 192.168.1.74    
+    redis_sncredis_db_n:                11
+    redis_sncredisDoctrinemetadata:     12
+    redis_sncredisDoctrineResult:       13
+    redis_sncredisDoctrineQueryCache:   14
+    redis_secondLevelCache:             15 
+    redis_sncredisSessionPhp:           16
+    redis_profiler_storage:             17
+    redis_monolog:                      18
+    
+    app.hostImg:  'https://www.acquistigiusti.it'  
+    app.hostImg:  ''   
+    app.compactSite: true
+    app.compactVersion:         '/min'
+           
+    database_name: acquistigiusti
+    database_port: 3306
+    database_host: mysql
+    
+#   SERVE A FORZARE IL SITO PER LAVORARE CON IL DB DI PRODUZIONE ATTENZIONE!!!!
+#   database_host: 95.110.144.92
+#   database_port: 55903
+#   database_name: acquistigiusti
+#   database_user: opal5xuserf9j03j9034fj09
+#   database_password: rxA8Jhydrnu23089ru0fjopiewf4309fj093

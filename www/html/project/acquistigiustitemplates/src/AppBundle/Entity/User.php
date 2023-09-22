@@ -1,0 +1,1 @@
+../../../../src/AppBundle/Entity/Global/User.php

@@ -1,0 +1,70 @@
+{% if permission.article.read %}
+    <div class="widget_ListPoll  widgetBoxShadow">
+        <table class="table footable">
+            <thead>
+                <tr>
+                    <th class="center" data-class="expand">Id</th>
+                    <th data-class="expand">Domanda</th>
+                    <th data-hide="phone,tablet">Risposte</th>
+                    <th data-hide="phone">ArticoloID</th>
+                    <th data-hide="phone">Azioni</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for key, poll in polls %}
+                    {% if poll is defined %}
+                        <tr class="selectable"data-createForm="modifyPoll" data-id="{{key}}" data-entity="Poll">
+                            <td class="center">
+                                <span class="badge badge-blu">{{key}}</span>
+                            </td>
+                            <td  data-modify="input" data-field="question">
+                                {{poll.question}}
+                            </td>
+                            <td data-modify="input" data-field="answer">
+                                {% for answer in poll.answers %}
+                                    {{answer.answer}}
+                                {% endfor %}
+                            </td>
+                            <td>
+
+                                {%if poll.dataArticleId != '0'%} 
+                                    <span class="badge badge-yellow">{{poll.dataArticleId}}</span>
+                                {%endif%}  
+
+                            </td>
+                            <td>         
+                                {% if permission.article.edit %}
+                                    {#                        <a href="{{ path('editPoll', {'id': key}) }}" class="btn btn-sm btn-success"><i class="fa fa-pencil"></i></a>#}
+                                {% endif %}
+                                {% if permission.article.remove %}
+                                    <button href="#" class="btn  btn-red" data-deleteInlineForm="1">
+                                        <i class="fa fa-trash-o"></i>
+                                    </button>
+                                {% endif %}
+                            </td>  
+                        </tr>
+                    {%endif%}
+                {%endfor%}
+            </tbody>
+        </table>
+    </div>
+
+{% endif %}
+{%if fetch_widget_ListPoll is defined %}
+    {{ fetch_widget_ListPoll|raw  }}
+{%endif%}
+<div class="button-action">
+    <a href="javascript:history.back()"> 
+        <div class="btnGoBack" id="btnGoBack">
+            <i class="fa fa-arrow-circle-o-left"></i>
+        </div>
+    </a>
+    <div class="buttonDefault" onclick="window.location.href = '{{ path('editPoll') }}';">
+            <div class="add"> Crea nuovo sondaggio</div>
+            <i class=" fa  fa-plus-circle"></i>
+
+    </div>
+    <div id="toTop">
+        <i class="fa fa-arrow-circle-o-left"><i>
+                </div>
+                </div>

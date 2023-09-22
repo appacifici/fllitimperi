@@ -1,0 +1,50 @@
+<div class="widget_ExtraConfigs" style="padding:10px">
+    <table class="table footable table-bordered table-condensed table-striped table-primary dynamicTable colVis table">
+        <thead>
+            <tr>
+                <th class="" data-hide="phone,tablet">Id</th>
+                <th class=""> </th>
+                <th class=""></th>
+                <th class="" ></th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for extraConfig in extraConfigs %}
+                <tr data-extraConfigId="{{extraConfig.id}}">
+                    <td class="important">
+                        <span class="badge badge-blu">{{extraConfig.id}}</span>
+                    </td>
+                    <td class="important">{{extraConfig.keyName}}</td>
+                    <td class=""><textarea cols="60" rows="1" value="{{extraConfig.value}}">{{extraConfig.value}}</textarea></td>
+                    <td class="">
+                        <div class="buttonContainer">
+                            <button class="btn btn-green extraconfig">
+                                <i class="fa  fa fa-save"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>               
+            {%endfor%}
+        </tbody>
+    </table>    
+</div>
+
+<div class="button-action">
+    <a href="javascript:history.back()"> 
+        <div class="btnGoBack" id="btnGoBack">
+            <i class="fa fa-arrow-circle-o-left"></i>
+        </div>
+    </a>
+    <div class="buttonDefault" onclick="window.location.href = '{{ path('editExtraConfig') }}';">
+        <div class="add">Crea nuova configurazione</div>
+        <i class=" fa  fa-plus-circle"></i>
+    </div>
+
+    <div id="toTop">
+        <i class="fa fa-arrow-circle-o-left"></i>
+    </div>
+</div> 
+    
+{%if fetch_widget_ExtraConfigs is defined %}
+    {{ fetch_widget_ExtraConfigs|raw  }}
+{%endif%}

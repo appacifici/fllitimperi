@@ -1,0 +1,84 @@
+{% form_theme model 'bootstrap_3_horizontal_layout.html.twig'  %}
+
+<div class="widget_EditModel widgetBoxShadow">
+    <div class="formBlock positionRelative" data-divForm="1">
+        {{form_start(model)}}
+        {{ form_widget(model)}}
+        {{ form_end(model) }}
+    </div>
+    <!-- // Options END -->
+</div>
+{%if fetch_widget_EditModel is defined %}
+    {{ fetch_widget_EditModel|raw  }}
+{%endif%}
+
+
+<div class="closeOverlayModelResponse">X</div>
+<div class="overlayModelResponse"></div>
+<div class="button-action">
+    <a href="javascript:history.back()"> 
+        <div class="btnGoBack" id="btnGoBack">
+            <i class="fa fa-arrow-circle-o-left"></i>
+        </div>
+    </a>
+    
+    <div id="toTop">
+        <i class="fa fa-arrow-circle-o-left"></i>
+    </div>
+    <div class="buttonDefault buttonGreen" data-buttonModelProductsIde="{{modelId}}">
+        <div class="add"> Prodotti IDealo</div>
+        <i class="fa fa-newspaper-o" style="font-size: 45px;"></i>
+    </div>    
+    {#<div class="buttonDefault " data-bulletsPagomeno="{{nameUrlPm}}">
+        <div class="add">Bullet Pointes Pagomeno</div>
+        <i class="fa fa-newspaper-o" style="font-size: 45px;"></i>
+    </div>    #}
+    <div class="buttonDefault buttonRed" data-schedaPagomeno="{{nameUrlPm}}" data-modelId="{{modelId}}">
+        <div class="add"> Scheda Tecnica </div>
+        <i class="fa fa-newspaper-o" style="font-size: 45px;"></i>
+    </div>
+    <div class="buttonDefault buttonGreen" data-VideoYouTube="">
+        <div class="add"> 
+            <input onclick="event.stopPropagation();" type="text" id="searchVideoYouTube" placeholder="Ricerca video" value="{{modelName}}" style="background: #f4f4f4;margin: -8px 0 3px 0;color: #000;width: 106%;">
+        </div>
+        <i class="fa fa-file-video-o" style="font-size: 45px;"></i>
+    </div>
+    <div class="buttonDefault buttonRed" id="getImagesFromGoogle" data-modelName="{{modelName}}" data-modelId="{{modelId}}" >
+        <div class="add"> 
+{#            <input onclick="event.stopPropagation();" type="text" id="searchImagesGoogle" placeholder="Ricerca immagine" value="{{modelName}}" style="background: #f4f4f4;margin: -8px 0 3px 0;color: #000;width: 106%;">#}
+        </div>
+        <i class="fa fa-photo" style="font-size: 45px;"></i>
+    </div>
+        <div class="buttonDefault  buttonGreen" data-submit="1">
+        <a>
+            <div type="submit"  class="add">Salva Modello</div>
+            <i class=" fa  fa-save"></i>
+        </a>
+    </div>
+
+    <div class="buttonDefault buttonRed" data-reset="1">
+        <a>
+            <div type="submit"  class="add"> Reset Modello</div>
+            <i class=" fa   fa-eraser"></i>
+        </a>
+    </div>
+    <div class="buttonDefault" onclick="window.location.href = '{{ path('listModel') }}';">
+        <div class="add"> Lista Modelli</div>
+        <i class=" fa    fa-arrow-circle-left"></i>
+    </div>
+        
+    <div class="buttonDefault">
+        <a href="{{urlModel}}" target="_blank">
+            <div class="add"> Anteprima</div>
+            <i class="fa fa-newspaper-o" style="font-size: 45px;"></i>
+        </a>
+    </div>
+    <div class="buttonDefault  buttonGreen" data-insertImagesSelectedGoogle="1" data-modelName="{{modelName}}" data-modelId="{{modelId}}" >
+        <a>
+            <div type="submit"  class="add">Inserisci Immagini</div>
+            <i class=" fa  fa-save"></i>
+        </a>
+    </div>
+    
+</div>
+<iframe class="iFrameUpldImg" name="myIframe"></iframe>

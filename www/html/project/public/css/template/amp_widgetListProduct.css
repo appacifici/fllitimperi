@@ -1,0 +1,49 @@
+.widget_ListProduct {
+  overflow: hidden;
+}
+.widget_ListProduct .productTitle {
+  padding: 15px;
+  background: #fff;
+  border-bottom: 1px solid #ececec;
+  margin: 0 0px;
+}
+.widget_ListProduct h2 {
+  margin: 0;
+  background: #fff;
+  padding: 7px;
+  border-top: 1px solid #2b3139;
+}
+.widget_ListProduct article {
+  width: 49.3333%;
+  float: left;
+  background: #fff;
+  text-align: center;
+  border: 1px solid #2b3139;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  height: 250px;
+}
+.widget_ListProduct article div {
+  height: 170px;
+}
+.widget_ListProduct article header {
+  padding: 0 0%;
+}
+.widget_ListProduct article header a {
+  font-weight: 500;
+  color: #0066c0;
+  text-decoration: none;
+}
+.widget_ListProduct article header a h1 {
+  font-family: "Roboto", sans-serif;
+  font-size: 13px;
+  line-height: 20px;
+  height: 37px;
+  overflow: hidden;
+}
+.widget_ListProduct article header a h3 {
+  font-size: 12px;
+  height: 25px;
+  overflow: hidden;
+  padding: 5px;
+}/*# sourceMappingURL=amp_widgetListProduct.css.map */

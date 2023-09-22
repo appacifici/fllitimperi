@@ -1,0 +1,44 @@
+parameters:
+    
+    redis_host: 192.168.1.74
+    redis_sncredis_db_n:                1
+    redis_sncredisDoctrinemetadata:     2 
+    redis_sncredisDoctrineResult:       3
+    redis_sncredisDoctrineQueryCache:   4
+    redis_secondLevelCache:             5
+    redis_sncredisSessionPhp:           6
+    redis_profiler_storage:             7  
+    redis_monolog:                      8
+    
+    app.cssVersion:             20200721
+    app.jsVersion:              20200721
+    app.toLinksPagination: 99   
+    app.totArticleListCategory: 30
+    app.totProductsList: 18
+    app.totPolls: 10
+    
+    app.maxIdLastDb:                    263060
+    
+    database_name: acquistigiusti
+    database_port: 55903
+    app.enabledHttpCache:       false
+        
+    facebookAppId:                      354876088590324 
+    facebookScope:                      "email, public_profile, user_birthday" 
+    
+    googleApiKey:                      "AIzaSyAfIAJs3i03T4Vyw0KxVktvhDfT8rwskJQ" 
+    googleScopes:                      "https://www.googleapis.com/auth/userinfo.email" 
+    googleClientId:                    "299398455921-4s8a06t99vkvr8bigh903454086j0gch.apps.googleusercontent.com" 
+    
+    #specifica che il tipo di gestione delle sottocategorie o a tags o con relazionni con le categorie
+    admin.subcategoriesType: relationship
+    
+    app.hostImg:            ''
+    
+    app.ttlDetailArticleCache:      3
+    app.ttlCategoriesListCache:     3
+    app.ttlHomaPageCache:           3    
+        
+    app.hostProtocol:                   'https'
+    app.wwwProtocol:                    'www.'
+#    app.hostTest:                       '%app.hostProtocol%://%app.wwwProtocol%offerteprezzi.it'

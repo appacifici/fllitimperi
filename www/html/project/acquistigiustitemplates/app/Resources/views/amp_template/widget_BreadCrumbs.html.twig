@@ -1,0 +1,35 @@
+{%if error404Page is not defined %}
+    <div  class="widget_BreadCrumbs">
+        <ul>
+{#            {% if breadcrumbs|length == 1 %}#}
+                <li>
+                    <a href="/">Home</a>
+                </li>
+{#            {%endif%}#}
+            {%if breadcrumbs is defined %}
+                {% for item in breadcrumbs %}
+                    <li>
+                        {%if item.link is not empty %}
+                            <a href="{{item.url}}">
+                                 {%if item.h1 is defined and item.h1 is not empty %}
+                                    <h1>{{item.name}}</h1>
+                                {% else %}
+                                    {{item.name}}
+                                {%endif%}
+                            </a>
+                        {%else%}
+                            {%if item.h1 is defined and item.h1 is not empty %}
+                                <h1>{{item.name}}</h1>
+                            {% else %}
+                                {{item.name}}
+                            {%endif%}
+                        {%endif%}
+                    </li>
+                {%endfor%}
+            {%endif%}
+        </ul>
+    </div>
+{%endif%}
+{%if fetch_widget_BreadCrumbs is defined %}
+    {{ fetch_widget_BreadCrumbs |raw  }}
+{%endif%}

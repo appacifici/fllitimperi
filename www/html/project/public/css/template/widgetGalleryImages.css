@@ -1,0 +1,106 @@
+.gallery-images {
+  clear: both;
+  border: 1px solid #ddd;
+  text-align: center;
+  overflow: hidden;
+  padding: 15px 0;
+  height: 380px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  box-shadow: 2px 2px 6px 2px #eae8e8;
+}
+.gallery-images .photo-display {
+  /*margin-top: -67px;*/
+  width: 100%;
+  display: none;
+}
+.gallery-images .photo-display:nth-child(1) {
+  display: block;
+}
+.gallery-images .photo-display img {
+  max-height: 346px !important;
+  width: auto !important;
+}
+.gallery-images .photo {
+  float: left;
+  width: 115px;
+  cursor: pointer;
+}
+.gallery-images [data-btn-prev] {
+  height: 35px;
+  background: url(/images/sprite.png) no-repeat -349px -2px #316f8c;
+  width: 35px;
+  position: absolute;
+  left: 0;
+  cursor: pointer;
+}
+.gallery-images [data-btn-prev]:hover {
+  background: url(/images/sprite.png) no-repeat -349px -2px #00BCD4;
+  color: #316f8c;
+}
+.gallery-images [data-btn-next] {
+  height: 35px;
+  background: url(/images/sprite.png) no-repeat -327px -2px #316f8c;
+  width: 35px;
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+}
+.gallery-images [data-btn-next]:hover {
+  background: url(/images/sprite.png) no-repeat -327px -2px #00BCD4;
+  color: #316f8c;
+}
+
+@media (max-width: 1100px) {
+  .gallery-images .photo-display img {
+    max-height: 400px !important;
+  }
+}
+@media (max-width: 800px) {
+  .gallery-images {
+    height: auto;
+  }
+}
+@media (max-width: 500px) {
+  .gallery-images {
+    height: 250px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+  }
+  .gallery-images .photo-display img {
+    height: auto;
+    max-width: 100%;
+    max-height: 250px !important;
+  }
+  .gallery-images [data-btn-next] {
+    height: 28px;
+    background: url(/images/sprite.png) no-repeat -329px -6px #316f8c;
+    width: 26px;
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+    top: 115px;
+  }
+  .gallery-images [data-btn-next]:hover {
+    background: url(/images/sprite.png) no-repeat -329px -6px #00BCD4;
+    color: #316f8c;
+  }
+  .gallery-images [data-btn-prev] {
+    height: 28px;
+    background: url(/images/sprite.png) no-repeat -354px -6px #316f8c;
+    width: 26px;
+    position: absolute;
+    left: 0;
+    cursor: pointer;
+    top: 115px;
+  }
+  .gallery-images [data-btn-prev]:hover {
+    background: url(/images/sprite.png) no-repeat -354px -6px #00BCD4;
+    color: #316f8c;
+  }
+  .widget-model-detail ul.prices {
+    margin: 10px 0;
+  }
+}/*# sourceMappingURL=widgetGalleryImages.css.map */

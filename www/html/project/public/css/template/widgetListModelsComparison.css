@@ -1,0 +1,241 @@
+.listModelsComparison {
+  overflow: hidden;
+  padding: 0 13%;
+  line-height: 30px;
+  border: 1px solid #ddd;
+  padding: 0% 13% 2%;
+  overflow: hidden;
+  background: #e6e6e6;
+  /*section{*/
+  /*    a:nth-child(1) span {
+          float: left;
+          margin: 10px 9% 0 3%;
+      }
+      a:nth-child(2) span {
+          float: left;
+          margin: 10px 0 0 25%;
+      }
+      a:nth-child(3) span {
+          float: right;
+          margin: 10px 20px 0 0;
+      }*/
+}
+.listModelsComparison .labels {
+  float: left;
+  width: 47%;
+  margin-right: 2%;
+  color: #333;
+}
+.listModelsComparison .boxComparison, .listModelsComparison.boxComparison {
+  padding: 0% 0% 2% 0%;
+  border: 1px solid #326e8c;
+  height: 330px;
+  margin: 2% 2% 1.5% 0%;
+  background: #fff;
+  position: relative;
+  width: 47%;
+  float: right;
+  margin-right: 4%;
+}
+.listModelsComparison .boxComparison.topComparison, .listModelsComparison.boxComparison.topComparison {
+  margin-top: 82px;
+  min-height: 312px;
+  height: auto;
+  padding-bottom: 0;
+}
+.listModelsComparison .boxComparison header, .listModelsComparison.boxComparison header {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #326e8c;
+}
+.listModelsComparison .boxComparison header span, .listModelsComparison.boxComparison header span {
+  float: left;
+  width: 33%;
+  text-align: center;
+  /*background: #4CAF50;*/
+}
+.listModelsComparison .boxComparison header span a, .listModelsComparison.boxComparison header span a {
+  color: #FFF;
+  font-weight: bold;
+}
+.listModelsComparison .boxComparison header span:nth-child(1), .listModelsComparison.boxComparison header span:nth-child(1) {
+  width: 33%;
+  text-align: left;
+  padding-left: 1%;
+}
+.listModelsComparison .boxComparison header span:nth-child(2), .listModelsComparison.boxComparison header span:nth-child(2) {
+  width: 33%;
+}
+.listModelsComparison .boxComparison header span:nth-child(3), .listModelsComparison.boxComparison header span:nth-child(3) {
+  width: 32%;
+  text-align: right;
+  padding-right: 1%;
+}
+.listModelsComparison a {
+  color: #216a95;
+}
+.listModelsComparison .label-price {
+  color: #c82700;
+  display: block;
+  font-size: 1.875rem;
+  font-weight: bold;
+  letter-spacing: -0.0625rem;
+  line-height: 1;
+  white-space: nowrap;
+  margin-top: 10px;
+}
+.listModelsComparison .model1, .listModelsComparison .model2 {
+  text-align: center;
+  float: left;
+  width: 42%;
+  margin: 4%;
+}
+.listModelsComparison .model1 figure, .listModelsComparison .model2 figure {
+  height: 165px;
+  position: relative;
+}
+.listModelsComparison .model1 .name, .listModelsComparison .model2 .name {
+  margin: 7px 0;
+  /* overflow: hidden; */
+  line-height: 23px;
+  font-size: 19px;
+  font-weight: 700;
+  overflow: hidden;
+  text-align: center;
+  color: #216a95;
+  height: 44px;
+  border-top: 1px solid #bd4242;
+  padding-top: 20px;
+  display: block;
+  width: 100%;
+}
+.listModelsComparison .boxComparison {
+  float: left;
+  padding: 0% 0% 2% 0%;
+  border: 1px solid #326e8c;
+  width: 47%;
+  height: 330px;
+  margin: 2% 2% 1.5% 0%;
+  background: #fff;
+  position: relative;
+}
+.listModelsComparison .vs {
+  text-align: center;
+  background: #bd4242;
+  width: 6%;
+  margin: 191px auto 0;
+  color: #fff;
+  padding: 12px 1.5%;
+  border-radius: 0;
+  font-weight: bold;
+  float: left;
+  height: 25px;
+  position: absolute;
+  left: 45%;
+}
+.listModelsComparison .sep {
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 35px;
+  padding-bottom: 35px;
+}
+.listModelsComparison .bullet-points {
+  font-size: 14px;
+  text-transform: capitalize;
+  color: #333;
+  padding: 0;
+  clear: both;
+}
+.listModelsComparison .bullet-points li {
+  margin: 10px 0;
+  border: 1px solid #326e8c;
+  color: #326e8c;
+  font-weight: 500;
+}
+
+@media (max-width: 1480px) {
+  .listModelsComparison {
+    overflow: hidden;
+    padding: 0 13%;
+    line-height: 30px;
+    border: 1px solid #ddd;
+    padding: 0% 4% 2%;
+  }
+  .listModelsComparison .model1 .name, .listModelsComparison .model2 .name {
+    font-size: 18px;
+  }
+}
+@media (max-width: 1080px) {
+  .listModelsComparison .boxComparison {
+    height: 355px;
+  }
+  .listModelsComparison .labels, .listModelsComparison .boxComparison {
+    float: none;
+    width: 100%;
+  }
+}
+@media (max-width: 1080px) {
+  .listModelsComparison .boxComparison {
+    height: 375px;
+  }
+}
+@media (max-width: 425px) {
+  .listModelsComparison .vs {
+    margin: 173px auto 0;
+    font-size: 12px;
+  }
+  h1 {
+    margin: 5px 0;
+  }
+  p {
+    line-height: 23px;
+  }
+  .listModelsComparison .model1 figure, .listModelsComparison .model2 figure {
+    height: 165px;
+  }
+  .listModelsComparison .model1 figure img, .listModelsComparison .model2 figure img {
+    max-width: 95%;
+  }
+  .listModelsComparison .boxComparison header span a, .listModelsComparison.boxComparison header span a {
+    font-size: 13px;
+  }
+  .listModelsComparison .model1 .name, .listModelsComparison .model2 .name {
+    font-size: 17px;
+    width: 89%;
+    padding: 4%;
+  }
+  .listModelsComparison .bullet-points {
+    font-size: 13px;
+  }
+  .listModelsComparison .label-price {
+    font-size: 23px;
+  }
+  .listModelsComparison .boxComparison header span {
+    width: auto !important;
+    text-align: left !important;
+    padding-left: 3% !important;
+    margin-right: 0% !important;
+    display: inline-block !important;
+    float: none;
+  }
+  .listModelsComparison .boxComparison {
+    height: auto;
+    overflow: hidden;
+    margin-bottom: 15px;
+  }
+  .listModelsComparison .boxComparison.topComparison, .listModelsComparison.boxComparison.topComparison {
+    margin-top: 10px;
+  }
+  .listModelsComparison .model1, .listModelsComparison .model2 {
+    text-align: center;
+    float: left;
+    width: 46%;
+    margin: 4% 2%;
+  }
+}
+@media (max-width: 325px) {
+  .listModelsComparison .boxComparison header span {
+    margin-right: 1% !important;
+    padding-left: 1% !important;
+  }
+}/*# sourceMappingURL=widgetListModelsComparison.css.map */

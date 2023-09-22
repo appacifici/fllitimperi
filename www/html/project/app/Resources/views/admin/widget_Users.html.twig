@@ -1,0 +1,105 @@
+<div class="widget_Users widgetBoxShadow">
+    <!-- Total products & Sort by options -->
+    {# <div class="form-inline">
+             <span class="pull-right">
+                     <label class="strong innerLR">Sort by:</label>
+                     <select class="selectpicker margin-none" data-style="btn-default btn-sm">
+                             <option>Option</option>
+                             <option>Option</option>
+                             <option>Option</option>
+                     </select>
+             </span>
+             <div class="clearfix"></div>
+     </div>#}
+    <!-- // Total products & Sort by options END -->
+
+    <!-- Products table -->
+    <table class="table footable table-bordered table-condensed table-striped table-primary colVis table">
+        <thead>
+            <tr>
+                 <th class="center" data-hide="phone">Id</th>
+                <th data-class="expand">Nome</th>
+                <th data-class="expand">Cognome</th>
+                <th data-hide="phone,tablet">Username</th>
+                <th data-hide="phone,tablet">Ruolo</th>
+                <th data-hide="phone,tablet">Email</th>
+                    {#                    <th style="width: 1%;" class="center">Drag</th>
+                    #}                    <th data-hide="phone">Azioni</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for user in users %}
+                {% if user.role.id != 1 %}
+                    <tr class="selectable" data-createForm="modifyUser" data-id="{{user.id}}" data-entity="User">
+                        <td class="important center"><span class="badge badge-blu">{{user.id}}</span></td>
+                        <td class="important" data-modify="input"  data-field="name" data-user="{{user.id}}">{{user.name}}</td>
+                        <td class="important" data-modify="input" data-field="surname"> {{user.surname}}</td>
+                        <td class="important" data-modify="input" data-field="username">{{user.username}}</td>
+
+                        <td  data-modify="select" data-field="role" data-value="{{user.role.id}}" data-store="{{rolesJson}}">{{roles[user.role.id].name}}</td>
+                        <td class="important">{{user.email}}</td>
+                        <td>
+                            <a href="{{ path('editUser', {'id': user.id}) }}" class="btn btn-green"><i class="fa fa-pencil"></i></a>                        
+                            <button class="btn btn-red" data-deleteInlineForm="1">
+                                <i class="fa fa-trash-o"></i>
+                            </button>
+                        </td>  
+                    </tr>
+                {%endif%}
+            {%endfor%}
+        </tbody>
+    </table>
+    <!-- // Products table END -->
+
+    <!-- Options -->
+    {# <div class="">
+
+             <!-- With selected actions -->
+             <div class="pull-left checkboxs_actions" style="display: none;">
+                     <label>With selected:
+                     <select class="selectpicker margin-none dropup" data-style="btn-default btn-xs">
+                             <option>Action</option>
+                             <option>Action</option>
+                             <option>Action</option>
+                     </select>
+                     </label>
+             </div>
+             <!-- // With selected actions END -->
+
+             <div class="pull-right"><ul class="pagination margin-none">
+             <li class="disabled"><a href="#">&laquo;</a></li>
+             <li class="active"><a href="#">1</a></li>
+             <li><a href="#">2</a></li>
+             <li><a href="#">3</a></li>
+             <li><a href="#">&raquo;</a></li>
+     </ul>
+
+     </div>
+
+             <div class="clearfix"></div>
+             <!-- // Pagination END -->
+
+     </div>#}
+    <!-- // Options END -->
+
+
+    {%if fetch_widget_Users is defined %}
+        {{ fetch_widget_Users|raw  }}
+    {%endif%}
+</div>
+<div class="button-action">
+    <a href="javascript:history.back()"> 
+        <div class="btnGoBack" id="btnGoBack">
+            <i class="fa fa-arrow-circle-o-left"></i>
+        </div>
+    </a>
+    <div class="buttonDefault " data-submit="1">
+        <a href="{{ path('editUser') }}">
+            <div class="add">Crea Nuovo Utente</div>
+            <i class=" fa   fa fa-plus-circle"></i>
+        </a>
+    </div>
+    <div id="toTop">
+        <i class="fa fa-arrow-circle-o-left"></i>
+    </div>
+</div>

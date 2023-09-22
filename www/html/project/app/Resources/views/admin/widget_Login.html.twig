@@ -1,0 +1,34 @@
+<div class="widget_Login">
+    <div class="layout-app col-fs">
+	<div class="row row-app">
+            <div class="col-md-12">
+                <div class="col-separator col-separator-first box col-unscrollable col-fs">
+                    <div class="col-table">
+                        <div class="col-table-row">
+                            <div class="col-app col-unscrollable tab-content">
+                                <div class="col-app lock-wrapper lock-bg-1 tab-pane active animated fadeIn" id="lock-1-1">
+                                    <div class="lock-container">
+                                        <div class="innerAll text-center">
+                                            <form id="formLogin" onSubmit="return false;">
+                                                <img src="/images/minions_2015siblogga.jpg" style="width:350px;border-radius: 0;" class="img-circle">
+                                                <div class="innerLR">
+                                                        <input name="username" class="form-control text-center bg-gray" type="text" placeholder="Username">
+                                                        <input name="password" class="form-control text-center bg-gray" type="password" placeholder="Password">
+                                                </div>
+                                                <div class="innerT">
+                                                    <button class="buttonDefault buttonGreen">Login<i class="fa fa-fw fa-unlock-alt"></i></button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>	
+                </div>
+            </div>
+	</div>
+    {%if fetch_widget_Login is defined %}
+        {{ fetch_widget_Login|raw  }}
+    {%endif%}
+</div>

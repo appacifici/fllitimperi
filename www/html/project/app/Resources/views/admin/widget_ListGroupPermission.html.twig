@@ -1,0 +1,321 @@
+{% if permission.groupPermission.read %}
+<div class="widget_ListGroupPermission widgetBoxShadow" >
+            <!-- Total products & Sort by options -->
+           {# <div class="form-inline">
+                    <span class="pull-right">
+                            <label class="strong innerLR">Sort by:</label>
+                            <select class="selectpicker margin-none" data-style="btn-default btn-sm">
+                                    <option>Option</option>
+                                    <option>Option</option>
+                                    <option>Option</option>
+                            </select>
+                    </span>
+                    <div class="clearfix"></div>
+            </div>#}
+            <!-- // Total products & Sort by options END -->
+
+ 
+       
+
+            <table class="table footable table-bordered table-condensed table-striped table-primary table-vertical-center checkboxs js-table-sortable">
+                <thead>
+                    <tr>
+                        <th class="center" data-hide="phone">Id</th>
+                        <th data-class="expand" class="center">Nome</th>
+                        <th data-hide="phone,tablet" >Articoli</th>
+                        <th data-hide="phone,tablet" > Banner</th>
+                        <th data-hide="phone,tablet" > Menu</th>
+                        <th data-hide="phone,tablet" > Categorie</th>
+                        <th data-hide="phone,tablet"> Sottocategorie</th>
+                        <th data-hide="phone,tablet"> Utenti</th>
+                        <th data-hide="phone,tablet">Pagine Dinamiche</th>
+                        <th data-hide="phone,tablet"> Gruppi</th>
+                        <th data-hide="phone,tablet"> ExtraConfig</th>
+                        <th data-hide="phone,tablet"> Utenti Esterni</th>
+    {#                    <th style="width: 1%;" class="center">Drag</th>
+    #}                    <th data-hide="phone">Azioni</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for group in groups %}
+                    {% if group is defined %}
+                    <tr class="selectable"data-createForm="modifyBanner" data-entity="Group" data-id="{{group.id}}">
+                        <td class="important center" >
+                            <span class="badge badge-blu">{{group.id}}</span>
+                        </td>
+                        <td class="important center" data-modify="input" data-field="name">
+                            {{group.name}}
+                        </td>
+                        <td class="important center" data-modify="input" data-field="listArticle">
+                            <div>
+                                {% if group.article.read %}
+                                    <span class="badge badge-green"><i class="fa fa-book"></i></div>
+                                {% else %}
+                                    <span class="badge badge-red"><i class="fa fa-book"></i></div>
+                                {% endif %}
+                            </div>
+                            <div>
+                                {% if group.article.edit %}
+                                    <span class="badge badge-green"><i class="fa fa-pencil"></i></div>
+                                {% else %}
+                                    <span class="badge badge-red"><i class="fa fa-pencil"></i></div>
+                                {% endif %}
+                            </div>
+                            <div>
+                                {% if group.article.remove %}
+                                    <span class="badge badge-green"><i class="fa fa-trash-o"></i></div>
+                                {% else %}
+                                    <span class="badge badge-red"><i class="fa fa-trash-o"></i></div>
+                                {% endif %}
+                            </div>
+                        </td>
+                        <td class="important center" data-modify="input" data-field="listBanner">
+                            <div>
+                                {% if group.banner.read %}
+                                    <span class="badge badge-green"><i class="fa fa-book"></i></div>
+                                {% else %}
+                                    <span class="badge badge-red"><i class="fa fa-book"></i></div>
+                                {% endif %}
+                            </div>
+                            <div>
+                                {% if group.banner.edit %}
+                                    <span class="badge badge-green"><i class="fa fa-pencil"></i></div>
+                                {% else %}
+                                    <span class="badge badge-red"><i class="fa fa-pencil"></i></div>
+                                {% endif %}
+                            </div>
+                            <div>
+                                {% if group.banner.remove %}
+                                    <span class="badge badge-green"><i class="fa fa-trash-o"></i></div>
+                                {% else %}
+                                    <span class="badge badge-red"><i class="fa fa-trash-o"></i></div>
+                                {% endif %}
+                            </div>
+                        </td>
+                        <td class="important center" data-modify="input" data-field="listMenu">
+                            <div>
+                                {% if group.menu.read %}
+                                    <span class="badge badge-green"><i class="fa fa-book"></i></div>
+                                {% else %}
+                                    <span class="badge badge-red"><i class="fa fa-book"></i></div>
+                                {% endif %}
+                            </div>
+                            <div>
+                                {% if group.menu.edit %}
+                                    <span class="badge badge-green"><i class="fa fa-pencil"></i></div>
+                                {% else %}
+                                    <span class="badge badge-red"><i class="fa fa-pencil"></i></div>
+                                {% endif %}
+                            </div>
+                            <div>
+                                {% if group.menu.remove %}
+                                    <span class="badge badge-green"><i class="fa fa-trash-o"></i></div>
+                                {% else %}
+                                    <span class="badge badge-red"><i class="fa fa-trash-o"></i></div>
+                                {% endif %}
+                            </div>
+                        </td>
+                        <td class="important center" data-modify="input" data-field="listCategory">
+                            <div>
+                                {% if group.category.read %}
+                                    <span class="badge badge-green"><i class="fa fa-book"></i></div>
+                                {% else %}
+                                    <span class="badge badge-red"><i class="fa fa-book"></i></div>
+                                {% endif %}
+                            </div>
+                            <div>
+                                {% if group.category.edit %}
+                                    <span class="badge badge-green"><i class="fa fa-pencil"></i></div>
+                                {% else %}
+                                    <span class="badge badge-red"><i class="fa fa-pencil"></i></div>
+                                {% endif %}
+                            </div>
+                            <div>
+                                {% if group.category.remove %}
+                                    <span class="badge badge-green"><i class="fa fa-trash-o"></i></div>
+                                {% else %}
+                                    <span class="badge badge-red"><i class="fa fa-trash-o"></i></div>
+                                {% endif %}
+                            </div>
+                        </td>
+                        <td class="important center" data-modify="input" data-field="listSubcategory">
+                            <div>
+                                {% if group.subcategory.read %}
+                                    <span class="badge badge-green"><i class="fa fa-book"></i></div>
+                                {% else %}
+                                    <span class="badge badge-red"><i class="fa fa-book"></i></div>
+                                {% endif %}
+                            </div>
+                            <div>
+                                {% if group.subcategory.edit %}
+                                    <span class="badge badge-green"><i class="fa fa-pencil"></i></div>
+                                {% else %}
+                                    <span class="badge badge-red"><i class="fa fa-pencil"></i></div>
+                                {% endif %}
+                            </div>
+                            <div>
+                                {% if group.subcategory.remove %}
+                                    <span class="badge badge-green"><i class="fa fa-trash-o"></i></div>
+                                {% else %}
+                                    <span class="badge badge-red"><i class="fa fa-trash-o"></i></div>
+                                {% endif %}
+                            </div>
+                        </td>
+                        <td class="important center" data-modify="input" data-field="listUser">
+                            <div>
+                                {% if group.user.read %}
+                                    <span class="badge badge-green"><i class="fa fa-book"></i></div>
+                                {% else %}
+                                    <span class="badge badge-red"><i class="fa fa-book"></i></div>
+                                {% endif %}
+                            </div>
+                            <div>
+                                {% if group.user.edit %}
+                                    <span class="badge badge-green"><i class="fa fa-pencil"></i></div>
+                                {% else %}
+                                    <span class="badge badge-red"><i class="fa fa-pencil"></i></div>
+                                {% endif %}
+                            </div>
+                            <div>
+                                {% if group.user.remove %}
+                                    <span class="badge badge-green"><i class="fa fa-trash-o"></i></div>
+                                {% else %}
+                                    <span class="badge badge-red"><i class="fa fa-trash-o"></i></div>
+                                {% endif %}
+                            </div>
+                        </td>
+                        <td class="important center" data-modify="input" data-field="listDinamycPage">
+                            <div>
+                                {% if group.dinamycPage.read %}
+                                    <span class="badge badge-green"><i class="fa fa-book"></i></div>
+                                {% else %}
+                                    <span class="badge badge-red"><i class="fa fa-book"></i></div>
+                                {% endif %}
+                            </div>
+                            <div>
+                                {% if group.dinamycPage.edit %}
+                                    <span class="badge badge-green"><i class="fa fa-pencil"></i></div>
+                                {% else %}
+                                    <span class="badge badge-red"><i class="fa fa-pencil"></i></div>
+                                {% endif %}
+                            </div>
+                            <div>
+                                {% if group.dinamycPage.remove %}
+                                    <span class="badge badge-green"><i class="fa fa-trash-o"></i></div>
+                                {% else %}
+                                    <span class="badge badge-red"><i class="fa fa-trash-o"></i></div>
+                                {% endif %}
+                            </div>
+                        </td>
+                        <td class="important center" data-modify="input" data-field="listGroup">
+                            <div>
+                                {% if group.groupPermission.read %}
+                                    <span class="badge badge-green"><i class="fa fa-book"></i></div>
+                                {% else %}
+                                    <span class="badge badge-red"><i class="fa fa-book"></i></div>
+                                {% endif %}
+                            </div>
+                            <div>
+                                {% if group.groupPermission.edit %}
+                                    <span class="badge badge-green"><i class="fa fa-pencil"></i></div>
+                                {% else %}
+                                    <span class="badge badge-red"><i class="fa fa-pencil"></i></div>
+                                {% endif %}
+                            </div>
+                            <div>
+                                {% if group.groupPermission.remove %}
+                                    <span class="badge badge-green"><i class="fa fa-trash-o"></i></div>
+                                {% else %}
+                                    <span class="badge badge-red"><i class="fa fa-trash-o"></i></div>
+                                {% endif %}
+                            </div>
+                        </td>
+                        <td class="important center" data-modify="input" data-field="listGroup">
+                            <div>
+                                {% if group.extraConfig.read %}
+                                    <span class="badge badge-green"><i class="fa fa-book"></i></div>
+                                {% else %}
+                                    <span class="badge badge-red"><i class="fa fa-book"></i></div>
+                                {% endif %}
+                            </div>
+                            <div>
+                                {% if group.extraConfig.edit %}
+                                    <span class="badge badge-green"><i class="fa fa-pencil"></i></div>
+                                {% else %}
+                                    <span class="badge badge-red"><i class="fa fa-pencil"></i></div>
+                                {% endif %}
+                            </div>
+                            <div>
+                                {% if group.extraConfig.remove %}
+                                    <span class="badge badge-green"><i class="fa fa-trash-o"></i></div>
+                                {% else %}
+                                    <span class="badge badge-red"><i class="fa fa-trash-o"></i></div>
+                                {% endif %}
+                            </div>
+                        </td>
+                        <td class="important center" data-modify="input" data-field="listGroup">
+                            <div>
+                                {% if group.externalUser.read %}
+                                    <span class="badge badge-green"><i class="fa fa-book"></i></div>
+                                {% else %}
+                                    <span class="badge badge-red"><i class="fa fa-book"></i></div>
+                                {% endif %}
+                            </div>
+                            <div>
+                                {% if group.externalUser.edit %}
+                                    <span class="badge badge-green"><i class="fa fa-pencil"></i></div>
+                                {% else %}
+                                    <span class="badge badge-red"><i class="fa fa-pencil"></i></div>
+                                {% endif %}
+                            </div>
+                            <div>
+                                {% if group.externalUser.remove %}
+                                    <span class="badge badge-green"><i class="fa fa-trash-o"></i></div>
+                                {% else %}
+                                    <span class="badge badge-red"><i class="fa fa-trash-o"></i></div>
+                                {% endif %}
+                            </div>
+                        </td>
+                        
+                        <td class="important center" >                         
+                            {% if permission.groupPermission.edit %}
+                            <a href="{{ path('editGroup', {'id': group.id}) }}" class="btn btn-green"><i class="fa fa-pencil"></i></a>
+                            {% endif %}
+                            {% if permission.groupPermission.remove %}
+                            <button href="#" class="btn  btn-red" data-deleteInlineForm="1">
+                                <i class="fa fa-trash-o"></i>
+                            </button>
+                              
+                            {% endif %}
+                            
+                        </td>  
+                    </tr>
+                    {%endif%}
+                    {%endfor%}
+                </tbody>
+            </table>
+            <!-- // Products table END -->
+    <!-- // Options END -->
+        {%if fetch_widget_ListGrouppermission is defined %}
+            {{ fetch_widget_ListGrouppermission|raw  }}
+        {%endif%}
+    </div>
+    {% endif %}
+<div class="button-action">
+       <a href="javascript:history.back()"> 
+        <div class="btnGoBack" id="btnGoBack">
+            <i class="fa fa-arrow-circle-o-left"></i>
+        </div>
+    </a>
+
+{#            <a href="{{ path('editGroupPermission') }}" class="btn btn-sm btn-success pull-right buttonCreateNewItem"><span class="glyphicon glyphicon-plus" style="padding:10px"></span>Crea nuovo gruppo</a>#}
+   {% if permission.groupPermission is not defined or  permission.groupPermission.edit %}
+       <div class="buttonDefault  buttonGreen"  onclick="window.location.href = '{{ path('editGroup') }}';">
+           <div type="submit"  class="add">Crea Nuovo Gruppo</div>
+           <i class=" fa  fa-save"></i>
+       </div>                
+   {%endif%} 
+    <div id="toTop">
+        <i class="fa fa-arrow-circle-o-left"></i>
+    </div>
+</div>

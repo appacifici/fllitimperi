@@ -1,0 +1,110 @@
+{% if permission.subcategory.read %}
+    <div class="widget_LookupSubcategories ">
+        <div class="widgetBoxShadow">
+            <div class="form">
+                <form action="/admin/lookupSubcategories" class="form-horizontal">
+                    <div class="col-md-2 form-group">
+                        <label class="control-label active colorLabelFormForce" style="display: inline-block;">
+                            Affiliazione 
+
+                        </label>
+                        <select class="selectpicker form-control" select name="affiliationId" data-style="btn-primary">
+                            {% for allAffiliation in allAffiliations %}
+                                <option {% if app.request.query.get("affiliationId") == allAffiliation.id %}selected="selected"{%endif%} value="{{ allAffiliation.id }}">{{ allAffiliation.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-2 form-group">
+                        <label class="control-label active colorLabelFormForce" style="display: inline-block;">
+                            Stato
+                        </label>
+                        <select class="selectpicker form-control" select name="isActive" data-style="btn-primary">
+                            <option value="">Scegli Stato</option>                
+                            <option {% if app.request.query.get("isActive") == 0 %}selected="selected"{%endif%} value="0">Disattivo</option>                
+                            <option {% if app.request.query.get("isActive") == 1 %}selected="selected"{%endif%} value="1">Attivo</option>
+                            <option {% if app.request.query.get("isActive") == 2 %}selected="selected"{%endif%} value="2">Spento</option>
+                            <option {% if app.request.query.get("isActive") == 3 %}selected="selected"{%endif%} value="3">Dubbio</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2 form-group">
+                        <label class="control-label active colorLabelFormForce" style="display: inline-block;">
+                            LIMITE
+                        </label>
+                        <select class="selectpicker form-control" select name="limit" data-style="btn-primary">
+                            <option value="">Scegli Limite</option>                
+                            <option {% if app.request.query.get("isActive") == "0,100" %}selected="selected"{%endif%} value="0,100">0,100</option>                
+                            <option {% if app.request.query.get("isActive") == "0,100" %}selected="selected"{%endif%} value="100,100">100,100</option>
+                            <option {% if app.request.query.get("isActive") == "0,100" %}selected="selected"{%endif%} value="200,100">200,100</option>
+                            <option {% if app.request.query.get("isActive") == "0,100" %}selected="selected"{%endif%} value="300,100">300,100</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg" data-loading-text="Now searching ..." data-toggle="btn-loading"><div class="fa fa-search"></div></button>
+                </form>
+            </div>
+        </div>
+        <div class="widgetBoxShadow">
+            <div class="subcategories">
+                {% if aSubcatAff is defined %}
+                    {% for subcatAff in aSubcatAff %}
+                        <div class="item form-group" data-affiliationId="{{app.request.query.get("affiliationId")}}"  data-idSubcatAff="{{ subcatAff.subcatAffId }}">
+                            <div class="name">
+                                {{ subcatAff.subcatAffId }} - {%if subcatAff.label is not empty %}{{subcatAff.label}}{%else%}{{subcatAff.subcatName}}{%endif%}
+                            </div>
+                            <select class="categoriesSelect selectpicker form-control"  id="form_category" data-childrens='{"subcategory_{{ subcatAff.subcatAffId }}":{"entity":"subcategory","find":"findSubcategoriesByCategory"}}'>
+                                <option value="0">Scegli Categoria</option>
+                                {% for category in allCategories %}
+                                    <option {%if aItemActive[subcatAff.subcatAffId] is defined and aItemActive[subcatAff.subcatAffId].catId == category.id %}selected="selected"{%endif%} value="{{ category.id }}">{{ category.name }}</option>
+                                {% endfor %}
+                            </select>  
+                            <select class="subcategoriesSelect selectpicker form-control" id="form_subcategory_{{ subcatAff.subcatAffId }}" data-childrens='{"typology_{{ subcatAff.subcatAffId }}":{"entity":"typology","find":"findTypologiesBySubcategory"}}'>
+                                <option value="0">---</option>                                
+                                {% for subcategory in allSubcategories %}
+                                    <option {%if aItemActive[subcatAff.subcatAffId] is defined and aItemActive[subcatAff.subcatAffId].subcatId == subcategory.id %}selected="selected"{%endif%} value="{{ subcategory.id }}">{{ subcategory.name }}</option>
+                                {% endfor %}
+                            </select> 
+                            <select class="typologiesSelect selectpicker form-control" id="form_typology_{{ subcatAff.subcatAffId }}" data-childrens='{"microSection_{{ subcatAff.subcatAffId }}":{"entity":"microSection","find":"findMicroSectionsByTypology"}}'>
+                                <option value="0">---</option>                                
+                                {% for typology in allTypologies %}
+                                    <option {%if aItemActive[subcatAff.subcatAffId] is defined and aItemActive[subcatAff.subcatAffId].typologyId == typology.id %}selected="selected"{%endif%} value="{{ typology.id }}">{{ typology.name }}</option>
+                                {% endfor %}
+                            </select> 
+                            <select class="microSectionsSelect selectpicker form-control" id="form_microSection_{{ subcatAff.subcatAffId }}" >
+                                <option value="0">---</option>                                
+                                {% for microSection in allMicroSections %}
+                                    <option {%if aItemActive[subcatAff.subcatAffId] is defined and aItemActive[subcatAff.subcatAffId].microSectionId == microSection.id %}selected="selected"{%endif%} value="{{ microSection.id }}">{{ microSection.name }}</option>
+                                {% endfor %}
+                            </select>                             
+                            <div data-loockupBtn class="loockupBtn">Associa</div>
+                            <div data-offLoockupBtn="{{ subcatAff.subcatAffId }}" class="offLoockupBtn">Spengi</div>
+                            <div data-dubbioBtn="{{ subcatAff.subcatAffId }}" class="dubbioProductBtn">Dubbio</div>
+                            <div data-viewProductBtn="{{ subcatAff.subcatAffId }}" class="viewProductBtn">Vedi Prodotti</div>
+                            <div class="clearB"></div>
+                            <div data-screenProduct class="screenProduct"></div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+                    
+{% endif %}
+
+{%if fetch_widget_LookupSubcategories is defined %}
+    {{ fetch_widget_LookupSubcategories|raw  }} 
+{%endif%}
+
+
+<div class="button-action">
+    <a href="javascript:history.back()"> 
+        <div class="btnGoBack" id="btnGoBack">
+            <i class="fa fa-arrow-circle-o-left"></i>
+        </div>
+    </a>
+    <div class="buttonDefault" onclick="window.location.href = '{{ path('loockupSubcategories') }}';">
+        <div class="add">Crea nuova Affiliazione</div>
+        <i class=" fa  fa-plus-circle"></i>
+    </div>
+    <div id="toTop">
+        <i class="fa fa-arrow-circle-o-left"></i>
+    </div>
+</div>

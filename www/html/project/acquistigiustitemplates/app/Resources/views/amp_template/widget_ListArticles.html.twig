@@ -1,0 +1,67 @@
+{% if megazineHome is not empty %}
+    <nav class="widget_ListMicroSection">
+        <div class="micro-section-header">    
+            {% if label.img is defined %}
+                <img class="labelImg" src="{{label.img}}" title="{{label.name}}">
+            {% endif %}
+            <h1>{{label.name}}</h1>
+            <h2>{{label.description}}</h2>
+        </div>
+        {% if sectionItems is defined and sectionItems is not empty %}
+            <ul>
+                {% for key, sectionsItem in sectionItems %}     
+                    <li>
+                        <img src="{{sectionsItem.img}}" title="{{sectionsItem.name}}">
+                        <a href="{{sectionsItem.url}}">
+                            <h3>{{sectionsItem.name}}</h3>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}    
+    </nav>
+{% endif %}
+{%if articles is defined and articles is not empty %}    
+    <section  class="widget_ListArticles">
+        {%if labelMagazine is defined %}
+            <h3 class="news-title">{{labelMagazine}}</h3>
+        {%else%}
+            <h3 class="news-title">AcquistiGiusti.it Magazine</h3>
+        {%endif%}
+        {% for key, article in articles %}
+            {% set day   = article.publishAt.date  | date( "d" ) %}
+            {% set month = article.publishAt.date | date( "F" )  | trans %}
+            {% set year  = article.publishAt.date  | date( "Y" ) %}  
+            <div class="article">
+                <figure> 
+                    {% if article.priorityImg is not empty %}
+                    <amp-img layout="fixed" alt="{{article.contentArticle.title}}" src="{{article.priorityImg.srcMedium}}" data-action="urlCopy" height="{{article.priorityImg.heightMedium}}" width="{{article.priorityImg.widthMedium}}"></amp-img>
+                    {% endif %}
+                </figure>
+                {#{% if article.typology is not empty %}            
+                    {%set url = generate('detailNews',{'articleId': article.id, 'megazineSection': article.megazineSection.nameUrl,'section1': article.typology.nameUrl, 'title': article.contentArticle.urlArticle }) %}
+                {%else%}
+                    {%set url = generate('detailNews',{'articleId': article.id, 'megazineSection': article.megazineSection.nameUrl,'section1': article.subcategoryOne.nameUrl, 'title': article.contentArticle.urlArticle }) %}
+                {%endif%}#}
+                <a data-urlCopy href="{{ article.contentArticle.urlArticle }}">
+                     <h4>{{article.contentArticle.title|raw}}</h4>
+                </a>             
+                <div class="info-box" data-action="urlCopy">
+                    <time datetime="{{article.publishAt.date | date('Y-m-d H:s')}}" class="posts__date">{{ day }} {{ month }} {{ year }}</time> | Guida acquisto
+                </div>
+                <div class="description" data-action="urlCopy">
+                      {{article.contentArticle.subHeading|raw}}
+                </div>
+                <button>Leggi tutto</button>
+            </article>
+        {% endfor %}  
+        <div class="clearB"></div> 
+        {%if pagination is defined %}
+            {{pagination|raw}}
+        {%endif%}
+    </section>    
+{%endif%}
+<div class="clearB"></div>
+{%if fetch_widget_ListArticles is defined %}
+    {{ fetch_widget_ListArticles |raw  }}
+{%endif%}

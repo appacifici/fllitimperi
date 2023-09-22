@@ -1,0 +1,168 @@
+.h1ListArticles {
+  font-size: 27px;
+  font-weight: bold;
+  margin: -8px 0;
+}
+
+.widget_ListArticles {
+  padding: 20px 0 0px !important;
+  overflow: hidden;
+  min-height: 500px;
+}
+.widget_ListArticles h2 {
+  font-size: 20px;
+  margin: 0 0 1% 0px;
+  font-weight: bold;
+  border-bottom: 0px solid #25303e;
+  padding: 0px 0px;
+  border-bottom-style: solid;
+}
+.widget_ListArticles article {
+  width: 23.6%;
+  float: left;
+  margin-right: 1.333%;
+  background: #fff;
+  border-radius: 0px 0px 7px 7px;
+  border-top: 3px solid #f90;
+  box-shadow: 1px 1px 5px 1px #a6a8ab;
+  height: 440px;
+  position: relative;
+  margin-bottom: 1%;
+}
+.widget_ListArticles article figure {
+  cursor: pointer;
+  height: 239px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.widget_ListArticles article figure img {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  right: 0;
+  left: 0;
+}
+.widget_ListArticles article a {
+  text-decoration: none;
+}
+.widget_ListArticles article a h3 {
+  color: #333333;
+  font-size: 20px;
+  word-wrap: break-word;
+  width: 100%;
+  overflow: hidden;
+  line-height: 25px;
+  margin: 5px 0 5px 0 !important;
+  text-align: center;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  height: 50px;
+}
+.widget_ListArticles article .content {
+  margin: 14px 18px;
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+}
+.widget_ListArticles article .content h4 {
+  line-height: 21px;
+  font-size: 15px;
+  height: 59px;
+  word-wrap: break-word;
+  width: 99%;
+  overflow: hidden;
+  margin: 1px;
+  cursor: pointer;
+  color: #6d6969;
+  font-weight: normal;
+}
+.widget_ListArticles article .content span {
+  float: right;
+  position: absolute;
+  right: -7px;
+  bottom: -2px;
+  background: #f90;
+  padding: 12px;
+  border-radius: 0 0 10px 0;
+  color: #fdf9f9;
+  font-weight: bold;
+  cursor: pointer;
+}
+.widget_ListArticles article span {
+  font-size: 12px;
+  text-transform: uppercase;
+  background: transparent;
+  color: #ff9800;
+  margin: 10px 16px;
+  float: right;
+}
+.widget_ListArticles article:hover {
+  background: #ff9900;
+  color: #fff !important;
+}
+.widget_ListArticles article:hover h3, .widget_ListArticles article:hover h4, .widget_ListArticles article:hover span {
+  color: #fff;
+}
+.widget_ListArticles article:hover hgroup span {
+  background: #2a3139;
+  color: #ff9800;
+}
+.widget_ListArticles article:nth-child(5) {
+  margin-right: 0px;
+}/*# sourceMappingURL=widgetListArticles.css.map */et_ListArticles .article figure {
+    height: 200px;
+  }
+  .widget_ListArticles .article figure img {
+    height: auto;
+    position: relative;
+  }
+}
+@media (max-width: 850px) {
+  .widget_ListArticles {
+    padding: 15px 4% 15px;
+  }
+  .widget_ListArticles .article {
+    width: 100%;
+    height: auto;
+    margin-bottom: 30px;
+    /*border-bottom: 1px solid #ffffff;*/
+    padding-bottom: 30px;
+  }
+  .widget_ListArticles .article a h2 {
+    height: auto;
+  }
+  .widget_ListArticles .article figure {
+    height: auto;
+  }
+  .widget_ListArticles .article figure img {
+    height: auto;
+    position: relative;
+    max-width: 300px;
+  }
+  .widget_ListMicroSection ul li {
+    height: 60px;
+    border: none;
+  }
+}
+@media (max-width: 425px) {
+  .widget_ListArticles {
+    padding: 15px 4% 15px;
+  }
+  .widget_ListArticles .article {
+    margin-right: 0;
+  }
+  .widget_ListArticles .article a h3 {
+    height: auto;
+  }
+  .widget_ListArticles .article .description {
+    height: auto;
+  }
+  .widget_ListArticles .article figure {
+    border: none;
+  }
+  .widget_ListArticles .article figure img {
+    max-width: 100%;
+  }
+}/*# sourceMappingURL=widgetListArticles.css.map */

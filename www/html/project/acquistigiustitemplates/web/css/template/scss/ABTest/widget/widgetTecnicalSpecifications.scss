@@ -1,0 +1,40 @@
+ .technicalSpecifications {
+/*            border-top: 1px solid rgba(0,0,0,.125);
+            border-right:  1px solid rgba(0,0,0,.125);
+            border-left:  1px solid rgba(0,0,0,.125);*/
+    padding: 0px;
+    overflow: hidden;
+    margin-bottom: 2%;
+    div {
+        float: left;
+        width: 50%;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    }
+    .itemLabel {
+        width: 100%;
+        background: #2b3139;
+        color: #fff;
+        padding: 1%;
+        font-weight: bold;
+        border-top: 3px solid $mainColor;
+        margin-top: 1%;
+        font-size: 15px;
+    }
+    span{
+        padding: 14px 1%;
+        color: #1f1e1e;                    
+        width: 46%;
+        float: left;
+        font-size: 16px;
+        float: left;        
+        height: 24px;
+        overflow: hidden;
+        &.name {
+            width: 50%;
+            background: #f3f3f3;
+            color: #2f2e2e;
+            font-weight: bold;
+            height:24px;
+        }
+    }
+}

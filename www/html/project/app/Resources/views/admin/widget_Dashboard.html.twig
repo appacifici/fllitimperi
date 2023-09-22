@@ -1,0 +1,111 @@
+<div class="widget_Dashboard">    
+    <div class="models">       
+        <h2>Modelli senza prodotti</h2>
+        {% for model in models %}
+            <div class="item">   
+                {{model.id}} -
+                <a href="/admin/editModel/{{model.id}}" target="_blank">{{model.name}}</a>&nbsp;
+                {%if model.linkCategoryAmazon is not empty %}
+                    <strong style="color: green;"> - Link Cat SI - </strong>                    
+                {%endif%}
+                {%if model.dateZeroProduct is not empty %}
+                    {{model.dateZeroProduct | date('Y-m-d') }}
+                {%endif%}
+            </div>
+        {% endfor %}       
+    </div>    
+    <div class="clearB"></div>       
+    <div class="models">       
+        <h2>Articoli </h2>
+        {% for key,checkArticle in checkArticles %}
+            <div class="item noborder">                   
+                <h3>{{checkArticle.articleName}}</h3>
+                {%if checkArticle.productsActive is defined %}                    
+                    <div class="active">
+                        <h4>ARTICOLI ATTIVI</h4>
+                        {% for productActive in checkArticle.productsActive %}
+                            <div class="element">
+                                <a href="/admin/editProduct/{{productActive.id}}" target="_blank">{{productActive.name}}</a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                {%if checkArticle.productsDisabled is defined %}                    
+                    <div class="disabled">
+                        <h4>ARTICOLI DISABILITATI</h4>
+                        {% for productsDisabled in checkArticle.productsDisabled %}
+                            <div class="element">
+                                <a href="/admin/editProduct/{{productsDisabled.id}}" target="_blank"><b>{{productsDisabled.id}}</b> - {{productsDisabled.name}}</a>
+                                {% if productsDisabled.lastRead is not empty %}- {{productsDisabled.lastRead | date ('Y-m-d')}}{%endif%}                            
+                                {%if productsDisabled.linkCategoryAmazon is not empty %}
+                                        <strong style="color: green;"> - Link Cat SI - </strong>                                                
+                                {%elseif productsDisabled.model is not empty and productsDisabled.model.linkCategoryAmazon is not empty %}
+                                        <strong style="color: green;"> - Link Cat SI - </strong>                    
+                                {%endif%}
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                {%if checkArticle.productsNotExist is defined %}                    
+                    <div class="active">
+                        <h4>ARTICOLI NON ESISTENTI</h4>
+                        {% for productsNotExist in checkArticle.productsNotExist %}
+                            <div class="element">
+                                {{productsNotExist}}
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                {%if checkArticle.modelsActive is defined %}                    
+                    <div class="active">
+                        <h4>MODELLI CON PRODOTTI </h4>
+                        {% for model in checkArticle.modelsActive %}
+                            <div class="element">
+                                {{model.name}}
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                {%if checkArticle.modelsDisabled is defined %}                    
+                    <div class="disabled">
+                        <h4>MODELLI SENZA PRODOTTI </h4>
+                        {% for model in checkArticle.modelsDisabled %}
+                            <div class="element">
+                                {{model.name}}
+                                {%if model.linkCategoryAmazon is not empty %}
+                                    <strong style="color: green;"> - Link Cat SI - </strong>                    
+                                {%endif%}
+                                {%if model.dateZeroProduct is not empty %}
+                                    - {{model.dateZeroProduct | date('Y-m-d') }}
+                                {%endif%}
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+            {% if loop.index % 3 == 0%}
+                <div class="clearB"></div>      
+            {% endif %}
+        {% endfor %}       
+    </div>
+</div>
+    
+<div class="button-action">
+    <a href="javascript:history.back()"> 
+        <div class="btnGoBack" id="btnGoBack">
+            <i class="fa fa-arrow-circle-o-left"></i>
+        </div>
+    </a>
+    <div class="buttonDefault" onclick="window.location.href = '{{ path('manageArticle') }}';">
+        <div class="add">Crea nuovo articolo</div>
+        <i class=" fa  fa-plus-circle"></i>
+    </div>
+
+    <div id="toTop">
+        <i class="fa fa-arrow-circle-o-left"></i>
+    </div>
+</div> 
+    
+{%if fetch_widget_ListArticles is defined %}
+    {{ fetch_widget_ListArticles|raw  }}
+{%endif%}        

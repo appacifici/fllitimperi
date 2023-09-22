@@ -1,0 +1,116 @@
+.h1ListArticles {
+    font-size: 27px;
+    font-weight: bold;
+    margin: -8px 0;
+}
+.widget_ListArticles{
+    padding: 20px 0 0px !important;
+    overflow: hidden;
+    min-height: 500px;
+    h2{
+            font-size: 20px;
+        margin: 0 0 1% 0px;
+        font-weight: bold;
+        border-bottom: 0px solid #25303e;
+        padding: 0px 0px;
+        border-bottom-style: solid;
+
+    }
+    article{
+        width: 23.6%;
+        float: left;
+        margin-right: 1.333%;
+        background: #fff;
+        border-radius: 0px 0px 7px 7px;
+        border-top: 3px solid #f90;
+        box-shadow: 1px 1px 5px 1px #a6a8ab;
+        height: 440px;
+        position:relative;
+        margin-bottom: 1%;
+        figure{
+            cursor: pointer;
+            height: 239px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            img {
+                    position: absolute;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+                right: 0;
+                left: 0;
+            }
+        }       
+        a{ 
+            text-decoration: none ;
+            h3{
+                color: #333333;
+                font-size: 20px;
+                word-wrap: break-word;
+                width: 100%;
+                overflow: hidden;
+                line-height: 25px;
+                margin: 5px 0 5px 0 !important;
+                text-align: center;
+                font-weight: 700;
+                cursor: pointer;
+                text-align: center;
+                height: 50px;
+
+            }
+        }
+        .content{
+            margin: 14px 18px;
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+            
+            h4{
+                line-height: 21px;
+                font-size: 15px;
+                height: 59px;
+                word-wrap: break-word;
+                width: 99%;
+                overflow: hidden;
+                margin: 1px;
+                cursor: pointer;
+                color: #6d6969;
+                font-weight: normal;
+            }
+            span {
+                float: right;
+                position: absolute;
+                right: -7px;
+                bottom: -2px;
+                background: #f90;
+                padding: 12px;
+                border-radius: 0 0 10px 0;
+                color: #fdf9f9;
+                font-weight: bold;
+                cursor: pointer;
+            }
+        }
+        span{
+            font-size: 12px;
+            text-transform: uppercase;
+            background: transparent;
+            color: #ff9800;
+            margin: 10px 16px;
+            float: right;
+        }
+    }
+    article:hover {
+        background: #ff9900;
+        color: #fff !important;
+        h3,h4,span {
+            color:#fff;
+        }
+        hgroup span {
+            background: #2a3139;
+            color: #ff9800;
+        }
+    }
+    article:nth-child(5){
+        margin-right: 0px;
+    }
+}

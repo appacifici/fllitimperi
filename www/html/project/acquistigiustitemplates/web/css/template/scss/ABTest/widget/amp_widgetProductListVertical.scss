@@ -1,0 +1,50 @@
+.widget_ProductListVertical{
+    /*margin-top: 15px;*/
+    background: #fff;
+    margin: 0px 0px 10px 0px;
+    border-top: 3px solid #ff9900;
+    .productTitle{
+        padding: 16px;
+        background: #fff;
+        border-bottom: 1px solid #ececec;
+        margin: 0 0px;
+        font-size: 15px;
+        a {
+            color:#0365c0;
+        }
+    }
+    article{
+        text-align: center;
+        height: auto;
+        header{
+            padding: 5px;
+            margin-bottom: -12px;            
+            a{
+                font-size: 15px;
+                font-weight: 500;
+                color: #0066c0;
+                h3{
+                    border: none;
+                    padding: 0px;
+                    margin-top: 15px;
+                }
+            }
+        }
+        .pricesBox {
+               width: 175px;
+                margin: 0 auto; 
+                .lineThrough {
+                    text-decoration: line-through #ff0000;
+                    color: #333333;
+                    font-size: 16px;
+                    float: left;
+                    margin: 0;
+                }
+                .totalPrice{
+                    float: right;
+                    margin: -4px 0 0 7px;
+                }
+            }
+    }
+}
+

@@ -1,0 +1,78 @@
+<a name="pricesComparison" rel="nofollow">&nbsp;</a>
+{%if products is defined and products is not empty %}
+    <section class="widget_DetailComparisonProduct">
+           <table>
+            <thead>
+                <tr style="height:32px;">
+
+                    <th class="sortable ">Negozio</th>
+                    <th class="sortable ">Stock</th>
+                    <th class="sortable ">Sped.</th>
+                    <th class="sortable ">Prezzo</th>                    
+                    <th class="sortable "></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                    <tr>
+                        <td>
+                            <figure>
+                                {%if product.merchantImg is empty %}
+                                    <amp-img layout="fixed"  src="{{folder_img_affiliation_small}}{{product.affiliation.img}}" alt="{{product.affiliation.name}}"  width="{{product.affiliation.widthSmall}}px" height="{{product.affiliation.heightSmall}}px"></amp-img>                    
+                                {%else%}
+                                    <amp-img layout="fixed"  src="{{folder_img_affiliation_small}}{{product.merchantImg}}" alt="{{product.merchantImg}}"  width="80px" height="30px"></amp-img>                    
+                                {%endif%}
+                            </figure>
+                        </td>
+                        <td>
+                            {%if product.sizeStockStatus is not empty %}
+                                {#<span class="sizeStockStatus">#}
+                                {%if product.sizeStockStatus == 'in stock' %}
+                                    {#<span class="inStock"></span>#}<span>SI {#in {{products[0].deliveryTime}}#}</span>
+                                {%else%}
+                                   {# <span class="outOfStock"></span>#}<span>NO</span>
+                                {%endif%}
+{#                                </span>#}
+                            {%endif%}
+                        </td>
+                        {#<td>
+                            <h3>
+                                {{ hyphenize( product.name )}}                        
+                            </h3>
+                            {%if sessionActive is not empty and userIsAdmin is not empty and product.id is defined%} 
+                                <span data-pOff="{{product.id}}">[Off]</span>
+                                <a class="admin1" target="_blank" href="/admin/editProduct/{{product.id}}">[Admin]</a>
+                            {%endif%}
+                        </td>#}
+                        
+                        {% if product.handlingCost is not empty %}                            
+                            {%if product.handlingCost != '0' %}
+                                <td class="notFree">
+                                {{ product.handlingCost }} €
+                            {%else%}
+                                <td>
+                                Gratis
+                            {%endif%}
+                        {% endif %}
+                        </td>
+                        <td>
+                            {% if product.handlingCost is not empty and product.price is not empty%}
+                                <strong>{{ product.price + product.handlingCost }} €</strong>
+{#                                {{getUpDownArrowPrices(product)|raw}}#}
+                            {% endif %}
+                        </td>                        
+                        <td>                             
+                            <a class="btnViewOtherOffered GTMBtnViewOtherOffered"  data-aff="{{product.affiliation.name}} - {{product.id }}" href="{{ generate('impressionLink', { 'impressionLink': product.impressionLink, 'deepLink': product.deepLink }) }}" rel="nofollow" target="_blank" >
+                                 <amp-img layout="fixed"  src="/images/next.png" alt="Visita il negozio"  width="30px" height="30px"></amp-img>                    
+                            </a>
+                        </td>                    
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {{ pagination | raw }}
+    </section>
+{%endif%}
+{%if fetch_widget_widget_DetailComparisonProduct is defined %}
+    {{ fetch_widget_DetailComparisonProduct |raw  }}
+ {%endif%}

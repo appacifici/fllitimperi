@@ -1,0 +1,610 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/book/service_container.html
+parameters:
+#    parameter_name: value
+    dbal_service_connection: default
+
+services:
+    app.browserUtility:
+        class:     AppBundle\Service\UtilityService\BrowserUtility
+        arguments: ["@mobile_detect.mobile_detector"]
+    
+    app.dictionaryUtility:
+        class:     AppBundle\Service\UtilityService\DictionaryUtility
+        arguments: ["@service_container","@doctrine.orm.entity_manager","@app.cacheUtility"]
+        
+    app.cacheUtility:
+        class:     AppBundle\Service\UtilityService\CacheUtility
+        arguments: ["@service_container"]      
+        
+    app.cacheUtilitySecondLevelCache:
+        class:     AppBundle\Service\UtilityService\CacheUtility
+        arguments: ["@service_container"]      
+        calls:
+             - [initPhpCache,['secondLevelCache']]  
+    
+    app.imageUtility:
+        class:     AppBundle\Service\UtilityService\ImageUtility
+        arguments: ["@service_container","@doctrine.orm.entity_manager"]        
+
+    app.fileUtility:
+        class:     AppBundle\Service\UtilityService\FileUtility
+        arguments: ["@service_container","@doctrine.orm.entity_manager"]        
+        
+    app.chat:
+        class:     AppBundle\Sockets\Chat
+        arguments: ["@service_container","@doctrine.orm.entity_manager"]        
+    
+    app.globalUtility:
+        class:     AppBundle\Service\UtilityService\GlobalUtility
+        arguments: ["@app.browserUtility", "@app.cacheUtility", "@app.imageUtility", "@app.fileUtility"]        
+    
+    #Servizio per la paginazione
+    app.paginationUtility:
+        class:     AppBundle\Service\UtilityService\PaginationUtility
+        arguments: ["@service_container","@request_stack","@app.widgetManager"]        
+        
+    #Servizio per la gestione delle rotte di offerteprezzi
+    app.routerManager:
+        class:     AppBundle\Service\GlobalConfigService\RouterManager
+        arguments: ["@twig","@request_stack","@service_container"]
+        
+    #Servizio per la gestione delle rotte di offerteprezzi
+    app.redirectService:
+        class:     AppBundle\Service\GlobalConfigService\RedirectService
+        arguments: ["@twig","@request_stack","@service_container","@doctrine.orm.entity_manager"]
+        
+    #Servizio globale contenente tutti i settaggi
+    app.globalConfigManager:
+        class:     AppBundle\Service\GlobalConfigService\GlobalConfigManager
+        arguments: ["@twig","@request_stack","@service_container","@app.globalUtility","@doctrine.orm.entity_manager","@app.cacheUtility"]
+        
+    #Servizio per registrare le estenzioni di twig
+    app.globalTwigExtension:
+        class:     AppBundle\Service\GlobalConfigService\GlobalTwigExtension
+        arguments: ["@twig", "@app.routerManager"]
+        
+    app.queryUtilityManager:
+        class:     AppBundle\Service\GlobalConfigService\queryUtilityManager
+        arguments: ["@twig","@request_stack","@service_container","@app.globalUtility","@doctrine.orm.entity_manager","@app.cacheUtility"]
+     
+    #Classe che gestisce il seo
+    app.seoConfigManager:
+        class:     AppBundle\Service\GlobalConfigService\SeoConfigManager
+        arguments: ["@twig","@request_stack","@service_container"]
+        
+    app.bannersConfigManager:
+        class:     AppBundle\Service\GlobalConfigService\BannersConfigManager
+        arguments: ["@twig","@request_stack","@service_container","@doctrine.orm.entity_manager"]
+                
+    app.globalQueryUtility:
+        class:     AppBundle\Service\UtilityService\GlobalQueryUtility
+        arguments: ["@service_container","@doctrine.orm.entity_manager","@app.cacheUtility"]
+        
+    app.widgetManager:
+        class:     AppBundle\Service\WidgetService\WidgetManager
+        arguments: ["@app.routerManager","@twig","@request_stack","@doctrine.orm.entity_manager","@app.globalUtility","@service_container", "@app.formManager", "@app.userManager", "@app.globalConfigManager"]
+    
+    app.apiGettyImageService:
+        class:     AppBundle\Service\ApiGettyImageService\ApiGettyImageService
+        
+    app.formManager:
+        class:     AppBundle\Service\FormService\FormManager
+        arguments: ["@twig","@request_stack","@doctrine.orm.entity_manager","@app.globalUtility","@service_container"]
+        
+    app.userManager:
+        class:     AppBundle\Service\UserUtility\UserManager
+        arguments: ["@doctrine.orm.entity_manager", "@app.globalUtility", "@service_container"]
+
+    app.removeTopNewsImg:
+        class:     AppBundle\Service\MaintenanceService\RemoveTopNewsImg
+        arguments: ["@doctrine.orm.entity_manager", "@service_container"]
+        
+    app.manageArticle:
+        class:     AppBundle\Service\MaintenanceService\ManageArticle
+        arguments: ["@doctrine.orm.entity_manager", "@service_container","@app.globalUtility"]
+        
+    app.manageDb:
+        class:     AppBundle\Service\MaintenanceService\ManageDb
+        arguments: ["@doctrine.orm.entity_manager", "@service_container","@app.globalUtility"]
+        
+    app.spiderTrovaprezzi:
+        class:     AppBundle\Service\SpiderService\SpiderTrovaprezzi
+        arguments: ["@doctrine.orm.entity_manager", "@service_container","@app.globalUtility"]                
+                
+    app.spiderPagomeno:
+        class:     AppBundle\Service\SpiderService\SpiderPagomeno
+        arguments: ["@doctrine.orm.entity_manager", "@service_container","@app.globalUtility"]                
+                        
+    app.spiderIdealo:
+        class:     AppBundle\Service\SpiderService\SpiderIdealo
+        arguments: ["@doctrine.orm.entity_manager", "@service_container","@app.globalUtility"]                
+        
+    app.spiderAmazon:
+        class:     AppBundle\Service\SpiderService\SpiderAmazon
+        arguments: ["@doctrine.orm.entity_manager", "@service_container","@app.globalUtility"]        
+        
+    app.amazonApi:
+        class:     AppBundle\Service\AmazonService\AmazonApi
+        arguments: ["@doctrine.orm.entity_manager", "@service_container","@app.globalUtility"]
+    
+    app.spiderEbay:
+        class:     AppBundle\Service\SpiderService\SpiderEbay
+        arguments: ["@doctrine.orm.entity_manager", "@service_container","@app.globalUtility"]         
+        
+    app.ebayApi:
+        class:     AppBundle\Service\EbayService\EbayApi
+        arguments: ["@doctrine.orm.entity_manager", "@service_container","@app.globalUtility"]
+        
+    app.deamonAffiliation:
+        class:     AppBundle\Service\AffiliationService\DeamonAffiliation
+        arguments: ["@doctrine.orm.entity_manager", "@service_container","@app.globalUtility"]
+        
+    app.sitemap:
+        class: AppBundle\Service\SitemapService\Sitemap
+        arguments: ["@doctrine.orm.entity_manager","@service_container", "@app.globalUtility"]
+        
+    app.wordpressImportDb:
+        class:     AppBundle\Service\WordpressService\ImportDb
+        arguments: ["@twig","@request_stack","@service_container","@doctrine.orm.entity_manager"]
+                
+    
+        
+    #Dependency Templates
+    app.dependencyManager:
+        class:     AppBundle\Service\DependencyService\DependencyManager
+        arguments: [%app.dependencyManager%,"@app.globalUtility"]    
+        
+    app.dependencyManagerTemplate:
+        class:     AppBundle\Service\DependencyService\DependencyManagerTemplate
+        arguments: [%app.dependencyManager%,"@app.globalUtility"]    
+        
+    app.dependencyManagerCalciomercato:
+        class:     AppBundle\Service\DependencyService\DependencyManagerCalciomercato
+        arguments: [%app.dependencyManager%,"@app.globalUtility"]    
+        
+    app.dependencyManagerAdmin:
+        class:     AppBundle\Service\DependencyService\DependencyManagerAdmin
+        arguments: [%app.dependencyManager%,"@app.globalUtility"]    
+        
+    #Core    
+    app.coreprova:
+        class:     AppBundle\Service\WidgetService\CoreProva
+        arguments: ["@app.widgetManager"]      
+        
+    app.coreReplaceWidgetAjax:
+        class:     AppBundle\Service\WidgetService\CoreReplaceWidgetAjax
+        arguments: ["@app.widgetManager"]      
+        
+    app.coreBannerMenu:
+        class:     AppBundle\Service\WidgetService\CoreBannerMenu
+        arguments: ["@app.widgetManager"]   
+    
+    app.coreWidgetmenu:
+        class:     AppBundle\Service\WidgetService\CoreWidgetMenu
+        arguments: ["@app.widgetManager"]   
+    
+    app.coreListNews:
+        class:     AppBundle\Service\WidgetService\CoreListNews
+        arguments: ["@app.widgetManager"]
+    
+    app.coreListNewsOP:
+        class:     AppBundle\Service\WidgetService\CoreListNewsOP
+        arguments: ["@app.widgetManager"]
+    
+    app.coreAllCategories:
+        class:     AppBundle\Service\WidgetService\CoreAllCategories
+        arguments: ["@app.widgetManager"]
+    
+    app.coreCatSubcatTypology:
+        class:     AppBundle\Service\WidgetService\CoreCatSubcatTypology
+        arguments: ["@app.widgetManager"]
+            
+    app.coreCatSubcatTypologyList:
+        class:     AppBundle\Service\WidgetService\CoreCatSubcatTypologyList
+        arguments: ["@app.widgetManager"]
+        
+            
+    app.coreCatSubcatTypologyListAcquistiGiusti:
+        class:     AppBundle\Service\WidgetService\CoreCatSubcatTypologyListAcquistiGiusti
+        arguments: ["@app.widgetManager"]
+        
+    app.coreListModelsTrademark:
+        class:     AppBundle\Service\WidgetService\CoreListModelsTrademark
+        arguments: ["@app.widgetManager"]
+    
+    app.coreListRelatedNews:
+        class:     AppBundle\Service\WidgetService\CoreListRelatedNews
+        arguments: ["@app.widgetManager"]
+        
+    app.coreDetailArticle:
+        class:     AppBundle\Service\WidgetService\CoreDetailArticle
+        arguments: ["@app.widgetManager"]   
+        
+    app.coreBreadcrumbs:
+        class:     AppBundle\Service\WidgetService\CoreBreadCrumbs
+        arguments: ["@app.widgetManager"]   
+                            
+    app.coreBreakingNews:
+        class:     AppBundle\Service\WidgetService\CoreBreakingNews
+        arguments: ["@app.widgetManager"]  
+        
+    app.coreTopNews:
+        class:     AppBundle\Service\WidgetService\CoreTopNews
+        arguments: ["@app.widgetManager"]  
+        
+    app.coreFollowUs:
+        class:     AppBundle\Service\WidgetService\CoreFollowUs
+        arguments: ["@app.widgetManager"]  
+        
+    app.coreDinamycPage:
+        class:     AppBundle\Service\WidgetService\CoreDinamycPage
+        arguments: ["@app.widgetManager"]  
+        
+    app.coreComments:
+        class:     AppBundle\Service\WidgetService\CoreComments
+        arguments: ["@app.widgetManager"]  
+        
+    app.coreChatMessages:
+        class:     AppBundle\Service\WidgetService\CoreChatMessages
+        arguments: ["@app.widgetManager"]  
+        
+    app.coreDetailProduct:
+        class:     AppBundle\Service\WidgetService\CoreDetailProduct
+        arguments: ["@app.widgetManager"]
+                
+    app.coreModelByIds:
+        class:     AppBundle\Service\WidgetService\CoreModelByIds
+        arguments: ["@app.widgetManager"]
+                
+    app.coreAdminLookupSubcategories:
+        class:     AppBundle\Service\WidgetService\CoreAdminLookupSubcategories
+        arguments: ["@app.widgetManager","@app.userManager"]
+        
+    app.coreAdminListArticles:
+        class:     AppBundle\Service\WidgetService\CoreAdminListArticles
+        arguments: ["@app.widgetManager","@app.userManager"]
+            
+    app.coreAdminListQuestion:
+        class:     AppBundle\Service\WidgetService\CoreAdminListQuestion
+        arguments: ["@app.widgetManager","@app.userManager"]
+    
+    app.coreAdminListTypology:
+        class:     AppBundle\Service\WidgetService\CoreAdminListTypology
+        arguments: ["@app.widgetManager","@app.userManager"]
+    
+    app.coreAdminListMicroSection:
+        class:     AppBundle\Service\WidgetService\CoreAdminListMicroSection
+        arguments: ["@app.widgetManager","@app.userManager"]        
+
+    app.coreAdminListModels:
+        class:     AppBundle\Service\WidgetService\CoreAdminListModels
+        arguments: ["@app.widgetManager","@app.userManager"]
+
+    app.coreAdminListComparison:
+        class:     AppBundle\Service\WidgetService\CoreAdminListComparison
+        arguments: ["@app.widgetManager","@app.userManager"]
+    
+    app.coreAdminListDisabledModels:
+        class:     AppBundle\Service\WidgetService\CoreAdminListDisabledModels
+        arguments: ["@app.widgetManager","@app.userManager"]
+    
+    app.coreAdminListProducts:
+        class:     AppBundle\Service\WidgetService\CoreAdminListProducts
+        arguments: ["@app.widgetManager","@app.userManager"]
+    
+    app.coreAdminListTrademarks:
+        class:     AppBundle\Service\WidgetService\CoreAdminListTrademarks
+        arguments: ["@app.widgetManager","@app.userManager"]
+    
+    app.coreAdminListAffiliations:
+        class:     AppBundle\Service\WidgetService\CoreAdminListAffiliations
+        arguments: ["@app.widgetManager","@app.userManager"]
+        
+    app.coreAdminListGroupPermission:
+        class:     AppBundle\Service\WidgetService\CoreAdminListGroupPermission
+        arguments: ["@app.widgetManager"]
+        
+    app.coreAdminListRedirects:
+        class:     AppBundle\Service\WidgetService\CoreAdminListRedirects
+        arguments: ["@app.widgetManager"]
+        
+    app.coreTreading:
+        class:     AppBundle\Service\WidgetService\CoreTreading
+        arguments: ["@app.widgetManager"]
+        
+    app.coreAdminDashboard:
+        class:     AppBundle\Service\WidgetService\CoreAdminDashboard
+        arguments: ["@app.widgetManager","@app.userManager"]        
+        
+    app.coreAdminExtraConfigs:
+        class:     AppBundle\Service\WidgetService\CoreAdminExtraConfigs
+        arguments: ["@app.widgetManager"]
+        
+    app.coreAdminEditExtraConfig:
+        class:     AppBundle\Service\WidgetService\CoreAdminEditExtraConfig
+        arguments: ["@app.widgetManager","@app.formManager", "@app.userManager"]
+    
+    app.coreAdminArticle:
+        class:     AppBundle\Service\WidgetService\CoreAdminArticle
+        arguments: ["@app.widgetManager", "@app.formManager", "@app.userManager"]
+
+    app.coreAdminManagerMenus:
+        class:     AppBundle\Service\WidgetService\CoreAdminManagerMenus
+        arguments: ["@app.widgetManager"]   
+  
+    app.coreAdminUsers:
+        class:     AppBundle\Service\WidgetService\CoreAdminUsers
+        arguments: ["@app.widgetManager", "@app.formManager"]     
+    
+    app.coreAdminImageArticle:
+        class:     AppBundle\Service\WidgetService\CoreAdminImageArticle
+        arguments: ["@app.widgetManager", "@app.formManager"]   
+    
+    app.coreAdminImageArticleGetty:
+        class:     AppBundle\Service\WidgetService\CoreAdminImageArticleGetty
+        arguments: ["@app.widgetManager", "@app.apiGettyImageService"]   
+        
+    app.coreAdminListFeedsImport:
+        class:     AppBundle\Service\WidgetService\CoreAdminListFeedsImport
+        arguments: ["@app.widgetManager"]
+        
+    app.coreAdminListBanners:
+        class:     AppBundle\Service\WidgetService\CoreAdminListBanners
+        arguments: ["@app.widgetManager"]
+        
+    app.coreAdminEditBanner:
+        class:     AppBundle\Service\WidgetService\CoreAdminEditBanner
+        arguments: ["@app.widgetManager", "@app.formManager"]    
+    
+    app.coreAdminListCategories:
+        class:     AppBundle\Service\WidgetService\CoreAdminListCategories
+        arguments: ["@app.widgetManager", "@app.formManager"]    
+    
+    app.coreAdminListSubcategories:
+        class:     AppBundle\Service\WidgetService\CoreAdminListSubcategories
+        arguments: ["@app.widgetManager", "@app.formManager"]    
+                            
+    app.coreAdminEditCategory:
+        class:     AppBundle\Service\WidgetService\CoreAdminEditCategory
+        arguments: ["@app.widgetManager", "@app.formManager"]    
+        
+    app.coreAdminEditSubcategory:
+        class:     AppBundle\Service\WidgetService\CoreAdminEditSubcategory
+        arguments: ["@app.widgetManager", "@app.formManager"]    
+    
+    app.coreAdminEditTypology:
+        class:     AppBundle\Service\WidgetService\CoreAdminEditTypology
+        arguments: ["@app.widgetManager", "@app.formManager"]    
+    
+    app.coreAdminEditMicroSection:
+        class:     AppBundle\Service\WidgetService\CoreAdminEditMicroSection
+        arguments: ["@app.widgetManager", "@app.formManager"]
+        
+    app.coreAdminEditModel:
+        class:     AppBundle\Service\WidgetService\CoreAdminEditModel
+        arguments: ["@app.widgetManager", "@app.formManager"]    
+        
+    app.coreAdminEditComparison:
+        class:     AppBundle\Service\WidgetService\CoreAdminEditComparison
+        arguments: ["@app.widgetManager", "@app.formManager"]    
+
+    app.coreAdminEditProduct:
+        class:     AppBundle\Service\WidgetService\CoreAdminEditProduct
+        arguments: ["@app.widgetManager", "@app.formManager"]    
+
+    app.coreAdminEditTrademark:
+        class:     AppBundle\Service\WidgetService\CoreAdminEditTrademark
+        arguments: ["@app.widgetManager", "@app.formManager"]    
+    
+    app.coreAdminEditAffiliation:
+        class:     AppBundle\Service\WidgetService\CoreAdminEditAffiliation
+        arguments: ["@app.widgetManager", "@app.formManager"]    
+        
+    app.coreAdminEditUser:
+        class:     AppBundle\Service\WidgetService\CoreAdminEditUser
+        arguments: ["@app.widgetManager", "@app.formManager"]    
+            
+    app.coreAdminEditQuestion:
+        class:     AppBundle\Service\WidgetService\CoreAdminEditQuestion
+        arguments: ["@app.widgetManager", "@app.formManager"]    
+    
+    app.coreAdminEditGroupPermission:
+        class:     AppBundle\Service\WidgetService\CoreAdminEditGroupPermission
+        arguments: ["@app.widgetManager", "@app.formManager"]   
+    
+    app.coreAdminEditDictionary:
+        class:     AppBundle\Service\WidgetService\CoreAdminEditDictionary
+        arguments: ["@app.widgetManager", "@app.formManager"]   
+           
+    app.coreAdminListDictionaries:
+        class:     AppBundle\Service\WidgetService\CoreAdminListDictionaries
+        arguments: ["@app.widgetManager", "@app.formManager"]   
+        
+    app.coreAdminUploadImage:
+        class:     AppBundle\Service\WidgetService\CoreAdminUploadImage
+        arguments: ["@app.widgetManager", "@app.formManager"]  
+        
+    app.coreAdminListDinamycPages:
+        class:     AppBundle\Service\WidgetService\CoreAdminListDinamycPages
+        arguments: ["@app.widgetManager", "@app.formManager"]  
+        
+    app.coreAdminEditDinamycPage:
+        class:     AppBundle\Service\WidgetService\CoreAdminEditDinamycPage
+        arguments: ["@app.widgetManager", "@app.formManager"]  
+    
+    app.coreAdminListPolls:
+        class:     AppBundle\Service\WidgetService\CoreAdminListPolls
+        arguments: ["@app.widgetManager"]  
+    
+    app.coreAdminEditPoll:
+        class:     AppBundle\Service\WidgetService\CoreAdminEditPoll
+        arguments: ["@app.widgetManager"]  
+        
+    app.coreAdminListSex:
+        class:     AppBundle\Service\WidgetService\CoreAdminListSex
+        arguments: ["@app.widgetManager", "@app.formManager"]            
+        
+    app.coreAdminEditSex:
+        class:     AppBundle\Service\WidgetService\CoreAdminEditSex
+        arguments: ["@app.widgetManager", "@app.formManager"]            
+        
+    app.coreAdminListSizes:
+        class:     AppBundle\Service\WidgetService\CoreAdminListSizes
+        arguments: ["@app.widgetManager", "@app.formManager"]            
+        
+    app.coreAdminEditSize:
+        class:     AppBundle\Service\WidgetService\CoreAdminEditSize
+        arguments: ["@app.widgetManager", "@app.formManager"]            
+            
+    app.coreAdminListColors:
+        class:     AppBundle\Service\WidgetService\CoreAdminListColors
+        arguments: ["@app.widgetManager", "@app.formManager"]            
+        
+    app.coreAdminEditColor:
+        class:     AppBundle\Service\WidgetService\CoreAdminEditColor
+        arguments: ["@app.widgetManager", "@app.formManager"]            
+    
+    app.coreAdminEditRedirect:
+        class:     AppBundle\Service\WidgetService\CoreAdminEditRedirect
+        arguments: ["@app.widgetManager", "@app.formManager"]    
+    
+    app.coreAdminTopTrademarkSection:
+        class:     AppBundle\Service\WidgetService\CoreAdminTopTrademarkSection
+        arguments: ["@app.widgetManager"]
+        
+    app.coreAdminListSearchTerms:
+        class:     AppBundle\Service\WidgetService\CoreAdminListSearchTerms
+        arguments: ["@app.widgetManager"]  
+        
+    app.coreAdminEditSearchTerm:
+        class:     AppBundle\Service\WidgetService\CoreAdminEditSearchTerm
+        arguments: ["@app.widgetManager", "@app.formManager"]      
+        
+    app.coreAdminBestDiscountedPrices:
+        class:     AppBundle\Service\WidgetService\CoreAdminBestDiscountedPrices
+        arguments: ["@app.widgetManager"]
+    
+    app.coreAdminListTecnicalTemplate:
+        class:     AppBundle\Service\WidgetService\CoreAdminListTecnicalTemplate
+        arguments: ["@app.widgetManager"]  
+    
+    app.coreAdminEditTecnicalTemplate:
+        class:     AppBundle\Service\WidgetService\CoreAdminEditTecnicalTemplate
+        arguments: ["@app.widgetManager", "@app.formManager"]  
+            
+    app.corePoll:
+        class:     AppBundle\Service\WidgetService\CorePoll
+        arguments: ["@app.widgetManager"]  
+            
+    app.corePageFunebri:
+        class:     AppBundle\Service\WidgetService\CorePageFunebri
+        arguments: ["@app.widgetManager"]  
+        
+    app.coreListPolls:
+        class:     AppBundle\Service\WidgetService\CoreListPolls
+        arguments: ["@app.widgetManager"]  
+
+    app.coreBestseller:
+        class:     AppBundle\Service\WidgetService\CoreBestseller
+        arguments: ["@app.widgetManager"]  
+
+    app.coreBestsellerModels:
+        class:     AppBundle\Service\WidgetService\CoreBestsellerModels
+        arguments: ["@app.widgetManager"]  
+
+    app.coreTopOrRelatedModels:
+        class:     AppBundle\Service\WidgetService\CoreTopOrRelatedModels
+        arguments: ["@app.widgetManager"]  
+
+    app.coreSaleModels:
+        class:     AppBundle\Service\WidgetService\CoreSaleModels
+        arguments: ["@app.widgetManager"]  
+
+    app.coreBestsellerRelatedModels:
+        class:     AppBundle\Service\WidgetService\CoreBestsellerRelatedModels
+        arguments: ["@app.widgetManager"]  
+
+    app.coreModelsComparison:
+        class:     AppBundle\Service\WidgetService\CoreModelsComparison
+        arguments: ["@app.widgetManager"]  
+
+    app.coreListProducts:
+        class:     AppBundle\Service\WidgetService\CoreListProducts
+        arguments: ["@app.widgetManager"]  
+
+    app.coreFiltersProducts:
+        class:     AppBundle\Service\WidgetService\CoreFiltersProducts
+        arguments: ["@app.widgetManager"]  
+
+    app.coreProductSale:
+        class:     AppBundle\Service\WidgetService\CoreProductSale
+        arguments: ["@app.widgetManager"]  
+
+    app.coreSliders:
+        class:     AppBundle\Service\WidgetService\CoreSliders
+        arguments: ["@app.widgetManager"]  
+    
+    app.coreTopTrademarks:
+        class:     AppBundle\Service\WidgetService\CoreTopTrademarks
+        arguments: ["@app.widgetManager"]  
+    
+    app.coreTopAffiliations:
+        class:     AppBundle\Service\WidgetService\CoreTopAffiliations
+        arguments: ["@app.widgetManager"]  
+    
+    app.coreSeoH1ListArticles:
+        class:     AppBundle\Service\WidgetService\CoreSeoH1ListArticles
+        arguments: ["@app.widgetManager"]  
+        
+    app.coreGetSearchTerms:
+        class:     AppBundle\Service\WidgetService\CoreGetSearchTerms
+        arguments: ["@app.widgetManager"]  
+        
+    app.coreListModelsComparison:
+        class:     AppBundle\Service\WidgetService\CoreListModelsComparison
+        arguments: ["@app.widgetManager"]  
+        
+    app.coreHouse:
+        class:     AppBundle\Service\WidgetService\CoreHouse
+        arguments: ["@app.widgetManager"]  
+                            
+    app.coreAdminMenu:
+        class:     AppBundle\Service\WidgetService\CoreAdminMenu
+        arguments: ["@app.widgetManager", "@app.formManager"] 
+                            
+    livescoreServices.sendDataToApp:
+        class: AppBundle\Service\AppService\ParseRestClient
+        arguments: ['@logger', "@doctrine.orm.entity_manager","@service_container"]
+        tags:
+            - { name: monolog.logger }
+
+    livescoreServices.videoapi:
+        class: AppBundle\Service\VideoApiService\VideoApiService
+        arguments: ['@logger', "@doctrine.orm.entity_manager","@service_container"]
+
+    
+    livescoreServices.utilityApp:
+        class: AppBundle\Service\AppService\UtilityApp
+        arguments: ['@logger', "@doctrine.orm.entity_manager"]
+        tags:
+            - { name: monolog.logger }
+    
+    livescoreServices.compressFilesService:
+        class: AppBundle\Service\CompressFilesService\CompressFilesService
+        arguments: ["@service_container","@app.dependencyManager","@app.globalUtility"]
+        
+        
+    app.web365ManagerRepository:
+        class:     AppBundle\Repository\Web365ManagerRepository
+        arguments: ['@doctrine.orm.entity_manager']
+        calls:
+             - [setCacheUtility,['%secondLevelCacheEnabled%']]  
+           
+#    application_search.listener.post_index:
+#        class: AppBundle\Listener\PostIndexListener
+#        arguments: ['@fos_elastica.object_persister.cmsadmin.article', '@fos_elastica.indexable', { index: cmsadmin, type: article, identifier: id }]
+#        tags:
+#            - { name: doctrine.event_subscriber }
+#            
+            

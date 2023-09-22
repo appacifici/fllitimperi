@@ -1,0 +1,28 @@
+.widget_BreadCrumbs{
+    background: $mainColor;
+    width: 100%;
+    padding: 13px 0%;
+    overflow: hidden;    
+    ul{
+        padding: 0px;
+        width: 80%;
+        margin: 0 auto;
+        li{
+            float: left; 
+            margin-right: 2px;
+            font-size: 18px;
+            color: #ffffff; 
+            a{ 
+                font-size: 18px;
+                color: #ffffff;
+                cursor: pointer;
+                text-decoration: none;
+                font-weight: 600;
+            }
+        } 
+        a:after {
+            content: '/';
+            margin: 0 3px 0 5px;
+        }
+    }
+}

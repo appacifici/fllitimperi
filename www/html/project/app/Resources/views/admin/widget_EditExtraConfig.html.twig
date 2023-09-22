@@ -1,0 +1,37 @@
+{% form_theme extraConfig 'bootstrap_3_horizontal_layout.html.twig'  %}
+
+<div class="widget_EditExtraConfig" style="padding:10px">
+    <div class="formBlock positionRelative" data-divForm="1">
+        {{form_start(extraConfig)}}
+        {{ form_widget(extraConfig)}}
+        {{ form_end(extraConfig) }}
+    </div>    
+    
+
+    {%if fetch_widget_EditExtraConfig is defined %}
+        {{ fetch_widget_EditExtraConfig|raw  }}
+    {%endif%}
+</div>
+
+<div class="button-action">
+    <a href="javascript:history.back()"> 
+        <div class="btnGoBack" id="btnGoBack">
+            <i class="fa fa-arrow-circle-o-left"></i>
+        </div>
+    </a>
+    <div class="buttonDefault  buttonGreen" data-submit="1">
+        <a>
+            <div type="submit"  class="add">Salva Extra Config</div>
+            <i class=" fa  fa-save"></i>
+        </a>
+    </div>
+    <div class="buttonDefault buttonRed" data-reset="1">
+        <a>
+            <div type="submit"  class="add"> Reset Extra Config</div>
+            <i class=" fa   fa-eraser"></i>
+        </a>
+    </div>    
+    <div id="toTop">
+        <i class="fa fa-arrow-circle-o-left"></i>
+    </div>
+</div>

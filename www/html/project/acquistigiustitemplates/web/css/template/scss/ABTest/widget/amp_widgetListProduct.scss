@@ -1,0 +1,51 @@
+.widget_ListProduct{
+    overflow: hidden;
+    .productTitle{
+        padding: 15px;
+        background: #fff;
+        border-bottom: 1px solid #ececec;
+        margin: 0 0px;
+    }
+    h2 {
+        margin: 0;
+        background: #fff;
+        padding: 7px;
+        border-top: 1px solid #2b3139;
+    }
+    article{
+        width:  49.3333%;
+        float: left;
+        background: #fff;
+        text-align: center;
+        border: 1px solid #2b3139;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        height: 250px;
+        div{
+             height: 170px;
+        }
+        
+        header{
+            padding: 0 0%;
+            a{
+                font-weight: 500;
+                color: #0066c0;
+                text-decoration: none;
+                h1{
+                    font-family: "Roboto", sans-serif;
+                    font-size: 13px;
+                    line-height: 20px;
+                    height: 37px;
+                    overflow: hidden;
+                }                
+                h3 {
+                    font-size: 12px;
+                    height: 25px;
+                    overflow: hidden;
+                    padding: 5px;
+                }
+            }
+        }
+    }
+}
+

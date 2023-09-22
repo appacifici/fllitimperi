@@ -1,0 +1,105 @@
+/*Css per il box della ricerca in home */
+.home-search {
+  background-image: url(/images/sfondo-home.jpg);
+  height: 265px;
+  padding: 70px 13%;
+  background-size: 100% 100%;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  color: #fff;
+  border-bottom: 5px solid #316f8c;
+}
+.home-search h1 {
+  margin: 0 auto 0px;
+  font-size: 41px;
+  text-align: center;
+  padding: 15px 0 0 0;
+  width: 646px;
+  font-weight: bold;
+}
+.home-search p {
+  margin: 15px auto 15px;
+  font-size: 16px;
+  text-align: center;
+  padding-bottom: 10px;
+  display: block;
+}
+.home-search form {
+  position: relative;
+}
+
+@media (max-width: 1440px) {
+  .home-search {
+    padding: 70px 5%;
+  }
+}
+@media (max-width: 1000px) {
+  .home-search {
+    padding: 30px 8%;
+  }
+  .home-search form button {
+    right: 1px;
+    width: 49px;
+    height: 54px;
+  }
+  .home-search form input {
+    width: 83%;
+  }
+}
+@media (max-width: 825px) {
+  .home-search form {
+    width: 591px;
+  }
+  .home-search form input {
+    width: 81%;
+  }
+  .home-search h1 {
+    font-size: 30px;
+    width: auto;
+  }
+}
+@media (max-width: 625px) {
+  .home-search {
+    padding: 4%;
+  }
+  .home-search h1 {
+    width: auto;
+    font-size: 19px;
+  }
+  .home-search h2 {
+    margin: 5px auto 0px;
+    font-size: 14px;
+  }
+  .home-search form {
+    width: auto;
+    margin-top: 20px;
+  }
+  .home-search form select {
+    font-size: 14px;
+    padding: 0 4%;
+    height: 40px;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .home-search form input {
+    width: 92%;
+    padding: 0 4%;
+    font-size: 14px;
+    height: 40px;
+  }
+  .home-search form button {
+    right: 0px;
+    height: 40px;
+    width: 40px;
+    bottom: 0px;
+  }
+}
+@media (max-width: 425px) {
+  .home-search {
+    background-image: url(/images/sfondo-home-2.jpg);
+  }
+  .home-search p {
+    font-size: 15px;
+  }
+}/*# sourceMappingURL=widgetHomeSearch.css.map */

@@ -1,0 +1,34 @@
+<header class="header">
+    {%if fetch_structure_Header is defined %}
+        {{ fetch_structure_Header |raw  }}
+    {%endif%}
+    <div class="structure_Container">             
+        <div class="clearB"></div>     
+        <a href="/">
+            <img class="logo" src="/images/logotimperi.png" alt="Onoranze Funebri Timperi Guidonia" >
+        </a>
+        <div class="contacts">
+            <strong>In caso di lutto </strong>
+            <div class="contact">                
+                <span class="surname">
+                    349 082 8881
+                </span>
+                <span class="name">
+                    Maurizio Timperi
+                </span>
+            </div>
+            <div class="contact">                
+                <span class="surname">
+                    339 711 5990
+                </span>
+                <span class="name">
+                    Cristiano Menci
+                </span>
+            </div>
+        </div>
+    </div>
+</header>
+{%if fetch_widget_HeaderButtonCategory is defined %}
+    {{ fetch_widget_HeaderButtonCategory |raw  }}
+{%endif%}
+

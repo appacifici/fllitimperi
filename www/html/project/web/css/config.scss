@@ -1,0 +1,50 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 13-gen-2016, 10.48.27
+    Author     : alessandro
+*/
+
+@mixin setFont( $size:13, $weight:normal) {
+    font-weight: $weight;
+    font-size: #{$size}px;
+}
+
+//Genera il css per settare altezza e larghezza
+@mixin widthHeight( $widthH, $height ) {
+    width: #{$widthH}px;
+    height: #{$height}px;
+}
+
+//Genera il css per settare i margini
+@mixin setMargin( $mt:"0", $mr:"0", $mb:"0", $ml:"0" ) {
+    margin: #{$mt}px #{$mr}px #{$mb}px #{$ml}px;
+}
+
+//Genera il css per settare il pagging
+@mixin setPadding( $pt:"0", $pr:"0", $pb:"0", $pl:"0" ) {
+    padding: #{$pt}px #{$pr}px #{$pb}px #{$pl}px;
+}
+
+//Genera il css per settare il border radius
+@mixin border-radius( $radius ) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
+}
+
+//Genera il css per il tipo di dimensione regola CSS3
+@mixin box-sizing( $sizeType:border-box ) {
+    -moz-box-sizing: $sizeType;
+    -webkit-box-sizing: $sizeType;
+    box-sizing: $sizeType;
+}
+
+//Genera il css per settare il tipo di float
+@mixin float( $type ) {
+    float: $type;
+}

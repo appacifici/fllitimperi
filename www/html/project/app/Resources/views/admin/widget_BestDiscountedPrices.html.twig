@@ -1,0 +1,195 @@
+{% if permission.model.read %}
+    <div class=" widgetBoxShadow">
+        <form  class="form-horizontal" action="{{path('bestDiscount')}}" method="GET">
+            <div class="col-md-2 form-group">
+                        <label class="control-label active colorLabelFormForce" style="display: inline-block;">
+                            Nome Modello 
+                        </label>
+                        <input class="form-control" type="text" name="name" value="{{app.request.query.get("name")}}">                            
+                    </div>
+                    <div class="col-md-2 form-group">
+                        <label class="control-label active colorLabelFormForce" style="display: inline-block;">
+                            Stato
+                        </label>
+                        <select class="selectpicker form-control" select name="isCompleted" data-style="btn-primary">
+                            <option value="">Scegli</option>                
+                            <option {% if app.request.query.get("isCompleted") == '0' %}selected="selected"{%endif%} value="0">No</option>                
+                            <option {% if app.request.query.get("isCompleted") == '1' %}selected="selected"{%endif%} value="1">Si</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2 form-group">
+                        <label class="control-label active colorLabelFormForce" style="display: inline-block;">
+                            Controllato
+                        </label>
+                        <select class="selectpicker form-control" select name="revisioned" data-style="btn-primary">
+                            <option value="">Scegli</option>                
+                            <option {% if app.request.query.get("revisioned") == '0' %}selected="selected"{%endif%} value="0">No</option>                
+                            <option {% if app.request.query.get("revisioned") == '1' %}selected="selected"{%endif%} value="1">Si</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2 form-group">
+                        <label class="control-label active colorLabelFormForce" style="display: inline-block;">
+                            Categoria
+                        </label>
+                        <select class="categoriesSelect selectpicker form-control"  name="category" id="form_category" data-childrens='{"subcategory_":{"entity":"subcategory","find":"findSubcategoriesByCategory"}}'>
+                            <option value="0">Scegli Categoria</option>
+                            {% for category in allCategories %}
+                                <option {% if app.request.query.get("category") == category.id %}selected="selected"{%endif%} value="{{ category.id }}">{{ category.name }}</option>
+                            {% endfor %}
+                        </select>  
+                    </div>
+                    <div class="col-md-2 form-group">
+                        <label class="control-label active colorLabelFormForce" style="display: inline-block;">
+                            Sottocategoria
+                        </label>
+                        <select class="subcategoriesSelect selectpicker form-control" name="subcategory" id="form_subcategory_" data-childrens='{"typology_":{"entity":"typology","find":"findTypologiesBySubcategory"}}'>
+                            <option value="0">---</option>                                
+                            {% for subcategory in allSubcategories %}
+                                <option {% if app.request.query.get("subcategory") == subcategory.id %}selected="selected"{%endif%} value="{{ subcategory.id }}">{{ subcategory.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-2 form-group">
+                        <label class="control-label active colorLabelFormForce" style="display: inline-block;">
+                            Tipologia
+                        </label>
+                        <select class="typologiesSelect selectpicker form-control" name="typology" id="form_typology_" >
+                            <option value="0">---</option>                                
+                            {% for typoology in allTypologies %}
+                                <option {% if app.request.query.get("typology") == typoology.id %}selected="selected"{%endif%} value="{{ typoology.id }}">{{ typoology.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-2 form-group">
+                        <label class="control-label active colorLabelFormForce" style="display: inline-block;">
+                            Top
+                        </label>
+                        <select class="selectpicker form-control" select name="top" data-style="btn-primary"> 
+                            <option value="">Scegli</option>                
+                            <option {% if app.request.query.get("top") == '0' %}selected="selected"{%endif%} value="0">No</option>                
+                            <option {% if app.request.query.get("top") == '1' %}selected="selected"{%endif%} value="1">Si</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2 form-group">
+                        <label class="control-label active colorLabelFormForce" style="display: inline-block;">
+                            In Vetrina
+                        </label>
+                        <select class="selectpicker form-control" select name="inShowcase" data-style="btn-primary"> 
+                            <option value="">Scegli</option>                
+                            <option {% if app.request.query.get("inShowcase") == '0' %}selected="selected"{%endif%} value="0">No</option>                
+                            <option {% if app.request.query.get("inShowcase") == '1' %}selected="selected"{%endif%} value="1">Si</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2 form-group">
+                        {%if app.request.get('date') is not null and app.request.get('date')  is not empty %}
+                            {% set day   = app.request.get('date') | replace( ' ','-') | date( "d" ) %} 
+                            {% set month = app.request.get('date') | replace( ' ','-')| date( "m" )  | trans({}, 'messages', 'it') %}
+                            {% set year  = app.request.get('date')  | replace( ' ','-') | date( "Y" ) %}
+                        {%endif%}
+                        <div class="input-group date datepicker3">                            
+                            <input class="form-control" type="text" value="{%if app.request.get('date') is not null and app.request.get('date')  is not empty %}{{ day }} {{ month }} {{ year }}{%endif%}" name="date" />
+                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                        </div>
+                    </div>
+            <div class="search">
+                <button type="submit" class="btn btn-primary btn-lg" data-loading-text="Now searching ..." data-toggle="btn-loading"><div class="fa  fa-search"></div></button>
+            </div>
+        </form>
+    </div>
+    <div class="widget_BestDiscountedPrices widgetBoxShadow">
+        
+        <table class="table footable table-bordered table-condensed table-striped table-primary dynamicTable colVis table">
+            <thead>
+                <tr>
+                    <th class="center" data-hide="phone,tablet">Id</th>
+                    <th class="center" data-hide="phone,tablet">Immagine</th>
+                    <th data-hide="phone">Nome</th>
+                    <th data-hide="phone">Prezzo </th>
+                    <th data-hide="phone">Prezzo Precedente</th>
+                    <th data-hide="phone">Prezzo Consigliato</th>
+                    <th data-hide="phone,tablet">Url</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for bestDiscountedModel in bestDiscountedModels %}
+                    {% if bestDiscountedModel is defined %}
+                        <tr >
+                            <td class="important center" >
+                                <span class="badge badge-blu">{{bestDiscountedModel.id}}</span>
+                            </td>
+                            <td class="important center" >
+                                {% if bestDiscountedModel.img is defined %}
+                                    <img  src="{{folder_img_products_small}}{{bestDiscountedModel.img}}">
+                                {% endif %}
+                                
+                                {%if bestDiscountedModel.imgExternal is defined and bestDiscountedModel.img is not empty %}
+                                    <img  src="{{bestDiscountedModel.img}}" alt="{{bestDiscountedModel.name}}" width="{{bestDiscountedModel.widthSmall}}" height="{{bestDiscountedModel.heightSmall}}">
+                                {% elseif model.img is defined and model.img is not empty %}
+                                    <img  src="{{folder_img_models}}{{bestDiscountedModel.img}}" alt="{{bestDiscountedModel.name}}" width="{{bestDiscountedModel.widthSmall}}" height="{{bestDiscountedModel.heightSmall}}">
+                                {% elseif bestDiscountedModel.bestDiscountedModel.products[0] is defined  and bestDiscountedModel.products[0].priorityImg is defined and bestDiscountedModel.products[0].priorityImg is not empty and bestDiscountedModel.products[0].priorityImg.img is not empty %}
+                                    {%if bestDiscountedModel.products[0].priorityImg.imgExternal is defined %}
+                                        <img  src="{{bestDiscountedModel.products[0].priorityImg.img}}" alt="{{model.name}}" width="{{bestDiscountedModel.products[0].priorityImg.widthSmall}}" height="{{bestDiscountedModel.products[0].priorityImg.heightSmall}}">
+                                    {%elseif bestDiscountedModel.products[0].priorityImg.img is defined %}
+                                        <img  src="{{folder_img_products_small}}{{bestDiscountedModel.products[0].priorityImg.img}}" alt="{{model.name}}" width="{{bestDiscountedModel.products[0].priorityImg.widthSmall}}" height="{{bestDiscountedModel.products[0].priorityImg.heightSmall}}">
+                                    {%endif%}
+                                {% endif %}
+                                
+                            </td>
+                            <td>
+                                <a target="_blank" href="{{bestDiscountedModel.urlModel}}">
+                                {{bestDiscountedModel.name}} 
+                                </a>
+                                <a target="_blank" href="/admin/editModel/{{bestDiscountedModel.id}}">[[ADMIN]]</a>
+                            </td>
+                            <td>
+                                <strong>{{bestDiscountedModel.price}}</strong>
+                            </td>
+                            <td>
+                                {{bestDiscountedModel.lastPrice}}
+                            </td>
+                            <td>
+                                {{bestDiscountedModel.advisedPrice}}
+                            </td>
+                            <td data-urlProduct="1" class="important urlProduct positionRelative">
+                                
+                                <ul class="social-links social-links--btn">
+                                    <li class="social-links__item btn btn-facebook">
+                                        <a href="https://www.facebook.com/sharer/sharer.php?u={{bestDiscountedModel.urlModel}}?shareFb={{random(1000)}}" target="_blank" class="social-links__link social-links__link--fb"><i class="fa fa-facebook"></i></a>
+                                    </li>
+                                    <li class="social-links__item btn btn-twitter">
+                                        <a href="https://twitter.com/home?status={{bestDiscountedModel.urlModel}}?twitter={{random(1000)}}" target="_blank"  class="social-links__link social-links__link--twitter"><i class="fa fa-twitter"></i></a>
+                                    </li>
+                                    <li class="social-links__item btn btn-zap">
+                                        <a href="whatsapp://send?text={{bestDiscountedModel.urlModel}}?whatsapp={{random(1000)}}" target="_blank"  class="social-links__link social-links__link--whatsapp"><i   class="fa fa-whatsapp"></i></i></a>
+                                    </li>
+                                    <li class="social-links__item btn btn-google">                                        
+                                        <a href="https://plus.google.com/share?url={{bestDiscountedModel.urlModel}}?googleplus={{random(1000)}}" target="_blank"  class="social-links__link social-links__link--whatsapp"><i   class="fa  fa-google-plus"></i></i></a>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    {%endif%}
+                {%endfor%}
+            </tbody>
+        </table>
+    </div>
+{% endif %}
+{%if fetch_widget_BestDiscountedPrices is defined %}
+    {{ fetch_widget_BestDiscountedPrices|raw  }}
+{%endif%}
+{#<div class="button-action">
+    <a href="javascript:history.back()"> 
+        <div class="btnGoBack" id="btnGoBack">
+            <i class="fa fa-arrow-circle-o-left"></i>
+        </div>
+    </a>
+
+    <div class="buttonDefault" onclick="window.location.href = '/admin/editBanner';">
+
+        <div class="add"> Crea Nuovo Banner</div>
+        <i class=" fa    fa-plus-circle"></i>
+    </div>
+    <div id="toTop">
+        <i class="fa fa-arrow-circle-o-left"></i>
+    </div>
+</div>#}

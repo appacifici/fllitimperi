@@ -1,0 +1,58 @@
+{% if permission.subcategory.read %}
+    <div class="widget_ListSubcategories widgetBoxShadow">
+        <table class="table footable table-bordered table-condensed table-striped table-primary dynamicTable colVis table">
+            <thead>
+                <tr> 
+                    <th class="center" data-hide="phone">Id</th>
+                    <th data-class="expand">Sottocategoria</th>
+                    <th data-class="expand">Singolare</th>
+                    <th data-hide="phone,tablet">Immagine</th>
+                    <th data-hide="phone,tablet">Meta Title</th>
+                    <th data-hide="phone">Azioni</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if subcategories is defined %}
+                    {% for subcategory in subcategories %}
+                        <tr class="selectable"data-createForm="modifySubcategory" data-entity="Subcategory" data-id="{{subcategory.id}}">
+                            <td class="important center" ><span class="badge badge-blu">{{subcategory.id}}</span></td>
+                            <td class="important" data-modify="input" data-field="screen">{{subcategory.name}}</td>
+                            <td class="important" data-modify="input" data-field="screen">{{subcategory.singularName}}</td>
+                            <td class="important " data-modify="input" data-field="active">
+                                <img src="{{folder_img_subcategories}}{{subcategory.img}}">
+                            </td>
+                            <td class="important" data-modify="input" data-field="active">{{subcategory.metaTitle}}</td>
+                            <td>
+                                {% if permission.subcategory.edit %}
+                                    <a href="{{ path('editSubcategory', {'id': subcategory.id}) }}" class="btn  btn-green"><i class="fa fa-pencil"></i></a>
+                                    {% endif %}
+                                    {% if permission.subcategory.remove %}
+                                    <button href="#" class="btn  btn-red" data-deleteInlineForm="1">
+                                        <i class="fa fa-trash-o"></i>
+                                    </button>
+                                {% endif %}
+                            </td>  
+                        </tr>                
+                    {%endfor%}
+                {%endif%}
+            </tbody>
+        </table>
+    </div>
+{% endif %}
+{%if fetch_widget_ListSubcategories is defined %}
+    {{ fetch_widget_ListSubcategories|raw  }}
+{%endif%}
+<div class="button-action">
+    <a href="javascript:history.back()"> 
+        <div class="btnGoBack" id="btnGoBack">
+            <i class="fa fa-arrow-circle-o-left"></i>
+        </div>
+    </a>
+    <div class="buttonDefault" onclick="window.location.href = '{{ path('editSubcategory') }}';">
+        <div class="add"> Crea Sottocategoria</div>
+        <i class=" fa  fa-plus-circle"></i>
+    </div>
+    <div id="toTop">
+        <i class="fa fa-arrow-circle-o-left"></i>
+    </div>
+</div>

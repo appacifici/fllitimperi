@@ -1,0 +1,107 @@
+.h1ListArticles {
+  font-size: 25px;
+  font-weight: bold;
+  margin: 10px 0 -10px;
+  text-align: center;
+}
+
+.widget_ListArticles {
+  padding: 10px 0 0px;
+}
+.widget_ListArticles h2 {
+  font-size: 16px;
+  margin: 10px 0 1px 0;
+  text-align: left;
+  background: #fff;
+  padding: 16px;
+  font-weight: bold;
+  border-top: 3px solid #f90;
+}
+.widget_ListArticles article {
+  width: 100%;
+  float: none;
+  margin-right: 1.333%;
+  background: #fff;
+  box-shadow: 1px 1px 5px 1px #a6a8ab;
+  position: relative;
+  margin-bottom: 20px;
+  border-top: 3px solid #f90;
+  overflow: hidden;
+}
+.widget_ListArticles article figure {
+  /* border-radius: 10px 10px 0 0; */
+  width: 100%;
+  margin: 0;
+  text-align: center;
+}
+.widget_ListArticles article figure img {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  right: 0;
+  left: 0;
+}
+.widget_ListArticles article a {
+  text-decoration: none;
+}
+.widget_ListArticles article a h3 {
+  color: #333333;
+  font-size: 20px;
+  word-wrap: break-word;
+  width: 100%;
+  overflow: hidden;
+  line-height: 25px;
+  margin: 5px 0 5px 0;
+  text-align: center;
+  font-weight: 700;
+  cursor: pointer;
+}
+.widget_ListArticles article .content {
+  margin: 14px 18px;
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+  overflow: hidden;
+}
+.widget_ListArticles article .content h4 {
+  line-height: 21px;
+  font-size: 14px;
+  height: 59px;
+  word-wrap: break-word;
+  width: 99%;
+  overflow: hidden;
+  margin: 1px;
+  cursor: pointer;
+  color: #6d6969;
+  font-weight: normal;
+}
+.widget_ListArticles article .content span {
+  float: right;
+  background: #f90;
+  padding: 12px;
+  border-radius: 0 0 10px 0;
+  color: #fdf9f9;
+  font-weight: bold;
+}
+.widget_ListArticles article span {
+  font-size: 12px;
+  text-transform: uppercase;
+  background: transparent;
+  color: #ff9800;
+  margin: 10px 16px;
+  float: right;
+}
+.widget_ListArticles article:hover {
+  background: #ff9900;
+  color: #fff;
+}
+.widget_ListArticles article:hover h3, .widget_ListArticles article:hover h4, .widget_ListArticles article:hover span {
+  color: #fff;
+}
+.widget_ListArticles article:hover hgroup span {
+  background: #2a3139;
+  color: #ff9800;
+}
+.widget_ListArticles article:nth-child(5) {
+  margin-right: 0px;
+}/*# sourceMappingURL=amp_widgetListArticles.css.map */

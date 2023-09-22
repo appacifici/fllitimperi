@@ -1,0 +1,203 @@
+ 1  sudo su
+    2  exit
+    3  sudo sshd restart
+    4  ll
+    5  sudo nano .bashrc 
+    6  ll
+    7  exit
+    8  sudo cat /etc/passwd
+    9  xit
+   10  exit
+   11  adduser simone
+   12  sudo adduser simone
+   13  sudo adduser fede
+   14  sudo apt-get install nginx
+   15  sudo ufw allow 'Nginx HTTP'
+   16  sudo ufw status
+   17  sudo service nginx restart
+   18  sudo ufw status
+   19  sudo ufw allow 'Nginx HTTP'
+   20  sudo ufw app list
+   21  sudo ufw allow Nginx Full
+   22  sudo ufw allow 'Nginx Full'
+   23  sudo ufw status
+   24  systemctl status ngi
+   25  sudo ufw 
+   26  ip  addr show eth0 | grep inet | awk '{ print $2; }' | sed 's/\/.*$//'
+   27  curl -4 icanhazip.com
+   28  sudo apt-get install mysql-server
+   29  sudo apt-get install php7.0 php7.0-fpm php7.0-mysql -y
+   30  sudo nano /etc/php/7.0/fpm/php.ini
+   31  sudo systemctl restart php7.0-fpm
+   32  sudo sh -c 'echo "ServerName localhost"
+   33  sudo nano /etc/apache2/conf.d/name'
+   34  sudo nano /etc/apache2/conf.d/name
+   35  mysql -uroot -p
+   36  sudo apt-get install php7.0-imap
+   37  sudo apt-get install php-pear
+   38  sudo apt-get install php7.0-gd
+   39  sudo apt-get install php-curl
+   40  curl
+   41  sudo apt-get install curl libcurl3 libcurl3-dev
+   42  sudo apt-get install redis-server
+   43  sudo nano /etc/redis/redis.conf
+   44  redis-cli monitor
+   45  redis-cli 
+   46  dpkg -l | grep ela
+   47  ll
+   48  wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.2.3.deb
+   49  ll
+   50  rm elasticsearch-6.2.3.deb.1 
+   51  ll
+   52  wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.4.2.deb
+   53  ll
+   54  sudo dpkg -i elasticsearch-5.4.2.deb 
+   55  history
+   56  sudo service elasticsearch start
+   57  cd site/miglioreprezzo/
+   58  exit
+   59  cd site/miglioreprezzo/
+   60  cd frontend/
+   61  php bin/console 
+   62  php bin/console  fos:elastica:populate
+   63  php bin/console  fos:elastica:populate cmsproduct
+   64  php bin/console  fos:elastica:populate
+   65  php bin/console  fos:elastica:populate --index=cmsproduct
+   66  redis-cli 
+   67  php bin/console  fos:elastica:populate --index=cmsproduct
+   68  sudo service redis-server restart
+   69  php bin/console  fos:elastica:populate --index=cmsproduct
+   70  sudo nano /etc/redis/redis.conf
+   71  sudo service redis-server restart
+   72  php bin/console  fos:elastica:populate --index=cmsproduct
+   73  nano app/config/parameters.yml 
+   74  php bin/console  fos:elastica:populate --index=cmsproduct
+   75  php bin/console  fos:elastica:populate --index=cmsmodel
+   76  php bin/console  fos:elastica:populate --index=cmsmodel -vv
+   77  php bin/console  fos:elastica:populate --index=cmsmodel -vvv
+   78  nproc --all
+   79  cat /proc/cpuinfo
+   80  llocate elasticsearch.yml
+   81  locate elasticsearch.yml
+   82  cat /home/ale/site/miglioreprezzo/frontend/vendor/ruflin/elastica/env/elasticsearch/elasticsearch.yml
+   83  curl -X GET 'http://localhost:9200'
+   84  cd /etc/nginx/sites-enabled/
+   85  ll
+   86  rm default 
+   87  sudo rm default 
+   88  ll
+   89  sudo nano offerteprezzi.it
+   90  sudo service nginx restart
+   91  journalctl -xe
+   92  sudo journalctl -xe
+   93  sudo nano offerteprezzi.it
+   94  sudo service nginx restart
+   95  sudo journalctl -xe
+   96  sudo nano offerteprezzi.it
+   97  sudo service nginx restart
+   98  sudo journalctl -xe
+   99  sudo nano offerteprezzi.it
+  100  sudo service nginx restart
+  101  sudo nano offerteprezzi.it
+  102  sudo service nginx restart
+  103  sudo journalctl -xe
+  104  ll /run/php/php7.0-fpm.sock
+  105  sudo nano offerteprezzi.it
+  106  sudo service nginx restart
+  107  sudo journalctl -xe
+  108  nano cat /etc/nginx/nginx.conf
+  109  sudo nano /etc/nginx/nginx.conf
+  110  cd /etc/nginx/
+  111  ll
+  112  cp nginx.conf /home/ale/
+  113  sudo nano nginx.conf 
+  114  sudo service nginx restart
+  115  sudo journalctl -xe
+  116  sudo nano offerteprezzi.it
+  117  sudo nano /etc/nginx/sites-enabled/offerteprezzi.it 
+  118  sudo service nginx restart
+  119  sudo journalctl -xe
+  120  sudo nano /etc/nginx/sites-enabled/offerteprezzi.it 
+  121  sudo service nginx restart
+  122  php -v
+  123  cd
+  124  ll
+  125  nano prova.php
+  126  php prova.php 
+  127  nano prova.php
+  128  cd site/miglioreprezzo/frontend/app/
+  129  cat config/config.yml 
+  130  locate php.ini
+  131  sudo nano /etc/php/7.0/fpm/php.ini
+  132  cd ..
+  133  tail -f var/logs/dev.log 
+  134  tail -f var/logs/prod.log 
+  135  cat miglioreprezzotemplates/app/config/parameters.custom.template.yml 
+  136  tail -f var/logs/prod.log 
+  137  tail -f var/logs/dev.log 
+  138  tail -f var/logs/prod.log 
+  139  ll web/
+  140  tail -f var/logs/prod.log 
+  141  php bin/console
+  142  php bin/console cache:clear -e=prod
+  143  sudo chmod -R 777 var/
+  144  php bin/console cache:clear -e=prod
+  145  sudo chmod -R 777 var/
+  146  sudo nano /etc/nginx/sites-enabled/offerteprezzi.it 
+  147  sudo service nginx restart
+  148  sudo nano /etc/nginx/sites-enabled/offerteprezzi.it 
+  149  sudo service nginx restart
+  150  sudo nano /etc/nginx/sites-enabled/offerteprezzi.it 
+  151  sudo service nginx restart
+  152  sh createSymlink.sh 
+  153  ll web/css/template
+  154  ll web/css/template/
+  155  ll web/css/template/widget/
+  156  cd  miglioreprezzotemplates/web/css/
+  157  ll
+  158  cd template/
+  159  ll
+  160  cd ..
+  161  cd frontend/web/
+  162  ll
+  163  cd images/
+  164  ll
+  165  cd ..
+  166  ll /home/
+  167  ll /home/ale/
+  168  mv /home/ale/imagesMp.zip .
+  169  ll
+  170  mv /home/ale/imagesMp.zip .
+  171  kk
+  172  unzip imagesMp.zip 
+  173  ll
+  174  rm imagesMp.zip 
+  175  ll
+  176  cd ..
+  177  sh createSymlink.sh 
+  178  cd web/
+  179  ll
+  180  rm ads.txt 
+  181  cp /home/ale/payments.zip .
+  182  ll
+  183  unzip payments.zip 
+  184  ll
+  185  nano remoteIp.php
+  186  ll
+  187  mv /home/ale/icon.zip .
+  188  unzip icon.zip 
+  189  ll
+  190  cd ../miglioreprezzotemplates/app/Resources/
+  191  ll
+  192  cd layouts/
+  193  ll
+  194  sudo chmod -R 777 template/*
+  195  sudo chmod -R 777 amp_template/*
+  196  cd ..
+  197  cd views/
+  198  ll
+  199  sudo chmod -R 777 template/*
+  200  sudo chmod -R 777 amp_template/*
+  201  ll template/
+  202  history
+

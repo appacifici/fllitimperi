@@ -1,0 +1,35 @@
+#Rotta per il robot.txt SEO
+robotstxt:
+    path:     /robots.txt
+    defaults: { _controller: AppBundle:Sitemap:robotsTxt }
+    
+#speakArticle:
+#    path:     /speakArticle/{articleId}
+#    defaults: { _controller: AppBundle:DetailArticle:speakArticle }
+#    schemes: [https]
+       
+    
+#Path AMP lista tutte le categorie
+#AMPallCategoriesProduct:
+#    path:     "%app.ampPrefix%/tutte_le_categorie"
+#    defaults: { _controller: AppBundle:CatSubcatTypology:allCategoriesProduct }    
+    
+#Path lista tutte le categorie
+#allCategoriesProduct:
+#    path:     /tutte_le_categorie
+#    defaults: { _controller: AppBundle:CatSubcatTypology:allCategoriesProduct }
+
+#Path opinioni negozio
+
+#Abilita la lettura delle rotte da annotazioni nei Controller
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation         
+
+#Gestione Custom e Manuale delle rotte particolari non gestibili con il sistema delle rotte
+AMPcustomRoute:
+    path:     "%app.ampPrefix%/{path}"
+    defaults: { _controller: AppBundle:Custom:customDetect }   
+    requirements:
+        path: .*   
+                           

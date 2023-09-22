@@ -1,0 +1,14 @@
+{% if infiniteScroll is defined %}
+    <div  data-toggle="gridaliciousInfiniteScroll{{page}}" data-gridalicious-width="280" data-gridalicious-gutter="0">{%endif%}
+
+    {% for image in images %}    
+        <div class="widget widget-heading-simple widget-body-white widget-pinterest containerImg">
+            <div class="widget {% if infiniteScroll is defined %} widgetInfiniteScroll{%endif%} widget-body">
+                    <img src="{{image.display_sizes.0.uri}}" alt="photo" title='{{image.title}}' />
+            </div>
+        </div>    
+    {%endfor %}
+
+    {% if infiniteScroll is defined %}</div>    {%endif%}
+<div class="clearB"></div>
+

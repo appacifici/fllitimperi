@@ -1,0 +1,70 @@
+.widget_ProductListHorizontal{
+    overflow: hidden;
+    border-top: 3px solid #4895b6;
+    padding: 0% 0;
+    margin-bottom: 10px;
+    .productTitle{
+        padding: 15px;
+        background: #fff;
+        border-bottom: 1px solid #ececec;
+        margin: 0 0px;
+        font-size: 15px;
+        a {
+            color:#0365c0;
+        }
+    }
+    article{
+        width:  49.3333%;
+        float: left;
+        background: #fff;
+        text-align: center;
+        border: 1px solid #ececec;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        height: 235px;
+        div {
+            height: 160px;
+        }
+        header{
+            padding: 0 2%;
+            a{
+                font-weight: 500;
+                color: #0066c0;
+
+                text-decoration: none;
+                h3{
+                    font-family: "Roboto", sans-serif;
+                    font-size: 16px;
+                    line-height: 20px;
+                    margin-top: 20px;
+                    margin-bottom: 5px;
+                    height: 35px;
+                    overflow: hidden;
+                }
+            }
+            .lineThrough {
+                float: right;
+                margin: 4px 18px 4px 4px;
+                height: 15px;
+                text-decoration: line-through #ff0000;
+                color: #333333;
+            }
+        }
+    }
+}
+@media only screen and (min-device-width: 320px) {
+    .widget_ProductListHorizontal {
+        .totalPrice {
+            font-size: 16px;
+        }
+        article header {
+            font-size: 14px;
+            .lineThrough {
+                margin: -1px 18px 4px 4px;
+            }
+            a h3 {
+                margin-bottom: 10px;
+            }
+        }    
+    }    
+}

@@ -1,0 +1,44 @@
+.technicalSpecifications {
+  /*            border-top: 1px solid rgba(0,0,0,.125);
+              border-right:  1px solid rgba(0,0,0,.125);
+              border-left:  1px solid rgba(0,0,0,.125);*/
+  padding: 0px;
+  overflow: hidden;
+  margin-bottom: 2%;
+}
+.technicalSpecifications div {
+  float: left;
+  width: 50%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+.technicalSpecifications .itemLabel {
+  color: #2b3139;
+  padding: 9px 6px;
+  font-weight: bold;
+  font-size: 18px;
+  margin: 2.5% 0% 0px 0%;
+  height: 18px;
+  background: #f3f3f3;
+}
+.technicalSpecifications .itemLabel:nth-child(1) {
+  margin-top: 0;
+}
+.technicalSpecifications span {
+  padding: 0px 1% 0;
+  color: #1f1e1e;
+  width: 46%;
+  float: left;
+  font-size: 15px;
+  float: left;
+  min-height: 37px;
+  overflow: hidden;
+  text-transform: capitalize;
+  display: flex;
+  align-items: center;
+}
+.technicalSpecifications span.name {
+  width: 50%;
+  /*background: #f3f3f3;*/
+  color: #2f2e2e;
+  height: 37px;
+}/*# sourceMappingURL=widgetTecnicalSpecifications.css.map */

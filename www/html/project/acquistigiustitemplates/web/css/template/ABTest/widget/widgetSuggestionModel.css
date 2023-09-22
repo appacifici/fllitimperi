@@ -1,0 +1,66 @@
+.widget_SuggestionModel {
+  padding: 10px;
+  max-height: 530px;
+  overflow: auto; }
+  .widget_SuggestionModel .item {
+    overflow: hidden;
+    clear: both;
+    margin-bottom: 7px; }
+    .widget_SuggestionModel .item[data-item="2"], .widget_SuggestionModel .item[data-item="4"] {
+      background: #ececec; }
+    .widget_SuggestionModel .item.selected {
+      background: #242f3e; }
+      .widget_SuggestionModel .item.selected a {
+        color: #fff; }
+    .widget_SuggestionModel .item:hover {
+      background: #242f3e; }
+      .widget_SuggestionModel .item:hover a {
+        color: #fff; }
+    .widget_SuggestionModel .item a {
+      color: #000; }
+    .widget_SuggestionModel .item img {
+      float: left;
+      margin-right: 10px; }
+    .widget_SuggestionModel .item span {
+      float: left;
+      padding: 15px; }
+    .widget_SuggestionModel .item .price {
+      margin: 14px;
+      float: right; }
+      .widget_SuggestionModel .item .price .minPrice {
+        color: #ff0000; }
+  .widget_SuggestionModel .boxSuggestTypologies {
+    padding-bottom: 5px;
+    overflow: hidden;
+    /*height: 50px;*/
+    margin-bottom: 10px; }
+    .widget_SuggestionModel .boxSuggestTypologies .item {
+      float: left;
+      width: 31%;
+      margin-right: 1%;
+      clear: inherit;
+      height: 24px;
+      overflow: hidden; }
+      .widget_SuggestionModel .boxSuggestTypologies .item span {
+        padding: 5px; }
+  .widget_SuggestionModel .separator {
+    border-bottom: 1px solid #333;
+    padding: 1px 1px 5px 1px;
+    font-weight: bold;
+    margin-bottom: 10px; }
+
+[data-responseSuggestionModel] {
+  display: none;
+  width: 100.3%;
+  min-height: 200px;
+  background: #fff;
+  position: absolute;
+  top: 48px;
+  left: -7px;
+  z-index: 999;
+  max-height: 500px;
+  overflow: auto;
+  box-shadow: 0px 3px 10px #ccc;
+  border: 1px solid #ccc; }
+
+/*# sourceMappingURL=widgetSuggestionModel.css.map */

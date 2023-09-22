@@ -1,0 +1,172 @@
+.widget_ProductDescription{
+    margin-top: 0px;
+    background: #fff;
+    padding: 5px;
+    h2 {
+        padding: 0px 9px 10px 6px;
+        border-bottom: 2px solid;
+        font-size: 18px;
+        margin: 10px 0px;
+    }
+    section{            
+        h3{
+            border: none;
+            cursor: pointer;
+            background-color: transparent;
+            padding-right: 0px; 
+            border-bottom: 1px solid #4895b6;
+            padding: 10px 10px 10px 6px;
+            margin-bottom: 6px;
+            strong{
+                float: right;
+                margin: 0 10px 0 0;
+            }
+
+        }
+    }
+    .listDescription{
+        margin-bottom: 0px;
+        width: 100%;
+        overflow: hidden;
+        margin-bottom: 0px;
+        a {
+            
+            color: #0066aa;
+            font-weight: 700;
+            text-decoration: underline;
+        }
+        h2{
+            color: #1f1e1e;
+            font-size: 16px;
+            font-weight: 400;
+            margin: 0px 0px;
+            border: none;
+        }
+        h3,h4{
+            color: #1f1e1e;
+            font-size: 16px;
+            font-weight: 400;
+            border: none;
+            line-height: 20px;
+            margin: 0;
+            p {
+                margin: 0;
+            }
+            strong {
+                float: none;
+            }
+        }
+        h4 {
+            padding: 7px;
+        }
+
+
+    }
+    
+     .specications{
+         margin-top: 10px;
+/*        border-top: 1px solid rgba(0,0,0,.125);
+        border-right:  1px solid rgba(0,0,0,.125);
+        border-left:  1px solid rgba(0,0,0,.125);*/
+        padding: 0px;
+        overflow: hidden;
+        width: 99%; 
+        margin-bottom: 10px;
+        div {
+            clear: both;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+            background: #f3f3f3;
+            overflow: hidden;
+
+        }
+        .itemLabel {
+                width: 100%;
+                background: #2b3139;
+                color: #fff;
+                padding: 2%;
+                font-weight: bold;
+                border-top: 2px solid #f90;
+                margin-top: 2%;
+                font-size: 16px;
+            }
+        span{
+            color: #1f1e1e;
+            width: 46%;
+            float: left;
+            padding: 8px 2% 8px 2%;
+            font-size: 14px;
+            line-height: 20px;
+            &.name {
+                    background: #f3f3f3;
+                    color: #2f2e2e;
+                    font-weight: bold;
+                }
+            &.value {
+                background: #fff;
+            }
+        }
+
+    }
+    videoProduct{
+        margin-top: 10px;
+    }
+    .releatedModels {
+        padding-left: 0; 
+        li {
+            margin: 10px 5px;
+            a {
+                color: #0066c0;
+                text-decoration: none;
+            }
+        }
+    }
+    .comparisonModels  {
+        width:100%;
+        margin: 1% 0 2%;
+        margin-bottom:10px;
+        img {
+            float: left;
+            padding-right: 5px;
+        }
+        .ele {
+            margin-bottom: 20px;
+        }
+        .item {
+            width: 90%;
+            margin: 0 5%;
+            border: 1px solid #2b3139;
+            padding: 1%;  
+            height: 90px;   
+            figure {
+                width: 75px;
+            }
+            .name {                             
+                margin: 24px 2px;
+                float:right;
+                h3 {
+                    margin: 0;
+                    color:#1f91f1;
+                }
+            }
+        }
+        .versus {
+            margin: -11px 0% 0 0%;
+            color: #f7941f;
+            font-size: 25px;
+            background: #2b3139;
+            padding: 2%;
+            text-align: center;
+        }
+    }    
+}
+
+@media only screen and (max-device-width: 320px){
+    .extraProduct{
+        ul{
+            li{
+                width: 97%;
+            }
+        }
+    }
+
+}

@@ -1,0 +1,1 @@
+../../../../pluginActive/src/AppBundle/Service/WidgetService/CoreSeoH1ListArticles_Template.php

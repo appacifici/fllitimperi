@@ -1,0 +1,46 @@
+<div class="widget_ListRedirect widgetBoxShadow" >
+    <table class="table footable">
+        <thead>
+            <tr> 
+                <th class="center" data-hide="phone">Id</th>
+                <th data-class="expand">Url Originale</th>
+                <th data-class="expand">Nuova Url</th>
+                <th data-hide="phone">Azioni</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for redirect in redirects %}
+                {% if redirect is defined %}
+                    <tr class="selectable">
+                        <td class="important center" ><span class="badge badge-blu">{{redirect.id}}</span></td>
+                        <td class="important" data-modify="input" data-field="screen">{{redirect.originalUrl}}</td>
+                        <td class="important" data-modify="input" data-field="screen">{{redirect.newUrl}}</td>
+                        <td class="">           
+                            <a href="{{ path('editRedirect', {'id': redirect.id}) }}" class="btn btn-green"><i class="fa fa-pencil"></i></a>
+                            <button class="btn btn-sm btn-danger" data-deleteInlineForm="1">
+                                <i class="fa fa-trash-o"></i>
+                            </button>
+                        </td>  
+                    </tr>
+                {%endif%}
+            {%endfor%}
+        </tbody>
+    </table>
+</div>
+{%if fetch_widget_ListRedirect is defined %}
+    {{ fetch_widget_ListRedirect|raw  }}
+{%endif%}
+<div class="button-action">
+    <a href="javascript:history.back()"> 
+        <div class="btnGoBack" id="btnGoBack">
+            <i class="fa fa-arrow-circle-o-left"></i>
+        </div>
+    </a>
+    <div class="buttonDefault" onclick="window.location.href = '{{ path('editRedirect') }}';">
+        <div class="add">Crea nuova Redirect</div>
+        <i class=" fa  fa-plus-circle"></i>
+    </div>
+    <div id="toTop">
+        <i class="fa fa-arrow-circle-o-left"></i>
+    </div>
+</div>

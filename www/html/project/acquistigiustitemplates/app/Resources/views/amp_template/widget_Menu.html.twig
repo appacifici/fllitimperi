@@ -1,0 +1,95 @@
+<amp-sidebar id='sidebar' class="widget_TopMenu main-nav clearfix" layout='nodisplay' side="right"> 
+    <nav class="widget-menu" data-menu>
+    <ul class="menuList">
+     {% if menu1 is defined %}
+         <li></li>
+        {% for key,category in menu1 %}
+            {%if menu1Sub[category.id] is defined %}
+                <li>
+                    <figure data-cat="{{category.id}}">
+                        <amp-img src="/imagesCategories/{{category.img}}" alt="Categoria {{category.name}}" layout="responsive"  width="50" height="42"></amp-img>
+                    </figure>
+                    <span data-cat="{{category.id}}" class="item">{{category.name}}</span>
+
+                    <ul class="subMenu" data-subMenuCat="{{category.id}}">
+                        <li class="liCat">
+                            <a href="{{ path('catSubcatTypologyProduct', { 'section1': category.nameUrl })}}"> 
+                                {%if category.anchorMenu is defined and category.anchorMenu is not empty  %}
+                                    {{category.anchorMenu}}
+                                {%else%}
+                                    {{category.name}}
+                                {%endif%}
+                           </a>
+                        </li>
+                        {% for subcatTypology in menu1Sub[category.id] %}
+                            {%if subcatTypology.nameUrl is defined %}
+                                <li>                                     
+                                    <a href="{{ path('catSubcatTypologyProduct', { 'section1': category.nameUrl, 'section2': subcatTypology.nameUrl})}}">
+                                        <span>
+                                            {%if subcatTypology.anchorMenu is defined and subcatTypology.anchorMenu is not empty %}
+                                                {{subcatTypology.anchorMenu}}
+                                            {%else%}
+                                                {{subcatTypology.name}}
+                                            {%endif%}
+                                        </span>
+                                        <figure>
+                                            <amp-img src="/imagesSubcategories/{{subcatTypology.img}}" alt="Categoria {{subcatTypology.name}}" layout="responsive"  width="50" height="42"></amp-img>
+                                        </figure>
+                                    </a>                                    
+                                    <ul>
+                                        {% if typologiesBySubcatId[subcatTypology.id] is defined%}
+                                            {% for typology in typologiesBySubcatId[subcatTypology.id] %}
+                                                <li class="typologies">
+                                                    <a href="{{ path('catSubcatTypologyProduct', { 'section1': typology.catNameUrl, 'section2': typology.subcatNameUrl, 'section3': typology.nameUrl})}}">
+                                                    {%if typology.anchorMenu is defined and typology.anchorMenu is not empty  %}
+                                                        {{typology.anchorMenu}}
+                                                    {%else%}
+                                                        {{typology.name}}
+                                                    {%endif%}
+                                                    </a>
+                                                </li>                                           
+                                            {% endfor %}                         
+                                        {% endif %}
+                                    </ul>
+                                </li>                                
+                            {%endif%}
+                        {% endfor %}                         
+                    </ul>
+                </li>
+            {%endif%}
+        {% endfor %}
+        <li class="liCat">        
+            <a href="{{ path('listModelComparison')}}">
+                <figure data-cat="GuideAcquisto">
+                    <amp-img src="/images/bilancia.png" alt="Comparazione"  layout="responsive"  width="50" height="42"></amp-img>
+                </figure>
+                <span class="item"> Comparazione</span>
+            </a>
+        </li> 
+        <li class="liCat">
+            {#<figure data-cat="GuideAcquisto">
+                <img src="/images/guide_acquisto.png" alt="Guide all'acquisto">
+            </figure>#}
+{#            <span data-cat="GuideAcquisto" class="item">#}
+                <a href="{{ path('listArticles1')}}">
+                    <figure data-cat="GuideAcquisto">
+                <amp-img src="/images/guide_acquisto.png" alt="Guide all'acquisto" layout="responsive"  width="50" height="42"></amp-img>
+            </figure>
+                    <span class="item"> Guide all'acquisto</span>
+                </a>
+{#            </span>    #}
+            {#<ul class="subMenu" data-subMenuCat="GuideAcquisto">
+                <li class="liCat">
+                    <a href="{{ path('listArticles1')}}">
+                        Guide acquisto                        
+                    </a>
+                </li>
+            </ul>#}
+        </li>
+    {% endif %} 
+    </ul>
+</nav>
+    </amp-sidebar>
+{%if fetch_widget_Menu is defined %}
+    {{ fetch_widget_Menu |raw  }}
+{%endif%}

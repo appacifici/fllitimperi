@@ -1,0 +1,64 @@
+.widget_AllSectionModelsMenu {
+  padding: 20px 13%;
+  margin: 0 auto;
+  overflow: hidden;
+  min-height: 167px;
+  background: #e6e6e6;
+}
+.widget_AllSectionModelsMenu ul {
+  padding: 0;
+}
+.widget_AllSectionModelsMenu ul li {
+  float: left;
+  width: 21%;
+  text-align: center;
+  margin-right: 1%;
+  border: 1px solid #ccc;
+  padding: 0% 1% 2% 1%;
+  height: 150px;
+  margin-bottom: 1%;
+  background: #fff;
+}
+.widget_AllSectionModelsMenu ul li a {
+  color: #216a95;
+  font-weight: bold;
+}
+.widget_AllSectionModelsMenu ul li figure {
+  position: relative;
+  /* border: 1px solid #ccc; */
+  width: 137px;
+  border-radius: 50%;
+  padding: 15px 0;
+  /* background: #fff; */
+  height: 100px;
+  margin: 0 auto;
+}
+.widget_AllSectionModelsMenu ul li figure img {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  right: 0;
+  left: 0;
+}
+
+@media (max-width: 1480px) {
+  .widget_AllSectionModelsMenu {
+    padding: 20px 4% 20px;
+  }
+}
+@media (max-width: 1080px) {
+  .widget_AllSectionModelsMenu ul li {
+    width: 30%;
+  }
+}
+@media (max-width: 700px) {
+  .widget_AllSectionModelsMenu ul {
+    padding: 0;
+  }
+  .widget_AllSectionModelsMenu ul li {
+    width: 46.3%;
+    height: 144px;
+    overflow: hidden;
+  }
+}/*# sourceMappingURL=widgetAllSectionModelsMenu.css.map */

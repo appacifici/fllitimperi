@@ -1,0 +1,107 @@
+<div class="widget_ManagerMenus">
+    <table class="widgetBoxShadow table table-condensed table-striped table-primary table-vertical-center checkboxs js-table-sortable menuOrder" data-type="1" style="width:45%; float:left;margin-right: 5px;">
+        <thead>
+            <tr>
+                <th>Categorie del menu principale</th>
+                <th style="width: 1%;" class="center">Sposta</th>
+                <th class="center" style="width: 100px;">Azioni</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%if mainMenu is defined and mainMenu is not null%}
+            {%for item in mainMenu %}
+                <tr class="selectable itemMenu">
+                    <td class="important" data-item="{{item.id}}">{{item.category.name}}</td>
+                    <td class="center js-sortable-handle"><span class="fa fa-arrows move"></span></td>
+                    <td class="center">
+                        <span class="btn btn-sm btn-red btnDeleteItem"><i class="fa fa-trash-o"></i></span>
+                    </td>
+                </tr>
+            {%endfor%}
+            {%endif%}
+
+            <tr class="selectable">
+                <td class="important center">
+                    <select class="form-control searchCategory">            
+                        {%for category in allCategories %}
+                            <option value="{{category.id}}">{{category.name}}</option>        
+                        {%endfor%}
+                    </select>    
+                </td>
+                <td class="important center"  colspan="100%">
+                    <button type="button" class="btn btn-blue buttonAddCategory" style="width:100%">Aggiungi</button>
+                </td>
+            </tr>
+            <tr>
+                <td class="important center"  colspan="100%">
+                    <button class="btn btn-green buttonMenu"  style="font-size: 22px; width:100%">Salva ordinamento menu</button>
+                </td>
+            </tr>
+        </tbody>
+    </table> 
+    {%if mainMenu is defined and mainMenu is not null%}
+        {%for category in mainMenu %}
+            <table class="widgetBoxShadow table table-condensed table-striped table-primary table-vertical-center checkboxs js-table-sortable menuOrder"  data-type="subcat_{{category.category.id}}" style="width:45%; float:left;margin-right: 5px;">
+                <thead>
+                    <tr>
+                        <th>Sottocategorie della sezione {{category.category.name}}</th>
+                        <th style="width: 1%;" class="center">Sposta</th>
+                        <th class="center" style="width: 100px;">Azioni</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for key, subcategory in subcategoriesOfMainMenu[category.category.id] %}
+                        <tr class="selectable itemMenu">
+                            <td class="important" data-item="{{ key }}">{{subcategory}}</td>
+                            <td class="center js-sortable-handle"><span class="fa fa-arrows move"></span></td>
+                            <td class="center">
+                                <span class="btn btn-sm btn-red btnDeleteItem"><i class="fa fa-trash-o"></i></span>
+                            </td>
+                        </tr>    
+                    {%endfor%}
+                    <tr class="selectable">
+                        <td class="important center">
+                            <select class="form-control searchCategory">            
+                                {%for subcategory in aSubByCat[category.category.id] %}
+                                    <option data-entity="{{subcategory.entity}}" value="{{subcategory.id}}">{{subcategory.name}}</option>        
+                                {%endfor%}
+                            </select>                              </td>
+                        <td class="important center"  colspan="100%">
+                            <button type="button" class="btn btn-blue buttonAddCategory" style="width:100%">Aggiungi</button>
+                        </td>
+                    </tr>
+                    <tr class="selectable">
+                        <td class="important center"  colspan="100%">
+                            <button class="btn btn-green buttonMenu"  style="font-size: 22px; width:100%">Salva ordinamento menu</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        {%endfor%}
+    {%endif%}
+</div>
+<div class="button-action">
+    <a href="javascript:history.back()"> 
+        <div class="btnGoBack" id="btnGoBack">
+            <i class="fa fa-arrow-circle-o-left"></i>
+        </div>
+    </a>
+    <div id="toTop">
+        <i class="fa fa-arrow-circle-o-left"></i>
+    </div>
+
+</div>
+<div class="button-action">
+    <a href="javascript:history.back()"> 
+        <div class="btnGoBack" id="btnGoBack">
+            <i class="fa fa-arrow-circle-o-left"></i>
+        </div>
+    </a>
+    <div id="toTop">
+        <i class="fa fa-arrow-circle-o-left"></i>
+    </div>
+
+</div>
+{%if fetch_widget_ManagerMenus is defined %}
+    {{ fetch_widget_ManagerMenus|raw  }}
+{%endif%}

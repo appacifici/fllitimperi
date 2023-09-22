@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+{% htmlcompress %} 
+<html class="paceCounter {#paceSocial#} sidebar sidebar-social footer-sticky">
+    <head>             
+        <meta name="robots" content="noindex">
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, height=device-height, user-scalable=no"/>       
+    </head>
+    <body>    
+        {% block stylesheetsCSSHead %}        
+            <!--  Stylesheet Complete CSS compiled from ../assets/css/admin/module.admin.stylesheet-complete.less -->       
+            {% if compactSite %}
+                <link rel="stylesheet" type="text/css" href="{{ folderCss }}/css_{{ fileSection }}_head.css?v={{ cssVersion }}">
+            {% else %}
+                {% for key, file in dependenciesCSSHead %}
+                    <link rel="stylesheet" type="text/css" href="{{ key }}?v={{ cssVersion }}">
+                {% endfor %}            
+            {% endif %}
+        {% endblock %}
+
+        {% if compactSite is empty %}            
+            <link rel="stylesheet" href="/fonts/font-awesome/fonts/font-awesome.min.css?v=20170517"/>    
+        {% endif %}        
+        <link rel="stylesheet" type="text/css" href="{{ folderCss }}/main.{{ nameFileCssVerSite }}.css?v={{ cssVersion }}">
+
+        <script>getReserverMsg = 0;</script>
+
+    {% block body %}{% endblock %}     
+
+    {# Inclusione librerie js #}
+    {% if compactSite %}
+        <script src="{{ folderJs }}/js_{{ fileSection }}_head.js?v={{ jsVersion }}"></script>
+    {% else %}
+        {% block dependenciesJSHead %}
+            {% for key, file in dependenciesJSHead %}
+                <script src="{{ key }}?v={{ jsVersion }}"></script>
+            {% endfor %}
+        {% endblock %}
+    {% endif %}
+
+  
+
+    {# Inclusione librerie js #}
+    {% if compactSite %}
+        <script src="{{ folderJs }}/js_{{ fileSection }}_body.js?v={{ jsVersion }}"></script>
+        {#            <script src="{{ folderJs }}/js_homepage_body.js?v={{ jsVersion }}"></script>#}
+    {% else %}
+        {% block dependenciesJSBody %}
+            {% for key, file in dependenciesJSBody  %}
+                <script src="{{ key }}?v={{ jsVersion }}"></script>
+            {% endfor %}
+        {% endblock %}
+    {% endif %}
+               
+    {% if compactSite %}
+        {#            <link rel="stylesheet" type="text/css" href="{{ folderCss }}/css_{{ fileSection }}_body.css?v={{ cssVersion }}">#}
+    {% else %}
+        {% for key, file in dependenciesCSSBody %}
+            <link rel="stylesheet" type="text/css" href="{{ key }}?v={{ cssVersion }}">
+        {% endfor %}            
+    {% endif %}     
+   
+</body>
+{% endhtmlcompress %}
+<div class="overlaybutton" data-overlaybutton></div>
+</html>

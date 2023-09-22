@@ -1,0 +1,77 @@
+<div class="widget_ListDinamycPage widgetBoxShadow">
+    {% if permission.dinamycPage.read %}
+        <div class="widget_ListBanners">
+            <!-- Total products & Sort by options -->
+            {# <div class="form-inline">
+                     <span class="pull-right">
+                             <label class="strong innerLR">Sort by:</label>
+                             <select class="selectpicker margin-none" data-style="btn-default btn-sm">
+                                     <option>Option</option>
+                                     <option>Option</option>
+                                     <option>Option</option>
+                             </select>
+                     </span>
+                     <div class="clearfix"></div>
+             </div>#}
+            <!-- // Total products & Sort by options END -->
+
+            {#<div class="separator bottom"></div>
+            <a href="{{ path('editDinamycPage') }}" class="btn btn-sm btn-success pull-right buttonCreateNewItem"><span class="glyphicon glyphicon-plus" style="padding:10px"></span>Crea nuovo banner</a>
+            <div class="separator bottom"></div>#}
+
+            <table class="table footable table-bordered table-condensed table-striped table-primary table-vertical-center checkboxs js-table-sortable">
+                <thead>
+                    <tr>
+                        <th  data-hide="phone">Id</th>
+                        <th>Page</th>
+                            {#                    <th style="width: 1%;" class="center">Drag</th>
+                            #}                    <th  data-hide="phone">Azioni</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for page in dinamycPages %}
+                        {% if page is defined %}
+                            <tr class="selectable"data-createForm="modifyDinamycPage" data-entity="DinamycPage" data-id="{{page.id}}" data-entity="Banner">
+                                <td >
+                                    <span class="badge badge-blu">{{page.id}}</span>
+                                </td>
+                                <td data-modify="input" data-field="screen">
+                                    {{page.page}}
+                                </td> 
+                                <td>         
+                                    {% if permission.dinamycPage.edit %}
+                                        <a href="{{ path('editDinamycPage', {'id': page.id}) }}" class="btn btn-green"><i class="fa fa-pencil"></i></a>
+                                        {% endif %}
+                                        {% if permission.dinamycPage.remove %}
+                                        <button href="#" class="btn btn-sm btn-red" data-deleteInlineForm="1">
+                                            <i class="fa fa-trash-o"></i>
+                                        </button>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {%endif%}
+                    {%endfor%}
+                </tbody>
+            </table>
+            <!-- // Products table END -->
+
+
+            <!-- // Options END -->
+        </div>
+    {% endif %}
+
+
+</div>
+<div class="button-action">
+    <a href="javascript:history.back()"> 
+        <div class="btnGoBack" id="btnGoBack">
+            <i class="fa fa-arrow-circle-o-left"></i>
+        </div>
+    </a>
+    <div id="toTop">
+        <i class="fa fa-arrow-circle-o-left"></i>
+    </div>
+</div>
+{%if fetch_widget_ListDinamycPage is defined %}
+    {{ fetch_widget_ListDinamycPage|raw  }}
+{%endif%}

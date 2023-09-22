@@ -1,0 +1,47 @@
+{% if permission.trademark.read %}
+    <div class="widget_ListTrademarks widgetBoxShadow" >
+        <table class="table footable">
+            <thead>
+                <tr> 
+                    <th class="center" data-hide="phone">Id</th>
+                    <th data-class="expand">Marchio</th>
+                    <th data-hide="phone">Azioni</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for trademark in trademarks %}
+                    {% if trademarks is defined %}
+                        <tr class="selectable"data-createForm="modifyTrademark" data-entity="Trademark" data-id="{{trademark.id}}">
+                            <td class="important center" ><span class="badge badge-blu">{{trademark.id}}</span></td>
+                            <td class="important" data-modify="input" data-field="screen">{{trademark.name}}</td>
+                            <td class="">           
+                                <a href="{{ path('editTrademark', {'id': trademark.id}) }}" class="btn btn-green"><i class="fa fa-pencil"></i></a>
+                                <button class="btn btn-sm btn-danger" data-deleteInlineForm="1">
+                                    <i class="fa fa-trash-o"></i>
+                                </button>
+                            </td>  
+                        </tr>
+                    {%endif%}
+                {%endfor%}
+            </tbody>
+        </table>
+        {{pagination | raw}}
+    </div>
+{% endif %}
+{%if fetch_widget_ListTrademarks is defined %}
+    {{ fetch_widget_ListTrademarks|raw  }}
+{%endif%}
+<div class="button-action">
+    <a href="javascript:history.back()"> 
+        <div class="btnGoBack" id="btnGoBack">
+            <i class="fa fa-arrow-circle-o-left"></i>
+        </div>
+    </a>
+    <div class="buttonDefault" onclick="window.location.href = '{{ path('editTrademark') }}';">
+        <div class="add">Crea nuovo Marchio</div>
+        <i class=" fa  fa-plus-circle"></i>
+    </div>
+    <div id="toTop">
+        <i class="fa fa-arrow-circle-o-left"></i>
+    </div>
+</div>

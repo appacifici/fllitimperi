@@ -1,0 +1,60 @@
+{% form_theme category 'bootstrap_3_horizontal_layout.html.twig'  %}
+
+<div class="widget_EditCategory widgetBoxShadow">
+    {%if image is not null and image is not empty %}
+        <div class="imgAssociation ">
+            <div>Immagine associata a questa categoria</div>
+            <img src="{{folder_img_category}}{{image.img}}">
+        </div>
+    {%endif%}
+    
+    <div class="formBloc positionRelative " data-divForm="1">
+        {{form_start(category)}}
+        {{ form_widget(category)}}
+
+        <div>
+            <div class="pull-left">
+                <div><b>Colore Sfondo</b></div>
+                <div class="colorpicker2 pull-left"></div>
+            </div>
+
+
+            <div class="pull-left">
+                <div><b>Colore Testo</b></div>
+                <div class="colorpicker1 pull-left"></div>
+            </div>
+        </div>
+        {{ form_end(category) }}
+    </div>
+
+    <!-- // Options END -->
+    {%if fetch_widget_EditCategory is defined %}
+        {{ fetch_widget_EditCategory|raw  }}
+    {%endif%}
+</div>
+<div class="button-action">
+    <a href="javascript:history.back()"> 
+        <div class="btnGoBack" id="btnGoBack">
+            <i class="fa fa-arrow-circle-o-left"></i>
+        </div>
+    </a>
+    <div class="buttonDefault  buttonGreen" data-submit="1">
+        <a>
+            <div type="submit"  class="add">Salva Categoria</div>
+            <i class=" fa  fa-save"></i>
+        </a>
+    </div>
+    <div class="buttonDefault buttonRed" data-reset="1">
+        <a>
+            <div type="submit"  class="add"> Reset Categoria</div>
+            <i class=" fa   fa-eraser"></i>
+        </a>
+    </div>
+    <div class="buttonDefault" onclick="window.location.href = '{{ path('manageCategories') }}';">
+        <div class="add"> Lista categorie</div>
+        <i class=" fa    fa-arrow-circle-left"></i>
+    </div>
+    <div id="toTop">
+        <i class="fa fa-arrow-circle-o-left"></i>
+    </div>
+</div>

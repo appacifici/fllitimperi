@@ -1,0 +1,191 @@
+<article>
+    <div class="widget_DetailProduct"> 
+        {% if model is defined and model is not empty %}
+            <div class="boxDetail">
+                <figure>
+                    {%if model.imgExternal is defined and model.img is not empty %}
+                        <img  src="{{model.img}}" alt="{{model.name}}" width="{{model.widthSmall}}" height="{{model.heightSmall}}">
+                    {% elseif model.img is defined and model.img is not empty %}
+                        <img  src="{{folder_img_models}}{{model.img}}" alt="{{model.name}}" width="{{model.widthSmall}}" height="{{model.heightSmall}}">
+                    {% elseif products[0] is defined  and products[0].priorityImg is defined and products[0].priorityImg is not empty and products[0].priorityImg.img is not empty %}
+                        {%if products[0].priorityImg.imgExternal is defined and products[0].priorityImg.imgExternal is not empty %}
+                            <img  src="{{products[0].priorityImg.img}}" alt="{{model.name}}" width="{{products[0].priorityImg.widthSmall}}" height="{{products[0].priorityImg.heightSmall}}">
+                        {%elseif products[0].priorityImg.img is defined and products[0].priorityImg.img is defined is not empty %}
+                            <img  src="{{folder_img_products_small}}{{products[0].priorityImg.img}}" alt="{{model.name}}" width="{{products[0].priorityImg.widthSmall}}" height="{{products[0].priorityImg.heightSmall}}">
+                        {%endif%}
+                    {% endif %}
+                </figure>
+                <div class="boxTable">
+                    <header>                        
+                        <h1>  
+                            {%if metaH1DetailModel is defined and metaH1DetailModel is not empty %}
+                                <strong>{{metaH1DetailModel}}</strong>
+                            {%else%}
+                                <strong>
+                                    {{sectionPreProductName}}{{hyphenize( model.name )}} {{sectionProductNameEnd}}
+                                </strong>
+                            {%endif%}
+                        </h1>
+                        {%if sessionActive is not empty and userIsAdmin is not empty and model.id is defined %}
+                            <a style="color:#000;" target="_blank" href="/admin/editModel/{{model.id}}">[Admin]</a> - {{model.id}}
+                        {%endif%}
+                        {% if model.shortDescription is defined and model.shortDescription is not empty %}
+                            <h2>{{ hyphenize( model.shortDescription | raw | striptags )  }}</h2>
+                        {% elseif products[0] is defined and products[0].description is not empty %}
+                            <h2>{{ hyphenize( products[0].description | striptags ) }}</h2>
+                        {% endif %}                        
+                    </header>  
+                    <table class="boxPrice">
+                        <tr>
+                            {% if model.advisedPrice is defined and model.advisedPrice is not empty and model.advisedPrice != 0  %}
+                                <td class="advisedPrice">
+                                    {{labelPriceList}}:
+                                    <span class="lineThrough">{{model.advisedPrice}} €</span>
+                                </td>
+                            {% endif %}
+                            {% if extraModel.saving is defined and extraModel.saving > 0 %}
+                                <td class="saving">
+                                    Risparmi:
+                                    <strong>{{ extraModel.saving }} €</strong>
+                                </td>
+                            {% endif %}                            
+                            <td class="offertPrice">                                
+                                {% if model.price is defined and model.price is not empty %}
+                                    Miglior prezzo: 
+                                    <strong>{{model.price}} €</strong>
+                                    {{getUpDownArrowPrices(model, true) | raw}}
+                                {% elseif products[0] is defined %}
+                                    Miglior prezzo: 
+                                    <strong>{{products[0].price}} €</strong>
+                                    {{getUpDownArrowPrices(products[0], true) | raw}}
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {#<div>
+                            <span>Prezzo Offerta</span>
+                            <span class="totaPrice">
+                                {% if model.price is defined and model.price is not empty %}
+                                    <strong>{{model.price}} €</strong>
+                                {% elseif products[0] is defined %}
+                                    <strong>{{products[0].price}} €</strong>
+                                {% endif %}
+                            </span>
+                        </div>
+                        <div>
+                            {% if model.advisedPrice is not empty and model.advisedPrice != 0  %}
+                                <span>Consigliato</span>
+                                <span class="lineThrough">{{model.advisedPrice}} €</span>
+                            {% endif %}
+                        </div>
+                        <div>
+                            {% if extraModel.saving > 0 %}
+                                <span>Risparmi</span>
+                                <span class="colorRed">
+                                    <strong>{{ extraModel.saving }} €</strong>
+                                </span>
+                            {% endif %}
+                        </div>#}
+                    </table> 
+                    {#{% if products is defined and products[0] is defined %}
+                        <figure>
+                            {%if products[0].merchantImg is defined and products[0].merchantImg is not empty %}
+                                <img src="{{folder_img_affiliation_small}}{{products[0].merchantImg}}" alt="{{products[0].merchantImg}}">                                
+                            {%else%}
+                                <img src="{{folder_img_affiliation_small}}{{products[0].affiliation.img}}" alt="{{products[0].affiliation.name}}"  width="{{products[0].affiliation.widthSmall}}" height="{{products[0].affiliation.heightSmall}}">
+                            {%endif%}
+                        </figure>
+                        <div class="boxPayments">
+                            {%if products[0].affiliation.payments is not empty %}
+                                {%for payment in products[0].affiliation.payments%}
+                                    <div class="payments payments_{{payment}}"></div>
+                                {%endfor%}
+                            {%endif%}
+                        </div>
+                    {% endif %}
+                    {%if products is not empty and products[0].affiliation.contact is not empty %}
+                        <div class="contacts"><strong>Contatti</strong>: {{utf8Encode( products[0].affiliation.contact )}}</div>
+                    {%endif%}#}
+                </div>
+                <div class="detailProductMenu">                    
+                    <ul>
+                        <li>
+                            <a href="#pricesComparison" rel="nofollow">
+                                <img src="/images/pricesIcon.png" alt="Comparazione Prezzi">
+                                <h3>Prezzi</h3>
+                            </a>
+                        </li>
+                        {% if extraModel.technicalSpecifications is defined and extraModel.technicalSpecifications is not empty %}
+                            <li>
+                                <a href="#tecnical" rel="nofollow">
+                                    <img src="/images/schedaTecnicaIcon.png" alt="Scheda Tecnica">
+                                    <h3>Scheda Tecnica</h3>
+                                </a>
+                            </li>
+                        {% endif %}
+                        <li>
+                            <a href="#infoProduct" rel="nofollow">
+                                <img src="/images/infoProdottoIcon.png" alt="Informazioni del prodotto">
+                                <h3>Info prodotto</h3>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#releated" rel="nofollow">
+                                <img src="/images/affini.png" alt="Prodotti affini o simili">
+                                <h3>Affini e Simili</h3>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                
+                {#<div class="extraProduct">                    
+                    <div class="clearB"></div>
+                    {%if products is not empty and products[0].sizeStockStatus is not empty %}
+                        <span class="sizeStockStatus">
+                        {%if products[0].sizeStockStatus == 'in stock' %}
+                            <span class="inStock">Disponibile 
+                                {% if products[0].deliveryTime is not empty %}
+                                     in {{products[0].deliveryTime}}
+                                {%endif%}
+                            </span>
+                        {%elseif products[0].sizeStockStatus == 'out of stock' %}
+                            <span class="outOfStock">Non Disponibile</span>
+                        {%endif%}
+                        </span>
+                    {%endif%}
+                    <div class="clearB"></div>
+                    
+                    <ul>
+                    {% if extraModel.bulletPoints is defined and extraModel.bulletPoints is not empty %}                        
+                        {% for key, bulletPoint in extraModel.bulletPoints %}
+                            {% if key < 5 %}
+                                <li>{{ hyphenize( bulletPoint ) }}</li>
+                            {% endif %}
+                        {% endfor %}                        
+                    {% endif %}
+                    </ul>
+                    {% if products[0] is defined %}
+                        <div class="btnViewOffered" data-lgt="{{hideUrlForGoogle( generate('impressionLink', { 'impressionLink': products[0].impressionLink, 'deepLink': products[0].deepLink } ))}}" data-target="blank"> 
+                            Visita il negozio
+                        </div>
+                    {% endif %}
+                </div>#}
+                
+                
+                <div class="clearB"></div>
+                {%if fetch_widget_DetailProduct is defined %}
+                    {{ fetch_widget_DetailProduct |raw  }}
+                {%endif%}
+                {% include versionSite ~ '/ABTest/widget_ABTest_DetailComparisonProduct.html.twig' %}
+            </div>
+        {%else%}
+            {% include versionSite ~ '/widget_404NotFound.html.twig' %}            
+        {% endif %}
+    </div>        
+    <div class="clearB"></div>
+    {% include versionSite ~ '/widget_ProductDescription.html.twig' %}    
+    
+    {%if fetch_widget_DetailProductMegazine is defined %}
+            {{ fetch_widget_DetailProductMegazine |raw  }}
+    {%endif%}
+</article>

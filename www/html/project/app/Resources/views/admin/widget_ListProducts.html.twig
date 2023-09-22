@@ -1,0 +1,297 @@
+{% if permission.product.read %}
+    <div class="widgetBoxShadow" data-getProductInFeedByName>
+        <h4 style="height: 38px;margin-left: 13px;">Recupera prodotti da feed</h4>
+        <form onSubmit="return false;">
+        <div class="col-md-2 form-group">
+            <label class="control-label active colorLabelFormForce" style="display: inline-block;">
+                Affiliazione
+            </label>
+            <select class="typologiesSelect selectpicker form-control" name="affiliationId" id="form_affiliationId_" >
+                <option value="0">---</option>                                
+                {% for affiliation in affiliations %}
+                    <option {% if app.request.query.get("affiliationId") == affiliation.id %}selected="selected"{%endif%} value="{{ affiliation.id }}">{{ affiliation.name }}</option>
+                {% endfor %}
+            </select>
+        </div> 
+        <div class="col-md-2 form-group">
+            <label class="control-label active colorLabelFormForce" style="display: inline-block;">
+                Nome
+            </label>
+            <input class="form-control" type="text" name="name" value="{{app.request.query.get("name")}}">      
+        </div> 
+        <button type="submit" data-searchBtn="1" class="btn btn-primary btn-lg" ><div class="fa fa-search"></div></button>
+        <div  style="display:none;    float: left;padding: 8px 6px 6px 20px;font-weight: bold;color: green;" class="pleasesWait">ATTENDERE OPERAZIONE IN CORSO...</div>
+        </form>
+        <div data-screen="1" style="clear: both;margin-bottom: 50px;overflow: hidden;"></div>
+        <div class="col-md-2 form-group">
+            <label class="control-label active colorLabelFormForce" style="display: inline-block;">
+                Id Modello
+            </label>
+            <input class="form-control" type="text" id="idModel" >
+        </div>                                    
+        <button data-assocProductsModelBtn="1" type="button" style="float: left;border-radius: 0;width: 53px;font-size: 14px;" class="btn btn-primary btn-lg" >Sposta</button>        
+    </div>
+    
+    <div style="background: #2bb6fd; height: 10px;"></div>
+    
+    <div class="widgetBoxShadow" data-getProductInKelkoo>
+        <h4 style="height: 38px;margin-left: 13px;">Recupera prodotti da KELKOO</h4>
+        <form onSubmit="return false;">        
+            <div class="col-md-2 form-group">
+                <label class="control-label active colorLabelFormForce" style="display: inline-block;">
+                    Nome
+                </label>
+                <input class="form-control" type="text" name="name" value="{{app.request.query.get("name")}}">      
+            </div> 
+            <div class="col-md-2 form-group">
+                <label class="control-label active colorLabelFormForce" style="display: inline-block;">
+                    Ordinamento
+                </label>
+                <select class="typologiesSelect selectpicker form-control" name="order" id="form_form_order__" >
+                    <option value="0">---</option>                                
+                    <option {% if app.request.query.get("order") == 'default_ranking' %}selected="selected"{%endif%} value="default_ranking">Default</option>
+                    <option {% if app.request.query.get("order") == 'price_ascending' %}selected="selected"{%endif%} value="price_ascending">Prezzo Crescente</option>
+                    <option {% if app.request.query.get("order") == 'totalprice_ascending' %}selected="selected"{%endif%} value="totalprice_ascending">Prezzo Totale Crescente</option>
+                    <option {% if app.request.query.get("order") == 'price_descending' %}selected="selected"{%endif%} value="price_descending">Prezzo Decrescente</option>
+                    <option {% if app.request.query.get("order") == 'totalprice_descending' %}selected="selected"{%endif%} value="totalprice_descending">Prezzo Totale Decrescente</option>
+                </select>
+            </div> 
+            <div class="col-md-2 form-group">
+                <label class="control-label active colorLabelFormForce" style="display: inline-block;">
+                    Prezzo Minimo
+                </label>
+                <input class="form-control" type="text" name="minPrice" value="{{app.request.query.get("minPrice")}}">      
+            </div>
+            <div class="col-md-2 form-group">
+                <label class="control-label active colorLabelFormForce" style="display: inline-block;">
+                    Prezzo Massimo
+                </label>
+                <input class="form-control" type="text" name="maxPrice" value="{{app.request.query.get("maxPrice")}}">      
+            </div>
+            <button type="submit" data-searchBtn="1" class="btn btn-primary btn-lg" ><div class="fa fa-search"></div></button>
+            <div  style="display:none;    float: left;padding: 8px 6px 6px 20px;font-weight: bold;color: green;" class="pleasesWait">ATTENDERE OPERAZIONE IN CORSO...</div>
+        </form>
+        <div data-screen="1" style="clear: both;margin-bottom: 50px;"></div>
+        <div class="col-md-2 form-group">
+            <label class="control-label active colorLabelFormForce" style="display: inline-block;">
+                Id Modello
+            </label>
+            <input class="form-control" type="text" id="idModel" >
+        </div>                                    
+        <button data-assocProductsModelBtn="1" type="button" style="float: left;border-radius: 0;width: 53px;font-size: 14px;" class="btn btn-primary btn-lg" >Sposta</button>
+    </div>
+    
+    <div style="background: #2bb6fd; height: 10px;"></div>
+    
+    <div class="widgetBoxShadow">
+        <div class="form">
+            <form action="/admin/listProduct" class="form-horizontal">
+                <div class="col-md-2 form-group">
+                    <label class="control-label active colorLabelFormForce" style="display: inline-block;">
+                        Nome Modello 
+                    </label>
+                    <input class="form-control" type="text" name="name" value="{{app.request.query.get("name")}}">                            
+                </div>
+                <div class="col-md-2 form-group">
+                    <label class="control-label active colorLabelFormForce" style="display: inline-block;">
+                        Numero Prodotto 
+                    </label>
+                    <input class="form-control" type="text" name="number" value="{{app.request.query.get("number")}}">                            
+                </div>
+                <div class="col-md-2 form-group">
+                    <label class="control-label active colorLabelFormForce" style="display: inline-block;">
+                        Stato
+                    </label>
+                    <select class="selectpicker form-control" select name="isCompleted" data-style="btn-primary">
+                        <option value="">Scegli</option>                
+                        <option {% if app.request.query.get("isCompleted") == '0' %}selected="selected"{%endif%} value="0">No</option>                
+                        <option {% if app.request.query.get("isCompleted") == '1' %}selected="selected"{%endif%} value="1">Si</option>
+                    </select>
+                </div>                    
+                <div class="col-md-2 form-group">
+                    <label class="control-label active colorLabelFormForce" style="display: inline-block;">
+                        Categoria
+                    </label>
+                    <select class="categoriesSelect selectpicker form-control"  name="category" id="form_category" data-childrens='{"subcategory_":{"entity":"subcategory","find":"findSubcategoriesByCategory"}}'>
+                        <option value="0">Scegli Categoria</option>
+                        {% for category in allCategories %}
+                            <option {% if app.request.query.get("category") == category.id %}selected="selected"{%endif%} value="{{ category.id }}">{{ category.name }}</option>
+                        {% endfor %}
+                    </select>  
+                </div>
+                <div class="col-md-2 form-group">
+                    <label class="control-label active colorLabelFormForce" style="display: inline-block;">
+                        Sottocategoria
+                    </label>
+                    <select class="subcategoriesSelect selectpicker form-control" name="subcategory" id="form_subcategory_" data-childrens='{"typology_":{"entity":"typology","find":"findTypologiesBySubcategory"}}'>
+                        <option value="0">---</option>                                
+                        {% for subcategory in allSubcategories %}
+                            <option {% if app.request.query.get("subcategory") == subcategory.id %}selected="selected"{%endif%} value="{{ subcategory.id }}">{{ subcategory.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-md-2 form-group">
+                    <label class="control-label active colorLabelFormForce" style="display: inline-block;">
+                        Tipologia
+                    </label>
+                    <select class="typologiesSelect selectpicker form-control" name="typology" id="form_typology_" >
+                        <option value="0">---</option>                                
+                        {% for typoology in allTypologies %}
+                            <option {% if app.request.query.get("typology") == typoology.id %}selected="selected"{%endif%} value="{{ typoology.id }}">{{ typoology.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>                    
+                <div class="col-md-2 form-group">
+                    {%if app.request.get('date') is not null and app.request.get('date')  is not empty %}
+                        {% set day   = app.request.get('date') | replace( ' ','-') | date( "d" ) %} 
+                        {% set month = app.request.get('date') | replace( ' ','-')| date( "m" )  | trans({}, 'messages', 'it') %}
+                        {% set year  = app.request.get('date')  | replace( ' ','-') | date( "Y" ) %}
+                    {%endif%}
+                    <div class="input-group date datepicker3">                            
+                        <input class="form-control" type="text" value="{%if app.request.get('date') is not null and app.request.get('date')  is not empty %}{{ day }} {{ month }} {{ year }}{%endif%}" name="date" />
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg" data-loading-text="Now searching ..." data-toggle="btn-loading"><div class="fa fa-search"></div></button>
+            </form>
+        </div>
+    </div>
+                        
+    
+                        
+    <div class="widget_ListProducts widgetBoxShadow" data-widgetListProducts>
+        <table class="table footable">
+            <thead>
+                <tr> 
+                    <th class="center" data-hide="phone">C</th>
+                    <th class="center" data-hide="phone">Id</th>
+                    <th data-class="expand">Img</th>
+                    <th data-class="expand">Prodotto</th>
+                    <th data-class="expand">id Modello</th>
+                    <th data-class="expand">Prezzo</th>
+                    <th data-class="expand">DeepLink</th>
+                    <th data-hide="phone">Azioni</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                    {% if products is defined %}
+                        <tr class="selectable"data-createForm="modifyProduct" data-entity="Product" data-id="{{product.id}}">
+                            <td class="important center" >
+                                <input type="checkbox" name="productId" value="{{product.id}}">
+                            </td>
+                            <td class="important center" >{{product.id}}</td>
+                            <td class="important" data-modify="input" data-field="screen">
+                                {% if product.priorityImg is not empty %}
+                                    <img src="{{folder_img_products_small}}{{product.priorityImg.img}}" alt="{{ product.name }}"   width="50">
+                                {%endif%}
+                            </td>
+                            <td class="important" data-modify="input" data-field="screen">{{product.name}}</td>
+                            <td class="important" data-modify="input" data-field="screen">
+                                {% if product.model is not empty %}
+                                    {% if product.model.typology is not empty %}            
+                                        {%set urlModel = generate('detailProduct',{'name':product.model.nameUrl, 'typology': product.model.typology.nameUrl, 'typologySingular': product.model.typology.singularNameUrl }) %}
+                                    {%else%}
+                                        {%set urlModel = generate('detailProduct',{'name':product.model.nameUrl, 'subcategory': product.model.subcategory.nameUrl, 'subcategorySingular': product.model.subcategory.singularNameUrl}) %}
+                                    {%endif%}
+                                    <a target="_blank" href="{{urlModel}}">
+                                        {{ product.model.name }}
+                                    </a>
+                                    <br>{{product.model.id}} 
+                                {%endif%}
+                            </td>
+                            <td class="important" data-modify="input" data-field="screen">
+                                {% if product.price is not empty %}
+                                    {{product.price}}
+                                {%endif%}
+                            </td>
+                            <td class="important" data-modify="input" data-field="screen">
+                                {% if product.price is not empty %}
+                                    <a target="_blank" href="{{product.deepLink}}">Apri</a>
+                                {%endif%}
+                            </td>
+                            <td class="">           
+                                <a href="{{ path('editProduct', {'id': product.id}) }}" class="btn btn-green"><i class="fa fa-pencil"></i></a>
+                                <button class="btn btn-sm btn-danger" data-deleteInlineForm="1">
+                                    <i class="fa fa-trash-o"></i>
+                                </button>
+                            </td>  
+                        </tr>
+                    {%endif%}
+                {%endfor%}
+            </tbody>
+        </table>
+        {{pagination | raw}}
+    </div>
+    <div class="widgetBoxShadow" style="margin-bottom: 250px;">
+        <h2 style="margin-bottom: 50px">Sposta Prodotti in Modello:</h2>
+        <div class="form">
+            <form action="/admin/listProduct" class="form-horizontal">                                                 
+                <div class="col-md-2 form-group">
+                    <label class="control-label active colorLabelFormForce" style="display: inline-block;">
+                        Id Modello
+                    </label>
+                    <input class="form-control" type="text" name="modelId">
+                </div>                                    
+                <button data-changeProductsModelBtn="1" type="button" style="float: left;border-radius: 0;width: 53px;font-size: 14px;" class="btn btn-primary btn-lg" >Sposta</button>
+            </form>
+        </div>
+        <div class="clearB"></div>
+        <h2 style="margin-bottom: 50px">Sposta Prodotti in Sezione:</h2>
+        <div class="form">
+            <form action="/admin/listProduct" class="form-horizontal">                                 
+                <div class="col-md-2 form-group">
+                    <label class="control-label active colorLabelFormForce" style="display: inline-block;">
+                        Categoria
+                    </label>
+                    <select class="categoriesSelect selectpicker form-control"  name="category_change" id="form_category" data-childrens='{"subcategory_change_":{"entity":"subcategory","find":"findSubcategoriesByCategory"}}'>
+                        <option value="0">Scegli Categoria</option>
+                        {% for category in allCategories %}
+                            <option {% if app.request.query.get("category") == category.id %}selected="selected"{%endif%} value="{{ category.id }}">{{ category.name }}</option>
+                        {% endfor %}
+                    </select>  
+                </div>
+                <div class="col-md-2 form-group">
+                    <label class="control-label active colorLabelFormForce" style="display: inline-block;">
+                        Sottocategoria
+                    </label>
+                    <select class="subcategoriesSelect selectpicker form-control" name="subcategory_change" id="form_subcategory_change_" data-childrens='{"typology_change_":{"entity":"typology","find":"findTypologiesBySubcategory"}}'>
+                        <option value="0">---</option>                                
+                        {% for subcategory in allSubcategories %}
+                            <option {% if app.request.query.get("subcategory") == subcategory.id %}selected="selected"{%endif%} value="{{ subcategory.id }}">{{ subcategory.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-md-2 form-group">
+                    <label class="control-label active colorLabelFormForce" style="display: inline-block;">
+                        Tipologia
+                    </label>
+                    <select class="typologiesSelect selectpicker form-control" name="typology_change" id="form_typology_change_" >
+                        <option value="0">---</option>                                
+                        {% for typoology in allTypologies %}
+                            <option {% if app.request.query.get("typology") == typoology.id %}selected="selected"{%endif%} value="{{ typoology.id }}">{{ typoology.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>                                    
+                <button data-changeProductsSectionBtn="1" type="button" style="float: left;border-radius: 0;width: 53px;font-size: 14px;" class="btn btn-primary btn-lg" >Sposta</button>
+            </form>
+        </div>                    
+    </div>
+{% endif %}
+{%if fetch_widget_ListProducts is defined %}
+    {{ fetch_widget_ListProducts|raw  }}
+{%endif%}
+<div class="button-action">
+    <a href="javascript:history.back()"> 
+        <div class="btnGoBack" id="btnGoBack">
+            <i class="fa fa-arrow-circle-o-left"></i>
+        </div>
+    </a>
+    <div class="buttonDefault" onclick="window.location.href = '{{ path('editProduct') }}';">
+        <div class="add">Crea nuovo Prodotto</div>
+        <i class=" fa  fa-plus-circle"></i>
+    </div>
+    <div id="toTop">
+        <i class="fa fa-arrow-circle-o-left"></i>
+    </div>
+</div>

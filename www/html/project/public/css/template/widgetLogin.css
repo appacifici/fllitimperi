@@ -1,0 +1,387 @@
+@charset "UTF-8";
+.widget_Login {
+  background: #285d32;
+  position: fixed;
+  top: 0%;
+  width: 100%;
+  left: 0%;
+  height: 100%;
+  overflow: hidden;
+  background: #0e1318;
+  display: none;
+  z-index: 5;
+  opacity: 0.8;
+  top: 0%;
+}
+
+.boxLogin {
+  position: fixed;
+  background-color: #fff;
+  width: 60%;
+  height: 520px;
+  margin: 76px 20%;
+  display: none;
+  z-index: 6;
+  display: none;
+  z-index: 999999;
+  top: 0;
+  /*    input:hover + label {
+          background: #ddd;   Fondo de las pestañas al pasar el cursor por encima 
+          color: #666;   Color del texto de las pestañas al pasar el cursor por encima 
+      }*/
+}
+.boxLogin .boxRespUser {
+  position: absolute;
+  right: 0;
+  bottom: 0px;
+  background: #ff0000;
+  padding: 10px;
+  width: 50%;
+  text-align: center;
+  color: #ffffff;
+  font-weight: bold;
+  display: none;
+  font-size: 19px;
+}
+.boxLogin .boxRespUser.success {
+  background: green;
+}
+.boxLogin .btnCloseLogin {
+  position: absolute;
+  background: #4895b6;
+  z-index: 9999999;
+  width: 45px;
+  right: 0%;
+  color: #fff;
+  height: 45px;
+  border: #4895b6;
+  font-size: 18px;
+  cursor: pointer;
+}
+.boxLogin input {
+  height: 2.5em;
+  display: none;
+}
+.boxLogin .inputTab {
+  background: #2b3139; /* Fondo de las pestañas */
+  color: #fff; /* Color del texto de las pestañas */
+  cursor: pointer;
+  display: block;
+  float: left;
+  font-size: 1em; /* Tamaño del texto de las pestañas */
+  height: 2.5em;
+  line-height: 2.5em;
+  padding: 0 0%;
+  text-align: center;
+  margin-top: 0px;
+  padding: 21px 0;
+  font-size: 20px;
+  color: #999999;
+  width: 26%;
+  text-transform: uppercase;
+  float: right;
+}
+.boxLogin input:checked + label {
+  background: #fff;
+  color: #333;
+  position: relative;
+  z-index: 6;
+  /*
+  -webkit-transition: .1s;
+  -moz-transition: .1s;
+  -o-transition: .1s;
+  -ms-transition: .1s;
+  */
+}
+.boxLogin #content {
+  background: #ffffff;
+  border-radius: 0 0.25em 0.25em 0.25em;
+  position: relative;
+  width: 100%;
+  top: 45px;
+}
+.boxLogin #content div {
+  opacity: 0;
+  position: absolute;
+  width: 25%;
+  margin-top: 35px;
+  z-index: -100;
+  transition: all linear 0.1s;
+}
+.boxLogin #content #content-1, .boxLogin #content #content-2 {
+  width: 100%;
+}
+.boxLogin #content #content-1 .boxLogo, .boxLogin #content #content-2 .boxLogo {
+  float: left;
+  width: 49%;
+  padding: 0px;
+  opacity: 1;
+  margin-top: -80px;
+  background-image: url("/images/login-img-1.jpg");
+  background-size: cover;
+  height: 520px;
+}
+.boxLogin #content #content-1 .boxLogo .logoImg, .boxLogin #content #content-2 .boxLogo .logoImg {
+  width: 100%;
+  min-height: 70px;
+  text-align: center;
+  padding: 12px 0;
+}
+.boxLogin #content #content-1 .boxLogo .logoImg a, .boxLogin #content #content-2 .boxLogo .logoImg a {
+  color: #ffffff;
+  -webkit-text-decoration: dashed;
+          text-decoration: dashed;
+  font-size: 31px;
+  padding: 7px 8px 1px 8px;
+  text-align: center;
+  float: none;
+}
+.boxLogin #content #content-1 .boxLogo .logoImg a img, .boxLogin #content #content-2 .boxLogo .logoImg a img {
+  position: relative;
+}
+.boxLogin #content #content-1 .boxLogo span, .boxLogin #content #content-2 .boxLogo span {
+  color: #fff;
+  padding: 3% 6% 6% 6%;
+  float: left;
+  line-height: 22px;
+}
+.boxLogin #content #content-1 .boxLogo article, .boxLogin #content #content-2 .boxLogo article {
+  width: 90%;
+  height: 464px;
+  position: relative;
+  padding: 5%;
+}
+.boxLogin #content #content-1 .boxLogo article section, .boxLogin #content #content-2 .boxLogo article section {
+  padding: 5%;
+}
+.boxLogin #content #content-1 .boxLogo article section h1, .boxLogin #content #content-1 .boxLogo article section h2, .boxLogin #content #content-1 .boxLogo article section h3, .boxLogin #content #content-2 .boxLogo article section h1, .boxLogin #content #content-2 .boxLogo article section h2, .boxLogin #content #content-2 .boxLogo article section h3 {
+  color: #fff;
+  font-size: 18px;
+}
+.boxLogin #content #content-1 form, .boxLogin #content #content-2 form {
+  width: 47%;
+  padding: 20px 0 0 0%;
+  float: right;
+  position: relative;
+}
+.boxLogin #content #content-1 form .imgSocial, .boxLogin #content #content-2 form .imgSocial {
+  float: left;
+  margin: 0 11px;
+}
+.boxLogin #content #content-1 form .loginFacebook, .boxLogin #content #content-1 form .loginGoogle, .boxLogin #content #content-2 form .loginFacebook, .boxLogin #content #content-2 form .loginGoogle {
+  float: left;
+  width: 44%;
+  margin-right: 2%;
+  padding: 6px 0% 6px 1%;
+  margin-bottom: 20px;
+}
+.boxLogin #content #content-1 form span, .boxLogin #content #content-2 form span {
+  float: left;
+  margin: 7px -8px;
+  font-size: 16px;
+  color: #fff;
+}
+.boxLogin #content #content-1 form .loginFacebook, .boxLogin #content #content-2 form .loginFacebook {
+  background: #3f64a6;
+}
+.boxLogin #content #content-1 form .loginGoogle, .boxLogin #content #content-2 form .loginGoogle {
+  background: #d21818;
+}
+.boxLogin #content #content-1 form input, .boxLogin #content #content-2 form input {
+  display: block;
+  border-radius: 0;
+  padding: 12px 0% 3px 6%;
+  background: #f6f6f6;
+  border-color: #ececec;
+  font-size: 14px;
+  border-width: 0;
+  width: 84%;
+  margin-top: 18px;
+  margin-bottom: 20px;
+}
+.boxLogin #content #content-1 form button, .boxLogin #content #content-2 form button {
+  padding: 3%;
+  background: #529ebe;
+  color: #fff;
+  font-size: 25px;
+  border-radius: 0;
+  margin-top: 18px;
+  border-color: transparent;
+  border-width: 0;
+  width: 90%;
+}
+.boxLogin #content #content-1 form [data-defaultlogin], .boxLogin #content #content-2 form [data-defaultlogin] {
+  margin-top: 0;
+}
+.boxLogin #content #content-1 form .password, .boxLogin #content #content-2 form .password {
+  color: #888;
+  font-size: 14px;
+  margin: 0px 3px;
+  margin-bottom: 10px;
+}
+.boxLogin #content #content-1 form .password a, .boxLogin #content #content-2 form .password a {
+  color: #216a95;
+}
+.boxLogin #content #content-2 {
+  width: 100%;
+}
+.boxLogin #content #content-2 .boxLogo {
+  float: left;
+  width: 49%;
+  padding: 0px;
+  opacity: 1;
+  margin-top: -80px;
+  background-image: url("/images/login-img-2.jpg");
+  background-size: cover;
+  height: 520px;
+}
+.boxLogin #content #content-2 .boxLogo .logoImg {
+  width: 100%;
+  min-height: 70px;
+  text-align: center;
+}
+.boxLogin #content #content-2 .boxLogo .logoImg a {
+  color: #ffffff;
+  -webkit-text-decoration: dashed;
+          text-decoration: dashed;
+  font-size: 31px;
+  padding: 7px 8px 1px 8px;
+  text-align: center;
+  float: none;
+}
+.boxLogin #content #content-2 .boxLogo .logoImg a img {
+  position: relative;
+}
+.boxLogin #content #content-2 .boxLogo article {
+  width: 90%;
+  height: 464px;
+  position: relative;
+  top: 0px;
+  padding: 5%;
+}
+.boxLogin #content #content-2 .boxLogo article section {
+  padding: 5%;
+}
+.boxLogin #content #content-2 .boxLogo article section h1, .boxLogin #content #content-2 .boxLogo article section h2, .boxLogin #content #content-2 .boxLogo article section h3 {
+  color: #fff;
+  font-size: 18px;
+}
+.boxLogin #content #content-2 form {
+  width: 47%;
+  padding: 20px 0 0 0%;
+  float: right;
+  position: relative;
+}
+.boxLogin #content #content-2 form .imgSocial {
+  float: left;
+  margin: 0 -15px;
+}
+.boxLogin #content #content-2 form .loginFacebook, .boxLogin #content #content-2 form .loginGoogle {
+  float: left;
+  width: 44%;
+  margin-right: 2%;
+  padding: 6px 0% 6px 1%;
+  margin-bottom: 20px;
+}
+.boxLogin #content #content-2 form span {
+  float: left;
+  margin: 7px 20px;
+  font-size: 16px;
+  color: #fff;
+}
+.boxLogin #content #content-2 form .loginFacebook {
+  background: #3f64a6;
+}
+.boxLogin #content #content-2 form .loginGoogle {
+  background: #d21818;
+}
+.boxLogin #content #content-2 form input {
+  display: block;
+  border-radius: 0;
+  padding: 12px 0% 3px 6%;
+  background: #f6f6f6;
+  border-color: #ececec;
+  font-size: 14px;
+  border-width: 0;
+  width: 84%;
+  margin-top: 18px;
+  margin-bottom: 20px;
+}
+.boxLogin #content #content-2 form button {
+  padding: 3%;
+  background: #529ebe;
+  color: #fff;
+  font-size: 25px;
+  border-radius: 0;
+  margin-top: 18px;
+  border-color: transparent;
+  border-width: 0;
+  width: 90%;
+}
+.boxLogin #content #content-2 form [data-defaultRegister] {
+  margin-top: 0;
+}
+.boxLogin #content #content-2 form .password {
+  color: #888;
+  font-size: 14px;
+  margin: 0px 3px;
+  margin-bottom: 10px;
+}
+.boxLogin #content #content-2 form .password a {
+  color: #216a95;
+}
+.boxLogin #content #content-2 form ul {
+  width: 90%;
+  padding: 0;
+  overflow: hidden;
+  margin: -10px 0 10px 0;
+}
+.boxLogin #content #content-2 form ul li {
+  float: left;
+  width: 100%;
+  padding: 11px 0px;
+}
+.boxLogin #content #content-2 form ul li span {
+  font-size: 14px;
+  margin: -13px 26px;
+  width: 100%;
+  color: #000;
+}
+.boxLogin #content #content-2 form ul li input {
+  float: left;
+  width: 6%;
+  margin: -14px 0px;
+}
+.boxLogin #content .op {
+  position: inherit;
+  margin: 0;
+  padding: 0;
+  color: #999;
+  text-align: center;
+  height: 15px;
+  clear: both;
+  width: 90%;
+  opacity: unset;
+  font-weight: bold;
+}
+.boxLogin #content .op:before {
+  left: 0;
+}
+.boxLogin #content .op:after {
+  right: 0;
+}
+.boxLogin #content .op:after, .boxLogin #content .op:before {
+  content: "";
+  background-color: #ddd;
+  width: 40%;
+  height: 1px;
+  position: absolute;
+  top: 50%;
+}
+.boxLogin input#tab-1:checked ~ #content #content-1, .boxLogin input#tab-2:checked ~ #content #content-2 {
+  opacity: 1;
+  z-index: 100;
+}
+.boxLogin input.visible {
+  visibility: visible;
+}/*# sourceMappingURL=widgetLogin.css.map */

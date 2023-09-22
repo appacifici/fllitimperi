@@ -1,0 +1,35 @@
+.widget_BreadCrumbs {
+  width: 96%;
+  background: #427f99;
+  padding: 5px 1% 7px 3%;
+  overflow: hidden; }
+  .widget_BreadCrumbs amp-img {
+    float: left;
+    width: 15px;
+    margin: 11px 10px 0 -2px; }
+  .widget_BreadCrumbs ul {
+    margin: 0px;
+    padding: 0px; }
+    .widget_BreadCrumbs ul li {
+      margin: 1px 0 0 1px;
+      font-size: 15px;
+      color: #fff; }
+      .widget_BreadCrumbs ul li a {
+        font-size: 13px;
+        color: #c0e0e9;
+        cursor: pointer;
+        font-weight: bold; }
+    .widget_BreadCrumbs ul a:after {
+      /*content: '/';*/
+      margin: 0 3px 0 5px; }
+  .widget_BreadCrumbs .sep {
+    height: 25px;
+    margin: 7px 10px 7px -4px;
+    border-left: 2px solid #558ca3;
+    float: left; }
+
+@media only screen and (max-device-width: 320px) {
+  .widget_BreadCrumbs ul li {
+    margin: 1px 0 0 1px;
+    font-size: 14px;
+    color: #fff; } }

@@ -1,0 +1,42 @@
+{% form_theme affiliation 'bootstrap_3_horizontal_layout.html.twig'  %}
+
+<div class="widget_EditAffiliation widgetBoxShadow">
+
+    <div class="formBlock positionRelative" data-divForm="1">
+        {{form_start(affiliation)}}
+        {{ form_widget(affiliation)}}
+        {{ form_end(affiliation) }}
+    </div>
+    <!-- // Options END -->
+</div>
+{%if fetch_widget_EditAffiliation is defined %}
+    {{ fetch_widget_EditAffiliation|raw  }}
+{%endif%}
+<div class="button-action">
+    <a href="javascript:history.back()"> 
+        <div class="btnGoBack" id="btnGoBack">
+            <i class="fa fa-arrow-circle-o-left"></i>
+        </div>
+    </a>
+    <div class="buttonDefault  buttonGreen" data-submit="1">
+        <a>
+            <div type="submit"  class="add">Salva Affiliazione</div>
+            <i class=" fa  fa-save"></i>
+        </a>
+    </div>
+
+    <div class="buttonDefault buttonRed" data-reset="1">
+        <a>
+            <div type="submit"  class="add"> Reset Affiliazione</div>
+            <i class=" fa   fa-eraser"></i>
+        </a>
+    </div>
+    <div class="buttonDefault" onclick="window.location.href = '{{ path('listAffiliation') }}';">
+        <div class="add"> Lista Affiliazioni</div>
+        <i class=" fa    fa-arrow-circle-left"></i>
+    </div>
+    <div id="toTop">
+        <i class="fa fa-arrow-circle-o-left"></i>
+    </div>
+
+</div>

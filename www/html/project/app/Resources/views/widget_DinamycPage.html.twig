@@ -1,0 +1,8 @@
+<div class="widget-dinamyc-page card card--lg post post--single">
+    <div>
+    {{ dinamycPage.body|raw}}
+    </div>
+    {%if fetch_widget_DinamycPage is defined %}
+        {{ fetch_widget_DinamycPage|raw  }}
+    {%endif%}
+</div>

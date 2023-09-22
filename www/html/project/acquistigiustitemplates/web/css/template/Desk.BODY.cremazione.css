@@ -1,0 +1,271 @@
+@charset "UTF-8";
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'PT Sans', sans-serif;
+}
+.clearB {
+  clear: both;
+}
+h2 {
+  text-align: center;
+  font-size: 37px;
+  color: #333;
+  text-transform: uppercase;
+}
+.structure_Container {
+  width: 70%;
+  margin: 0 auto;
+}
+.header {
+  background: #fff;
+  height: 200px;
+  color: #000000;
+  padding: 0 0 0 0;
+  height: 176px;
+}
+.header .top {  
+  border-bottom: 1px solid #ccc;
+  padding: 15px 0 15px;
+  margin-bottom: 5px;
+  background: #faf9f3;
+}
+.header .top .address {  
+  float: right;
+  font-weight: 600;
+}
+.header .logo {
+  float: left;
+  max-width: 355px;
+  margin-left: 3%;
+}
+.header .contacts {
+  float: right;
+  width: 33%;
+  margin-top: 15px;
+}
+.header .contacts strong {  
+  text-align: center;
+  display: block;
+  color: #B71C1C;
+  text-transform: uppercase;
+}
+.header .contacts .contact {
+  float: left;
+  width: 46%;
+  margin-right: 4%;
+  padding: 10px 0;
+}
+.header .contacts .contact .name {
+  display: block;
+  font-size: 23px;
+  text-align: center;  
+  color: #000;
+}
+.header .contacts .contact .surname {
+  display: block;
+  font-size: 26px;
+  text-align: center;
+  color: #807468;
+  color: #ffffff;
+  background: #b71c1b;
+}
+
+.widgetMenu {
+  height: 60px;
+  background: #000000;
+  color: #fff;
+}
+.widgetMenu a {  
+  color: #fff;
+  text-decoration: none;
+}
+
+.widgetMenu ul {
+  margin: 0;
+  padding: 0; 
+}
+.widgetMenu ul li { 
+  list-style: none;
+  padding: 21px 0px;
+  font-size: 17px;
+  font-weight: 100;
+  float: left;
+  margin-right: 2%;
+  width: 12%;
+  text-align: center;
+}
+.widgetMenu ul li.active {
+  background: #413933;
+}
+.widget_HomeBigImage {
+  background: url("/images/sfondo-agenzia.png");
+  background-size: cover;
+  width: 100%;
+  height: 500px;
+}
+
+.widget_aboutUs {
+  text-align: center;
+}
+.widget_aboutUs h2 {
+  color: #413933;  
+  width: 69%;
+  text-align: left;
+  margin-bottom: 0px;
+  margin-top: 55px;
+} 
+.widget_aboutUs span {
+  float: left;
+  width: 49%;
+  font-size: 22px;
+  line-height: 36px;
+  font-weight: normal;
+  color: #333;
+  padding-top: 18px;
+  text-align: left;
+} 
+.widget_aboutUs img {
+  float: right;
+  margin-top: -50px;
+  width: 365px;
+}
+.widget_aboutUs button {
+  background: #333333;
+  padding: 12px 29px;
+  color: #fff;
+  border: none;
+  margin-bottom: 2%;  
+  margin-top: 1%;
+  font-weight: bold;
+}
+
+.widget_servicesHome {
+  text-align: center;
+  background: #faf9f3;
+  margin-top: -17px;  
+  padding: 1% 0px 4%;
+}
+.widget_servicesHome h3 {
+  margin: 0 0 10px;
+  background: #333;
+  padding: 5px 5px 5px 10px;
+  color: #fff;
+}
+.widget_servicesHome h2 {
+  color: #413933;  
+  width: 100%;
+  text-align: center;
+  padding-bottom: 5px;
+} 
+.widget_servicesHome p {
+  margin: 0;
+  padding-left: 9px;
+}
+.widget_servicesHome span {
+  float: left;
+  width: 100%;
+  font-size: 22px;
+  line-height: 36px;
+  font-weight: normal;
+  color: #333;
+  padding-top: 18px;  
+  text-align: left;
+}
+.widget_servicesHome button {
+  background: #b71c1b;
+  padding: 7px 16px;
+  color: #fff;
+  border: none;
+  margin-bottom: 2%;
+  margin-top: 1%;
+  float: right;
+  position: absolute;
+  right: 7px;
+  bottom: -21px;
+}
+.widget_servicesHome .read {
+  float: left;
+  background: #353936;
+  padding: 8px;
+  width: 59px;
+}
+.widget_servicesHome button a{
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+}
+.widget_servicesHome .service {
+  float: left;
+  width: 30.1%;
+  border: 1px solid #000;
+  border-radius: 0px;
+  height: 207px;
+  margin: 1% 0.5% 1% 0.5%;
+  text-align: left;
+  padding: 1%;
+  line-height: 25px;
+  position: relative;
+}
+.structureLeft {
+  float: left;
+  width: 50%;
+}
+.structureRight {
+  float: left;
+  width: 50%;
+}
+.widget_Maps iframe {
+    width: 69%;
+    margin-right: 1%;
+    float: left;
+}
+.widget_Maps {
+  overflow: hidden;
+  background: #faf9f3;
+  padding-bottom: 35px;
+  padding-top: 20px;
+  margin-bottom: 38px;
+}
+.widget_Maps .locations {
+    float: left;
+    width: 30%;
+}
+.widget_Maps .locations .location{
+    margin-bottom: 20px;
+    margin-left: 5%;
+}
+.widget_Maps .locations .location span{
+    display: block;
+    margin-bottom: 7px;
+}
+.widget_Maps .locations .location .name{
+    font-size: 23px;    
+    color: #b71c1b;
+}
+.widget_BlogList article {
+  float: left;
+  width: 31%;
+  margin: 0 0.5%;
+}
+.widget_BlogList article h3 {
+  font-size: 23px;
+  font-weight: 500;
+  margin-bottom: 9px;
+  margin-top: -5px;
+}
+.widget_BlogList article img {
+  max-height: 255px;
+}
+
+.widget_cremazioni div {  
+  font-size: 22px;
+  line-height: 36px;
+  font-weight: normal;
+  color: #333;
+  padding-top: 18px;
+  text-align: left;
+}
+.widget_cremazioni h1 {  
+  margin-bottom: 0;
+}

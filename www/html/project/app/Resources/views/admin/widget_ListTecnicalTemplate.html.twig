@@ -1,0 +1,49 @@
+{% if permission.model.read %}
+    
+    <div class="widget_ListModels widgetBoxShadow" >
+        <table class="table footable table-bordered table-condensed table-striped table-primary dynamicTable colVis table">
+            <thead>
+                <tr> 
+                    <th class="center" data-hide="phone">Id</th>
+                    <th data-class="expand">Nome</th>
+                    <th data-class="expand">Pagomeno Url</th>                    
+                    <th data-hide="phone">Azioni</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for tecnical in tecnicals %}
+                    {% if tecnical is defined %}
+                        <tr class="selectable"data-createForm="modifyModel" data-entity="Model" data-id="{{tecnical.id}}">
+                            <td class="important center" ><span class="badge badge-blu">{{tecnical.id}}</span></td>
+                            <td class="important" data-modify="input" data-field="screen">{{tecnical.name}}</td>
+                            <td class="important" data-modify="input" data-field="screen">
+                                <span target="blank" data-linkModelTp="https://www.trovaprezzi.it/{{tecnical.nameUrlPm}}">Apri Link TP</span>
+                            </td>                            
+                            <td class="">           
+                                <a href="{{ path('editTecnicalTemplate', {'id': tecnical.id}) }}" class="btn btn-green"><i class="fa fa-pencil"></i></a>
+                                <button class="btn btn-sm btn-danger" data-deleteInlineForm="1">
+                                    <i class="fa fa-trash-o"></i>
+                                </button>
+                            </td>  
+                        </tr>
+                    {%endif%}
+                {%endfor%}
+            </tbody>
+        </table>
+    </div>
+{% endif %}
+
+<div class="button-action">
+    <a href="javascript:history.back()"> 
+        <div class="btnGoBack" id="btnGoBack">
+            <i class="fa fa-arrow-circle-o-left"></i>
+        </div>
+    </a>
+    <div class="buttonDefault" onclick="window.location.href = '{{ path('editTecnicalTemplate') }}';">
+        <div class="add">Crea nuova scheda tecnica</div>
+        <i class=" fa  fa-plus-circle"></i>
+    </div>
+    <div id="toTop">
+        <i class="fa fa-arrow-circle-o-left"></i>
+    </div>
+</div>

@@ -1,0 +1,154 @@
+//Gestisce il widget verticale
+.widget_ModelProductsListVertical{
+        overflow: hidden;
+    margin: 2% 0 0;
+    box-shadow: 1px 1px 5px 1px #a6a8ab;
+    border-radius: 0px 0px 7px 7px;
+    clear: both;
+    border-top: 3px solid #529fbe;
+    &.releatedModel {
+        /*border: 1px solid #2b3139;*/
+        background: #fff;
+        clear: both;
+    }
+    .productTitle{
+        padding: 26px 2%;
+        background: #fff;
+        border-bottom: 0;
+        font-family: "Roboto", sans-serif;
+        font-weight: 900;
+        margin: 0;
+        font-size: 1rem;
+        width: 60%;
+        float: left;
+        border-bottom: 1px solid #ececec;
+    }
+    .allIn {
+        float: right;
+        background: #fff;
+        padding: 26px 2%;
+        width: 32%;
+        text-align: right;
+        border-bottom: 1px solid #ececec;
+        a { 
+            color: #0e5ab9;
+            text-decoration: none;
+            font-weight: 600;
+        }
+    }    
+    .marginRNone {
+        margin-right: 0;
+        border-right: 0;
+    }
+    article{
+        float: left;
+        width: 16.588888888%;
+        height: 295px;
+        margin-right: 0%;
+        background: #fff;
+        margin-top: 0%;
+        border-right: 1px solid #ececec;
+        border-bottom: 1px solid #ececec;
+        text-align: center;
+        cursor: pointer;
+        figure{
+            background: #fff;
+            text-align: center;
+            height:195px;
+            position:relative;
+            img{
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+                right: 0;
+                left: 0;
+            }
+        }
+        header{
+            width: 100%;
+            height: 45px;
+            a{
+                color: #0066c0;
+                text-decoration: none;
+                h3{
+                    font-family: "Roboto", sans-serif;
+                    font-size: 16px;
+                    font-weight: 400;
+                    line-height: 20px;
+                    margin: 12px 10px;
+                }
+            }            
+        }
+        .pricesBox {
+            text-align: center;
+            margin-top: 10px;
+            .lineThrough {
+                color: #555 !important;
+                font-weight: 400;
+                font-size: 16px !important;
+                margin: 5px 10px 10px 10px;
+            }
+            .euro {
+                font-size: 14px;
+                margin: 3px 3px 3px -3px;
+            }
+            span{
+                color: #B12704;
+                font-weight: 500;
+                font-size: 23px;
+            }
+        }
+        footer{
+            float: left;
+            text-align: center;
+            width: 100%;
+            figure{
+                position: relative;
+                background: #f4f3f3 !important;
+                color: #999999;
+                text-decoration: none;
+                padding: 8px 5%;
+                margin: 0 10%;
+                width: 70%;
+                display: block;
+                .recentImg{
+                    float: left;
+                    position: relative;
+                    left: 40px;
+                }
+            }
+            figure{
+                background: transparent;
+                img{
+                    margin: 0px;
+                }
+            }
+        }
+    }
+    article:hover {
+        /*transform: translateY(-5px);*/
+        background: #2b3139;
+        color: #fff !important;
+        a h1, span, p, a h3 {
+            color:#fff;
+        }
+        .pricesBox .lineThrough {
+            color: #f44336!important;
+        }        
+    }
+
+    footer a:hover {
+        background: #fff;
+        color: #000;
+    }
+} 
+
+@media (min-device-width: 581px) and (max-device-width: 1440px) {    
+    .widget_ModelProductsListVertical {
+        margin: 1% 0 0 !important;
+        article {    
+            width: 16.488888888%;
+        }
+    }    
+}

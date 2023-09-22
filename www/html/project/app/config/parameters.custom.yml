@@ -1,0 +1,242 @@
+parameters:
+    
+    redis_host:                     192.168.1.76    
+    handler_cache:                  redis  
+#    secondLevelCacheEnabled:        true
+        
+    elestica_host:                  localhost
+    elestica_port:                  9200
+    
+    socketChatHostServer:            localhost
+    socketChatHostClient:            localhost
+    socketChatPort:                  3003
+    
+    app.maxIdLastDb:                    false
+    
+    #Impostazioni per l'utilizzo di memcached
+    session_memcached_lib:           memcached 
+#    session_memcached_host:          direttagol-mc.css6bp.cfg.euw1.cache.amazonaws.com
+#    session_memcached_host:          127.0.0.1
+    session_memcached_host:          84.33.2.62
+    session_memcached_port:          11211
+    session_memcached_prefix:        sess_
+    session_memcached_expire:        3200
+    session_memcached_expire:        3200
+    session_memcached_persistent_id: 20160618
+    s_memcached_expire_default:      600 
+    s_memcached_expire_widget:       86000 
+    s_memcached_expire_data_widget:  600     
+    s_memcached_prefix_userdata:     'user_login_'    
+    s_memcached_prefix_appcall:      'app_call_'
+    s_memcached_expire_data_appcall: 3600
+       
+    facebookAppId:                      354876088590324 
+    facebookScope:                      "email, public_profile, user_birthday" 
+    
+    googleApiKey:                      "AIzaSyBo5L26ooAF6HANTFrbo6YB4je-dIMDKqs" 
+    googleScopes:                      "https://www.googleapis.com/auth/userinfo.email" 
+    googleClientId:                    "331681341352-fr4ifr2cf4ntopccicre80jnnevv23do.apps.googleusercontent.com" 
+    
+    categoryIdAbbigliamento:            8 
+    pathAllNews:    'allnews'    
+    app.folder_banners:                  '%kernel.root_dir%/Resources/views/'
+    
+    app.hostImg:  'https://www.acquistigiusti.it'  
+    
+    app.freeSearchPath:                 'search'
+    app.ampPrefix:                      '/amp'
+    
+    app.folder_tmp:                     '/tmp/'
+    
+    app.folder_img_banners_write:       '%kernel.root_dir%/../web/imagesBanners/'
+    app.folder_img_banners:             '/imagesBanners/'
+    app.img_banner_width:             2000
+    app.img_banner_height:            2000
+    
+    app.folder_img_sliders_write:       '%kernel.root_dir%/../web/sliders/'
+    app.folder_img_sliders:             '/sliders/'
+    app.img_sliders_width:             1500
+    app.img_sliders_height:            600
+    
+    app.folder_img_category_write:       '%kernel.root_dir%/../web/imagesCategories/'
+    app.folder_img_category:             '/imagesCategories/'
+    app.img_category_width:             150
+    app.img_category_height:            120
+    
+    app.folder_img_subcategories_write:       '%kernel.root_dir%/../web/imagesSubcategories/'
+    app.folder_img_subcategories:             '/imagesSubcategories/'
+    app.img_subcategories_width:             100
+    app.img_subcategories_height:             100
+    
+    app.folder_img_typologies_write:       '%kernel.root_dir%/../web/imagesTypologies/'
+    app.folder_img_typologies:             '/imagesTypologies/'
+    app.img_typologies_width:             100
+    app.img_typologies_height:             100
+    
+    app.folder_img_microsection_write:       '%kernel.root_dir%/../web/imagesMicroSection/'
+    app.folder_img_microsection:             '/imagesMicroSection/'
+    app.img_microsection_width:             100
+    app.img_microsection_height:             100
+    
+    app.folder_img_models_write:       '%kernel.root_dir%/../web/imagesModels/'
+    app.folder_img_models:             '/imagesModels/'
+    app.img_models_width:             158
+    app.img_models_height:            158
+    
+    app.folder_img_models_gallery_write:       '%kernel.root_dir%/../web/galleryImagesModel/'
+    app.folder_img_models_gallery:             '/galleryImagesModel/'
+    app.img_models_width_gallery:             800
+    app.img_models_height_gallery:            800
+    
+    app.folder_img_small_models_gallery_write:       '%kernel.root_dir%/../web/galleryImagesSmallModel/'
+    app.folder_img_small_models_gallery:             '/galleryImagesSmallModel/'
+    app.img_small_models_width_gallery:             100
+    app.img_small_models_height_gallery:            100
+    
+    app.folder_manuals_write:       '%kernel.root_dir%/../web/manuals/'
+    app.folder_manuals:             '/manuals/'    
+    
+    #Impostazioni Immagini
+    app.folder_img_small_write:       '%kernel.root_dir%/../web/imagesArticleSmall/'
+    app.folder_img_small:             '/imagesArticleSmall/'
+    app.img_small_width:              250
+    app.img_small_height:             250
+    
+    app.folder_img_medium_write:       '%kernel.root_dir%/../web/imagesArticleMedium/'
+    app.folder_img_medium:             '/imagesArticleMedium/'
+    app.img_medium_width:              450
+    app.img_medium_height:             300
+    
+    app.folder_img_big_write:       '%kernel.root_dir%/../web/imagesArticleBig/'
+    app.folder_img_big:             '/imagesArticleBig/'
+    app.img_big_width:              900
+    app.img_big_height:             900
+        
+    #Impostazioni Immagini Top News
+    app.folder_imgTopNews_default_write:       '%kernel.root_dir%/../web/imagesTopNews/'
+    app.folder_imgTopNews_default:             '/imagesTopNews/'
+    app.imgTopNews_default_width:              1200
+    app.imgTopNews_default_height:             720   
+    
+    #Impostazioni Video
+    app.folder_video_default_write:       '%kernel.root_dir%/../web/videosArticleDefault/'
+    app.folder_video_default:             '/videosArticleDefault/'
+    app.video_default_width:              500
+    app.video_default_height:             300    
+    
+    #Impostazioni Immagini Profilo ExternalUser
+    app.folder_imgExternalUser_default_write:       '%kernel.root_dir%/../web/imagesExternalUsers/'
+    app.folder_imgExternalUser_default:             '/imagesExternalUsers/'
+    app.imgExternalUser_default_width:              60
+    app.imgExternalUser_default_height:             60    
+    
+        
+    app.folder_imgTrademarks_write:       '%kernel.root_dir%/../web/imagesTrademarks/'
+    app.folder_imgTrademarks:             '/imagesTrademarks/'
+        
+    app.folder_imgAffiliations_small_write:       '%kernel.root_dir%/../web/imagesAffiliationsSmall/'
+    app.folder_imgAffiliations_small:             '/imagesAffiliationsSmall/'
+    app.imgAffiliations_small_width:        80
+    app.imgAffiliations_small_height:      30    
+    
+    app.folder_imgAffiliations_big_write:       '%kernel.root_dir%/../web/imagesAffiliationsBig/'
+    app.folder_imgAffiliations_big:             '/imagesAffiliationsBig/'
+    app.imgAffiliations_big_width:        160
+    app.imgAffiliations_big_height:      60    
+    
+    app.folder_imgProducts_write:       '%kernel.root_dir%/../web/imagesProducts/'
+    app.folder_imgProducts:             '/imagesProducts/'
+    app.imgProducts_width:              300
+    app.imgProducts_height:             300   
+    
+    app.folder_imgProductsSmall_write:       '%kernel.root_dir%/../web/imagesProductsSmall/'
+    app.folder_imgProductsSmall:             '/imagesProductsSmall/'
+    app.imgProductsSmall_width:              158
+    app.imgProductsSmall_height:             158    
+    app.imgProductsSmallAbbigliamento_width:              158
+    app.imgProductsSmallAbbigliamento_height:             158    
+    
+    
+    #limete di articoli visualizzabili nella lista
+    app.totArticleListCategory: 5
+    app.totListModelsTrademark: 90
+    app.totListModels: 30
+    app.totPolls: 10
+    app.toLinksPagination: 99
+    app.toLinksPaginationGuide: 12
+    
+    #limite di foto visualizzabili nella lista
+    app.totImgGallery: 60
+    
+    #limite di commenti visualizzabili nell'articolo
+    app.totCommentsArticle: 10
+    
+    #limite di prodotti visualizzabili nel dettaglio
+    app.totProductDetailList: 10
+    
+    #codice per la creazione dello user_code
+    app.userCode: 'dpsonanevorna'
+     
+    #Impostazioni generiche
+    app.folder_menu:            '%kernel.root_dir%/../src/AppBundle/Menu/Layout'
+    app.folder_templates_xml:   '%kernel.root_dir%/Resources/layouts/'
+    app.folder_css:             '/css/'
+    app.folder_js:              '/js/'
+    app.folder_js_minified:     '/js/widget/'
+    app.cssVersion:             201804
+    app.jsVersion:              201804
+    app.eTagVersion:            8
+    app.default_version_site:   'template'
+    app.compactSite:            true
+    app.extensionTpl:           '.html.twig'
+    app.compactVersion:         '/min'
+    app.cdn:                   ''     
+    app.enabledHttpCache:       false
+    app.debugLinkLinkAssistant: false
+    
+    app.ttlDetailArticleCache:      3
+    app.ttlCategoriesListCache:     3
+    app.ttlHomaPageCache:           3
+    
+    
+    #Impostazione per il servizio di inclusione automatica delle dipendenze javascript e css
+    app.dependencyManager:
+        commonPath:             '/php/assets/'
+        extensionsJsPath:       '%app.folder_js%'
+        commonCSSPath:          '/php/assets/'
+        extensionCssPath:       '%app.folder_css%%app.default_version_site%/'
+        extensionsJsAdminPath:  '%app.folder_js%admin'
+        extensionsTemplates:    '/templates/'
+        catalogsPath:           '/home/prod/catalogs/'
+        
+    #Impostazioni necessarie per il framework js    
+    app.js:
+        module:               'admin'
+        app:                  '{}'
+        basePath:             'admin/'
+        commonPath:           '../assets/'
+        rootPath:             '../'
+        dev:                  'false'
+        componentsPath:       '../assets/components/'
+        primaryColor:         '#25ad9f'
+        dangerColor:          '#b55151'
+        successColor:         '#609450'
+        infoColor:            '#4a8bc2'
+        warningColor:         '#ab7a4b' 
+        inverseColor:         '#45484d'
+        themerPrimaryColor:   '#45484d'
+        skin:                 'stylesheet-complete.min.css'
+        ajaxCallPath:         '/call/ajax/'
+        extensionsJsPath:     '%app.folder_js%'    
+    
+    xml_feeds_dir: "%kernel.root_dir%/../var/feeds/"
+    
+    #specifica che il tipo di gestione delle sottocategorie o a tags o con relazionni con le categorie
+    admin.subcategoriesType: relationship
+    
+    app.superUserChat: 'Ale'
+    
+    app.demoEmail: 'acquistigiusti@gmail.com'
+    
+    app.labelPriceList: 'Prezzo consigliato'
+    

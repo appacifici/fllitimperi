@@ -1,0 +1,69 @@
+{% if permission.banner.read %}
+    <div class="widget_ListFeedsImport widgetBoxShadow">        
+        <table class="table footable table-bordered table-condensed table-striped table-primary dynamicTable colVis table">
+            <thead>
+                <tr>
+                    <th class="center" data-hide="phone,tablet">Id</th>
+                    <th data-hide="phone,tablet">D.Inizio</th>
+                    <th data-hide="phone,tablet">D.Fine</th>
+                    <th data-hide="phone,tablet">KbFeed</th>
+                    <th data-class="expand">Time Downl.</th>
+                    <th data-hide="phone">Time Import</th>
+                    <th data-hide="phone,tablet">Time Global</th>
+                    <th data-hide="phone,tablet">Active</th>
+                    <th data-hide="phone,tablet">Prodotti</th>
+                    <th data-hide="phone,tablet">Insert</th>
+                    <th data-hide="phone,tablet">Update</th>
+                    <th data-hide="phone,tablet">Disabled</th>
+                    <th data-hide="phone,tablet">Prod Active</th>
+                    <th data-hide="phone,tablet">Prod Disable</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for stat in stats %}
+                {% if stat is defined %}
+                    <tr class="selectable {% if stat.numElement == stat.numImport + stat.numUpdate%}success{%else%}failure{%endif%}" >
+                        <td class="important center" >
+                            <span class="badge badge-blu">{{affiliations[stat.affiliation].name|slice(0,20)}}</span>
+                        </td>
+                        <td  data-modify="input" data-field="screen">
+                            {{stat.dataStart | date( 'Y-m-d H:i:s' )}}
+                        </td>
+
+                        <td >{{stat.dataEnd | date( 'Y-m-d H:i:s' ) }}</td>
+                        <td >{{stat.kbFeed }}</td>
+                        <td>{{stat.durationDownloadFeed }}</td>
+                        <td>{{stat.durationImport }}</td>
+                        <td>{{stat.durationGlobal }}</td>
+                        <td>{{stat.isActive }}</td>
+                        <td>{{stat.numElement }}</td>
+                        <td>{{stat.numImport }}</td>
+                        <td>{{stat.numUpdate }}</td>
+                        <td>{{stat.numDisabled }}</td>
+                        <td>{{stat.productsActive }}</td>
+                        <td>{{stat.productsDisabled}}</td>
+                    </tr>
+                {%endif%}
+            {%endfor%}
+            </tbody>
+        </table>                                    <!-- // Options END -->
+        {{pagination|raw}}
+    </div>
+{% endif %}
+{%if fetch_widget_ListBanners is defined %}
+    {{ fetch_widget_ListBanners|raw  }}
+{%endif%}
+<div class="button-action">
+    <a href="javascript:history.back()"> 
+        <div class="btnGoBack" id="btnGoBack">
+            <i class="fa fa-arrow-circle-o-left"></i>
+        </div>
+    </a>
+    <div class="buttonDefault" onclick="window.location.href = '/admin/editBanner';">
+        <div class="add"> Crea Nuovo Banner</div>
+        <i class=" fa fa-plus-circle"></i>
+    </div>
+    <div id="toTop">
+        <i class="fa fa-arrow-circle-o-left"></i>
+    </div>
+</div>

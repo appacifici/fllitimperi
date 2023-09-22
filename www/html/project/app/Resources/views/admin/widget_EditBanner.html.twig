@@ -1,0 +1,75 @@
+{% form_theme banner 'bootstrap_3_horizontal_layout.html.twig'  %}
+
+<div class="widget_EditBanner widgetBoxShadow">
+    {%if image is not null and image is not empty %}
+        <div class=" imgAssociation ">
+            <div>Immagine associata a questa categoria</div>
+            <img src="{{folder_img_banners}}/{{image.img}}">
+
+        </div>
+    {%endif%}
+
+    <div class="formBlock positionRelative" data-divForm="1" >
+        {{form_start(banner)}}
+        {{ form_widget(banner)}}
+        {{ form_end(banner) }}
+    </div>
+    </div>
+
+    <!-- // Options END -->
+    {%if fetch_widget_EditBanner is defined %}
+        {{ fetch_widget_EditBanner|raw  }}
+    {%endif%}
+
+<div class="button-action dataButtonConfirmSaveBanner" dataButtonConfirmSaveBanner="1">
+    <div class="mex" dataMexConfirmSaveBanner >Confermi il salvataggio di questo banner</div>
+    <div class="buttonDefault  buttonGreen" data-submit="1">
+        <a>
+            <div type="submit" class="add" >Conferma Salvataggio</div>
+            <i class=" fa  fa-save"></i>
+        </a>
+    </div>
+    <div class="buttonDefault  buttonGreen" data-checkTest="1">
+        <a>
+            <div type="submit" class="add" >Conferma Salvataggio</div>
+            <i class=" fa  fa-save"></i>
+        </a>
+    </div>
+    <div class="buttonDefault buttonRed" data-resetBanner="1">
+        <a>
+            <div type="submit"  class="add"> Chiudi</div>
+        </a>
+    </div>
+</div>
+<div class="button-action">
+     <a href="javascript:history.back()"> 
+        <div class="btnGoBack" id="btnGoBack">
+            <i class="fa fa-arrow-circle-o-left"></i>
+        </div>
+    </a>
+    <div class="buttonDefault  buttonGreen" data-checkBanner="1">
+        <a>
+            <div type="submit"  class="add">Salva Banner</div>
+            <i class=" fa  fa-save"></i>
+        </a>
+    </div>
+    <div class="buttonDefault buttonRed" data-reset="1">
+        <a>
+            <div type="submit"  class="add"> Reset Banner</div>
+            <i class=" fa   fa-eraser"></i>
+        </a>
+    </div>
+    <div class="buttonDefault" onclick="window.location.href = '{{ path('manageBanners') }}';">
+        <div class="add"> Lista Banner</div>
+        <i class=" fa    fa-arrow-circle-left"></i>
+    </div>
+    <div class="buttonDefault buttonTest" data-test="1">
+        <a>
+            <div type="submit"  class="add" data-article="{{lastArticle.id}}" data-category="{{category}}" data-urlArticle="{{urlArticle}}"> Testa Banner</div>
+            <i class=" fa icon-graph-down-2"></i>
+        </a>
+    </div>
+       <div id="toTop">
+        <i class="fa fa-arrow-circle-o-left"></i>
+    </div>
+</div>

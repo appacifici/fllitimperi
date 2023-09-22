@@ -1,0 +1,69 @@
+.widget_ProductListHorizontal {
+  overflow: hidden;
+  border-top: 3px solid #4895b6;
+  padding: 0% 0;
+  margin-bottom: 10px;
+}
+.widget_ProductListHorizontal .productTitle {
+  padding: 15px;
+  background: #fff;
+  border-bottom: 1px solid #ececec;
+  margin: 0 0px;
+  font-size: 15px;
+}
+.widget_ProductListHorizontal .productTitle a {
+  color: #0365c0;
+}
+.widget_ProductListHorizontal article {
+  width: 49.3333%;
+  float: left;
+  background: #fff;
+  text-align: center;
+  border: 1px solid #ececec;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  height: 235px;
+}
+.widget_ProductListHorizontal article div {
+  height: 160px;
+}
+.widget_ProductListHorizontal article header {
+  padding: 0 2%;
+}
+.widget_ProductListHorizontal article header a {
+  font-weight: 500;
+  color: #0066c0;
+  text-decoration: none;
+}
+.widget_ProductListHorizontal article header a h3 {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  height: 35px;
+  overflow: hidden;
+}
+.widget_ProductListHorizontal article header .lineThrough {
+  float: right;
+  margin: 4px 18px 4px 4px;
+  height: 15px;
+  -webkit-text-decoration: line-through #ff0000;
+          text-decoration: line-through #ff0000;
+  color: #333333;
+}
+
+@media only screen and (min-device-width: 320px) {
+  .widget_ProductListHorizontal .totalPrice {
+    font-size: 16px;
+  }
+  .widget_ProductListHorizontal article header {
+    font-size: 14px;
+  }
+  .widget_ProductListHorizontal article header .lineThrough {
+    margin: -1px 18px 4px 4px;
+  }
+  .widget_ProductListHorizontal article header a h3 {
+    margin-bottom: 10px;
+  }
+}/*# sourceMappingURL=amp_widgetProductListHorizontal.css.map */

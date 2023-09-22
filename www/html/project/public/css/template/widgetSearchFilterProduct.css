@@ -1,0 +1,225 @@
+.widget_SearchFilterProduct {
+  width: 14%;
+  margin: 0% 0 0 !important;
+  background: #fff;
+  overflow: hidden;
+  padding: 0 1%;
+  float: left;
+  border-right: 1px solid #4895b6;
+}
+.widget_SearchFilterProduct h3 {
+  font-weight: bold;
+  margin: 10px 0 0 5px;
+  background: #4895b6;
+  color: #fff;
+  padding: 2%;
+  font-size: 20px;
+  border: none !important;
+}
+.widget_SearchFilterProduct #searchFilterProductForm [data-activeFilter] {
+  cursor: pointer;
+}
+.widget_SearchFilterProduct #searchFilterProductForm .filterSex [data-active="1"] a {
+  color: #0c6ab5;
+  font-weight: bold;
+  text-decoration: underline;
+}
+.widget_SearchFilterProduct #searchFilterProductForm .filtersColors [data-activeFilter="1"] .name {
+  color: #0c6ab5;
+  font-weight: bold;
+  text-decoration: underline;
+}
+.widget_SearchFilterProduct #searchFilterProductForm .filtersSizes [data-activeFilter="1"] {
+  text-decoration: underline;
+  background: #0c6ab5;
+}
+.widget_SearchFilterProduct #searchFilterProductForm .filtersSizes [data-activeFilter="1"] span {
+  color: #fff !important;
+}
+.widget_SearchFilterProduct #searchFilterProductForm .openSearch {
+  font-size: 17px;
+  margin: 18px 6px;
+  height: 0px;
+  font-weight: bold;
+}
+.widget_SearchFilterProduct #searchFilterProductForm .sex {
+  /*border-top: 1px solid #ccc;*/
+  /*padding-top :5px;*/
+}
+.widget_SearchFilterProduct #searchFilterProductForm .sex span {
+  float: left;
+  margin: 15px 12px 0 4px;
+  font-weight: bold;
+}
+.widget_SearchFilterProduct #searchFilterProductForm .sex span a {
+  color: #000;
+  text-decoration: none;
+}
+.widget_SearchFilterProduct #searchFilterProductForm .searchPrice input {
+  width: 94%;
+  height: 29px;
+  padding: 2px 2%;
+  margin-bottom: 5px;
+  margin: 10px 2% 0 2%;
+  border: 1px solid #ccc;
+}
+.widget_SearchFilterProduct #searchFilterProductForm .searchName input {
+  width: 94%;
+  height: 29px;
+  padding: 2px 2%;
+  margin-bottom: 5px;
+  margin: 10px 2% 0 2%;
+  border: 1px solid #ccc;
+}
+.widget_SearchFilterProduct #searchFilterProductForm .sideBar {
+  width: 100%;
+  float: left;
+  margin-right: 2%;
+  margin-left: 2%;
+  margin-top: 10px;
+}
+.widget_SearchFilterProduct #searchFilterProductForm .sideBar ul {
+  max-height: 240px;
+  overflow: auto;
+}
+.widget_SearchFilterProduct #searchFilterProductForm .sideBar .boxBrand {
+  padding: 0px;
+  margin: 2px 0;
+}
+.widget_SearchFilterProduct #searchFilterProductForm .sideBar .boxBrand li span {
+  float: left;
+  width: 100%;
+  font-size: 15px;
+  margin: 2px 0px;
+}
+.widget_SearchFilterProduct #searchFilterProductForm .sideBar .boxTypologies, .widget_SearchFilterProduct #searchFilterProductForm .sideBar .boxInterested {
+  padding: 0px;
+  margin: 2px 0;
+}
+.widget_SearchFilterProduct #searchFilterProductForm .sideBar .boxTypologies li, .widget_SearchFilterProduct #searchFilterProductForm .sideBar .boxInterested li {
+  padding: 3px 0;
+}
+.widget_SearchFilterProduct #searchFilterProductForm .sideBar .boxTypologies li a, .widget_SearchFilterProduct #searchFilterProductForm .sideBar .boxInterested li a {
+  color: #000;
+  text-decoration: none;
+}
+.widget_SearchFilterProduct #searchFilterProductForm .sideBar .boxColor {
+  margin: 0;
+  padding: 5px 5px 5px 10px;
+}
+.widget_SearchFilterProduct #searchFilterProductForm .sideBar .boxColor li {
+  width: 50%;
+  float: left;
+  margin-top: 10px;
+}
+.widget_SearchFilterProduct #searchFilterProductForm .sideBar .boxColor li span {
+  color: #000;
+  margin: 4px 5px;
+  float: left;
+}
+.widget_SearchFilterProduct #searchFilterProductForm .sideBar .boxColor li .colorFilter {
+  color: #fff;
+  float: left;
+  margin: 0 0 0px -12px;
+  width: 25px;
+  height: 25px;
+}
+.widget_SearchFilterProduct #searchFilterProductForm .sideBar .boxColor li .colorFilterNero {
+  background: #000;
+}
+.widget_SearchFilterProduct #searchFilterProductForm .sideBar .boxColor li .colorFilterMarrone {
+  background: #6f3e18;
+}
+.widget_SearchFilterProduct #searchFilterProductForm .sideBar .boxColor li .colorFilterBeige {
+  background: #d4be8d;
+}
+.widget_SearchFilterProduct #searchFilterProductForm .sideBar .boxColor li .colorFilterGrigio {
+  background: #838383;
+}
+.widget_SearchFilterProduct #searchFilterProductForm .sideBar .boxColor li .colorFilterBianco {
+  background: #fff;
+  color: #999;
+  border: 1px solid #ddd;
+  width: 23px;
+  height: 23px;
+}
+.widget_SearchFilterProduct #searchFilterProductForm .sideBar .boxColor li .colorFilterBlu {
+  background: #0f73ad;
+}
+.widget_SearchFilterProduct #searchFilterProductForm .sideBar .boxColor li .colorFilterVerde {
+  background: #5ad36c;
+}
+.widget_SearchFilterProduct #searchFilterProductForm .sideBar .boxColor li .colorFilterGiallo {
+  background: #fd3;
+}
+.widget_SearchFilterProduct #searchFilterProductForm .sideBar .boxColor li .colorFilterArancio {
+  background: #fb863b;
+}
+.widget_SearchFilterProduct #searchFilterProductForm .sideBar .boxColor li .colorFilterRosso {
+  background: #ff0002;
+}
+.widget_SearchFilterProduct #searchFilterProductForm .sideBar .boxColor li .colorFilterRosa {
+  background: #f563b9;
+}
+.widget_SearchFilterProduct #searchFilterProductForm .sideBar .boxColor li .colorFilterViola {
+  background: #9349aa;
+}
+.widget_SearchFilterProduct #searchFilterProductForm .sideBar .boxColor li .colorFilterOro {
+  background: linear-gradient(180deg, #eecd56, #fce2ac);
+}
+.widget_SearchFilterProduct #searchFilterProductForm .sideBar .boxColor li .colorFilterArgento {
+  background: linear-gradient(180deg, #b0b0b0, #e0e0e0);
+}
+.widget_SearchFilterProduct #searchFilterProductForm .sideBar .boxColor li .colorFilterMulti {
+  position: relative;
+  overflow: hidden;
+  background: #fd3;
+  background-image: linear-gradient(180deg, transparent 50%, #0f73ad 0), linear-gradient(90deg, transparent 50%, #5ad36c 0);
+}
+.widget_SearchFilterProduct #searchFilterProductForm .sideBar h4 {
+  font-size: 19px;
+  margin-bottom: 0px;
+  padding: 3%;
+  margin: 0px;
+  font-weight: bold;
+  width: 93%;
+  background: #4895b6;
+  color: #fff;
+  padding: 2% !important;
+  font-size: 20px;
+}
+.widget_SearchFilterProduct #searchFilterProductForm .sideBar .boxSizes {
+  margin-top: 5px;
+  padding: 0;
+}
+.widget_SearchFilterProduct #searchFilterProductForm .sideBar .boxSizes li {
+  padding: 3%;
+  width: 13%;
+  float: left;
+  border: 2px solid #25303e;
+  margin: 5px 1% 5px 2%;
+  text-align: center;
+}
+.widget_SearchFilterProduct #searchFilterProductForm .sideBar .boxSizes li span {
+  color: #f4920a;
+}
+.widget_SearchFilterProduct #searchFilterProductForm .sideBar .boxInterested h3 {
+  font-weight: 300;
+  font-size: 16px;
+}
+.widget_SearchFilterProduct #searchFilterProductForm .sideBar .boxInterested h4 {
+  margin: 0;
+  font-weight: 500;
+}
+.widget_SearchFilterProduct #searchFilterProductForm button {
+  padding: 0;
+  width: 100%;
+  height: 40px;
+  font-size: 25px;
+  background: #4895b6;
+  color: #fff;
+  border: 1px solid #4895b6;
+  cursor: pointer;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}/*# sourceMappingURL=widgetSearchFilterProduct.css.map */

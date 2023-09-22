@@ -1,0 +1,83 @@
+{#{% if permission.typology.read %}#}
+    <div class="widget_ListTypology">
+        <div class="widgetBoxShadow">
+            <form  class="form-horizontal" action="{{path('listTypology')}}" method="GET">
+                <div class="col-md-2 form-group">                    
+                    <select class="categoriesSelect selectpicker form-control"  name="category" id="form_category" data-childrens='{"subcategory_":{"entity":"subcategory","find":"findSubcategoriesByCategory"}}'>
+                        <option value="0">Scegli Categoria</option>
+                        {% for category in allCategories %}
+                            <option {% if app.request.query.get("category") == category.id %}selected="selected"{%endif%} value="{{ category.id }}">{{ category.name }}</option>
+                        {% endfor %}
+                    </select>  
+                </div>
+                <div class="col-md-2 form-group">
+                    <select class="subcategoriesSelect selectpicker form-control" name="subcategory" id="form_subcategory_" >
+                        <option value="0">---</option>                                
+                        {% for subcategory in allSubcategories %}
+                            <option {% if app.request.query.get("subcategory") == subcategory.id %}selected="selected"{%endif%}  value="{{ subcategory.id }}">{{ subcategory.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-md-2 form-group">        
+                    <select class="selectpicker form-control" name="hasModels" >
+                        <option value="">---</option>                          
+                        <option {% if app.request.query.get("hasModels") == 1 %}selected="selected"{%endif%} value="1">Si</option>                                
+                        <option {% if app.request.query.get("hasModels") == 0 %}selected="selected"{%endif%}  value="0">No</option>                                                    
+                    </select>
+                </div>
+                
+                    <div class="search">
+                        <button type="submit" class="btn btn-primary btn-lg" data-loading-text="Now searching ..." data-toggle="btn-loading"><div class="fa  fa-search"></div></button>
+                    </div>
+                
+            </form>
+        </div>
+        <div class="widgetBoxShadow">
+            <table class="table footable">
+                <thead>
+                    <tr> 
+                        <th class="center" data-hide="phone">Id</th>
+                        <th data-class="expand">Tipologia</th>
+                        <th data-class="expand">Singolare</th>
+                        <th data-hide="phone">Azioni</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for typology in typologies %}
+                        {% if typologies is defined %}
+                            <tr class="selectable"data-createForm="modifyTypology" data-entity="Typology" data-id="{{typology.id}}">
+                                <td class="important center" ><span class="badge badge-blu">{{typology.id}}</span></td>
+                                <td class="important" data-modify="input" data-field="screen">{{typology.name}}</td>
+                                <td class="important" data-modify="input" data-field="screen">{{typology.singularName}}</td>
+                                <td class="">           
+                                    <a href="{{ path('editTypology', {'id': typology.id}) }}" class="btn btn-green"><i class="fa fa-pencil"></i></a>
+                                    <button class="btn btn-sm btn-danger" data-deleteInlineForm="1">
+                                        <i class="fa fa-trash-o"></i>
+                                    </button>
+                                </td>  
+                            </tr>
+                        {%endif%}
+                    {%endfor%}
+                </tbody>
+            </table>
+        </div>
+        {{pagination | raw}}
+    </div>
+{#{% endif %}#}
+{%if fetch_widget_ListTypology is defined %}
+    {{ fetch_widget_ListTypology|raw  }}
+{%endif%}
+<div class="button-action">
+    <a href="javascript:history.back()"> 
+        <div class="btnGoBack" id="btnGoBack">
+            <i class="fa fa-arrow-circle-o-left"></i>
+        </div>
+    </a>
+    <div class="buttonDefault" onclick="window.location.href = '{{ path('editTypology') }}';">
+        <div class="add">Crea nuova Tipologia</div>
+        <i class=" fa  fa-plus-circle"></i>
+    </div>
+    <div id="toTop">
+        <i class="fa fa-arrow-circle-o-left"></i>
+    </div>
+</div>

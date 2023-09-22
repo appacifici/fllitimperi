@@ -1,0 +1,11 @@
+--2017-04-07 13:15:55--  http://www.x-diretta.it/images/logo.png
+Resolving www.x-diretta.it (www.x-diretta.it)... 84.33.193.242
+Connecting to www.x-diretta.it (www.x-diretta.it)|84.33.193.242|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 2601 (2,5K) [image/png]
+Saving to: ‘logo.png.2’
+
+     0K ..                                                    100% 2,40M=0,001s
+
+2017-04-07 13:15:55 (2,40 MB/s) - ‘logo.png.2’ saved [2601/2601]
+

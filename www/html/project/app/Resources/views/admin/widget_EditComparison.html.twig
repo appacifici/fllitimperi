@@ -1,0 +1,45 @@
+{% form_theme comparison 'bootstrap_3_horizontal_layout.html.twig'  %}
+
+<div class="widget_EditComparison widgetBoxShadow">
+    <div class="formBlock positionRelative" data-divForm="1">
+        {{form_start(comparison)}}
+        {{ form_widget(comparison)}}
+        {{ form_end(comparison) }}
+    </div>
+    <!-- // Options END -->
+</div>
+{%if fetch_widget_EditComparison is defined %}
+    {{ fetch_widget_EditComparison|raw  }}
+{%endif%}
+
+
+<div class="closeOverlayModelResponse">X</div>
+<div class="overlayModelResponse"></div>
+<div class="button-action">
+    <a href="javascript:history.back()"> 
+        <div class="btnGoBack" id="btnGoBack">
+            <i class="fa fa-arrow-circle-o-left"></i>
+        </div>
+    </a>
+   
+        <div class="buttonDefault  buttonGreen" data-submit="1">
+        <a>
+            <div type="submit"  class="add">Salva Comparazione</div>
+            <i class=" fa  fa-save"></i>
+        </a>
+    </div>
+
+    <div class="buttonDefault buttonRed" data-reset="1">
+        <a>
+            <div type="submit"  class="add"> Reset Comparazione</div>
+            <i class=" fa   fa-eraser"></i>
+        </a>
+    </div>
+    <div class="buttonDefault" onclick="window.location.href = '{{ path('listComparison') }}';">
+        <div class="add"> Lista Comparazioni</div>
+        <i class=" fa    fa-arrow-circle-left"></i>
+    </div>
+        
+    
+</div>
+<iframe class="iFrameUpldImg" name="myIframe"></iframe>

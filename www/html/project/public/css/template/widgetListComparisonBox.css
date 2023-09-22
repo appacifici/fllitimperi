@@ -1,0 +1,52 @@
+.listComparation .subComparation {
+  position: relative;
+  top: -7px;
+  z-index: 9999;
+  background: #fff;
+  width: 230px;
+  right: 39px;
+  height: 300px;
+  overflow-x: hidden;
+  border: 1px solid #f3f3f3;
+}
+.listComparation .subComparation .comparationList {
+  width: 95%;
+  height: 55px;
+  padding: 10px 10px;
+  border-bottom: 1px solid #f3f3f3;
+}
+.listComparation .subComparation .comparationList .media {
+  margin: 0 -5px;
+}
+.listComparation .subComparation .comparationList .procdutComparation {
+  font-size: 14px;
+  font-weight: 400;
+  float: left;
+  padding: 0 20px;
+}
+.listComparation .subComparation .comparationList .cartPrice {
+  float: left;
+  margin: 8px 20px;
+  overflow: hidden;
+}
+.listComparation .subComparation .allCompara {
+  width: 120px;
+  background: #f36e22;
+  height: 40px;
+  border-radius: 3px;
+  margin: 16px auto;
+}
+.listComparation .subComparation .allCompara span {
+  margin: 10px 19px;
+  float: left;
+  color: #fff;
+}
+.listComparation .subComparation .allCompara .imgCompara {
+  position: relative;
+  left: -14px;
+  top: 10px;
+}
+
+.listComparation:hover > .subComparation {
+  display: block;
+}/*# sourceMappingURL=widgetListComparisonBox.css.map */

@@ -1,0 +1,1 @@
+../pluginActive/web/templateRobots.txt

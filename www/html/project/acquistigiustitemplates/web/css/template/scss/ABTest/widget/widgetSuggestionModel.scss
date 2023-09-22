@@ -1,0 +1,81 @@
+.widget_SuggestionModel {
+    padding:10px;
+    max-height: 530px;
+    overflow: auto;
+    .item {
+        &[data-item="2"], &[data-item="4"] {
+            background: #ececec;
+        }
+        &.selected {
+            background: #242f3e;
+            a {
+                color: #fff;
+            }
+        }
+        overflow: hidden;
+        &:hover {
+            background: #242f3e;
+            a {
+                color: #fff;
+            }
+        }
+        a {
+            color: #000;
+        }
+        clear: both;
+        margin-bottom: 7px;
+        img {
+            float: left;
+            margin-right: 10px;
+        }
+        span {
+            float: left;
+            padding: 15px;
+        }
+        .price {
+            margin: 14px;
+            float: right;
+            .minPrice {
+                color: #ff0000;
+            }
+        }
+    }
+    .boxSuggestTypologies {
+        padding-bottom: 5px;
+        overflow:hidden;
+        /*height: 50px;*/
+        margin-bottom: 10px;
+        .item {
+            float: left;
+            width: 31%;
+            margin-right: 1%;
+            clear: inherit;
+            height: 24px;
+            overflow: hidden;
+            span {
+                padding: 5px;
+            }
+        }
+    }
+    .separator{
+        border-bottom: 1px solid #333;
+        padding: 1px 1px 5px 1px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+}
+
+[data-responseSuggestionModel] {
+    display: none;
+    width: 100.3%;
+    min-height: 200px;
+    background: #fff;
+    position: absolute;
+    top: 48px;
+    left: -7px;
+    z-index: 999;
+    max-height: 500px;
+    overflow: auto;
+    box-shadow: 0px 3px 10px #ccc;
+    border: 1px solid #ccc;
+}

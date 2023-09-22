@@ -1,0 +1,1 @@
+../../../../src/AppBundle/Repository/Global/TecnicalTemplateRepository.php

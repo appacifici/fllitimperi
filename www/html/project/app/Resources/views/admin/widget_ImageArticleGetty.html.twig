@@ -1,0 +1,29 @@
+<div class="widget_ImageArticleGetty" style="padding:10px" {%if articleId is defined%}data-article="{{articleId}}"{%endif%}>
+    {% if images is defined %}
+    <div class="label">
+       <span> Associa le immagini all'articolo </span> 
+    </div>
+    <button class="btn btn-default btnAddGetty">Associa Immagini</button>
+    <div class="widget widget-heading-simple widget-body-simple text-right">
+	<form class="input-group searchForm">
+	  	<input type="text" class="form-control inputSearch" placeholder="Ricarca l'immagine su Getty... " />
+	  	<span class="input-group-btn"><button type="submit" class="btn btn-inverse btnSearch">Search</button></span>
+	</form>
+    </div> 
+        <div class='galleryGetty' data-toggle="gridalicious" data-gridalicious-width="280" data-gridalicious-gutter="0">
+            <div class="innerAll inner-2x loading text-center text-medium">
+                <i class="fa fa-fw fa-spinner fa-spin"></i> Loading
+            </div>
+            {{ include(  versionSite ~ '/snippet_InfiniteScrollImagesGetty.html.twig', { 'images': images, 'infiniteScroll':infiniteScroll, 'page':page} ) }}    
+                                    
+        </div>
+            <div class="plaseWaitGetty">
+                <img src="http://thewebsitegroup.co.uk/wp-content/uploads/2016/04/loading1.gif" width="100px" />
+            </div>
+        <button class="btn btn-default btnAddGetty">Associa Immagini</button>
+
+    {% endif %}
+    {%if fetch_widget_Users is defined %}
+        {{ fetch_widget_Users|raw  }}
+    {%endif%}
+</div>

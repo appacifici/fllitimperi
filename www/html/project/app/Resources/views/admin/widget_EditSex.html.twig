@@ -1,0 +1,42 @@
+{% form_theme sex 'bootstrap_3_horizontal_layout.html.twig'  %}
+
+<div class="widget_EditSex widgetBoxShadow">
+
+    <div class="formBlock positionRelative" data-divForm="1">
+        {{form_start(sex)}}
+        {{ form_widget(sex)}}
+        {{ form_end(sex) }}
+    </div>
+    <!-- // Options END -->
+</div>
+{%if fetch_widget_EditSex is defined %}
+    {{ fetch_widget_EditSex|raw  }}
+{%endif%}
+<div class="button-action">
+    <a href="javascript:history.back()"> 
+        <div class="btnGoBack" id="btnGoBack">
+            <i class="fa fa-arrow-circle-o-left"></i>
+        </div>
+    </a>
+    <div class="buttonDefault  buttonGreen" data-submit="1">
+        <a>
+            <div type="submit"  class="add">Salva Sesso</div>
+            <i class=" fa  fa-save"></i>
+        </a>
+    </div>
+
+    <div class="buttonDefault buttonRed" data-reset="1">
+        <a>
+            <div type="submit"  class="add"> Reset Sesso</div>
+            <i class=" fa   fa-eraser"></i>
+        </a>
+    </div>
+    <div class="buttonDefault" onclick="window.location.href = '{{ path('listSex') }}';">
+        <div class="add"> Lista Sessi</div>
+        <i class=" fa    fa-arrow-circle-left"></i>
+    </div>
+    <div id="toTop">
+        <i class="fa fa-arrow-circle-o-left"></i>
+    </div>
+
+</div>

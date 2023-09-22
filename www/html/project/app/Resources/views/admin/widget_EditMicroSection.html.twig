@@ -1,0 +1,42 @@
+{% form_theme microSection 'bootstrap_3_horizontal_layout.html.twig'  %}
+
+<div class="widget_EditMicroSection widgetBoxShadow">
+
+    <div class="formBlock positionRelative" data-divForm="1">
+        {{form_start(microSection)}}
+        {{ form_widget(microSection)}}
+        {{ form_end(microSection) }}
+    </div>
+    <!-- // Options END -->
+</div>
+{%if fetch_widget_EditMicroSection is defined %}
+    {{ fetch_widget_EditMicroSection|raw  }}
+{%endif%}
+<div class="button-action">
+    <a href="javascript:history.back()"> 
+        <div class="btnGoBack" id="btnGoBack">
+            <i class="fa fa-arrow-circle-o-left"></i>
+        </div>
+    </a>
+    <div class="buttonDefault  buttonGreen" data-submit="1">
+        <a>
+            <div type="submit"  class="add">Salva Micro Sezione</div>
+            <i class=" fa  fa-save"></i>
+        </a>
+    </div>
+
+    <div class="buttonDefault buttonRed" data-reset="1">
+        <a>
+            <div type="submit"  class="add"> Reset Micro Sezione</div>
+            <i class=" fa   fa-eraser"></i>
+        </a>
+    </div>
+    <div class="buttonDefault" onclick="window.location.href = '{{ path('listMicroSection') }}';">
+        <div class="add"> Lista Micro Sezioni</div>
+        <i class=" fa    fa-arrow-circle-left"></i>
+    </div>
+    <div id="toTop">
+        <i class="fa fa-arrow-circle-o-left"></i>
+    </div>
+
+</div>

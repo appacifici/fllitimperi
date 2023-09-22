@@ -1,0 +1,169 @@
+.widget_SuggestionModel {
+  padding: 10px;
+  max-height: 530px;
+  overflow: auto;
+}
+.widget_SuggestionModel .item {
+  overflow: hidden;
+  clear: both;
+  margin-bottom: 7px;
+}
+.widget_SuggestionModel .item[data-item="2"], .widget_SuggestionModel .item[data-item="4"] {
+  background: #ececec;
+}
+.widget_SuggestionModel .item.selected {
+  background: #242f3e;
+}
+.widget_SuggestionModel .item.selected a {
+  color: #fff;
+}
+.widget_SuggestionModel .item:hover {
+  background: #242f3e;
+}
+.widget_SuggestionModel .item:hover a {
+  color: #fff;
+}
+.widget_SuggestionModel .item a {
+  color: #000;
+}
+.widget_SuggestionModel .item img {
+  float: left;
+  margin-right: 10px;
+}
+.widget_SuggestionModel .item span {
+  float: left;
+  padding: 15px;
+}
+.widget_SuggestionModel .item .price {
+  margin: 14px;
+  float: right;
+}
+.widget_SuggestionModel .item .price .minPrice {
+  color: #ff0000;
+}
+.widget_SuggestionModel .boxSuggestTypologies {
+  padding-bottom: 5px;
+  overflow: hidden;
+  /*height: 50px;*/
+  margin-bottom: 10px;
+}
+.widget_SuggestionModel .boxSuggestTypologies .item {
+  float: left;
+  width: 31%;
+  margin-right: 1%;
+  clear: inherit;
+  height: 24px;
+  overflow: hidden;
+}
+.widget_SuggestionModel .boxSuggestTypologies .item span {
+  padding: 5px;
+}
+.widget_SuggestionModel .separator {
+  border-bottom: 1px solid #333;
+  padding: 1px 1px 5px 1px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+[data-responseSuggestionModel] {
+  display: none;
+  width: 100.3%;
+  min-height: 200px;
+  background: #fff;
+  position: absolute;
+  top: 48px;
+  left: -7px;
+  z-index: 999;
+  max-height: 500px;
+  overflow: auto;
+  box-shadow: 0px 3px 10px #ccc;
+  border: 1px solid #ccc;
+}/*# sourceMappingURL=widgetSuggestionModel.css.map */
+  float: left;
+}
+.widget_SuggestionModel .listSuggest .item img, .widget_SuggestionModel .listSuggestSections .item img {
+  margin-right: 10px;
+}
+.widget_SuggestionModel .listSuggest .item span, .widget_SuggestionModel .listSuggestSections .item span {
+  float: left;
+  padding: 2px 2px 2px 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 67%;
+  display: flex;
+  align-items: center;
+  height: 24px;
+  font-size: 14px;
+}
+.widget_SuggestionModel .listSuggest .item .price, .widget_SuggestionModel .listSuggestSections .item .price {
+  margin: 14px;
+  float: right;
+}
+.widget_SuggestionModel .listSuggest .item .price .minPrice, .widget_SuggestionModel .listSuggestSections .item .price .minPrice {
+  color: #ff0000;
+}
+
+[data-responseSuggestionModel] {
+  display: none;
+  width: 638px;
+  /*left: -100px;*/
+  min-height: 200px;
+  background: #fff;
+  position: absolute;
+  /*top: 52px;*/
+  z-index: 999;
+  overflow: auto;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+@media (max-width: 1300px) {
+  [data-responseSuggestionModel] {
+    width: 538px;
+  }
+}
+@media (max-width: 1000px) {
+  [data-responseSuggestionModel] {
+    width: 92.2%;
+  }
+  [data-responseSuggestionModel] .listSuggestSections .item, [data-responseSuggestionModel] .listSuggest .item {
+    width: 47%;
+  }
+}
+@media (max-width: 425px) {
+  [data-responseSuggestionModel] {
+    left: 0% !important;
+    border: none !important;
+    width: 100% !important;
+    border-bottom: 3px solid !important;
+    position: inherit;
+  }
+  .widget_SuggestionModel {
+    max-height: unset;
+  }
+  .widget_SuggestionModel .listSuggestSections, .widget_SuggestionModel .listSuggest {
+    float: none;
+    width: auto;
+    min-height: auto;
+    padding: 0;
+    border: none;
+  }
+  .widget_SuggestionModel .listSuggestSections h3, .widget_SuggestionModel .listSuggest h3 {
+    margin: 0;
+    padding: 5px 5px 5px 10px;
+    font-size: 13px;
+  }
+  .widget_SuggestionModel .listSuggestSections .item, .widget_SuggestionModel .listSuggest .item {
+    height: auto;
+    padding: 7px 5px;
+    width: 100%;
+  }
+  .widget_SuggestionModel .listSuggestSections .item span, .widget_SuggestionModel .listSuggest .item span {
+    height: auto;
+    width: 98%;
+  }
+  .widget_SuggestionModel .listSuggestSections .item img, .widget_SuggestionModel .listSuggest .item img {
+    display: none;
+  }
+}/*# sourceMappingURL=widgetSuggestionModel.css.map */

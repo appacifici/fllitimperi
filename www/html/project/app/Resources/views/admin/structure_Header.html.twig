@@ -1,0 +1,17 @@
+<div class="structure_Header row row-icons">
+    <div class="nav-wrapper">
+     <i class="fa  fa-reorder"></i>
+      <i class="fa  fa-table"></i>
+        <div id="brandWrapper" class="logoAdmin">
+            {#<img src="http://www.calciomercato.it/images/logo.png">#}
+        </div>    
+        <div class="logOut">
+            <a href="/admin/logout">
+                    <i class="fa   fa-power-off"></i>
+            </a>
+        </div>   
+        {%if fetch_structure_Header is defined %}
+            {{ fetch_structure_Header|raw  }}
+        {%endif%}
+    </div>
+</div>

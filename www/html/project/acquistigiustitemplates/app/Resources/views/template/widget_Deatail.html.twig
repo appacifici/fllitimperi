@@ -1,0 +1,47 @@
+{%if article is defined %}
+    {% set day   = article.publishAt.date  | date( "d" ) %}
+    {% set month = article.publishAt.date | date( "F" )  | trans %}
+    {% set year  = article.publishAt.date  | date( "Y" ) %}    
+    <article class="widget-DetailFunebri">                
+            <header>
+                <h1>{{article.contentArticle.title}}</h1>
+                {% if article.id < 48 %} 
+                    <p>
+                        {{article.contentArticle.subHeading}}
+                    </p>
+                {%endif%}
+            </header>  
+        
+            
+            <div class="body">
+                {% if article.id < 48 and article.priorityImg is not empty %}
+                    <img src="{{article.priorityImg.srcBig}}" alt="{{article.contentArticle.title}}" >                            
+                {% endif %} 
+                {{article.contentArticle.body | raw }}                    
+            </div>
+{#            <div id="disqus_thread"></div>#}
+              
+        {#<div class="right">            
+            <ul class="anchors" data-anchors-news>
+                <li data-anchor-action="back">-</li>
+                {% for key,anchor in anchors %}
+                    <li data-anchor-key="{{key+1}}"  class="item-anchor {% if loop.first is not empty %}active{%endif%}">
+                        <a rel="nofollow" href="#cap-{{anchor|trim}}">{{anchor|replace({'-':' '})}}</a>
+                    </li>
+                {% endfor %}
+                <li data-anchor-action="next">+</li>
+            </ul>
+            {% include versionSite ~ '/widget_ModelRanking.html.twig' %}           
+        </div>#}
+        
+    </article>
+{%else%}
+    {% include versionSite ~ '/widget_404NotFound.html.twig' %}        
+{%endif%}
+{%if fetch_widget_DeitalNews is defined %}
+    {{ fetch_widget_DeitalNews |raw  }}
+{%endif%}
+<div class="clearB"></div>
+{%if fetch_widget_servicesHome is defined %}
+    {{ fetch_widget_servicesHome | raw  }}
+{%endif%}

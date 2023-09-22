@@ -1,0 +1,29 @@
+<section class="home-search">
+    <h1>Scegli bene ciò che compri</h1>
+    <p><em>Leggi guide all'acquisto e recensioni, e compara i prezzi dei modelli che desideri. <br>Non sprecare i tuoi soldi, fai l'acquisto giusto!</em></p>
+    
+     <form data-widgetSearchFilterProduct onSubmit="return false">
+        {#<select id="category">                        
+            <option value="">Tutte le categorie</option>
+            {% for category in allCategories %} 
+                {% if category.id == 8 %}
+                    <option {%if catSubcatTypologySearch is defined and catSubcatTypologySearch == category.nameUrl %}selected="selected"{%endif%} value="{{ category.id }}">
+                            {{category.name}}
+                    </option> 
+                {% else %}
+                    <option {%if catSubcatTypologySearch is defined and catSubcatTypologySearch == category.nameUrl %}selected="selected"{%endif%}  value="{{ category.id }}">
+                            {{category.name}}
+                    </option> 
+                {% endif %}
+            {% endfor %}
+        </select>#}
+        <input type="text" id="search" class="inputSearchBox" autocomplete="off" placeholder="Cerca categorie prodotti e modelli" value="{{search}}">
+        <button class="btnSearch" type="button" data-submitbtn>
+            Cerca
+        </button>
+        <div data-responseSuggestionModel></div>
+    </form>    
+</section>
+        
+    
+        

@@ -1,0 +1,52 @@
+{%if rankingModels is defined and rankingModels is not empty%}
+<div class="widgetModelRankingHorizontal">    
+    <h2>{{article.contentArticle.labelRanking}}</h2>
+    <table>        
+        {% for key, item in rankingModels %}              
+                <tr class="product" {% if item.products is not empty %} data-product on="tap:AMP.navigateTo(url='{{generate('impressionLink', { 'impressionLink': item.products[0].impressionLink, 'deepLink': item.products[0].deepLink }) }}')" role="button" tabindex="0" {%endif%}>
+                    <td class="label">
+                        <span>{{item.label}}</span>           
+                        <figure>
+                            <amp-img {#height="50"#} width="auto" layout="fixed-height" src="{{folder_img_models}}{{item.images.src}}" alt="{{item.images.name}}" {#width="{{item.images.widthSmall}}"#} height="{{item.images.heightSmall/2}}"></amp-img>
+                        </figure>
+                    </td>
+                    <td class="name">
+                        {{item.modelsName}}
+                    </td>
+                    <td class="aff">
+                        {% if item.products is not empty %}
+                            {%if item.products[0].merchantImg is empty %}
+                                <amp-img layout="fixed" src="{{folder_img_affiliation_small}}{{item.products[0].affiliation.img}}" alt="{{item.products[0].affiliation.name}}"  width="{{item.products[0].affiliation.widthSmall}}" height="{{item.products[0].affiliation.heightSmall}}">                    
+                            {%endif%} 
+                        {%endif%} 
+                    </td>
+                    <td class="prices">                    
+                        {%if sessionActive is not empty and userIsAdmin is not empty and item.products[0].id is defined%} 
+                            <span data-pOff="{{item.products[0].id}}">[Off]</span>
+                            <a class="admin1" target="_blank" href="/admin/editProduct/{{item.products[0].id}}">[Admin]</a>
+                        {%endif%}
+                        {% if item.products is not empty %}
+{#                            <span>€ {{item.products[0].price}}</span>#}
+                        {% else %}
+                            <span class="naProduct">Prodotto non disponibile</span>
+                        {%endif%}
+                    </td>
+                    <td>
+                        {%if item.products is not empty %}
+                            <span class="btnViewOtherOffered"  {%if item.products is not empty %} data-product="{{ item.products[0].id }}" data-pname="{{ hyphenize( item.products[0].name )}}" data-pprice="{{ item.products[0].price }}" data-aff="{{item.products[0].affiliation.name}}" data-lgt="{{hideUrlForGoogle( generate('impressionLink', { 'impressionLink': item.products[0].impressionLink, 'deepLink': item.products[0].deepLink }) )}}" data-target="blank" {%endif%}>Vedi offerta migliore</span>
+                        {% else %}
+                            {% if item.linkCategoryAmazon is not empty %}
+                                <a href="{{item.linkCategoryAmazon}}" rel="nofollow" target="_blank">
+                                    <span class="btnViewOtherOffered">Offerte simili</span>
+                                </a>
+                            {%endif%}
+                        {%endif%}
+                    </td>
+                </tr> 
+        {%endfor%}           
+    </table>  
+</div>  
+{%endif%}
+{%if fetch_widget_ModelRanking is defined %}
+    {{ fetch_widget_ModelRanking |raw  }}
+{%endif%}

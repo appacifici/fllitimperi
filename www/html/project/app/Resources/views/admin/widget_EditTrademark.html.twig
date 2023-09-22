@@ -1,0 +1,42 @@
+{% form_theme trademark 'bootstrap_3_horizontal_layout.html.twig'  %}
+
+<div class="widget_EditTrademarks widgetBoxShadow">
+
+    <div class="formBlock positionRelative" data-divForm="1">
+        {{form_start(trademark)}}
+        {{ form_widget(trademark)}}
+        {{ form_end(trademark) }}
+    </div>
+    <!-- // Options END -->
+</div>
+{%if fetch_widget_EditTrademark is defined %}
+    {{ fetch_widget_EditTrademark|raw  }}
+{%endif%}
+<div class="button-action">
+    <a href="javascript:history.back()"> 
+        <div class="btnGoBack" id="btnGoBack">
+            <i class="fa fa-arrow-circle-o-left"></i>
+        </div>
+    </a>
+    <div class="buttonDefault  buttonGreen" data-submit="1">
+        <a>
+            <div type="submit"  class="add">Salva Marchio</div>
+            <i class=" fa  fa-save"></i>
+        </a>
+    </div>
+
+    <div class="buttonDefault buttonRed" data-reset="1">
+        <a>
+            <div type="submit"  class="add"> Reset Marchio</div>
+            <i class=" fa   fa-eraser"></i>
+        </a>
+    </div>
+    <div class="buttonDefault" onclick="window.location.href = '{{ path('listTrademark') }}';">
+        <div class="add"> Lista Marchi</div>
+        <i class=" fa    fa-arrow-circle-left"></i>
+    </div>
+    <div id="toTop">
+        <i class="fa fa-arrow-circle-o-left"></i>
+    </div>
+
+</div>

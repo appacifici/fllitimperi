@@ -1,0 +1,6 @@
+User-agent: * 
+Disallow: /ajax/*
+Disallow: /call/ajax/*
+Disallow: /*?setLike=
+Disallow: *?m=1 
+Sitemap: https://www.calciomercato.it/sitemap-news.xml

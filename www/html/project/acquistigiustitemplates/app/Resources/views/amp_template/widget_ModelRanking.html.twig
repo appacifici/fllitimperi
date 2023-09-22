@@ -1,0 +1,73 @@
+{%if rankingModels is defined and rankingModels is not empty%}
+    <div class="ranking" data-modelsRanking>        
+        {% for key, item in rankingModels %}  
+            <div class="product">        
+                <div class="label">
+                    <span>{{item.label}}</span>
+                </div>
+                <div class="name">
+                    {{item.modelsName}}
+                </div>
+                <div class="photo" {%if item.products is not empty %} data-product on="tap:AMP.navigateTo(url='{{generate('impressionLink', { 'impressionLink': item.products[0].impressionLink, 'deepLink': item.products[0].deepLink }) }}')" role="button" tabindex="0"{%endif%}>
+                    <figure>
+                        <amp-img layout="fixed" src="{{folder_img_models}}{{item.images.src}}" alt="{{item.images.name}}" width="{{item.images.widthSmall}}" height="{{item.images.heightSmall}}"></amp-img>
+                    </figure>
+                </div>
+                <div class="prices {%if item.products is empty %}notAvailable{%endif%}">
+                    {%if item.products is not empty %}
+                        <dl class="price">
+                            {% for key, product in item.products %}                           
+                                <dt data-product on="tap:AMP.navigateTo(url='{{generate('impressionLink', { 'impressionLink': product.impressionLink, 'deepLink': product.deepLink }) }}')" role="button" tabindex="0">
+                                    <figure>
+                                        {%if product.merchantImg is empty %}
+                                            <amp-img layout="fixed" src="{{folder_img_affiliation_small}}{{product.affiliation.img}}" alt="{{product.affiliation.name}}"  width="{{product.affiliation.widthSmall}}" height="{{product.affiliation.heightSmall}}"></amp-img>
+                                        {%else%}
+                                            <amp-img layout="fixed" src="{{folder_img_affiliation_small}}{{product.merchantImg}}" alt="{{product.merchantImg}}"></amp-img>
+                                        {%endif%}
+                                    </figure>
+                                </dt>
+                                <dd data-product on="tap:AMP.navigateTo(url='{{generate('impressionLink', { 'impressionLink': product.impressionLink, 'deepLink': product.deepLink }) }}')" role="button" tabindex="0">                                
+                                    <span class="btnViewOtherOffered">€ {{product.price}}</span>
+                                </dd>                              
+                            {%endfor%}
+                        </dl>
+                        {% else %}
+                        <div class="price notAvailable">
+                            {% if item.linkCategoryAmazon is not empty %}
+                                <a href="{{item.linkCategoryAmazon}}" rel="nofollow" target="_blank">
+                                    Guarda prodotti simili su <br>
+                                    <amp-img layout="fixed"  src="https://www.acquistigiusti.it/imagesAffiliationsSmall/8/6/0/c/31_.png" alt="Amazon" width="76" height="28"></amp-img>
+                                </a>
+                            {%endif%}
+                        </div>
+                    {%endif%}
+                
+                </div>
+                {% if item.bulletsPoints is not empty %}
+                    <div class="bullets" data-bullets>
+                        <ul>                        
+                            {% for bulletPoint in item.bulletsPoints %}
+                                <li>{{ utf8Encode( bulletPoint ) }}</li>
+                            {% endfor %}
+                        </ul> 
+                    </div>                
+                    <div class="topOffert">
+                        {%if item.products is not empty %}
+                            <span class="btnViewOtherOffered"  data-product on="tap:AMP.navigateTo(url='{{generate('impressionLink', { 'impressionLink': item.products[0].impressionLink, 'deepLink': item.products[0].deepLink }) }}')" role="button" tabindex="0" >Vedi offerta migliore</span>
+                        {% else %}
+                            {% if item.linkCategoryAmazon is not empty %}
+                                <a href="{{item.linkCategoryAmazon}}" rel="nofollow" target="_blank">
+                                    <span class="btnViewOtherOffered">Offerte simili</span>
+                                </a>
+                            {%endif%}
+                        {%endif%}
+                    </div>
+                {% endif %}
+            </div>
+        {%endfor%}
+           
+    </div>  
+{%endif%}
+{%if fetch_widget_ModelRanking is defined %}
+    {{ fetch_widget_ModelRanking |raw  }}
+{%endif%}

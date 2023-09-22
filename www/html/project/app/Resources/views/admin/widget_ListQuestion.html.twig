@@ -1,0 +1,125 @@
+<div class="widget_ListArticles">    
+    <div class="widget listArticleSearch widgetBoxShadow">
+        <div class="widget-body ">
+            <form  class="form-horizontal" action="{{path('adminListArticles')}}" method="GET">
+                <div class="row">
+                    <div class="col-md-2 form-group">
+                        <label class="control-label">Cerca Articolo</label>
+                        <input type="text" class="form-control" name="keyword" value="{%if keyword is defined %}{{keyword}}{%endif%}" />
+                    </div>
+                    
+
+                    <div class="col-md-2 ">
+                        <div class="reset">
+                            <button class="btn btn-danger btnReset"><div class="fa fa-trash-o"></div></button> 
+                        </div>
+                        <div class="search">
+                            <button type="submit" class="btn btn-primary btn-lg" data-loading-text="Now searching ..." data-toggle="btn-loading"><div class="fa  fa-search"></div></button>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="widgetBoxShadow">
+        <!-- Products table -->
+        <table class="table footable">
+            <thead>
+                <tr>
+                    <th class="center" data-class="expand">Id</th>
+                    <th data-hide="phone,tablet">Domanda</th>
+                    <th data-hide="phone,tablet">Risposta</th>
+                    <th data-hide="phone,tablet">Guida</th>
+                    
+                        {#                    <th style="width: 1%;" class="center">Drag</th>
+                        #}                    <th  data-hide="phone,tablet" class="" style="width: 150px!important;">Azioni</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for question in listQuestions %}
+                    <tr class="selectable articleRow" data-createForm="modifyArticle" data-id="{{question.id}}" data-entity="DataArticle">
+                        <td >              
+                            <span class="badge badge-blu ">{{question.id}}</span>
+                        </td>
+                        <td >              
+                            {{question.question}}
+                        </td>
+                        <td >              
+                            {{question.anwser}}
+                        </td>
+                        <td >              
+                            {{question.dataArticle.labelReleated}}
+                        </td>
+
+                        <td class="">
+                            <div class="buttonContainer">
+                                <a href="{{ path('editQuestion') }}/{{question.id}}" class="btn  btn-green" data-toggle="tooltip" data-placement="bottom" title="Modifica l'articolo"><i class="fa fa-pencil" data-editInlineForm="1"></i></a>
+                                    {#                        <a href="{{ path('editBanner', {'id': banner.id}) }}" class="btn btn-sm btn-success"><i class="fa fa-pencil"></i></a>#}
+                                
+                                <button class="btn btn-red" data-deleteInlineForm="1" data-toggle="tooltip" data-placement="bottom" title="Cancella l'articolo"><i class="fa fa-trash-o"></i></button>
+                            </div>
+                        </td>  
+                    </tr>
+                {%endfor%}
+
+            </tbody>
+        </table>
+    </div>
+{#    {{pagination | raw}}#}
+
+    <!-- // Products table END -->
+
+    <!-- Options -->
+    {# <div class="">
+
+             <!-- With selected actions -->
+             <div class="pull-left checkboxs_actions" style="display: none;">
+                     <label>With selected:
+                     <select class="selectpicker margin-none dropup" data-style="btn-default btn-xs">
+                             <option>Action</option>
+                             <option>Action</option>
+                             <option>Action</option>
+                     </select>
+                     </label>
+             </div>
+             <!-- // With selected actions END -->
+
+             <div class="pull-right"><ul class="pagination margin-none">
+             <li class="disabled"><a href="#">&laquo;</a></li>
+             <li class="active"><a href="#">1</a></li>
+             <li><a href="#">2</a></li>
+             <li><a href="#">3</a></li>
+             <li><a href="#">&raquo;</a></li>
+     </ul>
+
+     </div>
+
+             <div class="clearfix"></div>
+             <!-- // Pagination END -->
+
+     </div>#}
+    <!-- // Options END -->
+</div>
+    
+<div class="button-action">
+    <a href="javascript:history.back()"> 
+        <div class="btnGoBack" id="btnGoBack">
+            <i class="fa fa-arrow-circle-o-left"></i>
+        </div>
+    </a>
+    <div class="buttonDefault" onclick="window.location.href = '{{ path('editQuestion') }}';">
+        <div class="add">Crea nuova question</div>
+        <i class=" fa  fa-plus-circle"></i>
+    </div>
+
+    <div id="toTop">
+        <i class="fa fa-arrow-circle-o-left"></i>
+    </div>
+</div> 
+    
+{%if fetch_widget_ListArticles is defined %}
+    {{ fetch_widget_ListArticles|raw  }}
+{%endif%}        

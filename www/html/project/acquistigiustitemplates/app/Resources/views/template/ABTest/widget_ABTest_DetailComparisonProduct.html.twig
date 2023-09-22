@@ -1,0 +1,94 @@
+{%if sessionActive is not empty and userIsAdmin is not empty and model.id is defined%} 
+    <span data-CreateProducteInit="3" data-ModelId="{{model.id}}">[Crea P Amazon]</span>
+{%endif%}
+{%if sessionActive is not empty and userIsAdmin is not empty and model.id is defined%} 
+    <span data-CreateProducteInit="4" data-ModelId="{{model.id}}">[Crea P Amazon Prime]</span>
+{%endif%}
+{%if sessionActive is not empty and userIsAdmin is not empty and model.id is defined %} 
+    <span data-CreateProducteInit="16" data-ModelId="{{model.id}}">[Crea P Ebay]</span>
+{%endif%}
+<a id="pricesComparison" rel="nofollow">&nbsp;</a>
+{% if products is not empty %}
+    <section class="widget_DetailComparisonProduct">
+        <table>
+            <thead>
+                <tr style="height:32px;">
+
+                    <th class="sortable ">Negozio</th>
+                    <th class="sortable ">Prodotto</th>
+                    <th class="sortable ">Listino</th>
+                    <th class="sortable ">Spedizione</th>
+                    <th class="sortable ">Prezzo</th>
+                    <th class="sortable ">Stock</th>
+                    <th class="sortable ">Link</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                    <tr>
+                        <td>
+                            <figure>
+                                    {%if product.merchantImg is empty %}
+                                        <img src="{{folder_img_affiliation_small}}{{product.affiliation.img}}" alt="{{product.affiliation.name}}"  width="{{product.affiliation.widthSmall}}" height="{{product.affiliation.heightSmall}}">
+                                    {%else%}
+                                        <img src="{{folder_img_affiliation_small}}{{product.merchantImg}}" alt="{{product.merchantImg}}">
+                                    {%endif%}
+                                </figure>
+                        </td>
+                        <td>
+                            <h4>
+                                {{ hyphenize( product.name )}}                        
+                            </h4>
+                            {%if sessionActive is not empty and userIsAdmin is not empty and product.id is defined%} 
+                                <span data-pOff="{{product.id}}">[Off]</span>
+                                <a class="admin1" target="_blank" href="/admin/editProduct/{{product.id}}">[Admin]</a>
+                            {%endif%}
+                        </td>
+                        <td>                        
+                            {% if product.price is not empty %}
+                                    {{ product.price }} €
+                            {% endif %}
+                        </td>
+                        
+                        {% if product.handlingCost is not empty %}                            
+                            {%if product.handlingCost != '0' %}
+                                <td class="notFree">
+                                {{ product.handlingCost }} €
+                            {%else%}
+                                <td>
+                                Gratis
+                            {%endif%}
+                        {% endif %}
+                        </td>
+                        <td>
+                            {% if product.handlingCost is not empty and product.price is not empty%}
+                                <strong>{{ product.price + product.handlingCost }} €</strong>
+{#                                {{getUpDownArrowPrices(product)|raw}}#}
+                            {% endif %}
+                        </td>
+                        <td>
+                            {%if product.sizeStockStatus is not empty %}
+                                {#<span class="sizeStockStatus">#}
+                                {%if product.sizeStockStatus == 'in stock' %}
+                                    {#<span class="inStock"></span>#}<span>Disponibile {#in {{products[0].deliveryTime}}#}</span>
+                                {%else%}
+                                   {# <span class="outOfStock"></span>#}<span>Non Disponibile</span>
+                                {%endif%}
+{#                                </span>#}
+                            {%endif%}
+                        </td>
+                        <td>  
+                            <div class="btnViewOtherOffered GTMbtnViewOtherOffered" data-aff="{{product.affiliation.name}} - {{product.id }}" data-lgt="{{hideUrlForGoogle( generate('impressionLink', { 'impressionLink': product.impressionLink, 'deepLink': product.deepLink }) )}}" data-target="blank"> 
+                            Visita il negozio 
+                            </div>
+                        </td>                    
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {{pagination|raw}}
+    </section>
+{%endif%}
+{%if fetch_widget_widget_DetailComparisonProduct is defined %}
+    {{ fetch_widget_DetailComparisonProduct |raw  }}
+{%endif%}

@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,UAAW;EACP,MAAM,EAAE,QAAQ;EAChB,UAAU,EAAE,MAAM;EAClB,KAAK,EAAE,OAAO;EACd,WAAW,EAAE,IAAI",
+"sources": ["../../scss/ABTest/widget/amp_widgetH1Section.scss"],
+"names": [],
+"file": "amp_widgetH1Section.css"
+}
