@@ -1,0 +1,88 @@
+services:
+
+  #docker compose exec mysql bash
+  mysql:   
+    #build: ./mysql/
+    image: mysql:5.7
+    command: --default-authentication-plugin=mysql_native_password    
+    ports:
+      - 3315:3315
+    volumes:
+      #- ./mysql/dump/init:/docker-entrypoint-initdb.d #creare file 01.sql in folder /mysql/dump/init per generare db automaticamente 
+      - mysql-data:/var/lib/mysql:cache #Per persistere i dati
+      - ./mysql/dump/:/mysql-dump/:cache
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: acquistigiusti
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: secret 
+      
+  #docker compose exec nginx bash
+  nginx:
+    build: ./nginx/ # se deve buldiare da un dockerfile
+    ports:
+      - 80:80
+    links:
+      - php    
+    volumes_from: #volume condiviso
+      - app-data
+
+  #docker compose exec php bash
+  php:
+    build: ./php/
+    expose:
+      - 9005
+    depends_on: #specifica ordine priorita caricamento
+      - mysql
+    links: #per rendere visibili gli altri container
+      - mysql
+      - elasticsearch
+    volumes:
+      - ./mysql/dump/:/mysql-dump/:cache
+      - ./gulp/:/gulp/:cache
+    volumes_from: #volume condiviso
+      - app-data
+
+  app-data:
+    image: php:7.2-fpm #Path config php  /usr/local/etc
+    volumes: #per persistere i volumi tra container e host per non far cancellare i dati al down di docker
+      - ./www/html/:/var/www/html/:cache #per sharare la cartella del progetto
+      - ./socket/:/socket/:cache #per sharare i socket tra php e nginx
+    #command: "true"
+  
+  #docker compose exec redis  sh
+  redis:
+    build: ./redis/
+    ports:
+      - 6379:6379
+    links:
+      - php
+    volumes:
+      - ./redis/redis-data:/var/lib/redis:cache
+      - ./redis/redis.conf:/usr/local/etc/redis/redis.conf:cache
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:5.4.0
+    container_name: elasticsearch_540
+    environment:
+      - http.host=0.0.0.0
+      - transport.host=0.0.0.0
+      - "ES_JAVA_OPTS=-Xms1g -Xmx1g"
+    volumes:
+      - ./elasticsearch:/usr/share/elasticsearch/data:cache
+    ports:
+      - 9201:9201
+      - 9301:9301
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536
+        hard: 65536
+    mem_limit: 2g
+    cap_add:
+      - IPC_LOCK
+
+volumes: #persiste questi volumi tra host e container anche al down dei container
+  mysql-data:
