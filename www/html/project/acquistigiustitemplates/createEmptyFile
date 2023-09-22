@@ -1,0 +1,32 @@
+touch app/Resources/layouts/diretta365/empty
+touch app/Resources/layouts/africagol/empty
+touch app/Resources/layouts/chediretta/empty
+touch app/Resources/layouts/direttagoal/empty
+touch app/Resources/layouts/resultados365/empty
+touch app/Resources/layouts/youscore/empty
+touch app/Resources/layouts/livegoal/empty
+
+touch app/Resources/layouts/m_diretta365/empty
+touch app/Resources/layouts/m_africagol/empty
+touch app/Resources/layouts/m_chediretta/empty
+touch app/Resources/layouts/m_direttagoal/empty
+touch app/Resources/layouts/m_resultados365/empty
+touch app/Resources/layouts/m_youscore/empty
+touch app/Resources/layouts/m_livegoal/empty
+
+touch app/Resources/views/m_livescore24/empty
+touch app/Resources/views/diretta365/empty
+touch app/Resources/views/africagol/empty
+touch app/Resources/views/chediretta/empty
+touch app/Resources/views/direttagoal/empty
+touch app/Resources/views/resultados365/empty
+touch app/Resources/views/youscore/empty
+touch app/Resources/views/livegoal/empty
+
+touch app/Resources/views/m_diretta365/empty
+touch app/Resources/views/m_africagol/empty
+touch app/Resources/views/m_chediretta/empty
+touch app/Resources/views/m_direttagoal/empty
+touch app/Resources/views/m_resultados365/empty
+touch app/Resources/views/m_youscore/empty
+touch app/Resources/views/m_livegoal/empty
