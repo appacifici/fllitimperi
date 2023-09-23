@@ -34,6 +34,7 @@ h3 {
   padding: 3px 3px 0 3px;
   z-index: 99999999;
   background: #fff;
+  display: none;
 }
 .hamburger img {
   width: 35px;
@@ -149,10 +150,25 @@ h3 {
 
 
 .widget_HomeBigImage {
-  background: url("https://www.taffo.com/wp-content/uploads/2019/03/Taffo-Onoranze-Funebri-Sede.jpg");
+  background: url("/images/fotohometimperi.jpg");
   background-size: cover;
   width: 100%;
-  height: 500px;
+  height: 680px;
+}
+.widget_HomeBigImage h1 {
+  margin: 0;
+  text-align: center;
+  background: #eeecec;
+  width: 237px;
+  margin: 0 auto;
+  padding: 1%;
+  margin-top: 85px;
+  position: absolute;
+  left: 40%;
+  right: 40%;
+  border: 2px solid #74292c;
+  border-radius: 5px;
+  opacity: 0.8;
 }
 
 .widget_aboutUs {
@@ -180,7 +196,7 @@ h3 {
   margin-top: -50px;
   width: 365px;
 }
-.widget_aboutUs button {
+.widget_aboutUs a {
   background: #333333;
   padding: 12px 29px;
   color: #fff;
@@ -188,8 +204,9 @@ h3 {
   margin-bottom: 2%;  
   margin-top: 1%;
   font-weight: bold;
+  display: block;
 }
-.widget_aboutUs button a {
+.widget_aboutUs  a {
   color: #fff;
   text-decoration: none;
 }
@@ -432,7 +449,7 @@ h3 {
 
 @media only screen and (max-width: 1220px )  {
     .structure_Container {
-      width: 96%;
+      width: 95%;
       padding: 0 1%;
     }
     .header .contacts {
@@ -505,10 +522,33 @@ h3 {
 
 @media only screen and (max-width: 768px )  {
     .structure_Container {     
-      height: 90%;
+      height: 82%;
       overflow: scroll;
     }
-
+    .hamburger {
+      display: block;
+      margin-left: -6px;
+    }
+    .widget_HomeBigImage {
+      position: relative;
+    }
+    .widget_HomeBigImage h1 {
+      margin: 0;
+      text-align: center;
+      background: #eeecec;
+      width: 250px;
+      margin: 0 auto;
+      padding: 1%;
+      margin-top: 9px;
+      position: absolute;
+      left: 25px;
+      right: 0;
+      border: 2px solid #74292c;
+      border-radius: 5px;
+      opacity: 0.8;
+      font-size: 13px;
+      bottom:10px;
+  }
     .widget_servicesFuneraleHome, .widget_aboutUs {
       padding: 18px 1%;
     }
@@ -599,6 +639,13 @@ h3 {
     .widgetMenu ul ul li {
       font-size: 17px;
       line-height: 23px;
+    }
+
+    .widgetMenu ul li:hover {
+      background: transparent;
+    }
+    .widgetMenu ul li:hover ul {
+      background: transparent;
     }
 
     .widget_HomeBigImage {
