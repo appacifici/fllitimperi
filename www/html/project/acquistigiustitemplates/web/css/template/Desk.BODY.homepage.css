@@ -220,7 +220,7 @@ h3 {
   text-align: left;
 }
 .widget_ArticoliHome {
-  margin-bottom: 223px;
+  /* margin-bottom: 223px; */
 }
 .widget_servicesHome, .widget_ArticoliHome {
   text-align: center;
@@ -571,7 +571,7 @@ h3 {
       line-height: 25px;
     }
     .widget_ArticoliHome {
-      margin-bottom: 145px;
+      /* margin-bottom: 145px; */
     }
 
     .header .top .address {
