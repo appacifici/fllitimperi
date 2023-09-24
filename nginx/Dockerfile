@@ -7,6 +7,7 @@ COPY ./fastcgi_params /etc/nginx/conf.d/fastcgi_params
 COPY ./mime.types /etc/nginx/conf.d/mime.types
 COPY ./proxy_params /etc/nginx/conf.d/proxy_params
 COPY ./scgi_params /etc/nginx/conf.d/scgi_params
+COPY ./ssl /etc/nginx/ssl
 
 #Crea stesso utente di php con cui far girare nginx per poter avere le autorizzazioni a leggere il socket php
 RUN groupadd -g 1000 devuser
