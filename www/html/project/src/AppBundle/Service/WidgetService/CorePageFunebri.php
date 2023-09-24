@@ -425,15 +425,17 @@ class CorePageFunebri {
                 "width": 357
                 }
             },
-            "image": {
-              "@type": "ImageObject",
-              "url": "'.$img.'",
-              "height": '.$article->getPriorityImg()->getHeightBig().',
-              "width": '.$widthImg.'
-            },
+           
             "description": "'.str_replace( '"', '', $article->getContentArticle()->getSubHeading() ).'"
         }';        
         
+        // "image": {
+        //     "@type": "ImageObject",
+        //     "url": "'.$img.'",
+        //     "height": '.$article->getPriorityImg()->getHeightBig().',
+        //     "width": '.$widthImg.'
+        //   },
+
         $this->wm->container->get( 'twig' )->addGlobal('jsonDataNewsArticleRichSnippet', $jsonDataRichSnippet);
     }
     
