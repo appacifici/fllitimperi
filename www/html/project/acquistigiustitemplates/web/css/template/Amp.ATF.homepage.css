@@ -633,7 +633,7 @@ h3 {
       color: #000;
       border: none;
       width: 100%;
-      margin-bottom: 20px;
+      margin-bottom: 1px;
     }
     .widgetMenu a {
       color: #0c0c0c;
@@ -647,6 +647,9 @@ h3 {
       background: transparent;
     }
     .widgetMenu ul li:hover ul {
+      background: transparent;
+    }
+    .widgetMenu ul ul li:hover {
       background: transparent;
     }
 
