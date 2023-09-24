@@ -174,6 +174,7 @@ class GlobalConfigManager {
         $this->getTecnicalTemplates();                        
         $this->detectIsAmp();
         $this->detectDomain();
+        $this->getAboveTheFoldCss();
         
         $this->detectSite();        
         $this->isIsVersion();
@@ -236,9 +237,9 @@ class GlobalConfigManager {
         
         $this->twig->addGlobal( 'currentRouteCss', $this->currentRouteCss );
                 
-        if( $this->versionSite == 'admin' ) {
-            return;
-        }
+        // if( $this->versionSite == 'admin' ) {
+        //     return;
+        // }
         
 //        $css = @file_get_contents( 'css/template/Amp.ATF.'.strtolower( $this->currentRouteCss ).'.css' );
 //        $css = str_replace( '@charset "UTF-8";', '', $css);
@@ -260,7 +261,7 @@ class GlobalConfigManager {
             $css = @file_get_contents( 'css/template/Desk.ATF.'.strtolower( $this->currentRouteCss ).'.css' );
             $css = str_replace( '@charset "UTF-8";', '', $css);
             $this->twig->addGlobal( 'aboveTheFoldCss', $this->compressHtml( $css )  );
-            return true;
+            return true;            
 //        }
         
 //        //Recupera gli about thefold per i tablet
@@ -581,6 +582,9 @@ class GlobalConfigManager {
         $this->twig->addGlobal( 'ampActive', $this->ampActive );
         $this->twig->addGlobal( 'search', '' );
         $this->twig->addGlobal( 'currentDomain', str_replace( 'app.', 'www.', $this->currentDomain ) );
+
+        $prefixAmp = $this->ampActive == true ? 'amp/' : '';
+        $this->twig->addGlobal( 'prefixAmp', $prefixAmp  );
     }       
     
     /**
@@ -601,6 +605,8 @@ class GlobalConfigManager {
             case 'detailNews':
             case 'detailNews1':
             case 'detailNews2':
+            case 'urneCenerarie':
+            case 'homepage':
                 $this->ampRouteActive   = true;                
             break;
         }
@@ -646,11 +652,12 @@ class GlobalConfigManager {
      * Determina quale dominio sta lanciando il cms
      */
     private function detectDomain() {
-        if( strpos( $this->request->server->get( 'HTTP_HOST' ), 'acquistigiusti.it', '0' ) !== false ) {
-            $this->currentDomain = 'acquistigiusti.it';            
-        } else if( strpos( $this->request->server->get( 'HTTP_HOST' ), 'tricchetto.homepc.it', '0' ) !== false ) {
-            $this->currentDomain = 'tricchetto.homepc.it';             
-        }
+        $this->currentDomain = 'onoranzefunebritimperiguidonia.it';
+        // if( strpos( $this->request->server->get( 'HTTP_HOST' ), 'acquistigiusti.it', '0' ) !== false ) {
+        //     $this->currentDomain = 'acquistigiusti.it';            
+        // } else if( strpos( $this->request->server->get( 'HTTP_HOST' ), 'tricchetto.homepc.it', '0' ) !== false ) {
+        //     $this->currentDomain = 'tricchetto.homepc.it';             
+        // }
     }
     
     /**
@@ -684,30 +691,30 @@ class GlobalConfigManager {
             return true;
         }
         
-//        if( $this->mobileDetector->isTablet() ) {            
-//            $this->versionSite = 'amp_'.$this->versionSite;
-////            $this->versionSite = $this->versionSite;
-//            
-//            $canonicalUrl = $this->httpProtocol.'://'.str_replace( 'm.', 'www.', $this->request->server->get( 'HTTP_HOST' ) ).$this->requestUriSite;
-//            $this->twig->addGlobal( 'canonicalUrl', trim( $canonicalUrl, '/' ) );
-//            $this->twig->addGlobal( 'alternateUrl', false );
-//            
-//        } else if( $this->mobileDetector->isMobile() && strpos( $this->request->server->get( 'HTTP_HOST' ), 'app.', '0' ) === false ) {            
-//            $this->versionSite = 'm_'.$this->versionSite;
-//            
-////            exit;
-//             //Se il dispositivo è un mobile lo reindirizza alla url mobile
-////            if( strpos( ' '.$this->request->server->get( 'HTTP_HOST' ), 'm.' ) === FALSE ) {
-////                $url = 'http://m.'.str_replace( 'www.', '', $this->request->server->get( 'HTTP_HOST' ) ).$this->request->server->get( 'REQUEST_URI' );
-////                header( 'Location: '.$url.'');
-////                exit;
-////            }    
-//            
-//            $canonicalUrl = $this->httpProtocol.'://'.str_replace( array('m.', '?m=1'), array('www.',''), $this->request->server->get( 'HTTP_HOST' ) ).$this->requestUriSite;
-//            $this->twig->addGlobal( 'canonicalUrl', str_replace( array('m.', '?m=1'), array('www.',''), trim( $canonicalUrl, '/' ) ) );
-//            $this->twig->addGlobal( 'alternateUrl', false );
-//            
-//        } else {            
+       if( $this->mobileDetector->isTablet() ) {            
+           $this->versionSite = 'amp_'.$this->versionSite;
+//            $this->versionSite = $this->versionSite;
+           
+           $canonicalUrl = $this->httpProtocol.'://'.str_replace( 'm.', 'www.', $this->request->server->get( 'HTTP_HOST' ) ).$this->requestUriSite;
+           $this->twig->addGlobal( 'canonicalUrl', trim( $canonicalUrl, '/' ) );
+           $this->twig->addGlobal( 'alternateUrl', false );
+           
+       } else if( $this->mobileDetector->isMobile() && strpos( $this->request->server->get( 'HTTP_HOST' ), 'app.', '0' ) === false ) {            
+           $this->versionSite = 'm_'.$this->versionSite;
+           
+//            exit;
+            //Se il dispositivo è un mobile lo reindirizza alla url mobile
+//            if( strpos( ' '.$this->request->server->get( 'HTTP_HOST' ), 'm.' ) === FALSE ) {
+//                $url = 'http://m.'.str_replace( 'www.', '', $this->request->server->get( 'HTTP_HOST' ) ).$this->request->server->get( 'REQUEST_URI' );
+//                header( 'Location: '.$url.'');
+//                exit;
+//            }    
+           
+           $canonicalUrl = $this->httpProtocol.'://'.str_replace( array('m.', '?m=1'), array('www.',''), $this->request->server->get( 'HTTP_HOST' ) ).$this->requestUriSite;
+           $this->twig->addGlobal( 'canonicalUrl', str_replace( array('m.', '?m=1'), array('www.',''), trim( $canonicalUrl, '/' ) ) );
+           $this->twig->addGlobal( 'alternateUrl', false );
+           
+       } else {            
 //            
             if( empty( $this->ampActive ) ) {  
                 
@@ -721,26 +728,26 @@ class GlobalConfigManager {
                     $this->twig->addGlobal( 'alternateUrl', false );
                     
                 
-                if( !empty( $this->ampRouteActive ) ) {
+                if( !empty( $this->ampRouteActive ) ) {                                        
                     $page = !empty( $_GET['page'] ) && $_GET['page'] != 1 ? '?page='.$_GET['page'] : '';
                     $ampHtmlUrl = $this->httpProtocol.'://'.str_replace( 'm.', 'www.', $this->request->server->get( 'HTTP_HOST' ) ).'/amp'.$this->requestUriSite.$page;
                     $this->twig->addGlobal( 'ampHtmlUrl', $ampHtmlUrl );                      
                 }
-//            }     
+           }     
         }    
         
         
 //        //Se la url Ã¨ quella del mobile, la variabile non Ã¨ gia settata a mobile la setta
-//        if( strpos( ' '.$this->request->server->get( 'HTTP_HOST' ), 'm.' ) !== FALSE && strpos( ' '.$this->versionSite, 'm_' ) === FALSE  ) {
-//            $this->versionSite = 'm_'.$this->versionSite;
-//        }
+       if( strpos( ' '.$this->request->server->get( 'HTTP_HOST' ), 'm.' ) !== FALSE && strpos( ' '.$this->versionSite, 'm_' ) === FALSE  ) {
+           $this->versionSite = 'm_'.$this->versionSite;
+       }
                 
 //        //Se non Ã¨ mobile e la url Ã¨ mobile fa la redirect alla desktop
-//        if( !$this->mobileDetector->isMobile()  &&  strpos( ' '.$this->request->server->get( 'HTTP_HOST' ), 'm.' ) !== FALSE ) {
-//            $url = 'https://'.str_replace( 'm.', '', $this->request->server->get( 'HTTP_HOST' ) ).$this->request->server->get( 'REQUEST_URI' );
-//            header( 'Location: '.$url.'');
-//            exit;
-//        }                                     
+       if( !$this->mobileDetector->isMobile()  &&  strpos( ' '.$this->request->server->get( 'HTTP_HOST' ), 'm.' ) !== FALSE ) {
+           $url = 'https://'.str_replace( 'm.', '', $this->request->server->get( 'HTTP_HOST' ) ).$this->request->server->get( 'REQUEST_URI' );
+           header( 'Location: '.$url.'');
+           exit;
+       }                                     
         
         
         if( strpos( $this->request->server->get( 'REQUEST_URI' ), '/admin', '0') !== false ) {

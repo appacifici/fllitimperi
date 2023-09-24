@@ -1128,8 +1128,8 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         if (0 === strpos($pathinfo, '/amp')) {
             // AMPurneCenerarie
-            if ('/amp/urne-cenerarie' === $pathinfo) {
-                return array (  '_controller' => 'AppBundle\\Controller\\UrneCenerarieController::BareAction',  '_route' => 'AMPurneCenerarie',);
+            if (preg_match('#^/amp/(?P<page>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'AMPurneCenerarie')), array (  '_controller' => 'AppBundle\\Controller\\UrneCenerarieController::BareAction',));
             }
 
             // AMPcustomRoute

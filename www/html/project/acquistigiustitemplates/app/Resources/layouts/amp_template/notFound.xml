@@ -1,13 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?><root name="root"><tpl name="structure_Header|1055790935" padre="index|4869770" assign="" 
-                        varAttrAjax="" cores="null" ajax="null" limitNews="null" categoryNews="null" subcategory=""
-                        typology="" affiliation="" trademark=""
-                ></tpl><tpl name="widget_BreadCrumbs|275937588" padre="index|837139172" assign="" 
-                        varAttrAjax="" cores="CoreBreadCrumbs" ajax="0" limitNews="0" categoryNews="0" subcategory="0"
-                        typology="0" affiliation="" trademark=""
-                ></tpl><tpl name="structure_Main|2135135514" padre="index|1542259285" assign="" 
-                        varAttrAjax="" cores="null" ajax="null" limitNews="null" categoryNews="null" subcategory=""
-                        typology="" affiliation="" trademark=""
-                ></tpl><tpl name="structure_Footer|709365407" padre="index|1303578357" assign="" 
-                        varAttrAjax="" cores="null" ajax="null" limitNews="null" categoryNews="null" subcategory=""
-                        typology="" affiliation="" trademark=""
-                ></tpl></root>
+../template/notFound.xml

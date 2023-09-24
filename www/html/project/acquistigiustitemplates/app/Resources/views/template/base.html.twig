@@ -28,7 +28,7 @@
                     {% endif %}
                 {% endblock %}
             {%else%}
-                404 Not Found - AcquistiGiusti.it
+                404 Not Found - onoranzefunebritimperiguidonia.it
             {%endif%}
         </title>
         
@@ -99,11 +99,8 @@
                 <meta name="twitter:image" content="{{ extraConfigs.logoRichSnippet.value }}" />
             {%endif%}
 
-            <meta property="og:site_name" content="Acquistigiusti.it"/>
+            <meta property="og:site_name" content="onoranzefunebritimperiguidonia.it"/>
 
-            <meta name="twitter:card" content="summary_large_image" />       
-            <meta name="twitter:site" content="{{ extraConfigs.twitterSite.value }}" />        
-            <meta name="twitter:creator" content="{{ extraConfigs.twitterCreator.value }}" />
             <meta name = "format-detection" content = "telephone=no">        
 
             <script type="application/ld+json">
@@ -111,8 +108,8 @@
                 "@context": "http://schema.org",
                 "@type": "WebSite",
     {#            "name": "{{currentDomain}}",#}
-                "name": "acquistigiusti.it",
-                "alternateName": "acquistigiusti.it",
+                "name": "onoranzefunebritimperiguidonia.it",
+                "alternateName": "onoranzefunebritimperiguidonia.it",
                 "url": "{{hostProtocol}}://{{wwwProtocol}}{{currentDomain}}"
             }          
             </script>
@@ -122,7 +119,7 @@
                 "@context": "http://schema.org",
                 "@type": "Organization",
                 "url": "{{hostProtocol}}://{{wwwProtocol}}{{currentDomain}}",
-                "logo": "{{hostProtocol}}://{{wwwProtocol}}{{currentDomain}}{{ extraConfigs.logoRichSnippet.value }}"
+                "logo": "{{hostProtocol}}://{{wwwProtocol}}{{currentDomain}}/images/logotimperi.png"
               }          
             </script>
 
@@ -130,13 +127,8 @@
                 {
                   "@context": "http://schema.org",
                   "@type": "Person",
-                  "name": "Acquistigiusti",
-                  "url": "{{hostProtocol}}://{{wwwProtocol}}{{currentDomain}}",
-                  "sameAs": 
-                    "{{ extraConfigs.facebookFollowUs.value }}"
-{#                    "{{ extraConfigs.twitterFollowUs.value }}",#}
-{#                    "{{ extraConfigs.googlePlus.value }}"#}
-                  
+                  "name": "Onoranzefunebritimperiguidonia",
+                  "url": "{{hostProtocol}}://{{wwwProtocol}}{{currentDomain}}"                          
                 }
             </script>
 

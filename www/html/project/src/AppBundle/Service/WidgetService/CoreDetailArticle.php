@@ -29,7 +29,7 @@ class CoreDetailArticle {
         
         $parseUrl = explode( '/', trim( $this->wm->getRequestUri(),' /' ) );
         $megazineSection = $parseUrl[0] != 'amp' ? $parseUrl[0] : $parseUrl[1];       
-                
+        
         
         $megazineSection    = $this->wm->doctrine->getRepository( 'AppBundle:MegazineSection' )->findByNameUrl( $megazineSection );
         $megazineSectionId  =  !empty( $megazineSection ) ? $megazineSection->getId() : false;
@@ -37,7 +37,7 @@ class CoreDetailArticle {
             $this->wm->container->get( 'twig' )->addGlobal( 'ampHtmlUrl', false );  
             return array( 'errorPage' => 404 );
         }
-          
+
         $article               = $this->wm->doctrine->getRepository('AppBundle:DataArticle')->getArticleDetail( $megazineSectionId, $titleNews, true );        
         
         if( empty( $article ) ) {  

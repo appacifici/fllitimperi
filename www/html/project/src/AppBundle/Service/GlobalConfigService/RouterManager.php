@@ -159,6 +159,8 @@ class RouterManager {
             case 'detailNewsAmp1':            
             case 'detailNewsAmp2':
             case 'detailNewsAmp3':
+            case 'urneCenerarie':
+            case 'AMPurneCenerarie':
 //                $url = '';
 //                if( !empty( $params[ 'megazineSection' ] ) ) {
 //                    $url  .= '/'.$params[ 'megazineSection' ];

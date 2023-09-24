@@ -24,9 +24,9 @@ class CorePageFunebri {
 //        }
         
         $parseUrl = explode( '/', trim( $this->wm->getRequestUri(),' /' ) );
-        $megazineSection = $parseUrl[0] != 'amp' ? $parseUrl[0] : $parseUrl[1];       
-                        
-        $article               = $this->wm->doctrine->getRepository('AppBundle:DataArticle')->getArticleDetail( 1, $parseUrl[0], true );        
+        $megazineSection = $parseUrl[0] != 'amp' ? $parseUrl[0] : $parseUrl[1];  
+        
+        $article               = $this->wm->doctrine->getRepository('AppBundle:DataArticle')->getArticleDetail( 1, $megazineSection, true );        
         
         if( empty( $article ) ) {  
             $this->wm->container->get( 'twig' )->addGlobal( 'ampHtmlUrl', false );              
@@ -381,20 +381,9 @@ class CorePageFunebri {
              
         
         $baseArticle = '';
-        if( !empty( $article->getArticleId() ) ) {
-            $baseArticle = $this->wm->doctrine->getRepository( 'AppBundle:DataArticle' )->findOneById( $article->getArticleId() );
-            $baseArticle =  $baseArticle->getContentArticle()->getPermalink();
+      
 
-            $href = $this->wm->routerManager->generate( 'detailNews2', array(                         
-                'baseArticle' => $baseArticle,
-                'title' => $article->getContentArticle()->urlArticle
-            )); 
-
-        } else {                                                                               
-            $href = $this->wm->routerManager->generate( 'detailNews'.$article->getMegazineSection()->getId(), array(                         
-                'title' => $article->getContentArticle()->urlArticle
-            ));     
-        }
+        $href =  $base.'/'.$article->getContentArticle()->urlArticle;
         
                  
         
