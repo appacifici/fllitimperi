@@ -52,7 +52,7 @@ services:
   
   #docker compose exec redis  sh
   redis:
-    build: ./redis/
+    build: ./redis/ 
     ports:
       - 6379:6379
     links:
