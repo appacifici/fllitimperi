@@ -1,1 +1,17 @@
-../template/widget_TopHeader.html.twig
+<div class="top">
+    <div class="structure_Container">  
+        <div class="hamburger" on='tap:sidebar.open' tabindex="0" role="button">    
+            <img src="/images/Hamburger.png" alt="menu">
+        </div>
+        <span class="slogan">
+            L'Agenzia Funebre al vostro servizio 24/7
+        </span>
+        <span class="address">
+            Guidonia, Viale Roma 48, 00012 (RM)
+        </span>
+    </div>    
+</div>    
+{%if fetch_widget_HeaderButtonCategory is defined %}
+    {{ fetch_widget_HeaderButtonCategory |raw  }}
+{%endif%}
+
