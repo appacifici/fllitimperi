@@ -92,6 +92,10 @@ h3 {
   color: #ffffff;
   background: #74292c;
 }
+.header .contacts .contact .name a, .header .contacts .contact .surname a {
+  color: #ffffff;
+  text-decoration:none;
+}
 
 .widgetMenu {
   height: 60px;
@@ -437,6 +441,10 @@ h3 {
   color: #807468;
   color: #ffffff;
   background: #74292c;
+}
+.structure_Footer .contacts .contact .name a, .structure_Footer .contacts .contact .surname a {
+  color: #ffffff;
+  text-decoration:none;
 }
 
 .widget_UrneCenerarie div {  

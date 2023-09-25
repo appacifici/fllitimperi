@@ -442,6 +442,10 @@ h3 {
   color: #ffffff;
   background: #74292c;
 }
+.structure_Footer .contacts .contact .name a, .structure_Footer .contacts .contact .surname a {
+  color: #ffffff;
+  text-decoration:none;
+}
 
 .widget_UrneCenerarie div {  
   font-size: 22px;
