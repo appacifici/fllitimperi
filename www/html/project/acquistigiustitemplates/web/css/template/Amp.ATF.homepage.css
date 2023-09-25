@@ -88,11 +88,12 @@ h3 {
   display: block;
   font-size: 26px;
   text-align: center;
-  color: #807468;
   color: #ffffff;
   background: #74292c;
 }
-
+.header .contacts .contact .name a, .header .contacts .contact .surname a {
+  color: #ffffff;
+}
 #sidebar {
   width: 100%;
 }

@@ -88,11 +88,12 @@ h3 {
   display: block;
   font-size: 26px;
   text-align: center;
-  color: #807468;
   color: #ffffff;
   background: #74292c;
 }
-
+.header .contacts .contact .name a, .header .contacts .contact .surname a {
+  color: #ffffff;
+}
 #sidebar {
   width: 100%;
 }
@@ -633,7 +634,7 @@ h3 {
       color: #000;
       border: none;
       width: 100%;
-      margin-bottom: 20px;
+      margin-bottom: 1px;
     }
     .widgetMenu a {
       color: #0c0c0c;
@@ -647,6 +648,9 @@ h3 {
       background: transparent;
     }
     .widgetMenu ul li:hover ul {
+      background: transparent;
+    }
+    .widgetMenu ul ul li:hover {
       background: transparent;
     }
 
