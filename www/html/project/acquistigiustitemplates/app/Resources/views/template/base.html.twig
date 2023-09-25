@@ -291,6 +291,22 @@
     </div>          #}
 {#    {{ fbPixel | raw }}#}
 
+<!-- Google tag (gtag.js) -->
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MHB1CZFHXJ"></script>
+
+    <script>
+
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag(){dataLayer.push(arguments);}
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-MHB1CZFHXJ');
+
+    </script>
+
 
     {%if googleScript is defined and googleScript is not empty %}
         <script>
