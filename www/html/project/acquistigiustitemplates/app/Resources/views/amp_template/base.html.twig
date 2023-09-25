@@ -36,29 +36,7 @@
             <script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script>
         {%endif%}
 
-        <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
-        <amp-analytics type="gtag" data-credentials="include">
-        <script type="application/json">
-        {
-            "vars" : {
-                "gtag_id": "G-MHB1CZFHXJ",
-                "config" : {
-                "G-MHB1CZFHXJ": { "groups": "default" }
-                },
-                "triggers": {
-                    "button": {
-                        "selector": ".telCallMaurizio",
-                        "on": "click",
-                        "vars": {
-                            "event_name": "Chiamata",
-                            "event_value": "Maurizio"
-                        }
-                    }
-                }
-            }
-        }
-        </script>
-        </amp-analytics>
+        <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>       
         
          <title>
             {%if error404Page is not defined or error404Page is  empty %}
@@ -174,9 +152,30 @@
         <meta name="format-detection" content = "telephone=no">             
     </head> 
     <body>        
-    
-    
+        
     {% block body %}{%endblock%}                
+     <amp-analytics type="gtag" data-credentials="include">
+        <script type="application/json">
+        {
+            "vars" : {
+                "gtag_id": "G-MHB1CZFHXJ",
+                "config" : {
+                "G-MHB1CZFHXJ": { "groups": "default" }
+                },
+                "triggers": {
+                    "button": {
+                        "selector": ".telCallMaurizio",
+                        "on": "click",
+                        "vars": {
+                            "event_name": "Chiamata",
+                            "event_value": "Maurizio"
+                        }
+                    }
+                }
+            }
+        }
+        </script>
+        </amp-analytics>
     {{ fbPixel | raw }}       
 </body>
 {#   {% endhtmlcompress %}#}
