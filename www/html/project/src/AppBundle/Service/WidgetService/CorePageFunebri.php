@@ -405,7 +405,7 @@ class CorePageFunebri {
             "@type": "NewsArticle",
             "mainEntityOfPage": {
                "@type": "WebPage",
-               "@id": "'.$href.'"
+               "@id": "'.str_replace('_','-',$href).'"
             },
             "headline": "'.substr( str_replace( '"', '', $article->getContentArticle()->getTitle() ), 0, 100 ).'",
             "datePublished": "'.$publishAt.'",
