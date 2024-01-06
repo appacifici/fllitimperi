@@ -70,7 +70,7 @@ class SeoConfigManager {
      */
     public function setMetaHomePage() {
         $host = strtolower( str_replace( array('m.','www.'), '', $this->request->server->get( 'HTTP_HOST' ) ) );               
-        $this->container->get( 'twig' )->addGlobal( 'pageTitle','TIMPERI | ONORANZE FUNEBRI | GUIDONIA MONTECELIO, RM' );
+        $this->container->get( 'twig' )->addGlobal( 'pageTitle','Oonoranze Funebri Guodonia Montecelio | Flli Timperi' );
         $this->container->get( 'twig' )->addGlobal( 'pageDesc', 'AGENZIA FUNEBRI TIMPERI A GUIDONIA MONTECELIO GARANTISCE UN INTERVENTO IMMEDIATO PER LA GESTIONE E PREPARAZIONE DELLA CERIMONIA FUNEBRE. DISPONIBILI H24. PER URGENZA CONTATTACI 0774 / 504264'   );                        
         $this->container->get( 'twig' )->addGlobal( 'pagekwds', '' );
     }        

@@ -7,6 +7,11 @@ body {
 .clearB {
   clear: both;
 }
+a {
+  text-decoration: none;
+  color: #74292c;
+  font-weight: 600;
+}
 h1 {
   font-style: italic;
 }

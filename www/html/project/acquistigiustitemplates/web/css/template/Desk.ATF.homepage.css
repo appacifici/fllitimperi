@@ -7,6 +7,11 @@ body {
 .clearB {
   clear: both;
 }
+a {
+  text-decoration: none;
+  color: #74292c;
+  font-weight: 600;
+}
 h1 {
   font-style: italic;
 }
@@ -16,7 +21,6 @@ h2 {
   color: #333;
   text-transform: uppercase;
   font-style: italic;
-  PADDING-LEFT: 2%;
 }
 h3 {
   font-style: italic;
@@ -155,7 +159,7 @@ h3 {
 
 
 .widget_HomeBigImage {
-  background: url("/images/fotohometimperi.jpg");
+  background: url("/images/fotohometimperi.jpeg");
   background-size: cover;
   width: 100%;
   height: 680px;
@@ -244,6 +248,7 @@ h3 {
   width: 100%;
   text-align: left;
   padding-bottom: 5px;
+  padding-left: 1%;
 } 
 .widget_servicesHome p, .widget_ArticoliHome p, .widget_CosaFare p {
   margin: 0;

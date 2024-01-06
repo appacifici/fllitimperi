@@ -314,9 +314,73 @@
                 (adsbygoogle = window.adsbygoogle || []).push({});
             }, 1000 )</script>                
     {%endif%}
+    <script>
+        window.onload = function() {
+        var consent = localStorage.getItem('cookieConsent');
+        
+        if (consent !== 'true') {
+            $('#cookieConsent').show();         
+        } else {            
+        }
+
+        $('[data-acceptCookie]').click(function() {
+            localStorage.setItem('cookieConsent', 'true');
+            $('#cookieConsent').hide();
+        });
+    };
+    </script>
+
+
 <div class="overlaybuttonListComparisonModel" data-overlaybuttonListComparisonModel></div>    
     <div class="overlayDictionary" data-overlayDictionary></div>        
 </body>
+
+<style>
+.cookie-consent {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: lightgray;
+    padding: 10px;
+    text-align: center;    
+    z-index:99999999999;
+    display:none;
+}
+.contCookie {
+    margin: 0 auto;
+    width: 27%;
+    text-align: left;
+    line-height: 24px;
+    font-size: 13px;
+
+}
+#acceptCookie, #rejectCookie {
+    background: #08660c;
+    padding: 5px;
+    border: navajowhite;
+    width: 250px;
+    color: #fff;
+    float:left;
+}
+.rejectCoockie {    
+    background: #8c0606!important;
+    margin-left: 10px;
+    width: 55px!important;
+}
+</style>
+    <div id="cookieConsent" class="cookie-consent">
+        <div class="contCookie">
+            Il Sito utilizza cookie di profilazione statistica per misurare le visite del Sito
+            <br>Nome:Google Analytics 
+            <br>Provide:Google,LLC. 
+            <br>Descrizione: Misurazione delle visite al Sito a fini di analisi e di statistica 
+            <br>Durata:2 anni	
+            <br>Privacy Policy:http://www.google.com/intl/it/policies/privacy/ 
+            <br>Opt-out:https://tools.google.com/dlpage/gaoptout
+            <br><button id="acceptCookie" data-acceptCookie>Accetta</button>
+            <button id="acceptCookie" data-acceptCookie class="rejectCoockie">Rifiuta</button>
+        </div>
+    </div>
 </html>
 
 
