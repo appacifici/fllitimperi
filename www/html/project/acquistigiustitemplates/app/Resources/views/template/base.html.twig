@@ -355,7 +355,7 @@
         } else {            
         }
 
-        $('[data-acceptCookie]').click(function() {
+        $('[data-acceptCookie], [data-acceptCookietwo]').click(function() {
             localStorage.setItem('cookieConsent', 'true');
             $('#cookieConsent').hide();
         });
@@ -372,7 +372,7 @@
             <br>Privacy Policy:http://www.google.com/intl/it/policies/privacy/ 
             <br>Opt-out:https://tools.google.com/dlpage/gaoptout
             <br><button id="acceptCookie" data-acceptCookie>Accetta</button>
-            <button id="acceptCookie" data-acceptCookie class="rejectCoockie">Rifiuta</button>
+            <button id="acceptCookietwo" data-acceptCookietwo class="rejectCoockie">Rifiuta</button>
         </div>
     </div>
        
