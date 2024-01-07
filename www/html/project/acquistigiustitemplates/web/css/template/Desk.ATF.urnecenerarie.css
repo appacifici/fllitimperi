@@ -12,6 +12,9 @@ a {
   color: #74292c;
   font-weight: 600;
 }
+p {
+  word-wrap: break-word!important;
+}
 h1 {
   font-style: italic;
 }
