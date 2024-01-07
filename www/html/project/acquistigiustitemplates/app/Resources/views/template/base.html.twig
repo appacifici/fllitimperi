@@ -182,7 +182,39 @@
                 }
                 {{extraStyle}}
             {%endif%}
-            {{aboveTheFoldCss|raw}}   
+            {{aboveTheFoldCss|raw}}  
+            
+            .cookie-consent {
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+                background: lightgray;
+                padding: 10px;
+                text-align: center;    
+                z-index:99999999999;
+                display:none;
+            }
+            .contCookie {
+                margin: 0 auto;
+                width: 27%;
+                text-align: left;
+                line-height: 24px;
+                font-size: 13px;
+
+            }
+            #acceptCookie, #rejectCookie {
+                background: #08660c;
+                padding: 5px;
+                border: navajowhite;
+                width: 250px;
+                color: #fff;
+                float:left;
+            }
+            .rejectCoockie {    
+                background: #8c0606!important;
+                margin-left: 10px;
+                width: 55px!important;
+            } 
         </style>                           
         
         {%if googleScript is defined and googleScript is not empty %}
@@ -330,44 +362,6 @@
     };
     </script>
 
-
-<div class="overlaybuttonListComparisonModel" data-overlaybuttonListComparisonModel></div>    
-    <div class="overlayDictionary" data-overlayDictionary></div>        
-</body>
-
-<style>
-.cookie-consent {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background: lightgray;
-    padding: 10px;
-    text-align: center;    
-    z-index:99999999999;
-    display:none;
-}
-.contCookie {
-    margin: 0 auto;
-    width: 27%;
-    text-align: left;
-    line-height: 24px;
-    font-size: 13px;
-
-}
-#acceptCookie, #rejectCookie {
-    background: #08660c;
-    padding: 5px;
-    border: navajowhite;
-    width: 250px;
-    color: #fff;
-    float:left;
-}
-.rejectCoockie {    
-    background: #8c0606!important;
-    margin-left: 10px;
-    width: 55px!important;
-}
-</style>
     <div id="cookieConsent" class="cookie-consent">
         <div class="contCookie">
             Il Sito utilizza cookie di profilazione statistica per misurare le visite del Sito
@@ -381,6 +375,11 @@
             <button id="acceptCookie" data-acceptCookie class="rejectCoockie">Rifiuta</button>
         </div>
     </div>
+       
+</body>
+
+
+    
 </html>
 
 
