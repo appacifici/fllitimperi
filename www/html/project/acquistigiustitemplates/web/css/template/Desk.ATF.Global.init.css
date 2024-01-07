@@ -6,9 +6,11 @@ body {
   font-family: Raleway,sans-serif;
   -webkit-font-smoothing: antialiased; }
 
-a {
-  text-decoration: none;
-  color: #387a97; }
+  a {
+    text-decoration: none;
+    color: #74292c;
+    font-weight: 600;
+  }
   a:hover {
     color: #71d0ff; }
 
