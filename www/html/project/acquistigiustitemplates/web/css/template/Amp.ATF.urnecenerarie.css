@@ -10,6 +10,9 @@ body {
 h1 {
   font-style: italic;
 }
+p {
+  word-wrap: break-word!important;
+}
 a {
   text-decoration: none;
   color: #74292c;
