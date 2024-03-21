@@ -11,7 +11,7 @@ h1 {
   font-style: italic;
 }
 p {
-  word-wrap: break-word!important;
+  word-wrap: break-word;
 }
 a {
   text-decoration: none;

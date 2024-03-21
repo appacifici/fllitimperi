@@ -13,7 +13,7 @@ a {
   font-weight: 600;
 }
 p {
-  word-wrap: break-word!important;
+  word-wrap: break-word;
 }
 h1 {
   font-style: italic;

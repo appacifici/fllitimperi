@@ -14,7 +14,7 @@ body {
   a:hover {
     color: #71d0ff; }
     p {
-      word-wrap: break-word!important;
+      word-wrap: break-word;
     }
 h1 {
   font-size: 24px;
